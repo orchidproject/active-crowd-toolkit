@@ -471,13 +471,7 @@ namespace CrowdsourcingModels
             CBCC communityModel = model as CBCC;
             IsCommunityModel = communityModel != null;
 
-            BCCTimeSpammer timeModel = model as BCCTimeSpammer;
-            BCCTimeTaskPropensity timeModelTaskPropensity = model as BCCTimeTaskPropensity;
-            BCCTimeSpammerMultimode timeModelMultimode = model as BCCTimeSpammerMultimode;
-            IsTimeModel = (timeModel != null);
-            IsTimeMultimodeModel = timeModelMultimode != null;
 
-            IsTimeTaskPropensityModel = (timeModelTaskPropensity != null);
             bool IsBCC = !(IsCommunityModel || IsTimeModel || IsTimeMultimodeModel || IsTimeTaskPropensityModel);
 
             if (this.Mapping == null)
@@ -537,40 +531,6 @@ namespace CrowdsourcingModels
 
             // Call inference
             BCCPosteriors posteriors = null;
-            if (IsTimeModel)
-            {
-                Console.WriteLine("--- Time model ---");
-                posteriors = timeModel.Infer(
-                        taskIndices,
-                        workerLabels,
-                        workerTimeSpent,
-                        priors,
-                        Mapping.TaskCount);
-            }
-
-            if (IsTimeTaskPropensityModel)
-            {
-                Console.WriteLine("\n--- Time model with task propensity ---");
-                posteriors = timeModelTaskPropensity.Infer(
-                        taskIndices,
-                        workerLabels,
-                        workerTimeSpent,
-                        Mapping.TaskCount,
-                        false);
-            }
-
-            if (IsTimeMultimodeModel)
-            {
-                model.CreateModel(Mapping.TaskCount, Mapping.LabelCount);
-                model.NumberOfIterations = 5;
-                Console.WriteLine("\n--- Multimode Time model ---");
-                posteriors = timeModelMultimode.Infer(
-                    taskIndices,
-                    workerLabels,
-                    workerTimeSpent,
-                    priors,
-                    Mapping.TaskCount);
-            }
             if (IsBCC)
             {
                 Console.WriteLine("--- BCC ---");

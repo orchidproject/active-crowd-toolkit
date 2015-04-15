@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveCrowdGUI", "ActiveCro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdsourcingModels", "CrowdsourcingModels\CrowdsourcingModels.csproj", "{B5616183-6A90-4FA4-9EF9-3C510B70D65F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{D911868A-1EF8-45DB-898F-2282A934E036}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{742F4730-652E-4047-9F3D-F5DCF39ECBBD}"
 	ProjectSection(SolutionItems) = preProject
 		Data\CF.csv = Data\CF.csv
 		Data\CF_amt.csv = Data\CF_amt.csv

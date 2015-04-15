@@ -12,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GetAnotherLabel;
-using TFIDF;
 using CrowdsourcingProject.Statistics;
 
 
@@ -67,44 +66,6 @@ namespace CrowdsourcingModels
             
         }
 
-        public static void RunOnRealData(string dataSet, RunType runType, int numCommunities = 3)
-        {
-            // Load real data
-            UseRealData = true;
-            var data = Datum.LoadData(@".\Data\" + dataSet + ".csv");
-            int totalLabels = data.Count();
-            Console.WriteLine("Original dataset: {1}, {0} labels", totalLabels, dataSet);
-
-            RunGold(dataSet, data, RunType.VoteDistribution, null);
-            RunGold(dataSet, data, RunType.MajorityVote, null);
-            RunGold(dataSet, data, RunType.BCC, new BCC());
-            RunGold(dataSet, data, RunType.DawidSkene, null);
-
-            //RunGold(dataSet, spammerData, RunType.BCC, new BCC());
-            //RunGold(dataSet, data, RunType.BCCTime, new BCCTimeSpammer());
-            //RunGold(dataSet, data, RunType.BCCTime, new BCCTimeSpammerMultimode());
-            RunGold(dataSet, data, RunType.BCCTime, new BCCTimeTaskPropensity());
-
-        }
-
-        /// <summary>
-        /// Runs all the models in batch
-        /// </summary>
-        public static void RunBatch()
-        {
-            for (int ds = startIndex; ds <= endIndex; ds++)
-            {
-                var data = Datum.LoadData(@".\Data\" + GoldDatasets[ds] + ".csv");
-
-                //RunGold(GoldDatasets[ds], data, RunType.VoteDistribution, null);
-                //RunGold(GoldDatasets[ds], data, RunType.MajorityVote, null);
-                //RunGold(GoldDatasets[ds], data, RunType.DawidSkene, null);
-                //RunGold(GoldDatasets[ds], data, RunType.BCC, new BCC());
-                //RunGold(GoldDatasets[ds], data, RunType.CBCC, new CBCC(), NumCommunities[ds]);
-                RunGold(GoldDatasets[ds], data, RunType.BCCTime, new BCCTimeSpammer());
-            }
-        }
-
         /// <summary>
         /// Runs a model with the full gold set.
         /// </summary>
@@ -118,7 +79,7 @@ namespace CrowdsourcingModels
         {
 
             string modelName = Program.GetModelName(dataSet, runType);
-            ResultsTime results = new ResultsTime();
+            Results results = new Results();
 
             switch (runType)
             {

@@ -9,7 +9,7 @@ namespace AcriveCrowdGUI
 {
     public class GlobalVariables
     {
-        public const string dataDirectory = "@../../../../../CrowdsourcingProject/Data/";
+        public const string dataDirectory = "@../../../../../Data/";
         public static string[] preLoadedDatasetsPath = {"CF.csv", "MS.csv", "SP.csv" };
         public static int[] communityCounts = { 4, 2, 2 };
         public static double[] mabConstants = {0.009, 0.0018, 0.0036,0.009};

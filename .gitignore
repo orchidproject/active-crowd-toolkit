@@ -168,3 +168,4 @@ VisualStudioProject/CrowdsourcingProject/bin/Debug/Results/endpoints.csv
 *.exe
 *.exe
 *Libs/
+*/Data

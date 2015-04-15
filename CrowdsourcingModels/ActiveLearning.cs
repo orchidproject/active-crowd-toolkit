@@ -219,22 +219,9 @@ namespace CrowdsourcingModels
 
             }
 
-            // For BCCWords
-            List<string> VocabularyOnSubData = null;
-            ResultsWords resultsWords = null;
-            BCCWords bccWordsModel = null;
-            if(runType == RunType.BCCWords)
-            {
-                VocabularyOnSubData = ResultsWords.BuildVocabularyOnSubdata((List<Datum>)data);
-                resultsWords = new ResultsWords(data, VocabularyOnSubData);
-                bccWordsModel = model as BCCWords;
-                results = resultsWords;
-            }
-
             var s = remainingWorkersPerTask.Select(w => w.Value.Count).Sum();
             List<Datum> nextData = null;
             ActiveLearning activeLearning = null;
-            MultiArmedBandit mab = null;
             int numberOfObservedData = 300;
             isExperimentCompleted = false;
             //for (int iter = 0; iter < 200; iter++)
@@ -256,9 +243,6 @@ namespace CrowdsourcingModels
                         case RunType.DawidSkene:
                             results.RunDawidSkene(subData, data, calculateAccuracy);
                             break;
-                        case RunType.BCCWords:
-                            resultsWords.RunBCCWords("BCCwords", subData, data, bccWordsModel, Results.RunMode.ClearResults, true, false);
-                            break;
                         default: // Run BCC models
                             results.RunBCC(modelName, subData, data, model, Results.RunMode.ClearResults, calculateAccuracy, communityCount, false);
                             break;
@@ -268,7 +252,6 @@ namespace CrowdsourcingModels
                 if (activeLearning == null)
                 {
                     activeLearning = new ActiveLearning(data, model, results, communityCount);
-                    mab = new MultiArmedBandit(currentCounts, lipschitzConstant);
                 }
                 else
                 {
@@ -305,7 +288,6 @@ namespace CrowdsourcingModels
                         //get the entropy value
                         TaskValue = activeLearning.EntropyTrueLabelPosterior();
 
-                        mab.AddUCB(TaskValue, currentCounts, iter + numberOfObservedData);
                         break;
 
                     default: // Entropy task selection
@@ -438,7 +420,6 @@ namespace CrowdsourcingModels
             List<Datum>[] nextData = new List<Datum>[numModels];
             int numIncremData = 1; //number of Increment Data 
             ActiveLearning[] activeLearning = new ActiveLearning[numModels];
-            MultiArmedBandit[] mab = new MultiArmedBandit[numModels];
             int numberOfObservedData = 300;
             isExperimentCompleted = false;
         
@@ -483,7 +464,6 @@ namespace CrowdsourcingModels
                     if (activeLearning[indexModel] == null)
                     {
                         activeLearning[indexModel] = new ActiveLearning(data, model[indexModel], results[indexModel], communityCount);
-                        mab[indexModel] = new MultiArmedBandit(currentCounts, lipschitzConstant);
                     }
                     else
                     {
@@ -519,7 +499,6 @@ namespace CrowdsourcingModels
                         case TaskSelectionMethod.EntropyMABTask:
                             //get the entropy value
                             TaskValue[indexModel] = activeLearning[indexModel].EntropyTrueLabelPosterior();
-                            mab[indexModel].AddUCB(TaskValue[indexModel], currentCounts, iter + numberOfObservedData);
                             break;
 
                         default: // Entropy task selection
