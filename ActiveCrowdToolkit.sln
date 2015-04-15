@@ -1,53 +1,37 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdSourcing", "CrowdSourcing\CrowdSourcing.csproj", "{EBC3B178-0F92-4D89-B586-5C757B3F2F33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveCrowdGUI", "ActiveCrowdGUI\ActiveCrowdGUI.csproj", "{FD196DEB-6A08-4893-B20A-8C5DF2227342}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingExperiments", "BingExperiments\BingExperiments.csproj", "{D5BCC095-C2CB-4FB2-ABA7-97050BCDFD1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdsourcingModels", "CrowdsourcingModels\CrowdsourcingModels.csproj", "{B5616183-6A90-4FA4-9EF9-3C510B70D65F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{A7014656-119D-4AF2-A529-FF365AED8CEE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{579268A4-81DB-4354-87D8-54A5504E7178}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{D911868A-1EF8-45DB-898F-2282A934E036}"
 	ProjectSection(SolutionItems) = preProject
-		Libs\Infer.Compiler.dll = Libs\Infer.Compiler.dll
-		Libs\Infer.Runtime.dll = Libs\Infer.Runtime.dll
+		Data\CF.csv = Data\CF.csv
+		Data\CF_amt.csv = Data\CF_amt.csv
+		Data\MS.csv = Data\MS.csv
+		Data\SP.csv = Data\SP.csv
+		Data\SP_amt.csv = Data\SP_amt.csv
+		Data\ZenCrowd_in.csv = Data\ZenCrowd_in.csv
+		Data\ZenCrowd_us.csv = Data\ZenCrowd_us.csv
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://vstfmsrc:8080/tfs/mlp
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = CrowdSourcing\\CrowdSourcing.csproj
-		SccProjectName1 = CrowdSourcing
-		SccLocalPath1 = CrowdSourcing
-		SccProjectUniqueName2 = BingExperiments\\BingExperiments.csproj
-		SccProjectName2 = BingExperiments
-		SccLocalPath2 = BingExperiments
-		SccProjectUniqueName3 = Test\\Test.csproj
-		SccProjectName3 = Test
-		SccLocalPath3 = Test
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EBC3B178-0F92-4D89-B586-5C757B3F2F33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBC3B178-0F92-4D89-B586-5C757B3F2F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBC3B178-0F92-4D89-B586-5C757B3F2F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBC3B178-0F92-4D89-B586-5C757B3F2F33}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5BCC095-C2CB-4FB2-ABA7-97050BCDFD1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5BCC095-C2CB-4FB2-ABA7-97050BCDFD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5BCC095-C2CB-4FB2-ABA7-97050BCDFD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5BCC095-C2CB-4FB2-ABA7-97050BCDFD1A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7014656-119D-4AF2-A529-FF365AED8CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7014656-119D-4AF2-A529-FF365AED8CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7014656-119D-4AF2-A529-FF365AED8CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7014656-119D-4AF2-A529-FF365AED8CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD196DEB-6A08-4893-B20A-8C5DF2227342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD196DEB-6A08-4893-B20A-8C5DF2227342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD196DEB-6A08-4893-B20A-8C5DF2227342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD196DEB-6A08-4893-B20A-8C5DF2227342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5616183-6A90-4FA4-9EF9-3C510B70D65F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5616183-6A90-4FA4-9EF9-3C510B70D65F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5616183-6A90-4FA4-9EF9-3C510B70D65F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5616183-6A90-4FA4-9EF9-3C510B70D65F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
