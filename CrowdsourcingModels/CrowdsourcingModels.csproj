@@ -7,26 +7,11 @@
     <ProjectGuid>{B5616183-6A90-4FA4-9EF9-3C510B70D65F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CrowdsourcingModels</RootNamespace>
-    <AssemblyName>CrowdsourcingModels</AssemblyName>
+    <RootNamespace>CrowdsourcingProject</RootNamespace>
+    <AssemblyName>CrowdsourcingProject</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -74,19 +59,44 @@
     <Compile Include="ActiveLearningResult.cs" />
     <Compile Include="BCC.cs" />
     <Compile Include="BCCPosteriors.cs" />
+    <Compile Include="BCCTime\BCCTimeTaskMultimode.cs" />
+    <Compile Include="BCCTime\BCCTimeSpammerMultimode.cs" />
+    <Compile Include="BCCTime\BCCTimeSpammer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BCCTime\BCCTimeSpammerGamma.cs" />
+    <Compile Include="BCCTime\BCCTimeTaskPropensity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BCCWords.cs" />
     <Compile Include="CBCC.cs" />
+    <Compile Include="BCCWordsPosteriors.cs" />
+    <Compile Include="DataMappingWords.cs" />
     <Compile Include="DawidSkene\DawidSkene.cs" />
     <Compile Include="DawidSkene\Labeling.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="DataMapping.cs" />
     <Compile Include="Datum.cs" />
+    <Compile Include="MultiArmedBandit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultsTime.cs" />
+    <Compile Include="ResultsWords.cs" />
     <Compile Include="Results.cs" />
+    <Compile Include="ScalableBCC.cs" />
+    <Compile Include="ScalableCBCC.cs" />
     <Compile Include="Statistics\ConfusionMatrix.cs" />
     <Compile Include="Statistics\ReceiverOperatingCharacteristic.cs" />
     <Compile Include="Statistics\Statistics_test.cs" />
+    <Compile Include="Tests\Test_TimeModelTaskPropensity.cs" />
+    <Compile Include="Tests\Test_TimeModelTaskMultimode.cs" />
+    <Compile Include="Tests\Test_TimeModelSpammerMultimode.cs" />
+    <Compile Include="Tests\Test_TimeModel.cs" />
+    <Compile Include="Tests\MABExperiment.cs" />
+    <Compile Include="Tests\WWW14_CBCCExperiment.cs" />
     <Compile Include="Tests\HCOMP15_ActiveCrowdExperiment.cs" />
+    <Compile Include="Tests\WWW15_BCCWordsExperiment.cs" />
+    <Compile Include="ZenCrowd\ZenCrowd.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -97,22 +107,13 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <ProjectReference Include="..\TFIDF\TFIDF.csproj">
+      <Project>{8a5366f9-8259-4a30-9bcf-d07e586f8b73}</Project>
+      <Name>TFIDF</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
