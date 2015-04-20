@@ -83,22 +83,7 @@ namespace CrowdsourcingModels
         /// <summary>
         /// The CBCC model.
         /// </summary>
-        CBCC = 4,
-
-        /// <summary>
-        /// The BCC model in predictive mode
-        /// </summary>
-        BCCPredictiveMode = 5,
-
-        /// <summary>
-        /// The BCC time model
-        /// </summary>
-        BCCTime = 6,
-
-        /// <summary>
-        /// The BCCWords model.
-        /// </summary>
-        BCCWords = 7
+        CBCC = 4
 
 
     }
@@ -111,7 +96,6 @@ namespace CrowdsourcingModels
         RandomTask,
         EntropyTask,
         UniformTask,
-        EntropyMABTask //Entropy with MAB Task Selection Method
     }
 
     /// <summary>
@@ -119,7 +103,8 @@ namespace CrowdsourcingModels
     /// </summary>
     public enum WorkerSelectionMethod
     {
-        RandomWorker
+        RandomWorker,
+        BestWorker,
     }
 
 
@@ -153,5 +138,4 @@ namespace CrowdsourcingModels
         /// </summary>
         Prediction,
     };
-    /////////////////////
 }

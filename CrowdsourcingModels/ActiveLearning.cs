@@ -1,18 +1,11 @@
-﻿using MicrosoftResearch.Infer;
-using MicrosoftResearch.Infer.Factors;
-using MicrosoftResearch.Infer.Distributions;
-using MicrosoftResearch.Infer.Maths;
-using MicrosoftResearch.Infer.Models;
+﻿using MicrosoftResearch.Infer.Maths;
 using MicrosoftResearch.Infer.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GetAnotherLabel;
-//
+
 namespace CrowdsourcingModels
 {
     /// <summary>
@@ -197,7 +190,7 @@ namespace CrowdsourcingModels
             int index = 0;
 
             Console.WriteLine("Active Learning: {0}", modelName);
-            Console.WriteLine("\t\tAcc\tAvgRec");
+            Console.WriteLine("\t\t\t\t\t\tAcc\tAvgRec");
 
             // Get initial data
             Results results = new Results();
@@ -210,7 +203,7 @@ namespace CrowdsourcingModels
                 {
                     TotalTaskValue = Rand.Double()
                 });
-                subData = GetNextData(groupedRandomisedData, TaskValueInit, currentCounts, totalCounts, numIncremData, TaskSelectionMethod.RandomTask);
+                subData = GetNextRandomData(groupedRandomisedData, TaskValueInit, currentCounts, totalCounts, numIncremData, TaskSelectionMethod.RandomTask);
             }
             else // Start with set of labels with uniform size for each task
             {
@@ -222,14 +215,11 @@ namespace CrowdsourcingModels
             var s = remainingWorkersPerTask.Select(w => w.Value.Count).Sum();
             List<Datum> nextData = null;
             ActiveLearning activeLearning = null;
-            int numberOfObservedData = 300;
             isExperimentCompleted = false;
-            //for (int iter = 0; iter < 200; iter++)
-            for (int iter = 0; ; iter++) //run all the data
+            for (int iter = 0; ; iter++) //run until data run out
             {
                 bool calculateAccuracy = true;
-                ////bool doSnapShot = iter % 100 == 0; // Frequency of snapshots
-                bool doSnapShot = true;
+                bool doSnapShot = iter % 100 == 0;
                 if (subData != null || nextData != null)
                 {
                     switch (runType)
@@ -247,7 +237,7 @@ namespace CrowdsourcingModels
                             results.RunBCC(modelName, subData, data, model, Results.RunMode.ClearResults, calculateAccuracy, communityCount, false);
                             break;
                     }
-                } //end for running all the data
+                }
 
                 if (activeLearning == null)
                 {
@@ -258,11 +248,10 @@ namespace CrowdsourcingModels
                     activeLearning.UpdateActiveLearningResults(results);
                 }
 
-
                 // Select next task
                 Dictionary<string, ActiveLearningResult> TaskValue = null;
                 List<Tuple<string, string, ActiveLearningResult>> LabelValue = null;
-                switch (taskSelectionMethod)  //R2
+                switch (taskSelectionMethod)
                 {
                     case TaskSelectionMethod.EntropyTask:
                         TaskValue = activeLearning.EntropyTrueLabelPosterior();
@@ -283,20 +272,13 @@ namespace CrowdsourcingModels
                         });
                         break;
 
-                    //The Entropy MAB Task selection method
-                    case TaskSelectionMethod.EntropyMABTask:
-                        //get the entropy value
-                        TaskValue = activeLearning.EntropyTrueLabelPosterior();
-
-                        break;
-
                     default: // Entropy task selection
                         TaskValue = activeLearning.EntropyTrueLabelPosterior();
                         break;
                 }
 
-                // Don't call this if UniformTask
-                nextData = GetNextData(groupedRandomisedData, TaskValue, currentCounts, totalCounts, numIncremData, taskSelectionMethod);
+
+                nextData = GetNextRandomData(groupedRandomisedData, TaskValue, currentCounts, totalCounts, numIncremData, taskSelectionMethod);
 
                 if (nextData == null || nextData.Count == 0)
                     break;
@@ -332,7 +314,7 @@ namespace CrowdsourcingModels
 
                     if (doSnapShot)
                     {
-                        Console.WriteLine("{0} of {1}:\t{2:0.000}\t{3:0.0000}", index, totalInstances, accuracy.Last(), avgRecall.Last());
+                        Console.WriteLine("{0} (label {1} of {2}):\t{3:0.000}\t{4:0.0000}", modelName, index, totalInstances, accuracy.Last(), avgRecall.Last());
                         //DoSnapshot(accuracy, nlpd, avgRecall, taskValueList, results, modelName, "interim", resultsDir, initialNumLabelsPerTask, lipschitzConstant);
                     }
                 }//end if logs
@@ -344,6 +326,7 @@ namespace CrowdsourcingModels
 
             stopWatchTotal.Stop();
             DoSnapshot(accuracy, nlpd, avgRecall, taskValueList, results, modelName, "final", resultsDir, initialNumLabelsPerTask, lipschitzConstant);
+            ResetAccuracyList();
             Console.WriteLine("Elapsed time: {0}\n", stopWatchTotal.Elapsed);
         }
 
@@ -420,7 +403,6 @@ namespace CrowdsourcingModels
             List<Datum>[] nextData = new List<Datum>[numModels];
             int numIncremData = 1; //number of Increment Data 
             ActiveLearning[] activeLearning = new ActiveLearning[numModels];
-            int numberOfObservedData = 300;
             isExperimentCompleted = false;
         
             /// Main loop
@@ -428,8 +410,8 @@ namespace CrowdsourcingModels
             for (int iter = 0; ; iter++)
             {
                 bool calculateAccuracy = true;
-                ////bool doSnapShot = iter % 100 == 0; // Frequency of snapshots
-                bool doSnapShot = true;
+                bool doSnapShot = iter % 100 == 0; // Frequency of snapshots
+                //bool doSnapShot = true;
                 
                 //stop Active Learning if the user requests to stop
                 if (isExperimentCompleted) {
@@ -495,19 +477,13 @@ namespace CrowdsourcingModels
                             });
                             break;
 
-                        //The Entropy MAB Task selection method
-                        case TaskSelectionMethod.EntropyMABTask:
-                            //get the entropy value
-                            TaskValue[indexModel] = activeLearning[indexModel].EntropyTrueLabelPosterior();
-                            break;
-
                         default: // Entropy task selection
                             TaskValue[indexModel] = activeLearning[indexModel].EntropyTrueLabelPosterior();
                             break;
                     }
 
                     // Don't call this if UniformTask
-                    nextData[indexModel] = GetNextData(groupedRandomisedData, TaskValue[indexModel], currentCounts, totalCounts, numIncremData, taskSelectionMethod[indexModel]);
+                    nextData[indexModel] = GetNextRandomData(groupedRandomisedData, TaskValue[indexModel], currentCounts, totalCounts, numIncremData, taskSelectionMethod[indexModel]);
 
                     if (nextData == null || nextData[indexModel].Count == 0)
                         break;
@@ -562,39 +538,31 @@ namespace CrowdsourcingModels
         /// <param name="resultsDir">The directory to store the csv files.</param>
         public static void DoSnapshot(List<double> accuracy, List<double> nlpd, List<double> avgRecall, List<ActiveLearningResult> taskValue, Results results, string modelName, string suffix, string resultsDir, int projectInitialNumLabelsPerTask, double lipschitzConstant = -1)
         {
-
-            String new_graph_csv_file_name = "";
-            //Add the LipschitzConstant variable as the csv name
-            //if (modelName.Contains("MABTask"))
-            //{
-            //    int digitToMultiply = 10;
-            //    modelName += "_LipschitzConstant_" + (lipschitzConstant * digitToMultiply) + "dividedBy" + digitToMultiply;
-            //}
-                new_graph_csv_file_name = String.Format("{2}{0}_graph_{1}_InitialNumberOfLabels_{3}.csv", modelName, suffix, resultsDir, projectInitialNumLabelsPerTask);
+            suffix = suffix == "final" ? "" : suffix;
+            String new_graph_csv_file_name = String.Format("{2}{0}__graph_{1}_InitialLabels_{3}.csv", modelName, suffix, resultsDir, projectInitialNumLabelsPerTask);
 
             using (StreamWriter writer = new StreamWriter(new_graph_csv_file_name))
             {
                 var accArr = accuracy.ToArray();
                 var nlpdArr = nlpd.ToArray();
                 var avgRec = avgRecall.ToArray();
+                writer.WriteLine("Accuracy,AvgRecall");
                 for (int i = 0; i < accArr.Length; i++)
                 {
                     /// <summary>
                     /// Enable one of the lines below to get the accuracy printed if the format that you want.
                     /// </summary>
-
-                    writer.WriteLine("{0:0.0000}", accArr[i]); // Only accuracy
-                    //writer.WriteLine("{0:0.0000},{1:0.0000}", accArr[i], avgRec[i]); // Accuracy and average recall
+                    writer.WriteLine("{0:0.0000},{1:0.0000}", accArr[i], avgRec[i]); // Accuracy and average recall
                     //writer.WriteLine("{0:0.0000},{1:0.0000}", accArr[i], nlpdArr[i]); // Accuracy and negative log probability density
                 }
             }
 
-            using (StreamWriter writer = new StreamWriter(String.Format("{2}{0}_parameters_{1}_InitialNumberOfLabels_{3}.csv", modelName, suffix, resultsDir, projectInitialNumLabelsPerTask)))
+            using (StreamWriter writer = new StreamWriter(String.Format("{2}{0}__parameters_{1}_InitialLabels_{3}.csv", modelName, suffix, resultsDir, projectInitialNumLabelsPerTask)))
             {
                 results.WriteResults(writer, true, true, true);
             }
 
-            using (StreamWriter writer = new StreamWriter(String.Format("{2}{0}_taskValue_{1}_InitialNumberOfLabels_{3}.csv", modelName, suffix, resultsDir, projectInitialNumLabelsPerTask)))
+            using (StreamWriter writer = new StreamWriter(String.Format("{2}{0}__taskValue_{1}_InitialLabels_{3}.csv", modelName, suffix, resultsDir, projectInitialNumLabelsPerTask)))
             {
                 for (int i = 0; i < taskValue.Count; i++)
                 {
@@ -632,7 +600,7 @@ namespace CrowdsourcingModels
         /// <param name="totalCounts">The total data count for all the tasks.</param>
         /// <param name="numIncremData">The number of data to be selected.</param>
         /// <returns>The list of sub-data.</returns>
-        public static List<Datum> GetNextData(
+        public static List<Datum> GetNextRandomData(
             Dictionary<string, Datum[]> groupedRandomisedData,
             Dictionary<string, ActiveLearningResult> taskValue,// Don't need it for uniform exploration
             Dictionary<string, int> currentCounts,
@@ -675,22 +643,18 @@ namespace CrowdsourcingModels
             return isExperimentCompleted;
         }
 
-        public static List<double> getAccuracyList() {
+        public static List<double> GetAccuracyList() {
             return accuracy;
         }
 
-        public static void resetAccuracyList()
+        public static void ResetAccuracyList()
         {
             accuracy = new List<double>();
         }
 
-        public static void resetParallelAccuracyList(int numModels)
+        public static void ResetParallelAccuracyList(int numModels)
         {
             accuracyArray = Util.ArrayInit<List<double>>(numModels, i => new List<double>());
         }
-
-    } // end class ActiveLearning
-
-   
-
-} // end of Namespace
+    }
+}

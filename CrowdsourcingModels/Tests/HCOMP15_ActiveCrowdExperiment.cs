@@ -17,13 +17,22 @@ namespace CrowdsourcingModels
     class HCOMP15_ActiveCrowdExperimentExperiment
     {
 
-        public static string[] GoldDatasets = new string[] { "CF.csv", "MS.csv", "SP.csv" };
+        public const string dataDirectory = "@../../../../../Data/";
+
+        public const int clusterRuns = 2;
+
+        public static string[] Datasets = new string[] { "CF", "MS", "SP" };
 
 
         /// <summary>
-        /// The results directory.
+        /// The path to the results directory.
         /// </summary>
-        public static string ResultsDir = @"ResultsActiveCrowdToolkit/";
+        public static string ResultsPath = @"ResultsActiveCrowdToolkit/";
+
+        /// <summary>
+        /// The path to the results directory including the cluster run (e.g., Results/Run1).
+        /// </summary>
+        public static string ResultsDir = "";
 
         /// <summary>
         /// Method for the HCOMP15-ActiveCrowd experiment
@@ -31,33 +40,29 @@ namespace CrowdsourcingModels
         public static void Run()
         {
 
-            // Reset the random seed so results can be duplicated for the paper
-            Rand.Restart(12347);
-            Directory.CreateDirectory(ResultsDir);
+            Directory.Delete(ResultsPath, true);
 
             // Experiment
-            RunHCOMPExperiments(0, 0, -1, TaskSelectionMethod.RandomTask, 1);
+            RunHCOMPExperiments(0, 0, TaskSelectionMethod.RandomTask, 1);
+
+            // Aggregate results
+            AggregateResults("CF");
 
         }
 
-
         /// <summary>
-        /// Runs the active learning experiment presented in Venanzi et.al (WWW14) on a single data set.
+        /// Runs the active learning experiment on a single data set.
         /// </summary>
         /// <param name="dataSet">The data.</param>
         /// <param name="runType">The model run type.</param>
         /// <param name="taskSelectionMethod">The method for selecting tasks (Random / Entropy).</param>
         /// <param name="model">The model instance.</param>
         /// <param name="communityCount">The number of communities (only for CBCC).</param>
-        public static void RunHCOMPActiveLearning(string dataSet, RunType runType, TaskSelectionMethod taskSelectionMethod, int InitialNumLabelsPerTask, BCC model, int communityCount = 4, double lipschitzConstant = 1)
+        public static void RunHCOMPActiveLearning(string dataSet, RunType runType, TaskSelectionMethod taskSelectionMethod, int InitialNumLabelsPerTask, BCC model, int communityCount = 4)
         {
-            var data = Datum.LoadData(@"Data/" + dataSet + ".csv");
-            string modelName = Program.GetModelName(dataSet, runType, taskSelectionMethod, WorkerSelectionMethod.RandomWorker, communityCount, lipschitzConstant);
-
-            //initial Number of Label Per Task
-            //int initialNumLabelsPerTask = 1;
-            int initialNumLabelsPerTask = InitialNumLabelsPerTask;
-            ActiveLearning.RunActiveLearning(data, modelName, runType, model, taskSelectionMethod, WorkerSelectionMethod.RandomWorker, ResultsDir, communityCount, initialNumLabelsPerTask, lipschitzConstant: lipschitzConstant);
+            var data = Datum.LoadData(dataDirectory + dataSet + ".csv");
+            string modelName = Program.GetModelName(dataSet, runType, taskSelectionMethod, WorkerSelectionMethod.RandomWorker, communityCount);
+            ActiveLearning.RunActiveLearning(data, modelName, runType, model, taskSelectionMethod, WorkerSelectionMethod.RandomWorker, ResultsDir, communityCount, InitialNumLabelsPerTask);
         }
 
         /// <summary>
@@ -67,28 +72,128 @@ namespace CrowdsourcingModels
         /// <param name="startIndex">First instance of the data set array.</param>
         /// <param name="endIndex">Last instance of the data set array.</param>
         /// <param name="whichModel">Model to run.</param>
-        public static void RunHCOMPExperiments(int startIndex, int endIndex, int whichModel, TaskSelectionMethod currentTaskSelectionMethod, int InitialNumLabelsPerTask, double lipschitzConstant = 1)
+        public static void RunHCOMPExperiments(int startIndex, int endIndex, TaskSelectionMethod TaskSelectionMethod, int InitialNumLabelsPerTask, double lipschitzConstant = 1)
         {
-            //Select current task selection method(Entropy/Random) 
-            //TaskSelectionMethod currentTaskSelectionMethod = TaskSelectionMethod.EntropyTask;
-
-            for (int ds = startIndex; ds <= endIndex; ds++)
+            for (int run = 1; run <= clusterRuns; run++)
             {
-                switch (whichModel)
+                // Create run directory
+                ResultsDir = String.Format(ResultsPath + "Run{0}/", run);
+                Directory.CreateDirectory(ResultsDir);
+
+                // Reset the random seed with run index so results can be reproduced
+                Rand.Restart(run);
+
+                Console.WriteLine("\nCluster run {0} / {1}", run, clusterRuns);
+                for (int ds = startIndex; ds <= endIndex; ds++)
                 {
-                    case 1: RunHCOMPActiveLearning(Program.GoldDatasets[ds], RunType.MajorityVote, currentTaskSelectionMethod, InitialNumLabelsPerTask, null); break;
-                    case 2: RunHCOMPActiveLearning(Program.GoldDatasets[ds], RunType.DawidSkene, currentTaskSelectionMethod, InitialNumLabelsPerTask, null); break;
-                    case 3: RunHCOMPActiveLearning(Program.GoldDatasets[ds], RunType.BCC, currentTaskSelectionMethod, InitialNumLabelsPerTask, new BCC(), lipschitzConstant: lipschitzConstant); break;
-                    case 4: RunHCOMPActiveLearning(Program.GoldDatasets[ds], RunType.CBCC, currentTaskSelectionMethod, InitialNumLabelsPerTask, new CBCC(), Program.NumCommunities[ds], lipschitzConstant: lipschitzConstant); break;
-                    default: // Run all
-                        RunHCOMPActiveLearning(Program.GoldDatasets[ds], RunType.MajorityVote, currentTaskSelectionMethod, InitialNumLabelsPerTask, null);
-                        RunHCOMPActiveLearning(Program.GoldDatasets[ds], RunType.DawidSkene, currentTaskSelectionMethod, InitialNumLabelsPerTask, null);
-                        RunHCOMPActiveLearning(Program.GoldDatasets[ds], RunType.BCC, currentTaskSelectionMethod, InitialNumLabelsPerTask, new BCC(), lipschitzConstant: lipschitzConstant);
-                        RunHCOMPActiveLearning(Program.GoldDatasets[ds], RunType.CBCC, currentTaskSelectionMethod, InitialNumLabelsPerTask, new CBCC(), Program.NumCommunities[ds], lipschitzConstant: lipschitzConstant);
-                        RunHCOMPActiveLearning(Program.GoldDatasets[ds], RunType.BCC, currentTaskSelectionMethod, InitialNumLabelsPerTask, new CBCC(), lipschitzConstant: lipschitzConstant);
-                        break;
+                    RunHCOMPActiveLearning(Datasets[ds], RunType.VoteDistribution, TaskSelectionMethod, InitialNumLabelsPerTask, null);
+                    RunHCOMPActiveLearning(Datasets[ds], RunType.MajorityVote, TaskSelectionMethod, InitialNumLabelsPerTask, null);
+                    //RunHCOMPActiveLearning(Datasets[ds], RunType.DawidSkene, TaskSelectionMethod, InitialNumLabelsPerTask, null);
+                    //RunHCOMPActiveLearning(Datasets[ds], RunType.BCC, TaskSelectionMethod, InitialNumLabelsPerTask, new BCC());
+                    //RunHCOMPActiveLearning(Datasets[ds], RunType.CBCC, TaskSelectionMethod, InitialNumLabelsPerTask, new CBCC(), Program.NumCommunities[ds]);
                 }
             }
+        }
+
+        public static void AggregateResults(string dataset)
+        {
+            ///
+            /// The results matrix is a dictionary with 1-level key = filename, 2-level key is the accuracy name, 3-level key is the labelling round and the value is the array of accuracies at that round
+            /// 
+            var resultsMatrix = new Dictionary<string, Dictionary<string, List<List<double>>>>();
+            string[] Headers = null;
+            for (int run = 1; run <= clusterRuns; run++)
+            {
+                string resultsDir = String.Format(ResultsPath + "Run{0}/", run);
+                var graphFiles = new DirectoryInfo(resultsDir).GetFiles("*graph*");
+
+                foreach (var file in graphFiles)
+                {
+                    string filename = file.Name;
+                    if (!resultsMatrix.ContainsKey(filename))
+                        resultsMatrix[filename] = new Dictionary<string, List<List<double>>>();
+
+                    
+                    using (var reader = new StreamReader(file.FullName))
+                    {
+
+                        string line = reader.ReadLine();
+                        if (Headers == null)
+                            Headers = line.Split(',');
+
+                        if (!resultsMatrix[filename].ContainsKey(Headers[0]))
+                            resultsMatrix[filename] = Headers.ToDictionary(k => k, v => new List<List<double>>());
+
+                        int lineNumber = 0;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+
+                            var strarr = line.Split(',');
+                            int length = strarr.Length;
+
+                            if (Headers.Length != strarr.Length)
+                                throw new ApplicationException("The number of headers is different from the number of results");
+
+                            for (int j = 0; j < strarr.Length; j++)
+                            {
+                                if (resultsMatrix[filename][Headers[j]].Count < (lineNumber+1))
+                                    resultsMatrix[filename][Headers[j]].Add(new List<double>());
+
+                                resultsMatrix[filename][Headers[j]][lineNumber].Add(double.Parse(strarr[j]));
+                            }
+                            lineNumber++;
+                        }
+                    }
+                }
+            }
+
+            ///
+            /// Compute averages
+            /// 
+            foreach(var kvp in resultsMatrix)
+            {
+                string method = kvp.Key;
+                var aggregatedMeanAccuracies = kvp.Value.ToDictionary(k => k.Key, v => v.Value.Select(r => r.Average()).ToArray());
+                var aggregatedStdAccuracies = kvp.Value.ToDictionary(k => k.Key, v => v.Value.Select(r => getStandardDeviation(r)).ToArray());
+                string[] metrics = aggregatedMeanAccuracies.Keys.ToArray();
+                int numRows = aggregatedMeanAccuracies[metrics[0]].Length;
+
+                using (StreamWriter writer = new StreamWriter(ResultsPath+"aggregated_"+method))
+                {
+                    var headers = kvp.Value.Keys.Select(h => String.Format("{0},{0}_std,", h));
+                    writer.WriteLine(string.Join(",", headers));
+
+                    for (int r = 0; r < numRows; r++)
+                    {
+                        List<string> line = new List<string>();
+                        for (int m = 0; m < metrics.Length; m++)
+                        {
+                            line.Add(String.Format("{0:0.0000},{1:0.0000}", aggregatedMeanAccuracies[metrics[m]][r], aggregatedStdAccuracies[metrics[m]][r]));
+                        }
+                        writer.WriteLine(string.Join(",", line));
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Compute the standard deviation for a list of doubles
+        /// </summary>
+        /// <param name="doubleList">The list of doubles</param>
+        /// <returns>The standard deviation</returns>
+        private static double getStandardDeviation(List<double> doubleList)
+        {
+            double ret = 0;
+            if (doubleList.Count() > 0)
+            {
+                //Compute the Average      
+                double avg = doubleList.Average();
+                //Perform the Sum of (value-avg)_2_2      
+                double sum = doubleList.Sum(d => Math.Pow(d - avg, 2));
+                //Put it all together      
+                ret = Math.Sqrt((sum) / (doubleList.Count() - 1));
+            }
+            return ret;
         }
     }
 }

@@ -1,19 +1,6 @@
-﻿using MicrosoftResearch.Infer;
-using MicrosoftResearch.Infer.Factors;
-using MicrosoftResearch.Infer.Distributions;
-using MicrosoftResearch.Infer.Maths;
-using MicrosoftResearch.Infer.Models;
-using MicrosoftResearch.Infer.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GetAnotherLabel;
-using CrowdsourcingProject.Statistics;
-
 
 namespace CrowdsourcingModels
 {
@@ -25,16 +12,13 @@ namespace CrowdsourcingModels
         /// <summary>
         /// The datasets.
         /// </summary>
-        //public static string[] GoldDatasets = new string[] { "CF_amt", "SP_amt", "SP_amt_short_time"};
-        public static string[] GoldDatasets = new string[] { "ZenCrowd_all", "ZenCrowd_us", "ZenCrowd_in" };
+        public static string[] Datasets = new string[] { "CF", "ZenCrowd_us", "ZenCrowd_in" };
         public static bool UseRealData;
 
         /// <summary>
         /// The number of communities of CBCC.
         /// </summary>
         public static int[] NumCommunities = new int[] { 4 };
-
-
 
         /// <summary>
         /// Flag to redirect the console output to txt file
@@ -46,12 +30,6 @@ namespace CrowdsourcingModels
         public static int whichModel;
         public static int clusterIter;
 
-        /*
-        /// <summary>
-        /// The initial number labels per task.
-        /// </summary>
-        public static int projectInitialNumLabelsPerTask = 1;
-        */
         /// <summary>
         /// Main method to run the crowdsourcing experiments presented in Venanzi et.al (WWW14).
         /// </summary>
@@ -62,7 +40,7 @@ namespace CrowdsourcingModels
         static void Main(string[] args)
         {
 
-
+            HCOMP15_ActiveCrowdExperimentExperiment.Run();
             
         }
 

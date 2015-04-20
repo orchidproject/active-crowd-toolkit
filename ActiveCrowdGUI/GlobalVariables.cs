@@ -14,7 +14,7 @@ namespace AcriveCrowdGUI
         public static int[] communityCounts = { 4, 2, 2 };
         public static double[] mabConstants = {0.009, 0.0018, 0.0036,0.009};
         public static int[] labelStartingPoints = {301,601,901,1201,1501 };
-        public static TaskSelectionMethod[] taskSelectionMethodOptions = { TaskSelectionMethod.EntropyTask, TaskSelectionMethod.RandomTask, TaskSelectionMethod.UniformTask, TaskSelectionMethod.EntropyMABTask };
+        public static TaskSelectionMethod[] taskSelectionMethodOptions = { TaskSelectionMethod.EntropyTask, TaskSelectionMethod.RandomTask, TaskSelectionMethod.UniformTask };
 
         public static TaskSelectionMethod mvDefaultTaskSelectionMethod = TaskSelectionMethod.EntropyTask;
 

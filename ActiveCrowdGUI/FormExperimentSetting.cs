@@ -428,11 +428,6 @@ namespace AcriveCrowdGUI
                 int currentLabellingRound = trackBarNumberOfLabellingRounds.Value;
                 return new ExperimentModel(currentTaskSelectionMethod, currentRunType, currentLabellingRound, labelStartingPoints[currentLabellingRound - 1]);
                 
-            } //if it is EntropyMABTask, add a mabConstant into the ExperimentModel
-            else if (currentTaskSelectionMethod == TaskSelectionMethod.EntropyMABTask)
-            {
-                double mabConstant = GlobalVariables.mabConstants[comboBoxForSelectingDataset.SelectedIndex];
-                return new ExperimentModel(currentTaskSelectionMethod, currentRunType, 1, labelStartingPoints[0], mabConstant);
             }
             else//other taskSelectionMethods, or empty in the batch running 
             {

@@ -173,7 +173,7 @@ namespace AcriveCrowdGUI
             //Set setting in the experimentSetting Class
             int totalNumberOfModels = GetNumberOfExperiemntModels();
             //Clear previous results
-            ActiveLearning.resetParallelAccuracyList(totalNumberOfModels);
+            ActiveLearning.ResetParallelAccuracyList(totalNumberOfModels);
 
             //obtain the accuracy list reference
             accuracyArrayOfAllExperimentModels = ActiveLearning.accuracyArray;

@@ -304,55 +304,6 @@ namespace CrowdsourcingModels
         }
 
         /// <summary>
-        /// Creates a Result instance for running CBCC model as a BCC in prediction and look-ahead mode.
-        /// </summary>
-        /// <returns></returns>
-        public Results BCCFromCBCC()
-        {
-            Results result = new Results();
-            if (!this.IsCommunityModel)
-            {
-                throw new ApplicationException("A community model is required");
-            }
-
-            // The BCC Result instance is assumed to only be used in prediction,
-            // so we can fake up some data to get the Mapping.
-            // The number of workers is the number of communities in the CBCC Result instance.
-            var workerIds = Util.ArrayInit(this.CommunityCount, c => "Community" + c);
-            var data = new List<Datum>();
-            for (int w = 0; w < workerIds.Length; w++)
-            {
-                foreach (var task in this.Mapping.TaskIdToIndex.Keys)
-                {
-                    data.Add(new Datum
-                    {
-                        TaskId = task,
-                        WorkerId = workerIds[w],
-                        WorkerLabel = 0,
-                        GoldLabel = null
-                    });
-                }
-            }
-
-            result.Mapping = new DataMapping(data, this.CommunityCount, this.Mapping.LabelMin, this.Mapping.LabelMax);
-            result.GoldLabels = this.GoldLabels;
-            result.ClearResults();
-
-            result.BackgroundLabelProb = new Dirichlet(this.BackgroundLabelProb);
-            // Don't need to clone because only used in prediction and look-ahead mode.
-            // In look-ahead mode, the look-ahead confusion matrices get updated.
-            result.WorkerConfusionMatrix = Util.ArrayInit(
-                this.CommunityCount,
-                c => new KeyValuePair<string, Dirichlet[]>(workerIds[c], this.CommunityConfusionMatrix[c])).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-            result.TrueLabel = new Dictionary<string, Discrete>(this.TrueLabel);
-            result.TrueLabelConstraint = new Dictionary<string, Discrete>(this.TrueLabelConstraint);
-
-            result.IsCommunityModel = false;
-            result.CommunityCount = this.CommunityCount;
-            return result;
-        }
-
-        /// <summary>
         /// Runs the majority vote method on the data.
         /// </summary>
         /// <param name="data">The data</param>
@@ -363,10 +314,10 @@ namespace CrowdsourcingModels
         /// <returns>The updated results</returns>
         public Results RunMajorityVote(IList<Datum> data, IList<Datum> fullData, bool calculateAccuracy, bool useVoteDistribution)
         {
-            if (useVoteDistribution)
-                Console.WriteLine("\n--- Vote distribution ---");
-            else
-                Console.WriteLine("\n--- Majority Vote ---");
+            //if (useVoteDistribution)
+            //    Console.WriteLine("\n--- Vote distribution ---");
+            //else
+            //    Console.WriteLine("\n--- Majority Vote ---");
 
             PredictedLabel = new Dictionary<string, int?>();
             var dataMapping = new DataMapping(data);
@@ -809,6 +760,9 @@ namespace CrowdsourcingModels
                 this.PredictedLabel[kvp.Key] = predictedLabel;
 
                 int goldLabel = kvp.Value.Value;
+
+                if (goldLabel == predictedLabel)
+                    correct++;
 
                 confusionMatrix[goldLabel, predictedLabel] = confusionMatrix[goldLabel, predictedLabel] + 1.0;
 

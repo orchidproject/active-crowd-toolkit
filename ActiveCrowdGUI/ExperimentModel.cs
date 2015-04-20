@@ -161,12 +161,6 @@ namespace AcriveCrowdGUI
             //Display both runType and taskSelectionMethod of the current experiment model, for other types of experiments
             currentExperimentItemName = GetRunTypeString() + ":" + Enum.GetName(typeof(TaskSelectionMethod), taskSelectionMethod);
 
-            //if the taskSelectionMethod is EntropyMABTask, add the MAB value to the model name
-            if (taskSelectionMethod == TaskSelectionMethod.EntropyMABTask)
-            {
-                currentExperimentItemName += mabConstant;
-            }
-
             return currentExperimentItemName;
         }
 
@@ -178,5 +172,5 @@ namespace AcriveCrowdGUI
         {
             return Enum.GetName(typeof(RunType), runType);
         }
-    } //End Class
-} //End Namespace
+    }
+}
