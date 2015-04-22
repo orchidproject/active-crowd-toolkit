@@ -17,9 +17,11 @@ namespace CrowdsourcingModels
     class HCOMP15_ActiveCrowdExperimentExperiment
     {
 
-        public const string dataDirectory = "@../../../../../Data/";
+        public const string dataDirectory = "Data/";
 
-        public const int clusterRuns = 2;
+        public static int endClusterRun = 100;
+
+        public static int startClusterRun = 1;
 
         public static string[] Datasets = new string[] { "CF", "MS", "SP" };
 
@@ -37,16 +39,26 @@ namespace CrowdsourcingModels
         /// <summary>
         /// Method for the HCOMP15-ActiveCrowd experiment
         /// </summary>
-        public static void Run()
+        public static void Run(string[] args)
         {
 
-            Directory.Delete(ResultsPath, true);
+            //Directory.Delete(ResultsPath, true);
+
+            if (args.Length>1)
+            {
+                startClusterRun = int.Parse(args[1]);
+                endClusterRun = int.Parse(args[2]);
+                Datasets = new string[] { args[0] }; 
+            }
+
 
             // Experiment
+            RunHCOMPExperiments(0, 0, TaskSelectionMethod.UniformTask, 1);
+            RunHCOMPExperiments(0, 0, TaskSelectionMethod.EntropyTask, 1);
             RunHCOMPExperiments(0, 0, TaskSelectionMethod.RandomTask, 1);
 
             // Aggregate results
-            AggregateResults("CF");
+            //AggregateResults("CF");
 
         }
 
@@ -72,25 +84,25 @@ namespace CrowdsourcingModels
         /// <param name="startIndex">First instance of the data set array.</param>
         /// <param name="endIndex">Last instance of the data set array.</param>
         /// <param name="whichModel">Model to run.</param>
-        public static void RunHCOMPExperiments(int startIndex, int endIndex, TaskSelectionMethod TaskSelectionMethod, int InitialNumLabelsPerTask, double lipschitzConstant = 1)
+        public static void RunHCOMPExperiments(int startIndex, int endIndex, TaskSelectionMethod TaskSelectionMethod, int InitialNumLabelsPerTask)
         {
-            for (int run = 1; run <= clusterRuns; run++)
+            for (int run = startClusterRun; run <= endClusterRun; run++)
             {
                 // Create run directory
                 ResultsDir = String.Format(ResultsPath + "Run{0}/", run);
                 Directory.CreateDirectory(ResultsDir);
 
-                // Reset the random seed with run index so results can be reproduced
+                // Reset the random seed with run index to aid reproducibility
                 Rand.Restart(run);
 
-                Console.WriteLine("\nCluster run {0} / {1}", run, clusterRuns);
+                Console.WriteLine("\nCluster run {0} / {1}", run, endClusterRun);
                 for (int ds = startIndex; ds <= endIndex; ds++)
                 {
                     RunHCOMPActiveLearning(Datasets[ds], RunType.VoteDistribution, TaskSelectionMethod, InitialNumLabelsPerTask, null);
                     RunHCOMPActiveLearning(Datasets[ds], RunType.MajorityVote, TaskSelectionMethod, InitialNumLabelsPerTask, null);
-                    //RunHCOMPActiveLearning(Datasets[ds], RunType.DawidSkene, TaskSelectionMethod, InitialNumLabelsPerTask, null);
-                    //RunHCOMPActiveLearning(Datasets[ds], RunType.BCC, TaskSelectionMethod, InitialNumLabelsPerTask, new BCC());
-                    //RunHCOMPActiveLearning(Datasets[ds], RunType.CBCC, TaskSelectionMethod, InitialNumLabelsPerTask, new CBCC(), Program.NumCommunities[ds]);
+                    RunHCOMPActiveLearning(Datasets[ds], RunType.DawidSkene, TaskSelectionMethod, InitialNumLabelsPerTask, null);
+                    RunHCOMPActiveLearning(Datasets[ds], RunType.BCC, TaskSelectionMethod, InitialNumLabelsPerTask, new BCC());
+                    RunHCOMPActiveLearning(Datasets[ds], RunType.CBCC, TaskSelectionMethod, InitialNumLabelsPerTask, new CBCC(), Program.NumCommunities[ds]);
                 }
             }
         }
@@ -102,7 +114,7 @@ namespace CrowdsourcingModels
             /// 
             var resultsMatrix = new Dictionary<string, Dictionary<string, List<List<double>>>>();
             string[] Headers = null;
-            for (int run = 1; run <= clusterRuns; run++)
+            for (int run = 1; run <= endClusterRun; run++)
             {
                 string resultsDir = String.Format(ResultsPath + "Run{0}/", run);
                 var graphFiles = new DirectoryInfo(resultsDir).GetFiles("*graph*");

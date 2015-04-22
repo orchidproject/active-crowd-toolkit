@@ -219,7 +219,7 @@ namespace CrowdsourcingModels
             for (int iter = 0; ; iter++) //run until data run out
             {
                 bool calculateAccuracy = true;
-                bool doSnapShot = iter % 100 == 0;
+                bool doSnapShot = iter % 1 == 0;
                 if (subData != null || nextData != null)
                 {
                     switch (runType)
@@ -265,10 +265,10 @@ namespace CrowdsourcingModels
                         break;
 
                     case TaskSelectionMethod.UniformTask:
-                        //add task value according to the count left
+                        //add task value according to the current counts
                         TaskValue = currentCounts.OrderBy(kvp => kvp.Value).ToDictionary(a => a.Key, a => new ActiveLearningResult
                         {
-                            TotalTaskValue = 1
+                            TotalTaskValue = 10000 - a.Value
                         });
                         break;
 

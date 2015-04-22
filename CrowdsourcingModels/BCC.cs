@@ -175,8 +175,8 @@ namespace CrowdsourcingModels
         {
             Engine = new InferenceEngine(new ExpectationPropagation());
             Engine.Compiler.UseParallelForLoops = true;
-            Engine.ShowProgress = true;
-            Engine.Compiler.WriteSourceFiles = true;
+            Engine.ShowProgress = false;
+            Engine.Compiler.WriteSourceFiles = false;
             Engine.Compiler.GenerateInMemory = true;
             Engine.ShowTimings = false;
             Engine.ShowWarnings = false;

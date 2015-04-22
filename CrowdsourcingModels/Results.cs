@@ -320,16 +320,15 @@ namespace CrowdsourcingModels
             //    Console.WriteLine("\n--- Majority Vote ---");
 
             PredictedLabel = new Dictionary<string, int?>();
-            var dataMapping = new DataMapping(data);
-            Mapping = dataMapping;
+            Mapping = new DataMapping(data);
 
-            var fullDataMapping = new DataMapping(fullData);
-            GoldLabels = fullDataMapping.GetGoldLabelsPerTaskId();
+            FullMapping = new DataMapping(fullData);
+            GoldLabels = FullMapping.GetGoldLabelsPerTaskId();
 
-            var inferredLabels = useVoteDistribution ? dataMapping.GetVoteDistribPerTaskIndex() : dataMapping.GetMajorityVotesPerTaskIndex().Select(mv => mv == null ? (Discrete)null : Discrete.PointMass(mv.Value, dataMapping.LabelCount)).ToArray();
+            var inferredLabels = useVoteDistribution ? Mapping.GetVoteDistribPerTaskIndex() : Mapping.GetMajorityVotesPerTaskIndex().Select(mv => mv == null ? (Discrete)null : Discrete.PointMass(mv.Value, Mapping.LabelCount)).ToArray();
             TrueLabel = inferredLabels.Select((lab, i) => new
             {
-                key = dataMapping.TaskIndexToId[i],
+                key = Mapping.TaskIndexToId[i],
                 val = lab
             }).ToDictionary(a => a.key, a => a.val);
 
@@ -350,10 +349,10 @@ namespace CrowdsourcingModels
         {
             // If you want to run Dawid-Skene code, download his code, integrate it into
             // the project, and change false to true below.
-            Console.WriteLine("--- Dawid Skene ---");
+            //Console.WriteLine("--- Dawid Skene ---");
             PredictedLabel = new Dictionary<string, int?>();
             Mapping = new DataMapping(data);
-            var fullDataMapping = new DataMapping(fullData);
+            FullMapping = new DataMapping(fullData);
             var dataMapping = new DataMapping(data);
             Mapping = dataMapping;
             var labelings = data.Select(d => new Labeling(d.WorkerId, d.TaskId, d.WorkerLabel.ToString(), d.GoldLabel.ToString())).ToList();
@@ -367,7 +366,7 @@ namespace CrowdsourcingModels
                 labelIndexMap[i] = Array.IndexOf(dwLabels, (i + Mapping.LabelMin).ToString());
             }
 
-            GoldLabels = fullDataMapping.GetGoldLabelsPerTaskId().
+            GoldLabels = FullMapping.GetGoldLabelsPerTaskId().
                 ToDictionary(kvp => kvp.Key, kvp => kvp.Value == null ? (int?)null : (int?)labelIndexMap[kvp.Value.Value]);
 
             ds.Estimate(10);
@@ -428,6 +427,7 @@ namespace CrowdsourcingModels
             if (this.Mapping == null)
             {
                 this.Mapping = new DataMapping(fullData, numCommunities);
+                this.FullMapping = Mapping;
                 this.GoldLabels = this.Mapping.GetGoldLabelsPerTaskId();
             }
                 
@@ -435,7 +435,7 @@ namespace CrowdsourcingModels
 
             if (IsCommunityModel)
             {
-                Console.WriteLine("--- CBCC ---");
+                //Console.WriteLine("--- CBCC ---");
                 CommunityCount = numCommunities;
                 createModel = createModel || (numCommunities != communityModel.CommunityCount);
 
@@ -481,15 +481,10 @@ namespace CrowdsourcingModels
             }
 
             // Call inference
-            BCCPosteriors posteriors = null;
-            if (IsBCC)
-            {
-                Console.WriteLine("--- BCC ---");
-                posteriors = model.Infer(
+            BCCPosteriors posteriors = model.Infer(
                     taskIndices,
                     workerLabels,
                     priors);
-            }
 
             UpdateResults(posteriors, mode);
 
@@ -712,7 +707,7 @@ namespace CrowdsourcingModels
         protected virtual void UpdateAccuracy()
         {
             double nlpdThreshold = -Math.Log(0.001);
-            int labelCount = TrueLabel.Where(kvp => kvp.Value != null).First().Value.Dimension;
+            int labelCount = FullMapping.LabelCount;
             var confusionMatrix = Util.ArrayInit(labelCount, labelCount, (i, j) => 0.0);
             int correct = 0;
             double logProb = 0.0;

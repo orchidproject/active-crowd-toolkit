@@ -40,7 +40,7 @@ namespace CrowdsourcingModels
         static void Main(string[] args)
         {
 
-            HCOMP15_ActiveCrowdExperimentExperiment.Run();
+            HCOMP15_ActiveCrowdExperimentExperiment.Run(args);
             
         }
 

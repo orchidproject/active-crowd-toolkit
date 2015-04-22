@@ -66,16 +66,16 @@ namespace CrowdsourcingModels
                 {
                     var strarr = line.Split(',');
                     int length = strarr.Length;
-                    if (length < 3 || length > 4)
-                    {
-                        //continue;
-                    }
+                    //if (length < 3 || length > 4)
+                    //{
+                    //    //continue;
+                    //}
 
                     int workerLabel = int.Parse(strarr[2]);
-                    if (workerLabel < -4 || workerLabel > 4)
-                    {
-                        continue;
-                    }
+                    //if (workerLabel < -4 || workerLabel > 4)
+                    //{
+                    //    continue;
+                    //}
 
                     var datum = new Datum()
                     {

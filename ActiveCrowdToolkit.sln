@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{63594EB3-A
 		Data\CF.csv = Data\CF.csv
 		Data\CF_amt.csv = Data\CF_amt.csv
 		Data\MS.csv = Data\MS.csv
+		Data\MS_rescale.csv = Data\MS_rescale.csv
 		Data\SP.csv = Data\SP.csv
 		Data\SP_amt.csv = Data\SP_amt.csv
 		Data\ZenCrowd_all.csv = Data\ZenCrowd_all.csv
