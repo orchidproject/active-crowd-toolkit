@@ -110,11 +110,11 @@ namespace CrowdsourcingModels
         /// <param name="workerSelectionMethod">The method for selecting workers (only Random is implemented).</param>
         /// <param name="numCommunities">The number of communities (only for CBCC).</param>
         /// <returns>The model name</returns>
-        public static string GetModelName(string dataset, RunType runType, TaskSelectionMethod taskSelectionMethod, WorkerSelectionMethod workerSelectionMethod, int numCommunities = -1, double lipschitzConstant = -1)
+        public static string GetModelName(string dataset, RunType runType, TaskSelectionMethod taskSelectionMethod, WorkerSelectionMethod workerSelectionMethod, int NumCommunities)
         {
             return dataset + "_" + Enum.GetName(typeof(RunType), runType)
                 + "_" + (!taskSelectionMethod.Equals("") ? Enum.GetName(typeof(TaskSelectionMethod), taskSelectionMethod) : "")
-                + (lipschitzConstant>0 ? lipschitzConstant.ToString().Replace(".", "") : "");
+                + "_" + (!workerSelectionMethod.Equals("") ? Enum.GetName(typeof(WorkerSelectionMethod), workerSelectionMethod) : "");
         }
 
         /// <summary>

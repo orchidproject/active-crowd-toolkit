@@ -105,12 +105,12 @@ namespace CrowdsourcingModels
         /// Computes the entropy on the true label posterior distribution of the active learning results.
         /// </summary>
         /// <returns>A dictionary keyed by the TaskId and the value is the true label entropy.</returns>
-        public Dictionary<string, ActiveLearningResult> EntropyTrueLabelPosterior()
+        public Dictionary<string, ActiveLearningResult> EntropyTrueLabel()
         {
             return BatchResults.TrueLabel.ToDictionary(kvp => kvp.Key, kvp => new ActiveLearningResult
             {
                 TaskId = kvp.Key,
-                TotalTaskValue = kvp.Value == null ? double.MaxValue : -kvp.Value.GetAverageLog(kvp.Value)
+                TaskValue = kvp.Value == null ? double.MaxValue : -kvp.Value.GetAverageLog(kvp.Value)
             });
         }
 
@@ -136,7 +136,6 @@ namespace CrowdsourcingModels
             string resultsDir,
             int communityCount = -1,
             int initialNumLabelsPerTask = 1,
-            double lipschitzConstant = 1,
             int numIncremData = 1,
             bool startWithRandomData = false)
         {
@@ -198,12 +197,12 @@ namespace CrowdsourcingModels
             Dictionary<string, int> currentCounts = null;
             if (startWithRandomData) // Start with random sets of labels for each task
             {
-                currentCounts = groupedRandomisedData.ToDictionary(kvp => kvp.Key, kvp => 0);
-                Dictionary<string, ActiveLearningResult> TaskValueInit = data.GroupBy(d => d.TaskId).ToDictionary(a => a.Key, a => new ActiveLearningResult
-                {
-                    TotalTaskValue = Rand.Double()
-                });
-                subData = GetNextRandomData(groupedRandomisedData, TaskValueInit, currentCounts, totalCounts, numIncremData, TaskSelectionMethod.RandomTask);
+                //currentCounts = groupedRandomisedData.ToDictionary(kvp => kvp.Key, kvp => 0);
+                //Dictionary<string, ActiveLearningResult> TaskValueInit = data.GroupBy(d => d.TaskId).ToDictionary(a => a.Key, a => new ActiveLearningResult
+                //{
+                //    TaskValue = Rand.Double()
+                //});
+                //subData = GetNextData(groupedRandomisedData, TaskValueInit, currentCounts, totalCounts, numIncremData, TaskSelectionMethod.RandomTask);
             }
             else // Start with set of labels with uniform size for each task
             {
@@ -248,37 +247,86 @@ namespace CrowdsourcingModels
                     activeLearning.UpdateActiveLearningResults(results);
                 }
 
-                // Select next task
-                Dictionary<string, ActiveLearningResult> TaskValue = null;
-                List<Tuple<string, string, ActiveLearningResult>> LabelValue = null;
+                ///
+                /// We create a list of task utilities
+                /// 
+
+                // TaskValue: Dictionary keyed by task, the value is an active learning result.
+                Dictionary<string, ActiveLearningResult> TaskUtility = null;
                 switch (taskSelectionMethod)
                 {
                     case TaskSelectionMethod.EntropyTask:
-                        TaskValue = activeLearning.EntropyTrueLabelPosterior();
+                        TaskUtility = activeLearning.EntropyTrueLabel();
                         break;
 
                     case TaskSelectionMethod.RandomTask:
-                        TaskValue = data.GroupBy(d => d.TaskId).ToDictionary(a => a.Key, a => new ActiveLearningResult
+                        TaskUtility = data.GroupBy(d => d.TaskId).ToDictionary(a => a.Key, a => new ActiveLearningResult
                         {
-                            TotalTaskValue = Rand.Double()
+                            TaskValue = Rand.Double()
+
                         });
                         break;
 
                     case TaskSelectionMethod.UniformTask:
-                        //add task value according to the current counts
-                        TaskValue = currentCounts.OrderBy(kvp => kvp.Value).ToDictionary(a => a.Key, a => new ActiveLearningResult
+                        // Reproduce uniform task selection by picking the task with the lowest number of current labels. That is, minus the current count.
+                        TaskUtility = currentCounts.OrderBy(kvp => kvp.Value).ToDictionary(a => a.Key, a => new ActiveLearningResult
                         {
-                            TotalTaskValue = 10000 - a.Value
+                            TaskId = a.Key,
+                            TaskValue = -a.Value
                         });
                         break;
 
-                    default: // Entropy task selection
-                        TaskValue = activeLearning.EntropyTrueLabelPosterior();
+                    default:
+                        TaskUtility = activeLearning.EntropyTrueLabel();
                         break;
                 }
 
+                ///
+                /// We create a list of worker utilities
+                ///
+                Dictionary<string, double> WorkerAccuracy = null;
 
-                nextData = GetNextRandomData(groupedRandomisedData, TaskValue, currentCounts, totalCounts, numIncremData, taskSelectionMethod);
+                // Best worker selection is only allowed for methods that infer worker confusion matrices.
+                if (results.WorkerConfusionMatrix == null)
+                    workerSelectionMethod = WorkerSelectionMethod.RandomWorker;
+
+                switch (workerSelectionMethod)
+                {
+                    case WorkerSelectionMethod.BestWorker:
+                        //Assign worker accuracies to the lowest diagonal value of the confusion matrix (conservative approach). Alternative ways are also possible.
+                            WorkerAccuracy = results.WorkerConfusionMatrix.ToDictionary(
+                                kvp => kvp.Key,
+                                kvp => Results.GetConfusionMatrixDiagonal(kvp.Value).Max());
+                        break;
+                    case WorkerSelectionMethod.RandomWorker:
+                        // Assign worker accuracies to random values
+                        WorkerAccuracy = results.FullMapping.WorkerIdToIndex.ToDictionary(kvp => kvp.Key, kvp => Rand.Double());
+                        break;
+                    default:
+                        throw new ApplicationException("No worker selection method is selected");
+                }
+
+                ///
+                /// Create a list of tuples <TaskId, WorkerId, ActiveLearningResult>
+                ///
+                List<Tuple<string, string, ActiveLearningResult>> LabelValue = new List<Tuple<string,string,ActiveLearningResult>>();
+                foreach (var kvp in TaskUtility)
+                {
+                    foreach (var workerId in remainingWorkersPerTask[kvp.Key])
+                    {
+                        var labelValue = new ActiveLearningResult
+                        {
+                            WorkerId = workerId,
+                            TaskId = kvp.Key,
+                            TaskValue = kvp.Value.TaskValue,
+                            WorkerValue = WorkerAccuracy[workerId]
+                        };
+                        LabelValue.Add(Tuple.Create(labelValue.TaskId, labelValue.WorkerId, labelValue));
+                    }
+                }
+                
+                // Increment tha active set with new data
+                nextData = GetNextData(groupedRandomisedData, LabelValue, currentCounts, totalCounts, remainingWorkersPerTask, numIncremData);
 
                 if (nextData == null || nextData.Count == 0)
                     break;
@@ -293,9 +341,9 @@ namespace CrowdsourcingModels
                     nlpd.Add(results.NegativeLogProb);
                     avgRecall.Add(results.AvgRecall);
 
-                    if (TaskValue == null) 
+                    if (TaskUtility == null) 
                     {
-                        var sortedLabelValue = LabelValue.OrderByDescending(kvp => kvp.Item3.TotalTaskValue).ToArray();
+                        var sortedLabelValue = LabelValue.OrderByDescending(kvp => kvp.Item3.TaskValue).ToArray();
                         //var sortedLabelValue = currentCounts.OrderByDescending(kvp => kvp.Value).ToArray();
                         taskValueList.Add(sortedLabelValue.First().Item3);
                     }
@@ -303,7 +351,7 @@ namespace CrowdsourcingModels
                     {
 
                         //Adding WorkerId into taskValueList 
-                        ActiveLearningResult nextTaskValueItem = TaskValue[nextData.First().TaskId];
+                        ActiveLearningResult nextTaskValueItem = TaskUtility[nextData.First().TaskId];
                         nextTaskValueItem.WorkerId = nextData.First().WorkerId;
 
                         //add taskID
@@ -315,7 +363,7 @@ namespace CrowdsourcingModels
                     if (doSnapShot)
                     {
                         Console.WriteLine("{0} (label {1} of {2}):\t{3:0.000}\t{4:0.0000}", modelName, index, totalInstances, accuracy.Last(), avgRecall.Last());
-                        //DoSnapshot(accuracy, nlpd, avgRecall, taskValueList, results, modelName, "interim", resultsDir, initialNumLabelsPerTask, lipschitzConstant);
+                        //DoSnapshot(accuracy, nlpd, avgRecall, taskValueList, results, modelName, "interim", resultsDir, initialNumLabelsPerTask);
                     }
                 }//end if logs
 
@@ -325,7 +373,7 @@ namespace CrowdsourcingModels
             isExperimentCompleted = true;
 
             stopWatchTotal.Stop();
-            DoSnapshot(accuracy, nlpd, avgRecall, taskValueList, results, modelName, "final", resultsDir, initialNumLabelsPerTask, lipschitzConstant);
+            DoSnapshot(accuracy, nlpd, avgRecall, taskValueList, results, modelName, "final", resultsDir, initialNumLabelsPerTask);
             ResetAccuracyList();
             Console.WriteLine("Elapsed time: {0}\n", stopWatchTotal.Elapsed);
         }
@@ -459,13 +507,13 @@ namespace CrowdsourcingModels
                     switch (taskSelectionMethod[indexModel]) 
                     {
                         case TaskSelectionMethod.EntropyTask:
-                            TaskValue[indexModel] = activeLearning[indexModel].EntropyTrueLabelPosterior();
+                            TaskValue[indexModel] = activeLearning[indexModel].EntropyTrueLabel();
                             break;
 
                         case TaskSelectionMethod.RandomTask:
                             TaskValue[indexModel] = data.GroupBy(d => d.TaskId).ToDictionary(a => a.Key, a => new ActiveLearningResult
                             {
-                                TotalTaskValue = Rand.Double()
+                                TaskValue = Rand.Double()
                             });
                             break;
 
@@ -473,17 +521,17 @@ namespace CrowdsourcingModels
                             //add task value according to the count left
                             TaskValue[indexModel] = currentCounts.OrderBy(kvp => kvp.Value).ToDictionary(a => a.Key, a => new ActiveLearningResult
                             {
-                                TotalTaskValue = 1
+                                TaskValue = 1
                             });
                             break;
 
                         default: // Entropy task selection
-                            TaskValue[indexModel] = activeLearning[indexModel].EntropyTrueLabelPosterior();
+                            TaskValue[indexModel] = activeLearning[indexModel].EntropyTrueLabel();
                             break;
                     }
 
                     // Don't call this if UniformTask
-                    nextData[indexModel] = GetNextRandomData(groupedRandomisedData, TaskValue[indexModel], currentCounts, totalCounts, numIncremData, taskSelectionMethod[indexModel]);
+                    //nextData[indexModel] = GetDataFromRandomWorker(groupedRandomisedData, TaskValue[indexModel], currentCounts, totalCounts, numIncremData, taskSelectionMethod[indexModel]);
 
                     if (nextData == null || nextData[indexModel].Count == 0)
                         break;
@@ -500,7 +548,7 @@ namespace CrowdsourcingModels
 
                         if (TaskValue[indexModel] == null)
                         {
-                            var sortedLabelValue = LabelValue[indexModel].OrderByDescending(kvp => kvp.Item3.TotalTaskValue).ToArray();
+                            var sortedLabelValue = LabelValue[indexModel].OrderByDescending(kvp => kvp.Item3.TaskValue).ToArray();
                             //var sortedLabelValue = currentCounts.OrderByDescending(kvp => kvp.Value).ToArray();
                             taskValueListArray[indexModel].Add(sortedLabelValue.First().Item3);
                         }
@@ -550,10 +598,9 @@ namespace CrowdsourcingModels
                 for (int i = 0; i < accArr.Length; i++)
                 {
                     /// <summary>
-                    /// Enable one of the lines below to get the accuracy printed if the format that you want.
+                    /// Edit this print line to get the accuracy printed if the format that you want.
                     /// </summary>
                     writer.WriteLine("{0:0.0000},{1:0.0000}", accArr[i], avgRec[i]); // Accuracy and average recall
-                    //writer.WriteLine("{0:0.0000},{1:0.0000}", accArr[i], nlpdArr[i]); // Accuracy and negative log probability density
                 }
             }
 
@@ -567,7 +614,7 @@ namespace CrowdsourcingModels
                 for (int i = 0; i < taskValue.Count; i++)
                 {
                     //write taskId, WorkerId, TaskValue into the csv file
-                    writer.WriteLine(String.Format("{0},{1},{2:0.000},{3:0.000},{4:0.000}", taskValue[i].TaskId, taskValue[i].WorkerId, taskValue[i].TotalTaskValue, taskValue[i].TaskValue, taskValue[i].UcbValue));
+                    writer.WriteLine(String.Format("{0},{1},{2:0.000},{3:0.000}", taskValue[i].TaskId, taskValue[i].WorkerId, taskValue[i].TaskValue, taskValue[i].TaskValue));
                 }
             }
         }
@@ -600,52 +647,134 @@ namespace CrowdsourcingModels
         /// <param name="totalCounts">The total data count for all the tasks.</param>
         /// <param name="numIncremData">The number of data to be selected.</param>
         /// <returns>The list of sub-data.</returns>
-        public static List<Datum> GetNextRandomData(
+        //public static List<Datum> GetDataFromRandomWorker(
+        //    Dictionary<string, Datum[]> groupedRandomisedData,
+        //    Dictionary<string, ActiveLearningResult> taskValue,// Don't need it for uniform exploration
+        //    Dictionary<string, int> currentCounts,
+        //    Dictionary<string, int> totalCounts,
+        //    int numIncremData,
+        //    TaskSelectionMethod taskSelectionMethod)
+        //{
+        //        List<Datum> data = new List<Datum>();
+
+        //        var sortedTaskValues = taskValue.OrderByDescending(kvp => kvp.Value.TotalTaskValue).ToArray();
+        //        var sortedCounts = currentCounts.OrderByDescending(kvp => kvp.Value).ToArray();
+
+        //        int numAdded = 0;
+        //        for (; ; ) //outer for
+        //        {
+        //            bool noMoreData = currentCounts.All(kvp => kvp.Value >= totalCounts[kvp.Key]);
+        //            if (noMoreData)
+        //                break;
+
+        //            for (int i = 0; i < sortedTaskValues.Length; i++)//inner for
+        //            {
+        //                var task = sortedTaskValues[i].Key;
+        //                int index = currentCounts[task];
+        //                if (index >= totalCounts[task])
+        //                    continue;
+        //                data.Add(groupedRandomisedData[task][index]);
+        //                currentCounts[task] = index + 1;
+        //                if (++numAdded >= numIncremData)
+        //                    return data;
+        //        }// end outer for 
+        //    }//end if task selection method is not uniform
+
+
+        //    return data;
+        //}//
+
+        public static List<Datum> GetNextData(
             Dictionary<string, Datum[]> groupedRandomisedData,
-            Dictionary<string, ActiveLearningResult> taskValue,// Don't need it for uniform exploration
+            List<Tuple<string, string, ActiveLearningResult>> labelValue,
             Dictionary<string, int> currentCounts,
             Dictionary<string, int> totalCounts,
-            int numIncremData,
-            TaskSelectionMethod taskSelectionMethod)
+            Dictionary<string, HashSet<string>> workersPerTask,
+            int numIncremData)
         {
             List<Datum> data = new List<Datum>();
 
-                var sortedTaskValues = taskValue.OrderByDescending(kvp => kvp.Value.TotalTaskValue).ToArray();
-                var sortedCounts = currentCounts.OrderByDescending(kvp => kvp.Value).ToArray();
+            // Randomlise ordering in the list of label values to aid with random worker selection
+            var perm = Rand.Perm(labelValue.Count);
+            var randomisedLabelValue = labelValue.Select((l, i) => labelValue[perm[i]]).ToArray();
 
-                int numAdded = 0;
-                for (; ; ) //outer for
+            // Sort label values in descending order
+            var sortedLabelValue = randomisedLabelValue.OrderByDescending(kvp => kvp.Item3.TaskValue).ToArray();
+
+            // Cap num. requested labels with num. available labels
+            if (numIncremData > sortedLabelValue.Length)
+                numIncremData = sortedLabelValue.Length;
+
+            int numAdded = 0;
+            for (; ; )
+            {
+                // Check if there is any data left
+                bool noMoreData = currentCounts.All(kvp => kvp.Value >= totalCounts[kvp.Key]);
+                if (noMoreData)
+                    break;
+
+                // Pick the task with the highest value and then pick the worker with the highest value
+                for (int i = 0; i < sortedLabelValue.Length; i++)
                 {
-                    bool noMoreData = currentCounts.All(kvp => kvp.Value >= totalCounts[kvp.Key]);
-                    if (noMoreData)
-                        break;
-
-                    for (int i = 0; i < sortedTaskValues.Length; i++)//inner for
+                    var task = sortedLabelValue[i].Item1;
+                    var sortedTaskLabels = sortedLabelValue.Where(t => t.Item1.Equals(task)).OrderByDescending(vkp => vkp.Item3.WorkerValue).ToArray();
+                    var taskLabels = groupedRandomisedData[task].GroupBy(d => d.WorkerId).ToDictionary(a => a.Key, a => a.First());
+                    for (int j = 0; j < sortedTaskLabels.Length; j++)
                     {
-                        var task = sortedTaskValues[i].Key;
-                        int index = currentCounts[task];
-                        if (index >= totalCounts[task])
-                            continue;
-                        data.Add(groupedRandomisedData[task][index]);
-                        currentCounts[task] = index + 1;
-                        if (++numAdded >= numIncremData)
-                            return data;
-                }// end outer for 
-            }//end if task selection method is not uniform
+                        //Dictionary keyed by worker. Value is the worker's label for task
+                        var worker = sortedTaskLabels[j].Item2;
+                        if (taskLabels.ContainsKey(worker))
+                        {
+                            int indexTask = currentCounts[task];
+                            if (!workersPerTask[task].Contains(worker))
+                                continue;
+                            data.Add(taskLabels[worker]);
+                            currentCounts[task] = indexTask + 1;
+                            workersPerTask[task].Remove(worker);
+                            if (++numAdded >= numIncremData)
+                                return data;
+                        }
+                    }
+                }
+                Console.WriteLine("Warning: No labels were found, return a random one");
+                data.Add(GetRandomDatum(groupedRandomisedData, currentCounts, workersPerTask));
 
-
+                if (++numAdded >= numIncremData)
+                    return data;
+            }
             return data;
-        }//
+        }
 
 
-        public static Boolean IsExperimentCompleted()
+        public static Datum GetRandomDatum(
+                Dictionary<string, Datum[]> groupedRandomisedData,
+                Dictionary<string, int> currentCounts,
+                Dictionary<string, HashSet<string>> workersPerTask)
         {
-            return isExperimentCompleted;
+            foreach (string task in currentCounts.Keys)
+            {
+                foreach (string worker in workersPerTask[task])
+                {
+                    int indexTask = currentCounts[task];
+                    var taskLabels = groupedRandomisedData[task].GroupBy(d => d.WorkerId).ToDictionary(a => a.Key, a => a.First());
+                    var datum = taskLabels[worker];
+                    currentCounts[task] = indexTask + 1;
+                    workersPerTask[task].Remove(worker);
+                    return datum;
+                }
+            }
+            return null;
         }
 
-        public static List<double> GetAccuracyList() {
-            return accuracy;
-        }
+        //public static Boolean IsExperimentCompleted()
+        //{
+        //    return isExperimentCompleted;
+        //}
+
+        //public static List<double> GetAccuracyList()
+        //{
+        //    return accuracy;
+        //}
 
         public static void ResetAccuracyList()
         {

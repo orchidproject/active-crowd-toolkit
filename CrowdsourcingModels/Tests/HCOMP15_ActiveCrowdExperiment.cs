@@ -46,16 +46,36 @@ namespace CrowdsourcingModels
 
             if (args.Length>1)
             {
-                startClusterRun = int.Parse(args[1]);
-                endClusterRun = int.Parse(args[2]);
+                startClusterRun = int.Parse(args[3]);
+                endClusterRun = int.Parse(args[4]);
                 Datasets = new string[] { args[0] }; 
             }
 
+            // Param2: task selection method
+            TaskSelectionMethod whichTaskSelection = 0;
+            if (args.Length > 3)
+            {
+                switch (args[3])
+                {
+                    case "ET": whichTaskSelection = TaskSelectionMethod.EntropyTask; break;
+                    case "UT": whichTaskSelection = TaskSelectionMethod.UniformTask; break;
+                    case "RT": whichTaskSelection = TaskSelectionMethod.RandomTask; break;
+                }
+            }
+
+            // Param2: task selection method
+            WorkerSelectionMethod whichWorkerSelection = 0;
+            if (args.Length > 3)
+            {
+                switch (args[3])
+                {
+                    case "RW": whichWorkerSelection = WorkerSelectionMethod.RandomWorker; break;
+                    case "BW": whichWorkerSelection = WorkerSelectionMethod.BestWorker; break;
+                }
+            }
 
             // Experiment
-            RunHCOMPExperiments(0, 0, TaskSelectionMethod.UniformTask, 1);
-            RunHCOMPExperiments(0, 0, TaskSelectionMethod.EntropyTask, 1);
-            RunHCOMPExperiments(0, 0, TaskSelectionMethod.RandomTask, 1);
+            RunHCOMPExperiments(0, 0, whichTaskSelection, whichWorkerSelection, 1);
 
             // Aggregate results
             //AggregateResults("CF");
@@ -70,11 +90,11 @@ namespace CrowdsourcingModels
         /// <param name="taskSelectionMethod">The method for selecting tasks (Random / Entropy).</param>
         /// <param name="model">The model instance.</param>
         /// <param name="communityCount">The number of communities (only for CBCC).</param>
-        public static void RunHCOMPActiveLearning(string dataSet, RunType runType, TaskSelectionMethod taskSelectionMethod, int InitialNumLabelsPerTask, BCC model, int communityCount = 4)
+        public static void RunHCOMPActiveLearning(string dataSet, RunType runType, TaskSelectionMethod taskSelectionMethod, WorkerSelectionMethod workerSelectionMethod, int InitialNumLabelsPerTask, BCC model, int communityCount = 4)
         {
             var data = Datum.LoadData(dataDirectory + dataSet + ".csv");
-            string modelName = Program.GetModelName(dataSet, runType, taskSelectionMethod, WorkerSelectionMethod.RandomWorker, communityCount);
-            ActiveLearning.RunActiveLearning(data, modelName, runType, model, taskSelectionMethod, WorkerSelectionMethod.RandomWorker, ResultsDir, communityCount, InitialNumLabelsPerTask);
+            string modelName = Program.GetModelName(dataSet, runType, taskSelectionMethod, workerSelectionMethod, communityCount);
+            ActiveLearning.RunActiveLearning(data, modelName, runType, model, taskSelectionMethod, workerSelectionMethod, ResultsDir, communityCount, InitialNumLabelsPerTask);
         }
 
         /// <summary>
@@ -84,7 +104,7 @@ namespace CrowdsourcingModels
         /// <param name="startIndex">First instance of the data set array.</param>
         /// <param name="endIndex">Last instance of the data set array.</param>
         /// <param name="whichModel">Model to run.</param>
-        public static void RunHCOMPExperiments(int startIndex, int endIndex, TaskSelectionMethod TaskSelectionMethod, int InitialNumLabelsPerTask)
+        public static void RunHCOMPExperiments(int startIndex, int endIndex, TaskSelectionMethod TaskSelectionMethod, WorkerSelectionMethod WorkerSelectionMethod, int InitialNumLabelsPerTask)
         {
             for (int run = startClusterRun; run <= endClusterRun; run++)
             {
@@ -98,11 +118,11 @@ namespace CrowdsourcingModels
                 Console.WriteLine("\nCluster run {0} / {1}", run, endClusterRun);
                 for (int ds = startIndex; ds <= endIndex; ds++)
                 {
-                    RunHCOMPActiveLearning(Datasets[ds], RunType.VoteDistribution, TaskSelectionMethod, InitialNumLabelsPerTask, null);
-                    RunHCOMPActiveLearning(Datasets[ds], RunType.MajorityVote, TaskSelectionMethod, InitialNumLabelsPerTask, null);
-                    RunHCOMPActiveLearning(Datasets[ds], RunType.DawidSkene, TaskSelectionMethod, InitialNumLabelsPerTask, null);
-                    RunHCOMPActiveLearning(Datasets[ds], RunType.BCC, TaskSelectionMethod, InitialNumLabelsPerTask, new BCC());
-                    RunHCOMPActiveLearning(Datasets[ds], RunType.CBCC, TaskSelectionMethod, InitialNumLabelsPerTask, new CBCC(), Program.NumCommunities[ds]);
+                    RunHCOMPActiveLearning(Datasets[ds], RunType.VoteDistribution, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, null);
+                    RunHCOMPActiveLearning(Datasets[ds], RunType.MajorityVote, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, null);
+                    //RunHCOMPActiveLearning(Datasets[ds], RunType.DawidSkene, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, null);
+                    RunHCOMPActiveLearning(Datasets[ds], RunType.BCC, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, new BCC());
+                    RunHCOMPActiveLearning(Datasets[ds], RunType.CBCC, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, new CBCC(), Program.NumCommunities[ds]);
                 }
             }
         }

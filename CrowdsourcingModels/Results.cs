@@ -808,7 +808,15 @@ namespace CrowdsourcingModels
                 BynaryConfusionMatrix = new ConfusionMatrix((int)confusionMatrix[1, 1], (int)confusionMatrix[0, 0], (int)confusionMatrix[0, 1], (int)confusionMatrix[1, 0]);
             }
         }
-        
+
+        public static double[] GetConfusionMatrixDiagonal(Dirichlet[] confusionMatrix)
+        {
+            int labelCount = confusionMatrix.Length;
+            var meanConfusionMatrix = confusionMatrix.Select(cm => cm.GetMean()).ToArray();
+            var diagonalValues = Util.ArrayInit(labelCount, i => meanConfusionMatrix[i][i]).ToArray();
+            return diagonalValues;
+        }
+
         public void WriteBasicStatistics(StreamWriter writer)
         {
             int numHITs = Mapping.TaskCount;

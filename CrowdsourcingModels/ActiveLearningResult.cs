@@ -36,42 +36,31 @@ namespace CrowdsourcingModels
         }
 
         /// <summary>
-        /// The total utility of a label provided by the worker for the task.
+        /// The utility of the task
         /// </summary>
-        double _totalTaskValue = 0;
-        public double TotalTaskValue
-        {
-            set { _totalTaskValue = value; }
-            get
-            {
-                //return 3 decimal places of the taskValue
-                return Math.Round(_totalTaskValue, 3);
-            }
-        }
-
-
-        /// <summary>
-        /// The utility of a label provided by the worker for the task.
-        /// </summary>
-        double _taskValue = 0;
+        double _TaskValue = 0;
         public double TaskValue
         {
-            set { _taskValue = value; }
+            set { _TaskValue = value; }
             get
             {
                 //return 3 decimal places of the taskValue
-                return Math.Round(_taskValue, 3);
+                return Math.Round(_TaskValue, 3);
             }
         }
-       
-    
+
         /// <summary>
-        /// The upper confidence bound value for Multi Armed Bandit 
+        /// The utility of the worker
         /// </summary>
-        public double UcbValue
+        double _WorkerValue = 0;
+        public double WorkerValue
         {
-            get;
-            set;
+            set { _WorkerValue = value; }
+            get
+            {
+                //return 3 decimal places of the taskValue
+                return Math.Round(_WorkerValue, 3);
+            }
         }
     } // end class of ActiveLearningResult
 
