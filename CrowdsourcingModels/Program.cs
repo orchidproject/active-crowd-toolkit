@@ -71,7 +71,7 @@ namespace CrowdsourcingModels
                     results.RunDawidSkene(data, data, true);
                     break;
                 default:
-                    results.RunBCC(modelName, data, data, model, Results.RunMode.ClearResults, true, numCommunities, false, false);
+                    results.RunBCC(modelName, data, data, model, RunMode.ClearResults, true, numCommunities, false, false);
                     break;
             }
             //bool isExportedToCSV = true;

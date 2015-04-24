@@ -233,7 +233,7 @@ namespace CrowdsourcingModels
                             results.RunDawidSkene(subData, data, calculateAccuracy);
                             break;
                         default: // Run BCC models
-                            results.RunBCC(modelName, subData, data, model, Results.RunMode.ClearResults, calculateAccuracy, communityCount, false);
+                            results.RunBCC(modelName, subData, data, model, RunMode.ClearResults, calculateAccuracy, communityCount, false);
                             break;
                     }
                 }
@@ -293,8 +293,8 @@ namespace CrowdsourcingModels
                 switch (workerSelectionMethod)
                 {
                     case WorkerSelectionMethod.BestWorker:
-                        //Assign worker accuracies to the lowest diagonal value of the confusion matrix (conservative approach). Alternative ways are also possible.
-                            WorkerAccuracy = results.WorkerConfusionMatrix.ToDictionary(
+                        //Assign worker accuracies to the maximum value on the diagonal of the confusion matrix (conservative approach). Alternative ways are also possible.
+                            WorkerAccuracy = results.WorkerConfusionMatrixMean.ToDictionary(
                                 kvp => kvp.Key,
                                 kvp => Results.GetConfusionMatrixDiagonal(kvp.Value).Max());
                         break;
@@ -486,7 +486,7 @@ namespace CrowdsourcingModels
                                 results[indexModel].RunDawidSkene(subDataArray[indexModel], data, calculateAccuracy);
                                 break;
                             default: // Run BCC models
-                                results[indexModel].RunBCC(modelName[indexModel], subDataArray[indexModel], data, model[indexModel], Results.RunMode.ClearResults, calculateAccuracy, communityCount, false);
+                                results[indexModel].RunBCC(modelName[indexModel], subDataArray[indexModel], data, model[indexModel], RunMode.ClearResults, calculateAccuracy, communityCount, false);
                                 break;
                         }
                     } //end for running all the data

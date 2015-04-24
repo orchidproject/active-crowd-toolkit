@@ -75,10 +75,10 @@ namespace CrowdsourcingModels
             }
 
             // Experiment
-            RunHCOMPExperiments(0, 0, whichTaskSelection, whichWorkerSelection, 1);
+            //RunHCOMPExperiments(0, 0, whichTaskSelection, whichWorkerSelection, 1);
 
             // Aggregate results
-            //AggregateResults("CF");
+            AggregateResults();
 
         }
 
@@ -120,24 +120,27 @@ namespace CrowdsourcingModels
                 {
                     RunHCOMPActiveLearning(Datasets[ds], RunType.VoteDistribution, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, null);
                     RunHCOMPActiveLearning(Datasets[ds], RunType.MajorityVote, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, null);
-                    //RunHCOMPActiveLearning(Datasets[ds], RunType.DawidSkene, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, null);
+                    RunHCOMPActiveLearning(Datasets[ds], RunType.DawidSkene, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, null);
                     RunHCOMPActiveLearning(Datasets[ds], RunType.BCC, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, new BCC());
                     RunHCOMPActiveLearning(Datasets[ds], RunType.CBCC, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, new CBCC(), Program.NumCommunities[ds]);
                 }
             }
         }
 
-        public static void AggregateResults(string dataset)
+        public static void AggregateResults()
         {
             ///
             /// The results matrix is a dictionary with 1-level key = filename, 2-level key is the accuracy name, 3-level key is the labelling round and the value is the array of accuracies at that round
             /// 
             var resultsMatrix = new Dictionary<string, Dictionary<string, List<List<double>>>>();
+            ResultsPath = @"C:\Users\Matteo\Desktop\RooResultsActiveCrowdToolkit\";
+            string[] RunDirectories = Directory.GetDirectories(ResultsPath);
+
             string[] Headers = null;
-            for (int run = 1; run <= endClusterRun; run++)
+            foreach(string dir in RunDirectories)
             {
-                string resultsDir = String.Format(ResultsPath + "Run{0}/", run);
-                var graphFiles = new DirectoryInfo(resultsDir).GetFiles("*graph*");
+                //string resultsDir = String.Format(ResultsPath + "Run{0}/", run);
+                var graphFiles = new DirectoryInfo(dir).GetFiles("*graph*");
 
                 foreach (var file in graphFiles)
                 {
@@ -179,6 +182,13 @@ namespace CrowdsourcingModels
                 }
             }
 
+            // Dictionary keyed by filename, value is the number of runs
+            var runCounts = resultsMatrix.ToDictionary(k => k.Key, v =>
+            {
+                var metrics = v.Value.Keys.ToArray();
+                return v.Value[metrics[0]][0].Count();
+            });
+
             ///
             /// Compute averages
             /// 
@@ -186,13 +196,13 @@ namespace CrowdsourcingModels
             {
                 string method = kvp.Key;
                 var aggregatedMeanAccuracies = kvp.Value.ToDictionary(k => k.Key, v => v.Value.Select(r => r.Average()).ToArray());
-                var aggregatedStdAccuracies = kvp.Value.ToDictionary(k => k.Key, v => v.Value.Select(r => getStandardDeviation(r)).ToArray());
+                var aggregatedStdAccuracies = kvp.Value.ToDictionary(k => k.Key, v => v.Value.Select(r => getStandardDeviation(r) / runCounts[kvp.Key]).ToArray());
                 string[] metrics = aggregatedMeanAccuracies.Keys.ToArray();
                 int numRows = aggregatedMeanAccuracies[metrics[0]].Length;
 
                 using (StreamWriter writer = new StreamWriter(ResultsPath+"aggregated_"+method))
                 {
-                    var headers = kvp.Value.Keys.Select(h => String.Format("{0},{0}_std,", h));
+                    var headers = kvp.Value.Keys.Select(h => String.Format("{0},{0}_std", h)).ToArray();
                     writer.WriteLine(string.Join(",", headers));
 
                     for (int r = 0; r < numRows; r++)
@@ -205,6 +215,14 @@ namespace CrowdsourcingModels
                         writer.WriteLine(string.Join(",", line));
                     }
                 }
+            }
+
+            /// 
+            /// Print report
+            ///         
+            foreach(var kvp in runCounts)
+            {
+                Console.WriteLine("{0}: {1} runs", kvp.Key, kvp.Value);
             }
         }
 

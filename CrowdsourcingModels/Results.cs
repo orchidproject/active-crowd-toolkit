@@ -73,6 +73,15 @@ namespace CrowdsourcingModels
         }
 
         /// <summary>
+        /// The mean of the posterior of the confusion matrix of each worker.
+        /// </summary>
+        public Dictionary<string, Vector[]> WorkerConfusionMatrixMean
+        {
+            get;
+            protected set;
+        }
+
+        /// <summary>
         /// The look-ahead posterior of the confusion matrix of each worker obtained after simulating
         /// a new label in look-ahead run mode.
         /// </summary>
@@ -291,7 +300,7 @@ namespace CrowdsourcingModels
             private set;
         }
 
-        public ConfusionMatrix BynaryConfusionMatrix
+        public ConfusionMatrix ResultsConfusionMatrixForBinaryLabels
         {
             get;
             private set;
@@ -386,19 +395,6 @@ namespace CrowdsourcingModels
             return this;
         }
 
-        public enum RunMode
-        {
-            ClearResults,
-            BatchTraining,
-            IncrementalExperiment,
-            OnlineExperiment,
-            LookAheadExperiment,
-            LoadAndUseCommunityPriors,
-            Prediction,
-            //OnlineProduction,
-            //LookAheadProduction,
-        };
-
         [Serializable]
         public struct NonTaskWorkerParameters
         {
@@ -453,9 +449,6 @@ namespace CrowdsourcingModels
             BCCPosteriors priors = null;
             switch (mode)
             {
-                case RunMode.IncrementalExperiment:
-                case RunMode.LookAheadExperiment:
-                case RunMode.OnlineExperiment:
                 case RunMode.Prediction:
                     priors = ToPriors();
                     break;
@@ -567,6 +560,7 @@ namespace CrowdsourcingModels
         {
             BackgroundLabelProb = Dirichlet.Uniform(Mapping.LabelCount);
             WorkerConfusionMatrix = new Dictionary<string, Dirichlet[]>();
+            WorkerConfusionMatrixMean = new Dictionary<string, Vector[]>();
             WorkerPrediction = new Dictionary<string, Dictionary<String, Discrete>>();
             WorkerCommunity = new Dictionary<string, Discrete>();
             TrueLabel = new Dictionary<string, Discrete>();
@@ -614,6 +608,7 @@ namespace CrowdsourcingModels
                 for (int w = 0; w < posteriors.WorkerConfusionMatrix.Length; w++)
                 {
                     WorkerConfusionMatrix[Mapping.WorkerIndexToId[w]] = posteriors.WorkerConfusionMatrix[w];
+                    WorkerConfusionMatrixMean[Mapping.WorkerIndexToId[w]] = posteriors.WorkerConfusionMatrix[w].Select(cm => cm.GetMean()).ToArray();
                 }
                 for (int t = 0; t < posteriors.TrueLabel.Length; t++)
                 {
@@ -805,15 +800,14 @@ namespace CrowdsourcingModels
             {
                 RocCurve = new ReceiverOperatingCharacteristic(trueBinaryLabelList.ToArray(), probTrueLabelList.ToArray());
                 RocCurve.Compute(10000);
-                BynaryConfusionMatrix = new ConfusionMatrix((int)confusionMatrix[1, 1], (int)confusionMatrix[0, 0], (int)confusionMatrix[0, 1], (int)confusionMatrix[1, 0]);
+                ResultsConfusionMatrixForBinaryLabels = new ConfusionMatrix((int)confusionMatrix[1, 1], (int)confusionMatrix[0, 0], (int)confusionMatrix[0, 1], (int)confusionMatrix[1, 0]);
             }
         }
 
-        public static double[] GetConfusionMatrixDiagonal(Dirichlet[] confusionMatrix)
+        public static double[] GetConfusionMatrixDiagonal(Vector[] confusionMatrixMean)
         {
-            int labelCount = confusionMatrix.Length;
-            var meanConfusionMatrix = confusionMatrix.Select(cm => cm.GetMean()).ToArray();
-            var diagonalValues = Util.ArrayInit(labelCount, i => meanConfusionMatrix[i][i]).ToArray();
+            int labelCount = confusionMatrixMean.Length;
+            var diagonalValues = Util.ArrayInit(labelCount, i => confusionMatrixMean[i][i]).ToArray();
             return diagonalValues;
         }
 
@@ -913,14 +907,14 @@ namespace CrowdsourcingModels
             WriteBasicStatistics(writer);
             if (Mapping.LabelCount == 2)
             {
-                writer.WriteLine("True positive = {0:0.000}", BynaryConfusionMatrix.TruePositives);
-                writer.WriteLine("True negative = {0:0.000}", BynaryConfusionMatrix.TrueNegatives);
-                writer.WriteLine("False positive = {0:0.000}", BynaryConfusionMatrix.FalsePositives);
-                writer.WriteLine("False negative = {0:0.000}", BynaryConfusionMatrix.FalseNegatives);
+                writer.WriteLine("True positive = {0:0.000}", ResultsConfusionMatrixForBinaryLabels.TruePositives);
+                writer.WriteLine("True negative = {0:0.000}", ResultsConfusionMatrixForBinaryLabels.TrueNegatives);
+                writer.WriteLine("False positive = {0:0.000}", ResultsConfusionMatrixForBinaryLabels.FalsePositives);
+                writer.WriteLine("False negative = {0:0.000}", ResultsConfusionMatrixForBinaryLabels.FalseNegatives);
 
-                writer.WriteLine("Precision = {0:0.000}", BynaryConfusionMatrix.PositivePredictiveValue);
-                writer.WriteLine("Recall = {0:0.000}", BynaryConfusionMatrix.Sensitivity);
-                writer.WriteLine("Accuracy = {0:0.000}", BynaryConfusionMatrix.Accuracy);
+                writer.WriteLine("Precision = {0:0.000}", ResultsConfusionMatrixForBinaryLabels.PositivePredictiveValue);
+                writer.WriteLine("Recall = {0:0.000}", ResultsConfusionMatrixForBinaryLabels.Sensitivity);
+                writer.WriteLine("Accuracy = {0:0.000}", ResultsConfusionMatrixForBinaryLabels.Accuracy);
                 writer.WriteLine("AUC = {0:0.000}", RocCurve.Area);
 
                 WriteWorkerConfusionMatrix(writer, "Model confusion matrix", this.ModelConfusionMatrix);
