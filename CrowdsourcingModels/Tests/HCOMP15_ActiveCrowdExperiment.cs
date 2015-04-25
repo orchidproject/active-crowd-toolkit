@@ -1,30 +1,20 @@
-﻿using System;
-using System.IO;
+﻿using MicrosoftResearch.Infer.Maths;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using MicrosoftResearch.Infer;
-using MicrosoftResearch.Infer.Factors;
-using MicrosoftResearch.Infer.Distributions;
-using MicrosoftResearch.Infer.Maths;
-using MicrosoftResearch.Infer.Models;
-using MicrosoftResearch.Infer.Utils;
 
 namespace CrowdsourcingModels
 {
     class HCOMP15_ActiveCrowdExperimentExperiment
     {
+        public static string DataDirectory = "Data/";
 
-        public const string dataDirectory = "Data/";
+        public static int EndClusterRun = 100;
 
-        public static int endClusterRun = 100;
-
-        public static int startClusterRun = 1;
+        public static int StartClusterRun = 1;
 
         public static string[] Datasets = new string[] { "CF", "MS", "SP" };
-
 
         /// <summary>
         /// The path to the results directory.
@@ -46,16 +36,16 @@ namespace CrowdsourcingModels
 
             if (args.Length>1)
             {
-                startClusterRun = int.Parse(args[3]);
-                endClusterRun = int.Parse(args[4]);
+                StartClusterRun = int.Parse(args[3]);
+                EndClusterRun = int.Parse(args[4]);
                 Datasets = new string[] { args[0] }; 
             }
 
             // Param2: task selection method
             TaskSelectionMethod whichTaskSelection = 0;
-            if (args.Length > 3)
+            if (args.Length > 2)
             {
-                switch (args[3])
+                switch (args[1])
                 {
                     case "ET": whichTaskSelection = TaskSelectionMethod.EntropyTask; break;
                     case "UT": whichTaskSelection = TaskSelectionMethod.UniformTask; break;
@@ -63,22 +53,28 @@ namespace CrowdsourcingModels
                 }
             }
 
-            // Param2: task selection method
+            // Param3: task selection method
             WorkerSelectionMethod whichWorkerSelection = 0;
             if (args.Length > 3)
             {
-                switch (args[3])
+                switch (args[2])
                 {
                     case "RW": whichWorkerSelection = WorkerSelectionMethod.RandomWorker; break;
                     case "BW": whichWorkerSelection = WorkerSelectionMethod.BestWorker; break;
                 }
             }
 
+            // Param5: task selection method
+            if (args.Length > 5)
+            {
+                DataDirectory = args[5]+"/";
+            }
+
             // Experiment
-            //RunHCOMPExperiments(0, 0, whichTaskSelection, whichWorkerSelection, 1);
+            RunHCOMPExperiments(0, 0, whichTaskSelection, whichWorkerSelection, 1);
 
             // Aggregate results
-            AggregateResults();
+            //AggregateResults();
 
         }
 
@@ -92,7 +88,13 @@ namespace CrowdsourcingModels
         /// <param name="communityCount">The number of communities (only for CBCC).</param>
         public static void RunHCOMPActiveLearning(string dataSet, RunType runType, TaskSelectionMethod taskSelectionMethod, WorkerSelectionMethod workerSelectionMethod, int InitialNumLabelsPerTask, BCC model, int communityCount = 4)
         {
-            var data = Datum.LoadData(dataDirectory + dataSet + ".csv");
+            IList<Datum> data = Datum.LoadData(DataDirectory + dataSet + ".csv");
+            // For SP, we take a random subset of 3000 data points
+            if(dataSet.Equals("SP"))
+            {
+                data = Datum.Shuffle(data).Take(3000).ToList();
+            }
+
             string modelName = Program.GetModelName(dataSet, runType, taskSelectionMethod, workerSelectionMethod, communityCount);
             ActiveLearning.RunActiveLearning(data, modelName, runType, model, taskSelectionMethod, workerSelectionMethod, ResultsDir, communityCount, InitialNumLabelsPerTask);
         }
@@ -106,7 +108,7 @@ namespace CrowdsourcingModels
         /// <param name="whichModel">Model to run.</param>
         public static void RunHCOMPExperiments(int startIndex, int endIndex, TaskSelectionMethod TaskSelectionMethod, WorkerSelectionMethod WorkerSelectionMethod, int InitialNumLabelsPerTask)
         {
-            for (int run = startClusterRun; run <= endClusterRun; run++)
+            for (int run = StartClusterRun; run <= EndClusterRun; run++)
             {
                 // Create run directory
                 ResultsDir = String.Format(ResultsPath + "Run{0}/", run);
@@ -115,7 +117,7 @@ namespace CrowdsourcingModels
                 // Reset the random seed with run index to aid reproducibility
                 Rand.Restart(run);
 
-                Console.WriteLine("\nCluster run {0} / {1}", run, endClusterRun);
+                Console.WriteLine("\nCluster run {0} / {1}", run, EndClusterRun);
                 for (int ds = startIndex; ds <= endIndex; ds++)
                 {
                     RunHCOMPActiveLearning(Datasets[ds], RunType.VoteDistribution, TaskSelectionMethod, WorkerSelectionMethod, InitialNumLabelsPerTask, null);

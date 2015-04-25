@@ -38,12 +38,15 @@
   <ItemGroup>
     <Reference Include="Infer.Compiler, Version=2.5.30419.0, Culture=neutral, PublicKeyToken=e4813102a62778da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libs\Infer.Compiler.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive\Infer.NET 2.6\Bin\Infer.Compiler.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Infer.Learners">
+      <HintPath>..\..\..\..\OneDrive\Infer.NET 2.6\Bin\Infer.Learners.dll</HintPath>
     </Reference>
     <Reference Include="Infer.Runtime, Version=2.5.30419.0, Culture=neutral, PublicKeyToken=e4813102a62778da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libs\Infer.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive\Infer.NET 2.6\Bin\Infer.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -58,7 +61,6 @@
     <Compile Include="ActiveLearning.cs" />
     <Compile Include="ActiveLearningResult.cs" />
     <Compile Include="BCC.cs" />
-    <Compile Include="BCCPosteriors.cs" />
     <Compile Include="CBCC.cs" />
     <Compile Include="DawidSkene\DawidSkene.cs" />
     <Compile Include="DawidSkene\Labeling.cs" />

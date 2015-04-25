@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CrowdsourcingProject.Statistics;
+using GetAnotherLabel;
 using MicrosoftResearch.Infer.Distributions;
 using MicrosoftResearch.Infer.Maths;
 using MicrosoftResearch.Infer.Utils;
-using GetAnotherLabel;
-using CrowdsourcingProject.Statistics;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace CrowdsourcingModels
 {
@@ -167,24 +165,6 @@ namespace CrowdsourcingModels
         }
 
         /// <summary>
-        /// Memory used for model training (in MB)
-        /// </summary>
-        public double Memory
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Execution time of model training (in seconds)
-        /// </summary>
-        public double ExecutionTime
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// The data mapping.
         /// </summary>
         public DataMapping Mapping
@@ -323,11 +303,6 @@ namespace CrowdsourcingModels
         /// <returns>The updated results</returns>
         public Results RunMajorityVote(IList<Datum> data, IList<Datum> fullData, bool calculateAccuracy, bool useVoteDistribution)
         {
-            //if (useVoteDistribution)
-            //    Console.WriteLine("\n--- Vote distribution ---");
-            //else
-            //    Console.WriteLine("\n--- Majority Vote ---");
-
             PredictedLabel = new Dictionary<string, int?>();
             Mapping = new DataMapping(data);
 
@@ -356,9 +331,6 @@ namespace CrowdsourcingModels
         /// <returns>A results instance</returns>
         public Results RunDawidSkene(IList<Datum> data, IList<Datum> fullData, bool calculateAccuracy)
         {
-            // If you want to run Dawid-Skene code, download his code, integrate it into
-            // the project, and change false to true below.
-            //Console.WriteLine("--- Dawid Skene ---");
             PredictedLabel = new Dictionary<string, int?>();
             Mapping = new DataMapping(data);
             FullMapping = new DataMapping(fullData);
@@ -380,6 +352,7 @@ namespace CrowdsourcingModels
 
             ds.Estimate(10);
 
+            // Update results
             var inferredLabels = ds.GetObjectClassProbabilities().Select(r => new Discrete(r)).ToArray();
             TrueLabel = inferredLabels.Select((lab, i) => new
             {
@@ -387,6 +360,9 @@ namespace CrowdsourcingModels
                 val = lab
             }).ToDictionary(a => a.key, a => a.val);
 
+            WorkerConfusionMatrixMean = ds.GetConfusionMatrix().ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Select(t => Vector.FromArray(t)).ToArray());
+
+            // Update accuracy
             if (calculateAccuracy)
             {
                 UpdateAccuracy();

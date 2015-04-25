@@ -1,18 +1,8 @@
-﻿using MicrosoftResearch.Infer;
-using MicrosoftResearch.Infer.Factors;
-using MicrosoftResearch.Infer.Distributions;
-using MicrosoftResearch.Infer.Maths;
-using MicrosoftResearch.Infer.Models;
-using MicrosoftResearch.Infer.Utils;
+﻿using MicrosoftResearch.Infer.Maths;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GetAnotherLabel;
-using System.Runtime.Serialization.Formatters.Binary;
 namespace CrowdsourcingModels
 {
     /// <summary>
@@ -66,16 +56,8 @@ namespace CrowdsourcingModels
                 {
                     var strarr = line.Split(',');
                     int length = strarr.Length;
-                    //if (length < 3 || length > 4)
-                    //{
-                    //    //continue;
-                    //}
 
                     int workerLabel = int.Parse(strarr[2]);
-                    //if (workerLabel < -4 || workerLabel > 4)
-                    //{
-                    //    continue;
-                    //}
 
                     var datum = new Datum()
                     {
@@ -100,6 +82,17 @@ namespace CrowdsourcingModels
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Shuffle a data list
+        /// </summary>
+        /// <param name="data">The data list</param>
+        /// <returns>The shuffled data list</returns>
+        public static IList<Datum> Shuffle(IList<Datum> data)
+        {
+            var perm = Rand.Perm(data.Count);
+            return data.Select((d, i) => data[perm[i]]).ToList();
         }
     }
 }

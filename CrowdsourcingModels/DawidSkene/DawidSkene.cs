@@ -718,6 +718,24 @@ namespace GetAnotherLabel
             return result;
         }
 
+        public Dictionary<string, double[][]> GetConfusionMatrix()
+        {
+            Dictionary<string, double[][]> confusionMatrices = annotators.ToDictionary(kvp => kvp.Key, kvp => new double[J][]);
+            foreach (var kvp in confusionMatrices)
+            {
+                for (int j1 = 0; j1<J; j1++)
+                {
+                    int annotator_index = annotators[kvp.Key];
+                    kvp.Value[j1] = new double[J];
+                    for (int j2 = 0; j2<J; j2++)
+                    {
+                        kvp.Value[j1][j2] = pi[annotator_index,j1,j2];
+                    }
+                }
+            }
+            return confusionMatrices;
+        }
+
         public void Estimate(int iterations)
         {
             for (int i = 0; i < iterations; i++) {

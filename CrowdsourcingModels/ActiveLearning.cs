@@ -293,8 +293,9 @@ namespace CrowdsourcingModels
                 switch (workerSelectionMethod)
                 {
                     case WorkerSelectionMethod.BestWorker:
-                        //Assign worker accuracies to the maximum value on the diagonal of the confusion matrix (conservative approach). Alternative ways are also possible.
-                            WorkerAccuracy = results.WorkerConfusionMatrixMean.ToDictionary(
+                        // Assign worker accuracies to the maximum value on the diagonal of the confusion matrix (conservative approach).
+                        // Alternative ways are also possible.
+                        WorkerAccuracy = results.WorkerConfusionMatrixMean.ToDictionary(
                                 kvp => kvp.Key,
                                 kvp => Results.GetConfusionMatrixDiagonal(kvp.Value).Max());
                         break;
@@ -303,7 +304,7 @@ namespace CrowdsourcingModels
                         WorkerAccuracy = results.FullMapping.WorkerIdToIndex.ToDictionary(kvp => kvp.Key, kvp => Rand.Double());
                         break;
                     default:
-                        throw new ApplicationException("No worker selection method is selected");
+                        throw new ApplicationException("No worker selection method selected");
                 }
 
                 ///
@@ -344,7 +345,6 @@ namespace CrowdsourcingModels
                     if (TaskUtility == null) 
                     {
                         var sortedLabelValue = LabelValue.OrderByDescending(kvp => kvp.Item3.TaskValue).ToArray();
-                        //var sortedLabelValue = currentCounts.OrderByDescending(kvp => kvp.Value).ToArray();
                         taskValueList.Add(sortedLabelValue.First().Item3);
                     }
                     else 
@@ -366,8 +366,6 @@ namespace CrowdsourcingModels
                         //DoSnapshot(accuracy, nlpd, avgRecall, taskValueList, results, modelName, "interim", resultsDir, initialNumLabelsPerTask);
                     }
                 }//end if logs
-
-
             }//end for all data
 
             isExperimentCompleted = true;
@@ -449,7 +447,6 @@ namespace CrowdsourcingModels
             List<Datum> subData = GetSubdata(groupedRandomisedData, currentCounts, remainingWorkersPerTask);
             List<Datum>[] subDataArray = Util.ArrayInit<List<Datum>>(numModels, i => new List<Datum>(subData));
             List<Datum>[] nextData = new List<Datum>[numModels];
-            int numIncremData = 1; //number of Increment Data 
             ActiveLearning[] activeLearning = new ActiveLearning[numModels];
             isExperimentCompleted = false;
         
@@ -466,7 +463,6 @@ namespace CrowdsourcingModels
                     return;
                 
                 }
-
                 ///
                 /// Run through all the models
                 ///
@@ -737,7 +733,8 @@ namespace CrowdsourcingModels
                     }
                 }
                 Console.WriteLine("Warning: No labels were found, return a random one");
-                data.Add(GetRandomDatum(groupedRandomisedData, currentCounts, workersPerTask));
+                break;
+                //data.Add(GetRandomDatum(groupedRandomisedData, currentCounts, workersPerTask));
 
                 if (++numAdded >= numIncremData)
                     return data;
@@ -765,16 +762,6 @@ namespace CrowdsourcingModels
             }
             return null;
         }
-
-        //public static Boolean IsExperimentCompleted()
-        //{
-        //    return isExperimentCompleted;
-        //}
-
-        //public static List<double> GetAccuracyList()
-        //{
-        //    return accuracy;
-        //}
 
         public static void ResetAccuracyList()
         {
