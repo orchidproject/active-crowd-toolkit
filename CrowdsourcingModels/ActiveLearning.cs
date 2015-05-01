@@ -628,20 +628,6 @@ namespace CrowdsourcingModels
                     writer.WriteLine("{0:0.0000},{1:0.0000}", accArr[i], avgRec[i]); // Accuracy and average recall
                 }
             }
-
-            using (StreamWriter writer = new StreamWriter(String.Format("{2}{0}__parameters_{1}_InitialLabels_{3}.csv", modelName, suffix, resultsDir, projectInitialNumLabelsPerTask)))
-            {
-                results.WriteResults(writer, true, true, true);
-            }
-
-            using (StreamWriter writer = new StreamWriter(String.Format("{2}{0}__taskValue_{1}_InitialLabels_{3}.csv", modelName, suffix, resultsDir, projectInitialNumLabelsPerTask)))
-            {
-                for (int i = 0; i < taskValue.Count; i++)
-                {
-                    //write taskId, WorkerId, TaskValue into the csv file
-                    writer.WriteLine(String.Format("{0},{1},{2:0.000},{3:0.000}", taskValue[i].TaskId, taskValue[i].WorkerId, taskValue[i].TaskValue, taskValue[i].TaskValue));
-                }
-            }
         }
 
         /// <summary>
@@ -662,52 +648,6 @@ namespace CrowdsourcingModels
             }
             return data;
         }
-
-        /// <summary>
-        /// Return the list of sub-data for the task with the highest utility.
-        /// </summary>
-        /// <param name="groupedRandomisedData">The randomised data.</param>
-        /// <param name="taskValue">The dictionary keyed by taskId and the value is an active learning result instance.</param>
-        /// <param name="currentCounts">The current data count per task.</param>
-        /// <param name="totalCounts">The total data count for all the tasks.</param>
-        /// <param name="numIncremData">The number of data to be selected.</param>
-        /// <returns>The list of sub-data.</returns>
-        //public static List<Datum> GetDataFromRandomWorker(
-        //    Dictionary<string, Datum[]> groupedRandomisedData,
-        //    Dictionary<string, ActiveLearningResult> taskValue,// Don't need it for uniform exploration
-        //    Dictionary<string, int> currentCounts,
-        //    Dictionary<string, int> totalCounts,
-        //    int numIncremData,
-        //    TaskSelectionMethod taskSelectionMethod)
-        //{
-        //        List<Datum> data = new List<Datum>();
-
-        //        var sortedTaskValues = taskValue.OrderByDescending(kvp => kvp.Value.TotalTaskValue).ToArray();
-        //        var sortedCounts = currentCounts.OrderByDescending(kvp => kvp.Value).ToArray();
-
-        //        int numAdded = 0;
-        //        for (; ; ) //outer for
-        //        {
-        //            bool noMoreData = currentCounts.All(kvp => kvp.Value >= totalCounts[kvp.Key]);
-        //            if (noMoreData)
-        //                break;
-
-        //            for (int i = 0; i < sortedTaskValues.Length; i++)//inner for
-        //            {
-        //                var task = sortedTaskValues[i].Key;
-        //                int index = currentCounts[task];
-        //                if (index >= totalCounts[task])
-        //                    continue;
-        //                data.Add(groupedRandomisedData[task][index]);
-        //                currentCounts[task] = index + 1;
-        //                if (++numAdded >= numIncremData)
-        //                    return data;
-        //        }// end outer for 
-        //    }//end if task selection method is not uniform
-
-
-        //    return data;
-        //}//
 
         public static List<Datum> GetNextData(
             Dictionary<string, Datum[]> groupedRandomisedData,

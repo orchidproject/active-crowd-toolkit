@@ -1,11 +1,6 @@
-﻿using System;
+﻿using CrowdsourcingModels;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-//CrowdsourcingProject namespace
-using CrowdsourcingModels;
 using System.ComponentModel; 
 
 namespace AcriveCrowdGUI
@@ -54,15 +49,6 @@ namespace AcriveCrowdGUI
         {
             get;
             set;
-        }
-
-        /// <summary>
-        /// the mab constant 
-        /// </summary>
-        public double mabConstant
-        {
-            get;
-            private set;
         }
 
         /// <summary>
@@ -117,31 +103,12 @@ namespace AcriveCrowdGUI
         /// <param name="runType"></param>
         /// <param name="numberOfLabellingRound"></param>
         /// <param name="labelStartingPoint"></param>
-        public ExperimentModel(TaskSelectionMethod taskSelectionMethod, RunType runType, int numberOfLabellingRound, int labelStartingPoint)
+        public ExperimentModel(TaskSelectionMethod taskSelectionMethod, WorkerSelectionMethod workerSelectionMethod, RunType runType, int numberOfLabellingRound, int labelStartingPoint)
             : this(runType, numberOfLabellingRound, labelStartingPoint)
         {
             this.taskSelectionMethod = taskSelectionMethod;
+            this.WorkerSelectionMethod = workerSelectionMethod;
            
-        }
-
-        /// <summary>
-        /// Constructor for EntropyMABTask selection method
-        /// </summary>
-        /// <param name="taskSelectionMethod"></param>
-        /// <param name="runType"></param>
-        /// <param name="numberOfLabellingRound"></param>
-        /// <param name="labelStartingPoint"></param>
-        /// <param name="mabconstant"></param>
-        public ExperimentModel(TaskSelectionMethod taskSelectionMethod, RunType runType, int numberOfLabellingRound, int labelStartingPoint, double mabConstant)
-            : this(taskSelectionMethod, runType, numberOfLabellingRound, labelStartingPoint)
-        {
-            this.mabConstant = mabConstant;
-
-        }
-
-        public Object getWorkerList() 
-        {
-            return resultsBindingList.Select(m => m.WorkerId).Distinct();
         }
 
         /// <summary>
@@ -159,7 +126,7 @@ namespace AcriveCrowdGUI
             }
             
             //Display both runType and taskSelectionMethod of the current experiment model, for other types of experiments
-            currentExperimentItemName = GetRunTypeString() + ":" + Enum.GetName(typeof(TaskSelectionMethod), taskSelectionMethod);
+            currentExperimentItemName = GetRunTypeString() + ":" + Enum.GetName(typeof(TaskSelectionMethod), taskSelectionMethod) + "_" + Enum.GetName(typeof(WorkerSelectionMethod), WorkerSelectionMethod);
 
             return currentExperimentItemName;
         }

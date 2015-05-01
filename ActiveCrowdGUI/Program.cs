@@ -20,9 +20,6 @@ namespace AcriveCrowdGUI
       
             //Main Page of the application
             Application.Run(new MainPage());
-            
-            //Loading Page of the application 
-            //Application.Run(new LoadingPage());
 
         }//end Main method
         

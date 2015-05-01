@@ -2,15 +2,8 @@
 using CrowdsourcingModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace AcriveCrowdGUI
 {
@@ -41,9 +34,6 @@ namespace AcriveCrowdGUI
         
             dropDownListOfWorkerSelectionMethod.Items.AddRange(Enum.GetNames(typeof(WorkerSelectionMethod)));
 
-            //initial the tempTaskSelectionMethodsArray
-            //tempTaskSelectionMethodsArray = new int[checkedListBoxForRunTypeModels.Items.Count, checkedListBoxForTaskSelection.Items.Count];
-
             //set current FormActiveLearningSetting instance pointer
             currentFormInstance = this;
             //Obtain all available datasets
@@ -54,7 +44,6 @@ namespace AcriveCrowdGUI
             //Run Default Experiment Settings
             RunDefaultExperimentSettings();
             SetComboBoxListOfRunTypesValue();
-          
             currentListOfExperimentModels = new List<ExperimentModel>();
 
             //change the visibility of the buttons according to the current experiment type
@@ -64,8 +53,8 @@ namespace AcriveCrowdGUI
                    
                     btnRunExperiment.Visible = false; 
                     buttonRunBatchRunning.Visible = true;
+
                     //disable task selection method and worker selection method
-                
                     labelTaskSelectionMethod.Visible = false;
                     comboBoxListOfTaskSelectionMethods.Visible = false;
                     labelWorkerSelectionMethod.Visible = false;
@@ -77,8 +66,6 @@ namespace AcriveCrowdGUI
 
                     //Enlarge the RunType and the AddModel Button
                     comboBoxListOfRunTypes.Width = 727;
-                  //  buttonAddModel.Width = 264;
-                  //  buttonAddModel.Location = new Point(618, this.buttonAddModel.Location.Y);
                     break;
 
                 case ExperimentType.ActiveLearning:
@@ -97,9 +84,6 @@ namespace AcriveCrowdGUI
 
                     //Reset the normal size of the RunType and the AddModel Button
                     comboBoxListOfRunTypes.Width = 256;
-                 //   buttonAddModel.Width = 128;
-                  //  buttonAddModel.Location = new Point(752, this.buttonAddModel.Location.Y);
-
                     break;
 
                 default:
@@ -135,7 +119,6 @@ namespace AcriveCrowdGUI
                 
             //add delete link
             DataGridViewButtonColumn btnDeleteModel = new DataGridViewButtonColumn();
-            //Button btnDeleteModel = new Button();
            
             dataGridViewOfCurrentModels.Columns.Add(btnDeleteModel);
             dataGridViewOfCurrentModels.Columns[deleteButtonIndex].Width = 70;
@@ -165,7 +148,6 @@ namespace AcriveCrowdGUI
             for (int i = 0; i < exprSetting.GetNumberOfExperiemntModels(); i++)
             {
                 ExperimentModel currentExperimentItem = exprSetting.GetExperimentModel(i);
-          //      currentExperimentModel.ResetWorkerValueRows();
                 
                 //add to the experimentList
                 currentListOfExperimentModels.Add(currentExperimentItem);
@@ -295,9 +277,7 @@ namespace AcriveCrowdGUI
             //clear the currentModels
             dataGridViewOfCurrentModels.Rows.Clear();
             currentListOfExperimentModels = new List<ExperimentModel>();
-
         }
-
 
         /// <summary>
         /// Load the new dataset(s) into the application, and update the dataset names in the datasetNames comboBox
@@ -312,9 +292,7 @@ namespace AcriveCrowdGUI
             comboBoxForSelectingDataset.Items.Clear();
             comboBoxForSelectingDataset.Items.AddRange(GlobalVariables.getAllDatasetNames());
             comboBoxForSelectingDataset.SelectedIndex = comboBoxForSelectingDataset.Items.Count - 1 ;
-
         }
-
         
         /// <summary>
         /// Initial the Run Types Value in the comboBox
@@ -329,10 +307,10 @@ namespace AcriveCrowdGUI
             comboBoxListOfTaskSelectionMethods.Items.AddRange(Enum.GetNames(typeof(TaskSelectionMethod)));
 
             //Remove VoteDistribution when it is BatchRunning Experiment
-            if (currentExperimentType == ExperimentType.BatchRunning)
-            {
-                comboBoxListOfRunTypes.Items.Remove("VoteDistribution");
-            }
+            //if (currentExperimentType == ExperimentType.BatchRunning)
+            //{
+            //    comboBoxListOfRunTypes.Items.Remove("VoteDistribution");
+            //}
                 comboBoxListOfRunTypes.SelectedIndex = 0;
             comboBoxListOfTaskSelectionMethods.SelectedIndex = 0;
         }
@@ -345,17 +323,9 @@ namespace AcriveCrowdGUI
         /// <param name="e"></param>
         private void comboBoxListOfRunTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if it is majority voting, disable the combox box of task selection methods 
-            if (comboBoxListOfRunTypes.SelectedIndex == (int)RunType.MajorityVote)
-            {
-                comboBoxListOfTaskSelectionMethods.SelectedIndex = (int)GlobalVariables.mvDefaultTaskSelectionMethod;
-                comboBoxListOfTaskSelectionMethods.Enabled = false;
-            }
-            else 
-            {
-                comboBoxListOfTaskSelectionMethods.Enabled = true;
-                comboBoxListOfTaskSelectionMethods.SelectedIndex = 0;
-            }
+            comboBoxListOfTaskSelectionMethods.SelectedIndex = (int)GlobalVariables.mvDefaultTaskSelectionMethod;
+            comboBoxListOfTaskSelectionMethods.Enabled = true;
+            comboBoxListOfTaskSelectionMethods.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -390,12 +360,12 @@ namespace AcriveCrowdGUI
             } //Add ExperimentModel when it is BatchRunning Experiment
             else if(currentExperimentType == ExperimentType.BatchRunning) 
             {
-                ExperimentModel currentExpItem = getExperimentItem((RunType)(comboBoxListOfRunTypes.SelectedIndex + 1), (TaskSelectionMethod)comboBoxListOfTaskSelectionMethods.SelectedIndex,
+                ExperimentModel currentExpItem = getExperimentItem((RunType)(comboBoxListOfRunTypes.SelectedIndex), (TaskSelectionMethod)comboBoxListOfTaskSelectionMethods.SelectedIndex,
                 (WorkerSelectionMethod)dropDownListOfWorkerSelectionMethod.SelectedIndex, currentStartingLabelPoints);
 
                 //add to the experimentList
                 currentListOfExperimentModels.Add(currentExpItem);
-                Object[] tempRow = { (RunType)(comboBoxListOfRunTypes.SelectedIndex + 1), (TaskSelectionMethod)comboBoxListOfTaskSelectionMethods.SelectedIndex, (WorkerSelectionMethod)dropDownListOfWorkerSelectionMethod.SelectedIndex};
+                Object[] tempRow = { (RunType)(comboBoxListOfRunTypes.SelectedIndex), (TaskSelectionMethod)comboBoxListOfTaskSelectionMethods.SelectedIndex, (WorkerSelectionMethod)dropDownListOfWorkerSelectionMethod.SelectedIndex};
                 //add to the grid view
                 dataGridViewOfCurrentModels.Rows.Add(tempRow);
             }
@@ -417,19 +387,18 @@ namespace AcriveCrowdGUI
             //if the RunType is MajorityVote, no TaskSelectionMethods would be selected
             if (currentRunType == RunType.MajorityVote)
             {
-                return new ExperimentModel(GlobalVariables.mvDefaultTaskSelectionMethod, currentRunType, 1, labelStartingPoints[0]);
+                return new ExperimentModel(currentTaskSelectionMethod, WorkerSelectionMethod.RandomWorker, currentRunType, 1, labelStartingPoints[0]);
             }
 
             //if it is an entropy task, add the different labelling rounds
             if (currentTaskSelectionMethod == TaskSelectionMethod.EntropyTask)
             {
                 int currentLabellingRound = trackBarNumberOfLabellingRounds.Value;
-                return new ExperimentModel(currentTaskSelectionMethod, currentRunType, currentLabellingRound, labelStartingPoints[currentLabellingRound - 1]);
-                
+                return new ExperimentModel(currentTaskSelectionMethod, currentWorkerSelectionMethod, currentRunType, currentLabellingRound, labelStartingPoints[currentLabellingRound - 1]);
             }
             else//other taskSelectionMethods, or empty in the batch running 
             {
-                return new ExperimentModel(currentTaskSelectionMethod, currentRunType, 1, labelStartingPoints[0]);
+                return new ExperimentModel(currentTaskSelectionMethod, currentWorkerSelectionMethod, currentRunType, 1, labelStartingPoints[0]);
             }//end if  
 
         }

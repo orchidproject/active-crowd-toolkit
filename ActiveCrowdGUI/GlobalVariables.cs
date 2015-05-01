@@ -9,8 +9,8 @@ namespace AcriveCrowdGUI
 {
     public class GlobalVariables
     {
-        public const string dataDirectory = @"C:\Users\Matteo\OneDrive\ActiveCrowdToolkit\Datasets\";
-        public static string[] preLoadedDatasetsPath = {"WS-AMT", "SP-2015" };
+        public const string dataDirectory = @"Datasets\";
+        public static string[] preLoadedDatasetsFileNames = {"WS-AMT.csv", "SP-2015.csv" };
         public static int[] communityCounts = { 2, 2 };
         public static TaskSelectionMethod mvDefaultTaskSelectionMethod = TaskSelectionMethod.EntropyTask;
         public static List<Dataset> loadedDatasets = null;
@@ -23,9 +23,9 @@ namespace AcriveCrowdGUI
             loadedDatasets = new List<Dataset>();
 
             //load preloadedDatasts
-            for(int i = 0; i < preLoadedDatasetsPath.Length; i++)
+            for(int i = 0; i < preLoadedDatasetsFileNames.Length; i++)
             {
-                loadedDatasets.Add(new Dataset(dataDirectory, preLoadedDatasetsPath[i]));
+                loadedDatasets.Add(new Dataset(dataDirectory, preLoadedDatasetsFileNames[i]));
             }
             
         }

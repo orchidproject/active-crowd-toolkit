@@ -66,7 +66,7 @@ namespace AcriveCrowdGUI
         public Dataset(string datasetPath, string datasetName)
             : this(datasetPath)
         {
-            this.DatasetName = datasetName+".csv";
+            this.DatasetName = datasetName;
             this.DatasetPath = this.DatasetPath + this.DatasetName;
             SetDatasetValues();
 

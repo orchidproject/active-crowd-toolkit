@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LINQtoCSV;
+﻿using LINQtoCSV;
 
 namespace AcriveCrowdGUI
 {
@@ -18,11 +13,13 @@ namespace AcriveCrowdGUI
         [CsvColumn(FieldIndex = 1, CanBeNull = true, Name = "TaskId")]
         public string TaskId { get; set; }
 
-
         [CsvColumn(FieldIndex = 2, CanBeNull = true, Name = "WorkerLabel")]
         public int WorkerLabel { get; set; }
 
         [CsvColumn(FieldIndex = 3, CanBeNull = true, Name = "GoldLabel")]
         public int GoldLabel { get; set; }
+
+        [CsvColumn(FieldIndex = 4, CanBeNull = true, Name = "TimeSpent(sec)")]
+        public int TimeSpent { get; set; }
     }
 }

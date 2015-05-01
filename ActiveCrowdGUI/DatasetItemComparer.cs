@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace AcriveCrowdGUI
@@ -16,16 +12,16 @@ namespace AcriveCrowdGUI
         string memberName = string.Empty; // specifies the member name to be sorted
         SortOrder sortOrder = SortOrder.None; // Specifies the SortOrder.
 
-        /// <summary>
-        /// constructor to set the sort column and sort order.
-        /// </summary>
-        /// <param name="strMemberName"></param>
-        /// <param name="sortingOrder"></param>
-        public DatasetItemComparer(string strMemberName, SortOrder sortingOrder)
-        {
-            memberName = strMemberName;
-            sortOrder = sortingOrder;
-        }
+        ///// <summary>
+        ///// constructor to set the sort column and sort order.
+        ///// </summary>
+        ///// <param name="strMemberName"></param>
+        ///// <param name="sortingOrder"></param>
+        //public DatasetItemComparer(string strMemberName, SortOrder sortingOrder)
+        //{
+        //    memberName = strMemberName;
+        //    sortOrder = sortingOrder;
+        //}
 
         /// <summary>
         /// Compares two Students based on member name and sort order

@@ -1095,6 +1095,7 @@ namespace AcriveCrowdGUI
             this.graphControlAccuracyGraph.ScrollMinY2 = 0D;
             this.graphControlAccuracyGraph.Size = new System.Drawing.Size(520, 462);
             this.graphControlAccuracyGraph.TabIndex = 3;
+            this.graphControlAccuracyGraph.Load += new System.EventHandler(this.graphControlAccuracyGraph_Load);
             // 
             // btnActiveLearning_PopUpAccuracyGraph
             // 

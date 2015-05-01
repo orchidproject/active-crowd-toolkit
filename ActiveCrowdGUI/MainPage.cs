@@ -326,9 +326,8 @@ namespace AcriveCrowdGUI
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 //string filePathString = openFileDialog1.FileName;
-                // string filePathString = System.IO.Path.GetTempPath();
-                string filePathString = System.IO.Path.GetDirectoryName(openFileDialog1.FileName);
-                filePathString = filePathString.Replace("\\", "/");
+                //string filePathString = System.IO.Path.GetTempPath();
+                string filePathString = System.IO.Path.GetDirectoryName(openFileDialog1.FileName)+"\\";
 
                 //Load multiple datasets into the application
                 try
@@ -336,9 +335,7 @@ namespace AcriveCrowdGUI
                     //Add the imported datasets
                     for (int i = 0; i < openFileDialog1.FileNames.Length; i++)
                     {
-                        filePathString = openFileDialog1.FileNames[i].Replace("\\", "/");
                         GlobalVariables.loadedDatasets.Add(new Dataset(filePathString, openFileDialog1.SafeFileNames[i]));
-
                     }
 
                     //Display a messageBox if all are successfully loaded
@@ -556,13 +553,15 @@ namespace AcriveCrowdGUI
         public void loadDatasetToDataGridView(string filePathString) 
         {
 
-            IEnumerable<DatasetItem> datasetItemEnumerableList = Program.ReadFromCsv(filePathString.Replace("\\", "/"));
-            IEnumerable<DatasetItem> datasetItemsList = new List<DatasetItem>(datasetItemEnumerableList);
+            List<DatasetItem> datasetItemsList = Program.ReadFromCsv(filePathString).ToList();
             dataGridViewOfDataset.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            //var datasetItemsList = Datum.LoadData(filePathString);
 
             //set the DataSource into GridView
             BindingSource gridDataBinder = new BindingSource();
             gridDataBinder.DataSource = datasetItemsList;
+            //gridDataBinder.DataSource = dataList;
             dataGridViewOfDataset.DataSource = gridDataBinder;
 
         }
@@ -1090,7 +1089,6 @@ namespace AcriveCrowdGUI
 
             dataGridViewActiveLearningSchedule.DataSource = bsForSchedules;
             dataGridViewActiveLearningSchedule.Columns[3].Visible = false;
-            //dataGridViewActiveLearningSchedule.Columns[4].Visible = false;
             dataGridViewActiveLearningSchedule.Columns[2].HeaderText = "Task Value";
 
             // make sure to do it before binding DataGridView control
@@ -1725,6 +1723,11 @@ namespace AcriveCrowdGUI
         }
 
         private void labelDatasetName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void graphControlAccuracyGraph_Load(object sender, EventArgs e)
         {
 
         }
