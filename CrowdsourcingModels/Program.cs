@@ -53,7 +53,7 @@ namespace CrowdsourcingModels
         /// <param name="model">The model instance.</param>
         /// <param name="numCommunities">The number of communities (only for CBCC).</param>
         /// <returns>The inference results</returns>
-        public static Results RunGold(string dataSet, IList<Datum> data, RunType runType, BCC model, int numCommunities = 3)
+        public static Results RunGold(string dataSet, IList<Datum> data, RunType runType, BCC model, int numCommunities = 2)
         {
 
             string modelName = Program.GetModelName(dataSet, runType);
@@ -74,31 +74,14 @@ namespace CrowdsourcingModels
                     results.RunBCC(modelName, data, data, model, RunMode.ClearResults, true, numCommunities, false, false);
                     break;
             }
-            //bool isExportedToCSV = true;
-            //if (isExportedToCSV)
-            //{
-            //    using (StreamWriter writer = new StreamWriter(Program.ResultsDir + modelName +  "_endpoints.csv"))
-            //    {
-            //        writer.WriteLine("{0}", modelName);
-            //        results.WriteAccuracy(writer);
-            //        results.WriteResults(writer, false, true, false);
-            //    }
-            //}
-
-            using (StreamWriter writer = new StreamWriter(Console.OpenStandardOutput()))
-            {
-                results.WriteAccuracy(writer);
-                //results.WriteResults(writer, false, false, false);
-            }
-
             
             return results;
         }
 
-         public static Results RunGold(string dataSet, RunType runType, BCC model, int numCommunities = 3)
+         public static Results RunGold(string dataSetPath, RunType runType, BCC model, int numCommunities = 3)
         {
-            var data = Datum.LoadData(@".\Data\" + dataSet + ".csv");
-            return RunGold(dataSet, data, runType, model, numCommunities);
+            var data = Datum.LoadData(dataSetPath);
+            return RunGold(dataSetPath, data, runType, model, numCommunities);
         }
 
         /// <summary>

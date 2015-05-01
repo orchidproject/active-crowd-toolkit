@@ -9,16 +9,15 @@ namespace AcriveCrowdGUI
 {
     public class GlobalVariables
     {
-        public const string dataDirectory = "@../../../../../Data/";
-        public static string[] preLoadedDatasetsPath = {"CF.csv", "MS.csv", "SP.csv" };
-        public static int[] communityCounts = { 4, 2, 2 };
-        public static double[] mabConstants = {0.009, 0.0018, 0.0036,0.009};
-        public static int[] labelStartingPoints = {301,601,901,1201,1501 };
-        public static TaskSelectionMethod[] taskSelectionMethodOptions = { TaskSelectionMethod.EntropyTask, TaskSelectionMethod.RandomTask, TaskSelectionMethod.UniformTask };
-
+        public const string dataDirectory = @"C:\Users\Matteo\OneDrive\ActiveCrowdToolkit\Datasets\";
+        public static string[] preLoadedDatasetsPath = {"WS-AMT", "SP-2015" };
+        public static int[] communityCounts = { 2, 2 };
         public static TaskSelectionMethod mvDefaultTaskSelectionMethod = TaskSelectionMethod.EntropyTask;
-
         public static List<Dataset> loadedDatasets = null;
+
+        /// <summary>
+        /// PreLoad
+        /// </summary>
         public static void LoadDatasets() 
         {
             loadedDatasets = new List<Dataset>();
@@ -26,7 +25,7 @@ namespace AcriveCrowdGUI
             //load preloadedDatasts
             for(int i = 0; i < preLoadedDatasetsPath.Length; i++)
             {
-                loadedDatasets.Add(new Dataset(dataDirectory + preLoadedDatasetsPath[i], preLoadedDatasetsPath[i]));
+                loadedDatasets.Add(new Dataset(dataDirectory, preLoadedDatasetsPath[i]));
             }
             
         }
@@ -38,7 +37,7 @@ namespace AcriveCrowdGUI
             String[] allDatasetNames = new String[loadedDatasets.Count];
             for (int i = 0; i < loadedDatasets.Count; i++)
             {
-                allDatasetNames[i] = loadedDatasets[i].datasetName;
+                allDatasetNames[i] = loadedDatasets[i].DatasetName;
             }
            
             return allDatasetNames;

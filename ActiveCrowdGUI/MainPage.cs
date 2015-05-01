@@ -303,7 +303,7 @@ namespace AcriveCrowdGUI
         /// <param name="currentLabel"></param>
         private void SetDatasetNameLabel(System.Windows.Forms.Label currentLabel)
         {
-            currentLabel.Text = currentExperimentSetting.currentDataset.datasetName;
+            currentLabel.Text = currentExperimentSetting.currentDataset.DatasetName;
              
         }
 
@@ -639,7 +639,7 @@ namespace AcriveCrowdGUI
                     CloseExperimentSettingPane();
                     
                     //Load the datasetnames in the comboBox
-                    List<String> datasetNames = GlobalVariables.loadedDatasets.Select(d => d.datasetName).ToList();
+                    List<String> datasetNames = GlobalVariables.loadedDatasets.Select(d => d.DatasetName).ToList();
                     comboBoxForSelectingDataset.DataSource = datasetNames;
                     break;
 
@@ -1090,7 +1090,7 @@ namespace AcriveCrowdGUI
 
             dataGridViewActiveLearningSchedule.DataSource = bsForSchedules;
             dataGridViewActiveLearningSchedule.Columns[3].Visible = false;
-            dataGridViewActiveLearningSchedule.Columns[4].Visible = false;
+            //dataGridViewActiveLearningSchedule.Columns[4].Visible = false;
             dataGridViewActiveLearningSchedule.Columns[2].HeaderText = "Task Value";
 
             // make sure to do it before binding DataGridView control
@@ -1305,9 +1305,9 @@ namespace AcriveCrowdGUI
             LoadDataset();
             //display the latest dataset
             Dataset selectedDataset = GlobalVariables.loadedDatasets[comboBoxForSelectingDataset.Items.Count - 1];
-            loadDatasetToDataGridView(selectedDataset.datasetPath);
+            loadDatasetToDataGridView(selectedDataset.DatasetPath);
             //update the combolbox 
-            List<String> datasetNames = GlobalVariables.loadedDatasets.Select(d => d.datasetName).ToList();
+            List<String> datasetNames = GlobalVariables.loadedDatasets.Select(d => d.DatasetName).ToList();
             comboBoxForSelectingDataset.DataSource = datasetNames;
             comboBoxForSelectingDataset.SelectedIndex = datasetNames.Count - 1;
         }
@@ -1320,7 +1320,7 @@ namespace AcriveCrowdGUI
         private void comboBoxForSelectingDataset_SelectedIndexChanged(object sender, EventArgs e)
         {
             Dataset selectedDataset = GlobalVariables.loadedDatasets[comboBoxForSelectingDataset.SelectedIndex];
-            loadDatasetToDataGridView(selectedDataset.datasetPath);
+            loadDatasetToDataGridView(selectedDataset.DatasetPath);
         }
 
         private void dataGridViewOfDataset_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -1351,7 +1351,7 @@ namespace AcriveCrowdGUI
             Dataset selectedDataset = GlobalVariables.loadedDatasets[selectedDatasetIndex];
             comboBoxForSelectingDataset.SelectedIndex = selectedDatasetIndex;
             //change the combox as well
-            loadDatasetToDataGridView(selectedDataset.datasetPath);
+            loadDatasetToDataGridView(selectedDataset.DatasetPath);
         }
 
         /// <summary>
@@ -1430,15 +1430,15 @@ namespace AcriveCrowdGUI
    
         }
 
-        /// <summary>
-        /// Display tooltip for buttonOpenAllPopups
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonOpenAllPopUps_MouseHover(object sender, EventArgs e)
-        {
-            ShowTooltip("Open All Popups", this.buttonOpenAllPopups);
-        }
+        ///// <summary>
+        ///// Display tooltip for buttonOpenAllPopups
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void buttonOpenAllPopUps_MouseHover(object sender, EventArgs e)
+        //{
+        //    ShowTooltip("Open All Popups", this.buttonOpenAllPopups);
+        //}
 
         /// <summary> 
         /// Display Worker Detail when mouse double click
@@ -1695,6 +1695,36 @@ namespace AcriveCrowdGUI
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCloseAllWindowsBatchLearning_Click(object sender, EventArgs e)
+        {
+            CloseAllOpenedWindows();
+        }
+
+        private void buttonOpenAllPopups_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBarForActiveLearning_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDatasetName_Click(object sender, EventArgs e)
         {
 
         }

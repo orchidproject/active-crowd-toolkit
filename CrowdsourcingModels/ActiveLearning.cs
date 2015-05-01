@@ -66,9 +66,10 @@ namespace CrowdsourcingModels
         public static List<ActiveLearningResult>[] taskValueListArray;
 
         /// <summary>
-        /// List of Results for showing the confusion matrices of specific worker
+        /// List of Results for showing the confusion matrices of specific worker, made global variable for GUI
         /// </summary>
         public static Results[] results;
+
         /// <summary>
         /// Constructs an active learning instance with a specified data set and model instance.
         /// </summary>
@@ -136,8 +137,7 @@ namespace CrowdsourcingModels
             string resultsDir,
             int communityCount = -1,
             int initialNumLabelsPerTask = 1,
-            int numIncremData = 1,
-            bool startWithRandomData = false)
+            int numIncremData = 1)
         {
             //Count elapsed time
             Stopwatch stopWatchTotal = new Stopwatch();
@@ -182,7 +182,6 @@ namespace CrowdsourcingModels
                 accuracy = new List<double>();
             }
             
-            List<double> nlpd = new List<double>();
             List<double> avgRecall = new List<double>();
             //List<ActiveLearningResult> taskValueList = new List<ActiveLearningResult>();
             taskValueList = new List<ActiveLearningResult>();
@@ -193,23 +192,8 @@ namespace CrowdsourcingModels
 
             // Get initial data
             Results results = new Results();
-            List<Datum> subData = null;
-            Dictionary<string, int> currentCounts = null;
-            if (startWithRandomData) // Start with random sets of labels for each task
-            {
-                //currentCounts = groupedRandomisedData.ToDictionary(kvp => kvp.Key, kvp => 0);
-                //Dictionary<string, ActiveLearningResult> TaskValueInit = data.GroupBy(d => d.TaskId).ToDictionary(a => a.Key, a => new ActiveLearningResult
-                //{
-                //    TaskValue = Rand.Double()
-                //});
-                //subData = GetNextData(groupedRandomisedData, TaskValueInit, currentCounts, totalCounts, numIncremData, TaskSelectionMethod.RandomTask);
-            }
-            else // Start with set of labels with uniform size for each task
-            {
-                currentCounts = groupedRandomisedData.ToDictionary(kvp => kvp.Key, kvp => initialNumLabelsPerTask);
-                subData = GetSubdata(groupedRandomisedData, currentCounts, remainingWorkersPerTask);
-
-            }
+            Dictionary<string, int> currentCounts = groupedRandomisedData.ToDictionary(kvp => kvp.Key, kvp => initialNumLabelsPerTask);
+            List<Datum> subData = GetSubdata(groupedRandomisedData, currentCounts, remainingWorkersPerTask);
 
             var s = remainingWorkersPerTask.Select(w => w.Value.Count).Sum();
             List<Datum> nextData = null;
@@ -339,7 +323,6 @@ namespace CrowdsourcingModels
                 if (calculateAccuracy)
                 {
                     accuracy.Add(results.Accuracy);
-                    nlpd.Add(results.NegativeLogProb);
                     avgRecall.Add(results.AvgRecall);
 
                     if (TaskUtility == null) 
@@ -371,7 +354,7 @@ namespace CrowdsourcingModels
             isExperimentCompleted = true;
 
             stopWatchTotal.Stop();
-            DoSnapshot(accuracy, nlpd, avgRecall, taskValueList, results, modelName, "final", resultsDir, initialNumLabelsPerTask);
+            DoSnapshot(accuracy, avgRecall, taskValueList, results, modelName, "final", resultsDir, initialNumLabelsPerTask);
             ResetAccuracyList();
             Console.WriteLine("Elapsed time: {0}\n", stopWatchTotal.Elapsed);
         }
@@ -388,7 +371,15 @@ namespace CrowdsourcingModels
         /// <param name="resultsDir">The directory to save the log files.</param>
         /// <param name="communityCount">The number of communities (only for CBCC).</param>
         /// <param name="initialNumLabelsPerTask">The initial number of exploratory labels that are randomly selected for each task.</param>
-        public static void RunParallelActiveLearning(IList<Datum> data, string[] modelName, RunType[] runType, BCC[] model, TaskSelectionMethod[] taskSelectionMethod, WorkerSelectionMethod[] workerSelectionMethod, int communityCount = -1, int initialNumLabelsPerTask = 1, double lipschitzConstant = 1)
+        public static void RunParallelActiveLearning(IList<Datum> data,
+            string[] modelName,
+            RunType[] runType,
+            BCC[] model,
+            TaskSelectionMethod[] taskSelectionMethod,
+            WorkerSelectionMethod[] workerSelectionMethod,
+            int communityCount = -1,
+            int initialNumLabelsPerTask = 1,
+            int numIncremData = 1)
         {
 
             int numModels = runType.Length;
@@ -416,6 +407,8 @@ namespace CrowdsourcingModels
 
             // Keyed by task, value is a HashSet containing all the remaining workers with a label - workers are removed after adding a new datum 
             Dictionary<string, HashSet<string>> remainingWorkersPerTask = groupedRandomisedData.ToDictionary(kvp => kvp.Key, kvp => new HashSet<string>(kvp.Value.Select(dat => dat.WorkerId)));
+
+
             int numTaskIds = totalCounts.Count();
             int totalInstances = data.Count - initialNumLabelsPerTask * numTaskIds;
 
@@ -432,16 +425,14 @@ namespace CrowdsourcingModels
 
             }
 
-            List<double>[] nlpdArray = Util.ArrayInit(numModels, i => new List<double>());
             List<double>[] avgRecallArray = Util.ArrayInit(numModels, i => new List<double>());
             taskValueListArray = Util.ArrayInit(numModels, i => new List<ActiveLearningResult>());
             int[] indexArray = new int[numModels];
 
-            Console.WriteLine("Parallel Active Learning");
-            Console.WriteLine("\tModel\tAcc\tAvgRec");
+            Debug.WriteLine("Parallel Active Learning");
+            Debug.WriteLine("\tModel\tAcc\tAvgRec");
 
             // Get initial data
-            //Results[] results = Util.ArrayInit<Results>(numModels, i => new Results());
             //make the results variable be global for GUi
             results = Util.ArrayInit<Results>(numModels, i => new Results());
             List<Datum> subData = GetSubdata(groupedRandomisedData, currentCounts, remainingWorkersPerTask);
@@ -456,7 +447,6 @@ namespace CrowdsourcingModels
             {
                 bool calculateAccuracy = true;
                 bool doSnapShot = iter % 100 == 0; // Frequency of snapshots
-                //bool doSnapShot = true;
                 
                 //stop Active Learning if the user requests to stop
                 if (isExperimentCompleted) {
@@ -498,16 +488,15 @@ namespace CrowdsourcingModels
 
 
                     // Select next task
-                    Dictionary<string, ActiveLearningResult>[] TaskValue = new Dictionary<string, ActiveLearningResult>[numModels];
-                    List<Tuple<string, string, ActiveLearningResult>>[] LabelValue = new List<Tuple<string, string, ActiveLearningResult>>[numModels];
+                    Dictionary<string, ActiveLearningResult> TaskUtility = new Dictionary<string, ActiveLearningResult>();
                     switch (taskSelectionMethod[indexModel]) 
                     {
                         case TaskSelectionMethod.EntropyTask:
-                            TaskValue[indexModel] = activeLearning[indexModel].EntropyTrueLabel();
+                            TaskUtility = activeLearning[indexModel].EntropyTrueLabel();
                             break;
 
                         case TaskSelectionMethod.RandomTask:
-                            TaskValue[indexModel] = data.GroupBy(d => d.TaskId).ToDictionary(a => a.Key, a => new ActiveLearningResult
+                            TaskUtility = data.GroupBy(d => d.TaskId).ToDictionary(a => a.Key, a => new ActiveLearningResult
                             {
                                 TaskValue = Rand.Double()
                             });
@@ -515,22 +504,68 @@ namespace CrowdsourcingModels
 
                         case TaskSelectionMethod.UniformTask:
                             //add task value according to the count left
-                            TaskValue[indexModel] = currentCounts.OrderBy(kvp => kvp.Value).ToDictionary(a => a.Key, a => new ActiveLearningResult
+                            TaskUtility = currentCounts.OrderBy(kvp => kvp.Value).ToDictionary(a => a.Key, a => new ActiveLearningResult
                             {
                                 TaskValue = 1
                             });
                             break;
 
                         default: // Entropy task selection
-                            TaskValue[indexModel] = activeLearning[indexModel].EntropyTrueLabel();
+                            TaskUtility = activeLearning[indexModel].EntropyTrueLabel();
                             break;
                     }
 
-                    // Don't call this if UniformTask
-                    //nextData[indexModel] = GetDataFromRandomWorker(groupedRandomisedData, TaskValue[indexModel], currentCounts, totalCounts, numIncremData, taskSelectionMethod[indexModel]);
+                    ///
+                    /// We create a list of worker utilities
+                    ///
+                    Dictionary<string, double> WorkerAccuracy = null;
 
-                    if (nextData == null || nextData[indexModel].Count == 0)
+                    // Best worker selection is only allowed for methods that infer worker confusion matrices.
+                    if (results[indexModel].WorkerConfusionMatrix == null)
+                        workerSelectionMethod[indexModel] = WorkerSelectionMethod.RandomWorker;
+
+                    switch (workerSelectionMethod[indexModel])
+                    {
+                        case WorkerSelectionMethod.BestWorker:
+                            // Assign worker accuracies to the maximum value on the diagonal of the confusion matrix (conservative approach).
+                            // Alternative ways are also possible.
+                            WorkerAccuracy = results[indexModel].WorkerConfusionMatrixMean.ToDictionary(
+                                    kvp => kvp.Key,
+                                    kvp => Results.GetConfusionMatrixDiagonal(kvp.Value).Max());
+                            break;
+                        case WorkerSelectionMethod.RandomWorker:
+                            // Assign worker accuracies to random values
+                            WorkerAccuracy = results[indexModel].FullMapping.WorkerIdToIndex.ToDictionary(kvp => kvp.Key, kvp => Rand.Double());
+                            break;
+                        default:
+                            throw new ApplicationException("No worker selection method selected");
+                    }
+
+                    ///
+                    /// Create a list of tuples <TaskId, WorkerId, ActiveLearningResult>
+                    ///
+                    List<Tuple<string, string, ActiveLearningResult>> LabelValue = new List<Tuple<string, string, ActiveLearningResult>>();
+                    foreach (var kvp in TaskUtility)
+                    {
+                        foreach (var workerId in remainingWorkersPerTask[kvp.Key])
+                        {
+                            var labelValue = new ActiveLearningResult
+                            {
+                                WorkerId = workerId,
+                                TaskId = kvp.Key,
+                                TaskValue = kvp.Value.TaskValue,
+                                WorkerValue = WorkerAccuracy[workerId]
+                            };
+                            LabelValue.Add(Tuple.Create(labelValue.TaskId, labelValue.WorkerId, labelValue));
+                        }
+                    }
+
+                    // Increment tha active set with new data
+                    nextData[indexModel] = GetNextData(groupedRandomisedData, LabelValue, currentCounts, totalCounts, remainingWorkersPerTask, numIncremData);
+
+                    if (nextData[indexModel] == null || nextData[indexModel].Count == 0)
                         break;
+
 
                     indexArray[indexModel] += nextData[indexModel].Count;
                     subDataArray[indexModel].AddRange(nextData[indexModel]);
@@ -540,19 +575,17 @@ namespace CrowdsourcingModels
                     {
                         accuracyArray[indexModel].Add(results[indexModel].Accuracy);
                         avgRecallArray[indexModel].Add(results[indexModel].AvgRecall);
-                        nlpdArray[indexModel].Add(results[indexModel].NegativeLogProb);
 
-                        if (TaskValue[indexModel] == null)
+                        if (TaskUtility == null)
                         {
-                            var sortedLabelValue = LabelValue[indexModel].OrderByDescending(kvp => kvp.Item3.TaskValue).ToArray();
-                            //var sortedLabelValue = currentCounts.OrderByDescending(kvp => kvp.Value).ToArray();
+                            var sortedLabelValue = LabelValue.OrderByDescending(kvp => kvp.Item3.TaskValue).ToArray();
                             taskValueListArray[indexModel].Add(sortedLabelValue.First().Item3);
                         }
                         else
                         {
 
                             //Adding WorkerId into taskValueListArray
-                            ActiveLearningResult nextTaskValueItem = TaskValue[indexModel][nextData[indexModel].First().TaskId];
+                            ActiveLearningResult nextTaskValueItem = TaskUtility[nextData[indexModel].First().TaskId];
                             nextTaskValueItem.WorkerId = nextData[indexModel].First().WorkerId;
                             nextTaskValueItem.TaskId = nextData[indexModel].First().TaskId;
                             taskValueListArray[indexModel].Add(nextTaskValueItem);
@@ -560,10 +593,8 @@ namespace CrowdsourcingModels
 
                         if (doSnapShot)
                         {
-                            Console.WriteLine("{0} of {1}:\t{2}\t{3:0.000}\t{4:0.0000}", indexArray[indexModel], totalInstances, modelName[indexModel], accuracyArray[indexModel].Last(), avgRecallArray[indexModel].Last());
+                            Debug.WriteLine("{0} of {1}:\t{2}\t{3:0.000}\t{4:0.0000}", indexArray[indexModel], totalInstances, modelName[indexModel], accuracyArray[indexModel].Last(), avgRecallArray[indexModel].Last());
                         }
-
-                   
                     }
                 }//end of models
             }//end for all data
@@ -573,14 +604,13 @@ namespace CrowdsourcingModels
         /// Saves the results of the inference and the model's parameters on csv files.
         /// </summary>
         /// <param name="accuracy">The list of accuracies evaluated on the gold labels at each active learning round.</param>
-        /// <param name="nlpd">The list of NLPD scores evaluated on the gold labels at each active learning round.</param>
         /// <param name="avgRecall">The list of average recalls evaluated on the gold labels at each active learning round.</param>
         /// <param name="taskValue">The list of utilities of the task selected at each active learning round.</param>
         /// <param name="results">The result instance.</param>
         /// <param name="modelName">The model name.</param>
         /// <param name="suffix">The suffix of the csv files.</param>
         /// <param name="resultsDir">The directory to store the csv files.</param>
-        public static void DoSnapshot(List<double> accuracy, List<double> nlpd, List<double> avgRecall, List<ActiveLearningResult> taskValue, Results results, string modelName, string suffix, string resultsDir, int projectInitialNumLabelsPerTask, double lipschitzConstant = -1)
+        public static void DoSnapshot(List<double> accuracy, List<double> avgRecall, List<ActiveLearningResult> taskValue, Results results, string modelName, string suffix, string resultsDir, int projectInitialNumLabelsPerTask, double lipschitzConstant = -1)
         {
             suffix = suffix == "final" ? "" : suffix;
             String new_graph_csv_file_name = String.Format("{2}{0}__graph_{1}_InitialLabels_{3}.csv", modelName, suffix, resultsDir, projectInitialNumLabelsPerTask);
@@ -588,7 +618,6 @@ namespace CrowdsourcingModels
             using (StreamWriter writer = new StreamWriter(new_graph_csv_file_name))
             {
                 var accArr = accuracy.ToArray();
-                var nlpdArr = nlpd.ToArray();
                 var avgRec = avgRecall.ToArray();
                 writer.WriteLine("Accuracy,AvgRecall");
                 for (int i = 0; i < accArr.Length; i++)

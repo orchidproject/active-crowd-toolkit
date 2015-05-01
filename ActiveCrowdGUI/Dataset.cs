@@ -13,20 +13,20 @@ namespace AcriveCrowdGUI
     /// </summary>
     public class Dataset
     {
-        public string datasetPath
+        public string DatasetPath
         {
             get;
             private set;
         }
 
-        public string datasetName 
+        public string DatasetName 
         {
             get;
             private set;
 
         }
 
-        public int datasetIndex
+        public int DatasetIndex
         {
             get;
             private set;
@@ -34,7 +34,7 @@ namespace AcriveCrowdGUI
         /// <summary>
         /// The maximum number of labelling rounds of the dataset
         /// </summary>
-        public int maximumOfLabellingRound
+        public int MaximumOfLabellingRound
         {
             get;
             private set;
@@ -58,17 +58,17 @@ namespace AcriveCrowdGUI
             private set;
         }
 
-        public Dataset(string datasetPath) 
+        private Dataset(string datasetFolder) 
         {
-            this.datasetPath = datasetPath;
-            this.datasetName = "";
-            SetDatasetValues();
+            this.DatasetPath = datasetFolder;
         }
 
         public Dataset(string datasetPath, string datasetName)
             : this(datasetPath)
         {
-            this.datasetName = datasetName;
+            this.DatasetName = datasetName+".csv";
+            this.DatasetPath = this.DatasetPath + this.DatasetName;
+            SetDatasetValues();
 
         }
 
@@ -76,8 +76,8 @@ namespace AcriveCrowdGUI
 
         public void SetDatasetValues()
         {
-            Debug.WriteLine("set datasetValues:" +datasetPath);
-            IList<Datum> data = Datum.LoadData(datasetPath);
+            Debug.WriteLine("set datasetValues:" +DatasetPath);
+            IList<Datum> data = Datum.LoadData(DatasetPath);
             totalNumberOfLabellingRows = data.Count;
             totalNumberOfTasks = data.Select(d => d.TaskId).Distinct().Count();
             numberOfWorkerLabels = data.Select(d => d.WorkerLabel).Distinct().Count();
@@ -85,7 +85,7 @@ namespace AcriveCrowdGUI
 
             //maximumOfLabellingRound = (int)totalNumberOfLabellingRows / totalNumberOfTasks;
             var minRow = data.GroupBy(d => d.TaskId).OrderBy(d => d.Count()).First();
-            this.maximumOfLabellingRound = (int)minRow.Count();
+            this.MaximumOfLabellingRound = (int)minRow.Count();
         }
 
 
@@ -95,7 +95,7 @@ namespace AcriveCrowdGUI
         /// <returns></returns>
         public IList<Datum> LoadData()
         {
-            return Datum.LoadData(datasetPath);
+            return Datum.LoadData(DatasetPath);
         }
 
 
@@ -108,9 +108,9 @@ namespace AcriveCrowdGUI
         public string GetDataSetNameWithoutExtension()
         {
             string dataSetNameWithoutExtension = "";
-            int fileExtPos = datasetName.LastIndexOf(".");
+            int fileExtPos = DatasetName.LastIndexOf(".");
             if (fileExtPos >= 0)
-                dataSetNameWithoutExtension = datasetName.Substring(0, fileExtPos);
+                dataSetNameWithoutExtension = DatasetName.Substring(0, fileExtPos);
 
             return dataSetNameWithoutExtension;
         }
@@ -124,9 +124,9 @@ namespace AcriveCrowdGUI
         /// <returns></returns>
         public int[] GetLabelStartingPoints()
         {
-            int[] labelStartingPoints = new int[maximumOfLabellingRound];
+            int[] labelStartingPoints = new int[MaximumOfLabellingRound];
             //add the label starting points into the array
-            for (int i = 0; i < maximumOfLabellingRound; i++)
+            for (int i = 0; i < MaximumOfLabellingRound; i++)
             { 
                 labelStartingPoints[i] =  totalNumberOfTasks * (i+1) + 1;
             
@@ -139,7 +139,7 @@ namespace AcriveCrowdGUI
 
         public override string ToString() 
         {
-            return datasetName;
+            return DatasetName;
         }
     }
 }

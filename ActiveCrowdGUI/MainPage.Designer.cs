@@ -35,14 +35,14 @@ namespace AcriveCrowdGUI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "",
             "test22",
             "test3",
             "test",
             "test",
             "test"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.tabControlForMainPage = new AC.ExtendedRenderer.Navigator.KryptonTabControl();
             this.tabPageMainPage = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -57,10 +57,7 @@ namespace AcriveCrowdGUI
             this.splitContainerOuterBatchLearning = new System.Windows.Forms.SplitContainer();
             this.label13 = new System.Windows.Forms.Label();
             this.progressBatchRunning = new AC.ExtendedRenderer.Toolkit.KryptonProgressBar();
-            this.button24 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
             this.buttonRestartBatchRunning = new System.Windows.Forms.Button();
             this.labelDatasetNameBatchRunning = new System.Windows.Forms.Label();
             this.buttonPlayAndPauseBatchRunning = new System.Windows.Forms.Button();
@@ -90,10 +87,7 @@ namespace AcriveCrowdGUI
             this.splitContainerActiveLearningOuterContainer = new System.Windows.Forms.SplitContainer();
             this.label5 = new System.Windows.Forms.Label();
             this.progressBarForActiveLearning = new AC.ExtendedRenderer.Toolkit.KryptonProgressBar();
-            this.buttonOpenAllPopups = new System.Windows.Forms.Button();
             this.buttonActiveLearningCloseAllOpenedWindow = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
             this.buttonRestartActiveLearning = new System.Windows.Forms.Button();
             this.labelDatasetName = new System.Windows.Forms.Label();
             this.btnPlayAndPauseExperiment = new System.Windows.Forms.Button();
@@ -361,9 +355,9 @@ namespace AcriveCrowdGUI
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(53, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(266, 31);
+            this.label3.Size = new System.Drawing.Size(317, 31);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Active Crowd Toolkit";
+            this.label3.Text = "The Active Crowd Toolkit";
             // 
             // groupBox5
             // 
@@ -476,10 +470,7 @@ namespace AcriveCrowdGUI
             this.splitContainerOuterBatchLearning.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.splitContainerOuterBatchLearning.Panel1.Controls.Add(this.label13);
             this.splitContainerOuterBatchLearning.Panel1.Controls.Add(this.progressBatchRunning);
-            this.splitContainerOuterBatchLearning.Panel1.Controls.Add(this.button24);
             this.splitContainerOuterBatchLearning.Panel1.Controls.Add(this.button25);
-            this.splitContainerOuterBatchLearning.Panel1.Controls.Add(this.button26);
-            this.splitContainerOuterBatchLearning.Panel1.Controls.Add(this.button27);
             this.splitContainerOuterBatchLearning.Panel1.Controls.Add(this.buttonRestartBatchRunning);
             this.splitContainerOuterBatchLearning.Panel1.Controls.Add(this.labelDatasetNameBatchRunning);
             this.splitContainerOuterBatchLearning.Panel1.Controls.Add(this.buttonPlayAndPauseBatchRunning);
@@ -517,17 +508,6 @@ namespace AcriveCrowdGUI
             this.progressBatchRunning.StartColor = System.Drawing.Color.LawnGreen;
             this.progressBatchRunning.TabIndex = 38;
             // 
-            // button24
-            // 
-            this.button24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button24.BackgroundImage = global::AcriveCrowdGUI.Properties.Resources.application_double;
-            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button24.Location = new System.Drawing.Point(957, 15);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(35, 35);
-            this.button24.TabIndex = 37;
-            this.button24.UseVisualStyleBackColor = true;
-            // 
             // button25
             // 
             this.button25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -538,31 +518,7 @@ namespace AcriveCrowdGUI
             this.button25.Size = new System.Drawing.Size(35, 35);
             this.button25.TabIndex = 36;
             this.button25.UseVisualStyleBackColor = true;
-            // 
-            // button26
-            // 
-            this.button26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button26.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button26.BackgroundImage = global::AcriveCrowdGUI.Properties.Resources.information;
-            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button26.Location = new System.Drawing.Point(998, 15);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(35, 35);
-            this.button26.TabIndex = 35;
-            this.button26.UseVisualStyleBackColor = true;
-            // 
-            // button27
-            // 
-            this.button27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button27.BackColor = System.Drawing.Color.Transparent;
-            this.button27.BackgroundImage = global::AcriveCrowdGUI.Properties.Resources._1408377678_gear_wheel;
-            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button27.ForeColor = System.Drawing.Color.Black;
-            this.button27.Location = new System.Drawing.Point(1039, 15);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(35, 35);
-            this.button27.TabIndex = 34;
-            this.button27.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.buttonCloseAllWindowsBatchLearning_Click);
             // 
             // buttonRestartBatchRunning
             // 
@@ -953,10 +909,7 @@ namespace AcriveCrowdGUI
             this.splitContainerActiveLearningOuterContainer.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(206)))), ((int)(((byte)(230)))));
             this.splitContainerActiveLearningOuterContainer.Panel1.Controls.Add(this.label5);
             this.splitContainerActiveLearningOuterContainer.Panel1.Controls.Add(this.progressBarForActiveLearning);
-            this.splitContainerActiveLearningOuterContainer.Panel1.Controls.Add(this.buttonOpenAllPopups);
             this.splitContainerActiveLearningOuterContainer.Panel1.Controls.Add(this.buttonActiveLearningCloseAllOpenedWindow);
-            this.splitContainerActiveLearningOuterContainer.Panel1.Controls.Add(this.button15);
-            this.splitContainerActiveLearningOuterContainer.Panel1.Controls.Add(this.button14);
             this.splitContainerActiveLearningOuterContainer.Panel1.Controls.Add(this.buttonRestartActiveLearning);
             this.splitContainerActiveLearningOuterContainer.Panel1.Controls.Add(this.labelDatasetName);
             this.splitContainerActiveLearningOuterContainer.Panel1.Controls.Add(this.btnPlayAndPauseExperiment);
@@ -986,7 +939,7 @@ namespace AcriveCrowdGUI
             this.progressBarForActiveLearning.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarForActiveLearning.BackColor = System.Drawing.Color.Transparent;
-            this.progressBarForActiveLearning.DisplayText = "300/1720";
+            this.progressBarForActiveLearning.DisplayText = "0/1720";
             this.progressBarForActiveLearning.EndColor = System.Drawing.Color.ForestGreen;
             this.progressBarForActiveLearning.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progressBarForActiveLearning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
@@ -996,19 +949,7 @@ namespace AcriveCrowdGUI
             this.progressBarForActiveLearning.Size = new System.Drawing.Size(740, 35);
             this.progressBarForActiveLearning.StartColor = System.Drawing.Color.LawnGreen;
             this.progressBarForActiveLearning.TabIndex = 28;
-            this.progressBarForActiveLearning.Value = 300;
-            // 
-            // buttonOpenAllPopups
-            // 
-            this.buttonOpenAllPopups.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOpenAllPopups.BackgroundImage = global::AcriveCrowdGUI.Properties.Resources.application_double;
-            this.buttonOpenAllPopups.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonOpenAllPopups.Location = new System.Drawing.Point(959, 14);
-            this.buttonOpenAllPopups.Name = "buttonOpenAllPopups";
-            this.buttonOpenAllPopups.Size = new System.Drawing.Size(35, 35);
-            this.buttonOpenAllPopups.TabIndex = 24;
-            this.buttonOpenAllPopups.UseVisualStyleBackColor = true;
-            this.buttonOpenAllPopups.MouseHover += new System.EventHandler(this.buttonOpenAllPopUps_MouseHover);
+            this.progressBarForActiveLearning.ValueChanged += new AC.StdControls.Toolkit.Common.ProgressBar.ValueChangedHandler(this.progressBarForActiveLearning_ValueChanged);
             // 
             // buttonActiveLearningCloseAllOpenedWindow
             // 
@@ -1022,31 +963,6 @@ namespace AcriveCrowdGUI
             this.buttonActiveLearningCloseAllOpenedWindow.UseVisualStyleBackColor = true;
             this.buttonActiveLearningCloseAllOpenedWindow.Click += new System.EventHandler(this.buttonActiveLearningCloseAllOpenedWindow_Click);
             this.buttonActiveLearningCloseAllOpenedWindow.MouseHover += new System.EventHandler(this.buttonActiveLearningCloseAllOpenedWindow_MouseHover);
-            // 
-            // button15
-            // 
-            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button15.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button15.BackgroundImage = global::AcriveCrowdGUI.Properties.Resources.information;
-            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button15.Location = new System.Drawing.Point(1000, 14);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(35, 35);
-            this.button15.TabIndex = 22;
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button14.BackColor = System.Drawing.Color.Transparent;
-            this.button14.BackgroundImage = global::AcriveCrowdGUI.Properties.Resources._1408377678_gear_wheel;
-            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button14.ForeColor = System.Drawing.Color.Black;
-            this.button14.Location = new System.Drawing.Point(1041, 14);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(35, 35);
-            this.button14.TabIndex = 21;
-            this.button14.UseVisualStyleBackColor = false;
             // 
             // buttonRestartActiveLearning
             // 
@@ -1067,6 +983,7 @@ namespace AcriveCrowdGUI
             this.labelDatasetName.Size = new System.Drawing.Size(22, 15);
             this.labelDatasetName.TabIndex = 19;
             this.labelDatasetName.Text = "CF";
+            this.labelDatasetName.Click += new System.EventHandler(this.labelDatasetName_Click);
             // 
             // btnPlayAndPauseExperiment
             // 
@@ -1534,8 +1451,8 @@ namespace AcriveCrowdGUI
             this.kryptonListView1.FullRowSelect = true;
             this.kryptonListView1.ItemHeight = 0;
             this.kryptonListView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
+            listViewItem1,
+            listViewItem2});
             this.kryptonListView1.LineAfter = -1;
             this.kryptonListView1.LineBefore = -1;
             this.kryptonListView1.Location = new System.Drawing.Point(0, 0);
@@ -1743,9 +1660,9 @@ namespace AcriveCrowdGUI
             this.kryptonLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonLabel1.Location = new System.Drawing.Point(0, 670);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(116, 13);
+            this.kryptonLabel1.Size = new System.Drawing.Size(127, 13);
             this.kryptonLabel1.TabIndex = 4;
-            this.kryptonLabel1.Text = "Crowdsourcing Project ";
+            this.kryptonLabel1.Text = "The Active Crowd Toolkit";
             this.kryptonLabel1.UseAlternateForeColor = false;
             this.kryptonLabel1.UseKryptonFont = false;
             // 
@@ -2201,7 +2118,7 @@ namespace AcriveCrowdGUI
             this.Name = "MainPage";
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Crowdsourcing Project ";
+            this.Text = "The Active Crowd Toolkit";
             this.Load += new System.EventHandler(this.MainPage_Load);
             this.tabControlForMainPage.ResumeLayout(false);
             this.tabPageMainPage.ResumeLayout(false);
@@ -2367,14 +2284,11 @@ namespace AcriveCrowdGUI
         private Button button7;
         private Label labelDatasetName;
         private Button buttonRestartActiveLearning;
-        private Button button15;
         private AC.ExtendedRenderer.Navigator.KryptonTabControl TabControlActiveLearningGraphs;
         private TabPage tabPageAccuracyGraph;
         private Button button16;
         private Button btnActiveLearning_PopUpAccuracyGraph;
         private Button buttonActiveLearningCloseAllOpenedWindow;
-        private Button buttonOpenAllPopups;
-        private Button button14;
         private Button btnPlayAndPauseExperiment;
         private Button btnStopExperiment;
         private AC.ExtendedRenderer.Toolkit.KryptonProgressBar progressBarForActiveLearning;
@@ -2437,10 +2351,7 @@ namespace AcriveCrowdGUI
         private KryptonDataGridView kryptonDataGridView5;
         private Label label13;
         private AC.ExtendedRenderer.Toolkit.KryptonProgressBar progressBatchRunning;
-        private Button button24;
         private Button button25;
-        private Button button26;
-        private Button button27;
         private Button buttonRestartBatchRunning;
         private Button buttonPlayAndPauseBatchRunning;
         private Button buttonStopBatchRunning;

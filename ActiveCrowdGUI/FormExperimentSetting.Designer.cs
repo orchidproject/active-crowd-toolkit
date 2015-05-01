@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.buttonViewDataset = new System.Windows.Forms.Button();
@@ -51,11 +51,11 @@
             this.labelTaskSelectionMethod = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxListOfRunTypes = new System.Windows.Forms.ComboBox();
+            this.btnRunExperiment = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.btnRunExperiment = new System.Windows.Forms.Button();
             this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.kryptonComboBox1 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.groupBox4.SuspendLayout();
@@ -241,8 +241,8 @@
             this.dataGridViewOfCurrentModels.Location = new System.Drawing.Point(19, 124);
             this.dataGridViewOfCurrentModels.Name = "dataGridViewOfCurrentModels";
             this.dataGridViewOfCurrentModels.ReadOnly = true;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewOfCurrentModels.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewOfCurrentModels.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewOfCurrentModels.Size = new System.Drawing.Size(861, 158);
             this.dataGridViewOfCurrentModels.TabIndex = 11;
             this.dataGridViewOfCurrentModels.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOfCurrentModels_CellClick);
@@ -250,24 +250,24 @@
             // dropDownListOfWorkerSelectionMethod
             // 
             this.dropDownListOfWorkerSelectionMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dropDownListOfWorkerSelectionMethod.Enabled = false;
             this.dropDownListOfWorkerSelectionMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dropDownListOfWorkerSelectionMethod.FormattingEnabled = true;
             this.dropDownListOfWorkerSelectionMethod.Location = new System.Drawing.Point(545, 41);
             this.dropDownListOfWorkerSelectionMethod.Name = "dropDownListOfWorkerSelectionMethod";
             this.dropDownListOfWorkerSelectionMethod.Size = new System.Drawing.Size(201, 23);
             this.dropDownListOfWorkerSelectionMethod.TabIndex = 10;
+            this.dropDownListOfWorkerSelectionMethod.SelectedIndexChanged += new System.EventHandler(this.dropDownListOfWorkerSelectionMethod_SelectedIndexChanged);
             // 
             // labelWorkerSelectionMethod
             // 
             this.labelWorkerSelectionMethod.AutoSize = true;
-            this.labelWorkerSelectionMethod.Enabled = false;
             this.labelWorkerSelectionMethod.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold);
             this.labelWorkerSelectionMethod.Location = new System.Drawing.Point(542, 22);
             this.labelWorkerSelectionMethod.Name = "labelWorkerSelectionMethod";
             this.labelWorkerSelectionMethod.Size = new System.Drawing.Size(178, 17);
             this.labelWorkerSelectionMethod.TabIndex = 9;
             this.labelWorkerSelectionMethod.Text = "Worker Selection Method";
+            this.labelWorkerSelectionMethod.Click += new System.EventHandler(this.labelWorkerSelectionMethod_Click);
             // 
             // buttonDeleteAllModels
             // 
@@ -348,6 +348,19 @@
             this.comboBoxListOfRunTypes.TabIndex = 0;
             this.comboBoxListOfRunTypes.SelectedIndexChanged += new System.EventHandler(this.comboBoxListOfRunTypes_SelectedIndexChanged);
             // 
+            // btnRunExperiment
+            // 
+            this.btnRunExperiment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRunExperiment.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRunExperiment.Location = new System.Drawing.Point(6, 408);
+            this.btnRunExperiment.Name = "btnRunExperiment";
+            this.btnRunExperiment.Size = new System.Drawing.Size(898, 82);
+            this.btnRunExperiment.TabIndex = 3;
+            this.btnRunExperiment.Text = "Start";
+            this.btnRunExperiment.UseVisualStyleBackColor = true;
+            this.btnRunExperiment.Visible = false;
+            this.btnRunExperiment.Click += new System.EventHandler(this.btnRunExperiment_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox1);
@@ -391,19 +404,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "By Default";
             this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // btnRunExperiment
-            // 
-            this.btnRunExperiment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRunExperiment.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRunExperiment.Location = new System.Drawing.Point(6, 408);
-            this.btnRunExperiment.Name = "btnRunExperiment";
-            this.btnRunExperiment.Size = new System.Drawing.Size(898, 82);
-            this.btnRunExperiment.TabIndex = 3;
-            this.btnRunExperiment.Text = "Start";
-            this.btnRunExperiment.UseVisualStyleBackColor = true;
-            this.btnRunExperiment.Visible = false;
-            this.btnRunExperiment.Click += new System.EventHandler(this.btnRunExperiment_Click);
             // 
             // kryptonSplitContainer1
             // 

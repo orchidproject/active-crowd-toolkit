@@ -285,7 +285,7 @@ namespace AcriveCrowdGUI
                 {
                     return;
                 }
-                results.Add(CrowdsourcingModels.Program.RunGold(currentDataset.datasetPath, currentExpItem.runType, currentModel, MainPage.mainPageForm.currentExperimentSetting.communityCount));
+                results.Add(CrowdsourcingModels.Program.RunGold(currentDataset.DatasetPath, currentExpItem.runType, currentModel, MainPage.mainPageForm.currentExperimentSetting.communityCount));
 
                 //When the experiment is not running
                 while (!MainPage.mainPageForm.isExperimentRunning)

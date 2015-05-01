@@ -107,12 +107,6 @@
     <Compile Include="LabelXAxis.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="LoadingPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoadingPage.Designer.cs">
-      <DependentUpon>LoadingPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,9 +130,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormWorkerOrCommunityDetail.resx">
       <DependentUpon>FormWorkerOrCommunityDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoadingPage.resx">
-      <DependentUpon>LoadingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>

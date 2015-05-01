@@ -258,8 +258,6 @@ namespace AcriveCrowdGUI
             //get current Data Path String
             Dataset currentDataSet = GlobalVariables.loadedDatasets[comboBoxForSelectingDataset.SelectedIndex]; 
             
-            double mabConstant = GlobalVariables.mabConstants[comboBoxForSelectingDataset.SelectedIndex];
-
             int initialNumberOfLabelsPerTask = trackBarNumberOfLabellingRounds.Value;
 
             //Get an array of different starting label points of each labelling round 
@@ -279,9 +277,9 @@ namespace AcriveCrowdGUI
             //change labelling round maxvalue
             Dataset currentDataset = GlobalVariables.loadedDatasets[comboBoxForSelectingDataset.SelectedIndex];
 
-            trackBarNumberOfLabellingRounds.Maximum = currentDataset.maximumOfLabellingRound;
-            Debug.Write(currentDataset.maximumOfLabellingRound + "");
-            labelMaximumLabellingRound.Text = currentDataset.maximumOfLabellingRound + "";
+            trackBarNumberOfLabellingRounds.Maximum = currentDataset.MaximumOfLabellingRound;
+            Debug.Write(currentDataset.MaximumOfLabellingRound + "");
+            labelMaximumLabellingRound.Text = currentDataset.MaximumOfLabellingRound + "";
             trackBarNumberOfLabellingRounds.Invalidate();
             
             //clear the currentModels
@@ -547,6 +545,16 @@ namespace AcriveCrowdGUI
         }
 
         private void groupBoxInitialNumberOfLabelling_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dropDownListOfWorkerSelectionMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelWorkerSelectionMethod_Click(object sender, EventArgs e)
         {
 
         }
