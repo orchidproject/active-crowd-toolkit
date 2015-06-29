@@ -1,99 +1,323 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Active Crowd Toolkit by orchidproject</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Active Crowd Toolkit</h1>
-      <h2 class="project-tagline">Benchmarking active learning algorithms for crowdsourcing research</h2>
-      <a href="https://github.com/orchidproject/active-crowd-toolkit" class="btn">View on GitHub</a>
-      <a href="https://github.com/orchidproject/active-crowd-toolkit/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/orchidproject/active-crowd-toolkit/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+<html lang="en">
 
-    <section class="main-content">
-      <h1>
-<a id="active-crowd-toolkit" class="anchor" href="#active-crowd-toolkit" aria-hidden="true"><span class="octicon octicon-link"></span></a>active-crowd-toolkit</h1>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<p>Repository storing the code of the ActiveCrowdToolkit: Benchmarking active learning algorithms for crowdsourcing research</p>
+      ga('create', 'UA-49884699-1', 'nilmtk.github.io');
+      ga('send', 'pageview');
 
-<h2>
-<a id="how-to-run-the-toolkit" class="anchor" href="#how-to-run-the-toolkit" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to run the toolkit?</h2>
+  </script>
 
-<p>Click on ActiveCrowdToolkit.exe. The main screen will pop up.</p>
+  <title>Active Crowd Toolkit</title>
 
-<h2>
-<a id="how-to-run-experiments-from-command-line" class="anchor" href="#how-to-run-experiments-from-command-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to run experiments from command line?</h2>
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.css" rel="stylesheet">
 
-<p>Open the command line, navigate to the folder containing the toolkit files and run CrowdsourcingModels.exe with the following input parameters:</p>
+  <!-- Custom Google Web Font -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
-<ul>
-<li>
-<p>Parameter 1: Execution mode = <em>run / aggregate</em></p>
+  <!-- Add custom CSS here -->
+  <link href="css/landing-page.css" rel="stylesheet">
 
-<ul>
-<li>
-<em>run</em> = the default mode for running new experiments</li>
-<li>
-<em>aggregate</em> = the mode for aggregating results files into a single csv files with mean and standard error of the runs</li>
-</ul>
-</li>
-<li><p>Parameter 2 (only for run mode): Path to the input dataset in csv format </p></li>
-<li>
-<p>Parameter 3 (only for run mode): Task selection method = RT / ET</p>
+</head>
 
-<ul>
-<li>RT = Random task selection</li>
-<li>ET = Entropy task selection</li>
-</ul>
-</li>
-<li>
-<p>Parameter 4 (only for run mode): Worker selection method = RW / BT</p>
+<body>
 
-<ul>
-<li>RW = Random worker selection</li>
-<li>BT = Entropy worker selection</li>
-</ul>
-</li>
-<li><p>Parameter 5 (only for run mode): Index of the starting run</p></li>
-<li><p>Parameter 6 (only for run mode): Index of the ending run</p></li>
-</ul>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
-<p>This will run all the available aggregation models (Majority vote, Vote distribution, Dawid&amp;Skene, BCC, CBCC) and save the results in a default folder: <em>ResultsActiveLearningToolkit/RunX</em>  </p>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand" href="http://startbootstrap.com">Start Bootstrap</a>-->
+            </div>
 
-<p>Examples:</p>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#publications">Publications</a>
+                    </li>
+                    <li><a href="#team">Team</a>
+                    </li>
+                    <!--<li><a href="#faq">FAQ</a></li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-<p>Execute all the models with ET and RW for 1 to 10 runs:</p>
+    <div class="intro-header">
 
-<pre><code>CrowdsourcingModels.exe Datasets/WS-AMT.csv ET RW 1 10
-</code></pre>
+        <div class="container">
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/orchidproject/active-crowd-toolkit">Active Crowd Toolkit</a> is maintained by <a href="https://github.com/orchidproject">orchidproject</a>.</span>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Active Crowd Toolkit .NET</h1>
+                        <h3>Benchmarking toolkit for crowdsourcing research</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            
+                            <li><a href="https://github.com/orchidproject/active-crowd-toolkit" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+        </div>
+        <!-- /.container -->
 
-    </section>
+    </div>
+    <!-- /.intro-header -->
 
-            <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-64310536-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+    <div class="content-section-a">
 
-  </body>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Test benchmark crowd consensus methods with one line of code</h2>
+                        <p class="lead">Use a set of existing data aggregation models to combine crowd labels and learn information about the workers.</p>
+						<p class="lead">The ActiveCrowdToolkit .NET v0.1 includes the methods: Majority voting, Vote distribution, Dawid&Skene [1], Bayesian Classifier Combination (BCC) [2], Community-Based BCC [3]</p>
+
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6"> 
+                    <img class="img-responsive" src="img/code1.png" alt=""> 
+                </div> 
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+	
+	    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Build new active learning strategies</h2>
+                        <p class="lead">By combining existing data aggregation models, task selection methods and worker selection methods.</p>
+
+                </div>
+                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                        <img class="img-responsive" src="img/screenshot1.png" alt="">
+                    </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+	
+    <!-- /.content-section-a -->
+
+
+
+        </div>
+        <!-- /.content-section-b -->
+	
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                    <h2 class="section-heading">Play with your data sets</h2>
+                        <p class="lead">Import data in comma-separated format using a the integrated data parsing methods.</p>
+                    </div>
+                            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                                <img class="img-responsive" src="img/data.png" alt=""
+                            </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.content-section-b -->
+	</div>
+	
+	<div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Integration with Infer.NET for building machine learning models</h2>
+                        <p class="lead">Take advantage of the Infer.NET framework for implementing probabilistic graphical models and running approximate Bayesian inference in just a few lines of code.</p>
+						<p class="lead">See some examples <a href="http://blogs.msdn.com/b/infernet_team_blog/archive/2014/06/25/community-based-bayesian-classifier-combination.aspx" target="_blank">here</a> and <a href="http://blogs.msdn.com/b/infernet_team_blog/archive/2015/03/31/bccwords-bayesian-modelling-of-text-sentiment-analysis-using-crowdsourced-annotations.aspx" target="_blank">here</a>, and check out the code in Github.</p>
+                    </div>
+					<center>
+                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                                <img class="img-responsive" src="img/infernet.jpg" alt=""
+                    </div>
+					</center>
+                </div>
+
+            </div>
+            <!-- /.container -->
+		</div>
+	</div>
+	
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Analyse real-time performance of your algorithms</h2>
+                            <p class="lead">Use the graphical interface to understand the relative performance of different strategies,
+							and visualise internal models such as the belief over a task’s true label and confusion matrices of individual workers.</p>
+                            </div>
+                            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                        <img class="img-responsive" src="img/screenshot2.png" alt="">
+                    </div>
+                        </div>
+
+                    </div>
+                    <!-- /.container -->
+
+                </div>
+            </div>
+            <!-- /.content-section-a -->
+		
+		
+		<div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Cluster deployment with command-line APIs</h2>
+                        <p class="lead">Want to run repeated experiments? Use the toolkit's API to run batches of experiments.</p>
+                    </div>
+					<center>
+                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                                <img class="img-responsive" src="img/infernet.jpg" alt=""
+                    </div>
+					</center>
+                </div>
+
+            </div>
+            <!-- /.container -->
+		</div>
+	</div>
+          
+            <div class="content-section-">
+
+            <div class="container" id="publications">
+
+                <div class="row">
+
+                    <div class="col-lg-12 col-sm-10">
+
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Publications</h2>
+                            <p class="lead">
+                                
+                                <ol>
+                                <h4 style="font-weight:400">
+                                <ul>Matteo Venanzi, Oliver
+                                Parson, Alex Rogers, Nick Jennings. <b>The ActiveCrowdToolkit: An Open-Source Tool for Benchmarking ActiveLearning Algorithms for Crowdsourcing Research</b> <i>(Demo)</i>. In: 3rd
+                                Human Computation and Crowdsourcing Conference (HCOMP),
+                                San Diego, USA. 2015.
+                                </h4>
+								</ul>
+                                </ol>
+
+                            </p>
+                            </div>
+                           
+                        </div>
+						
+						<div class="clearfix"></div>
+                        <h2 class="section-heading">References</h2>
+                            <p class="lead">
+                                
+                                <ol>
+                                <h4 style="font-weight:400">
+                                <li>Matteo Venanzi, Oliver
+                                Parson, Alex Rogers, Nick Jennings. <b>The ActiveCrowdToolkit: An Open-Source Tool for Benchmarking ActiveLearning Algorithms for Crowdsourcing Research</b> <i>(Demo)</i>. In: 3rd
+                                Human Computation and Crowdsourcing Conference (HCOMP),
+                                San Diego, USA. 2015.
+                                </h4>
+								</li>
+                                </ol>
+
+                            </p>
+                            </div>
+                           
+                        </div>
+
+                    </div>
+                    <!-- /.container -->
+
+                </div>
+            </div>
+
+
+
+
+            <div class="banner clearfix" >
+
+                <div class="container">
+
+                    <div id ="team" class="row">
+                        <div class="col-lg-6">
+                            <h2>Core Development<br> Team</h2>
+                        </div>
+                        <div class="col-lg-6">
+						<center>
+                            <ul class="list-inline banner-social-buttons">
+                                <li><a href="http://nipunbatra.github.io"><img class="img-circular" src="img/matteo.jpg" alt=""></a><h3>Matteo Venanzi</h3></li>
+                                <li></li>
+                                <li></li>
+                                <li><a href="http://www.oliverparson.co.uk/"><img class="img-circular" src="img/oliver.jpg" alt=""></a><h3>Oliver Parson</h3></li>
+                            </ul>
+							</center>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+<!-- JavaScript -->
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+
 </html>
-
