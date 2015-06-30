@@ -1,0 +1,701 @@
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p}{}\section{Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P Class Reference}
+\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p}\index{Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P@{Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P}}
+
+
+Generated algorithm for performing inference.  
+
+
+Inheritance diagram for Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+object \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad41ad455ee9c75d9eb227088e3908237}{Get\+Observed\+Value} (string variable\+Name)
+\begin{DoxyCompactList}\small\item\em Get the observed value of the specified variable.\end{DoxyCompactList}\item 
+void \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a1784d712f959b19cf9b6dd1fad20aa9e}{Set\+Observed\+Value} (string variable\+Name, object value)
+\begin{DoxyCompactList}\small\item\em Set the observed value of the specified variable.\end{DoxyCompactList}\item 
+object \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad7fa30acf60524bfba9c5fa41db1dc32}{Marginal} (string variable\+Name)
+\begin{DoxyCompactList}\small\item\em Get the marginal distribution (computed up to this point) of a variable\end{DoxyCompactList}\item 
+T \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a83c754cda6fc44c9d11b4b1f6a67de91}{Marginal$<$ T $>$} (string variable\+Name)
+\begin{DoxyCompactList}\small\item\em Get the marginal distribution (computed up to this point) of a variable, converted to type T\end{DoxyCompactList}\item 
+object \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_aebb71d022bc194202b191a255d3647fd}{Marginal} (string variable\+Name, string query)
+\begin{DoxyCompactList}\small\item\em Get the query-\/specific marginal distribution of a variable.\end{DoxyCompactList}\item 
+T \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5db0c41c9cd8c0896fea19890bf0184d}{Marginal$<$ T $>$} (string variable\+Name, string query)
+\begin{DoxyCompactList}\small\item\em Get the query-\/specific marginal distribution of a variable, converted to type T\end{DoxyCompactList}\item 
+void \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a0555bf326d664050cd8706fe1ad718c9}{Execute} (int number\+Of\+Iterations)
+\begin{DoxyCompactList}\small\item\em Update all marginals, by iterating message-\/passing the given number of times\end{DoxyCompactList}\item 
+void \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a666059fedd70c6ebafb77b7ba98adc35}{Update} (int additional\+Iterations)
+\begin{DoxyCompactList}\small\item\em Update all marginals, by iterating message-\/passing an additional number of times\end{DoxyCompactList}\item 
+void \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a9b5187d265d55326778d4ed5144dafc9}{Reset} ()
+\begin{DoxyCompactList}\small\item\em Reset all messages to their initial values. Sets Number\+Of\+Iterations\+Done to 0.\end{DoxyCompactList}\item 
+Bernoulli \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a4ec19be7ea41aaa244b21163ede5ef74}{Vbool0\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}vbool0\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Dirichlet \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a952c766daae4076480acb780851fb3ad}{Background\+Label\+Prob\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}Background\+Label\+Prob\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Distribution\+Ref\+Array$<$ Distribution\+Ref\+Array$<$ Dirichlet, Vector $>$, Vector\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad8f6e5dd24857fe3d8874e77702f49ae}{Confusion\+Matrix\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}Confusion\+Matrix\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Distribution\+Ref\+Array$<$ Discrete, int $>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a9f3842349f089d86043d607a831d4307}{Truth\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}Truth\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Distribution\+Ref\+Array$<$ Discrete, int $>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a100991a01a0141905e4cf5bbab98108e}{Truth\+Marginal\+Divided\+By\+Prior} ()
+\begin{DoxyCompactList}\small\item\em Returns the output message (the posterior divided by the prior) for \textquotesingle{}Truth\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Point\+Mass$<$ int $>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a03a6388334755ebd2aa0ff8c5ed1f4e2}{Worker\+Count\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}Worker\+Count\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Point\+Mass$<$ int\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a94c95fb366462f663dc702374f1bea44}{Worker\+Task\+Count\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}Worker\+Task\+Count\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Point\+Mass$<$ int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a4010e430a8925a46d7a7098952773582}{Worker\+Task\+Index\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}Worker\+Task\+Index\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Point\+Mass$<$ Dirichlet $>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a217cb08f450040b58535d623bd7fa6b0}{Background\+Label\+Prob\+Prior\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}Background\+Label\+Prob\+Prior\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Point\+Mass$<$ Dirichlet\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a31f2762b98ace26fd1659e251faf6379}{Confusion\+Matrix\+Prior\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}Confusion\+Matrix\+Prior\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Point\+Mass$<$ Discrete\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a388fd0698994fcdf0afde5e07338fd6c}{Truth\+Constraint\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}Truth\+Constraint\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\item 
+Distribution\+Ref\+Array$<$ Distribution\+Ref\+Array$<$ Discrete, int $>$, int\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a8c09b2fe4a6625f7afd6b860187268af}{Worker\+Label\+Marginal} ()
+\begin{DoxyCompactList}\small\item\em Returns the marginal distribution for \textquotesingle{}Worker\+Label\textquotesingle{} given by the current state of the message passing algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a68cc9b27a065511a79d56f87983fc56d}{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0\+\_\+iterations\+Done}
+\begin{DoxyCompactList}\small\item\em The number of iterations last computed by Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0. Set this to zero to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0\end{DoxyCompactList}\item 
+int \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a6ba5341acb834c6b1b7afc6f339bc210}{Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1\+\_\+iterations\+Done}
+\begin{DoxyCompactList}\small\item\em The number of iterations last computed by Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1. Set this to zero to force re-\/execution of Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1\end{DoxyCompactList}\item 
+int \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a6dba112878fc8583d1a25218cb7da60d}{Changed\+\_\+\+Worker\+Count\+\_\+iterations\+Done}
+\begin{DoxyCompactList}\small\item\em The number of iterations last computed by Changed\+\_\+\+Worker\+Count. Set this to zero to force re-\/execution of Changed\+\_\+\+Worker\+Count\end{DoxyCompactList}\item 
+int \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_aa1a7d6b28fd11a566a03df6b6c06ddcb}{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+iterations\+Done}
+\begin{DoxyCompactList}\small\item\em The number of iterations last computed by Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count. Set this to zero to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\end{DoxyCompactList}\item 
+int \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5bf8aef1624310fee144a221a1108716}{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+iterations\+Done}
+\begin{DoxyCompactList}\small\item\em The number of iterations last computed by Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4. Set this to zero to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\end{DoxyCompactList}\item 
+bool \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ae305ba92155c72ca215b3948d87dd321}{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+is\+Initialised}
+\begin{DoxyCompactList}\small\item\em True if Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4 has performed initialisation. Set this to false to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\end{DoxyCompactList}\item 
+int \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a90f97411af644a567896bd38068a3681}{Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+iterations\+Done}
+\begin{DoxyCompactList}\small\item\em The number of iterations last computed by Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5. Set this to zero to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\end{DoxyCompactList}\item 
+bool \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_abad013c605a772f90c9b7c700fcfe077}{Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+is\+Initialised}
+\begin{DoxyCompactList}\small\item\em True if Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5 has performed initialisation. Set this to false to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\end{DoxyCompactList}\item 
+int \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a96cd83a67ce48692b2dd5f13b31f06b9}{Constant\+\_\+iterations\+Done}
+\begin{DoxyCompactList}\small\item\em The number of iterations last computed by Constant. Set this to zero to force re-\/execution of Constant\end{DoxyCompactList}\item 
+int \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ae58eb5265f8700b885d370e8fe410802}{Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+iterations\+Done}
+\begin{DoxyCompactList}\small\item\em The number of iterations last computed by Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7. Set this to zero to force re-\/execution of Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\end{DoxyCompactList}\item 
+bool \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a2e04d5d41ac542942b2b715e26bd4038}{Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+is\+Initialised}
+\begin{DoxyCompactList}\small\item\em True if Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7 has performed initialisation. Set this to false to force re-\/execution of Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\end{DoxyCompactList}\item 
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_aae95c2a5d450ae29e8296fef01dd762c}{}Distribution\+Ref\+Array$<$ Dirichlet, Vector $>$ {\bfseries Background\+Label\+Prob\+\_\+rep\+\_\+\+B}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_aae95c2a5d450ae29e8296fef01dd762c}
+
+\item 
+Dirichlet \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ada4c5df5755a4a5d434327e99fc0e52e}{Background\+Label\+Prob\+\_\+rep\+\_\+\+F\+\_\+marginal}
+\begin{DoxyCompactList}\small\item\em Buffer for Replicate\+Op\+\_\+\+Divide.\+Uses\+Average\+Conditional$<$\+Dirichlet$>$\end{DoxyCompactList}\item 
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a23af40d289a65eda2de8c88cbbec3ff5}{}Distribution\+Ref\+Array$<$ Distribution\+Ref\+Array$<$ Distribution\+Ref\+Array$<$ Dirichlet, Vector $>$, Vector\mbox{[}$\,$\mbox{]}$>$, Vector\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Confusion\+Matrix\+\_\+rep\+\_\+\+B}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a23af40d289a65eda2de8c88cbbec3ff5}
+
+\item 
+Distribution\+Ref\+Array$<$ Distribution\+Ref\+Array$<$ Dirichlet, Vector $>$, Vector\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a3590fbf0f60f036123242d4f0baa5c4f}{Confusion\+Matrix\+\_\+rep\+\_\+\+B\+\_\+to\+Def}
+\begin{DoxyCompactList}\small\item\em Buffer for Replicate\+Op\+\_\+\+Divide.\+Marginal$<$\+Dirichlet$>$\end{DoxyCompactList}\item 
+Distribution\+Ref\+Array$<$ Discrete, int $>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac3fc54a4524ee40acdab6aad09631bc7}{Truth\+\_\+uses\+\_\+\+B\+\_\+n\+\_\+\+\_\+to\+Def}
+\begin{DoxyCompactList}\small\item\em Buffer for Replicate\+Op\+\_\+\+Divide.\+Marginal$<$\+Discrete$>$\end{DoxyCompactList}\item 
+Bernoulli \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac90e3796c29c3bbcb0ad85d8e8ac90c2}{vbool0\+\_\+marginal\+\_\+\+F}
+\begin{DoxyCompactList}\small\item\em Message to marginal of \textquotesingle{}vbool0\textquotesingle{}\end{DoxyCompactList}\item 
+Dirichlet \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad123c1c17c747bf809749496b903795e}{Background\+Label\+Prob\+\_\+marginal\+\_\+\+F}
+\begin{DoxyCompactList}\small\item\em Message to marginal of \textquotesingle{}Background\+Label\+Prob\textquotesingle{}\end{DoxyCompactList}\item 
+Distribution\+Ref\+Array$<$ Distribution\+Ref\+Array$<$ Dirichlet, Vector $>$, Vector\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a826248ad56421c86f0f047e958f5fbce}{Confusion\+Matrix\+\_\+marginal\+\_\+\+F}
+\begin{DoxyCompactList}\small\item\em Message to marginal of \textquotesingle{}Confusion\+Matrix\textquotesingle{}\end{DoxyCompactList}\item 
+Distribution\+Ref\+Array$<$ Discrete, int $>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac0f71b3998592b33f9b4025f39d97a40}{Truth\+\_\+marginal\+\_\+\+F}
+\begin{DoxyCompactList}\small\item\em Message to marginal of \textquotesingle{}Truth\textquotesingle{}\end{DoxyCompactList}\item 
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac05ae9eb4c7d49051bba627421994ad6}{}Point\+Mass$<$ int $>$ {\bfseries Worker\+Count\+\_\+marginal}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac05ae9eb4c7d49051bba627421994ad6}
+
+\item 
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac236fcc7606e7135faf98300bdda2840}{}Point\+Mass$<$ int\mbox{[}$\,$\mbox{]}$>$ {\bfseries Worker\+Task\+Count\+\_\+marginal}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac236fcc7606e7135faf98300bdda2840}
+
+\item 
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_abac4131c53e234262731e0a07c3852e6}{}Point\+Mass$<$ int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Worker\+Task\+Index\+\_\+marginal}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_abac4131c53e234262731e0a07c3852e6}
+
+\item 
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a111766b07f18f7783077a68d3b1c989f}{}Point\+Mass$<$ Dirichlet $>$ {\bfseries Background\+Label\+Prob\+Prior\+\_\+marginal}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a111766b07f18f7783077a68d3b1c989f}
+
+\item 
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a03edc2556c23997e63776a990ec4a6c2}{}Point\+Mass$<$ Dirichlet\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Confusion\+Matrix\+Prior\+\_\+marginal}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a03edc2556c23997e63776a990ec4a6c2}
+
+\item 
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a3745e965cabc6957ea9eecfcd4015df5}{}Point\+Mass$<$ Discrete\mbox{[}$\,$\mbox{]}$>$ {\bfseries Truth\+Constraint\+\_\+marginal}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a3745e965cabc6957ea9eecfcd4015df5}
+
+\item 
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a8e3e8801f3d7aa01655a3ec06aaeb4b4}{}Distribution\+Ref\+Array$<$ Distribution\+Ref\+Array$<$ Discrete, int $>$, int\mbox{[}$\,$\mbox{]}$>$ {\bfseries Worker\+Label\+\_\+marginal}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a8e3e8801f3d7aa01655a3ec06aaeb4b4}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a0a9e34e70ccab7709f1134b9b5889a47}{Number\+Of\+Iterations\+Done}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The number of iterations done from the initial state\end{DoxyCompactList}\item 
+int \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a918e710a2e7b4a123da74eced7421ece}{Worker\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The externally-\/specified value of \textquotesingle{}Worker\+Count\textquotesingle{}\end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_adba9d5853dd6a6ab74401c6c4316d348}{Worker\+Task\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The externally-\/specified value of \textquotesingle{}Worker\+Task\+Count\textquotesingle{}\end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_acabd7291b2d88f17a2df55a702f71e29}{Worker\+Task\+Index}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The externally-\/specified value of \textquotesingle{}Worker\+Task\+Index\textquotesingle{}\end{DoxyCompactList}\item 
+Dirichlet \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5e94a159f468e8d365321779a4ac8ea1}{Background\+Label\+Prob\+Prior}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The externally-\/specified value of \textquotesingle{}Background\+Label\+Prob\+Prior\textquotesingle{}\end{DoxyCompactList}\item 
+Dirichlet\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5d2f1483d0debe876c9c9504738761e7}{Confusion\+Matrix\+Prior}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The externally-\/specified value of \textquotesingle{}Confusion\+Matrix\+Prior\textquotesingle{}\end{DoxyCompactList}\item 
+Discrete\mbox{[}$\,$\mbox{]} \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_acffd4167727f940a144a3efadfc2d805}{Truth\+Constraint}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The externally-\/specified value of \textquotesingle{}Truth\+Constraint\textquotesingle{}\end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a719f0824f1c1f497c4c4e29e61125b67}{Worker\+Label}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The externally-\/specified value of \textquotesingle{}Worker\+Label\textquotesingle{}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Event\+Handler$<$ Progress\+Changed\+Event\+Args $>$ \hyperlink{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ae3a4699a135334bb8924925ab33a1999}{Progress\+Changed}
+\begin{DoxyCompactList}\small\item\em Event that is fired when the progress of inference changes, typically at the end of one iteration of the inference algorithm.\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generated algorithm for performing inference. 
+
+If you wish to use this class directly, you must perform the following steps\+: 1) Create an instance of the class. 2) Set the value of any externally-\/set fields e.\+g. data, priors. 3) Call the Execute(number\+Of\+Iterations) method. 4) Use the X\+X\+X\+Marginal() methods to retrieve posterior marginals for different variables.
+
+Generated by Infer.\+N\+E\+T 2.\+6.\+41114.\+1 at 21\+:00 on 21 April 2015. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a952c766daae4076480acb780851fb3ad}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Background\+Label\+Prob\+Marginal@{Background\+Label\+Prob\+Marginal}}
+\index{Background\+Label\+Prob\+Marginal@{Background\+Label\+Prob\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Background\+Label\+Prob\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Dirichlet Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Background\+Label\+Prob\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a952c766daae4076480acb780851fb3ad}
+
+
+Returns the marginal distribution for \textquotesingle{}Background\+Label\+Prob\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a217cb08f450040b58535d623bd7fa6b0}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Background\+Label\+Prob\+Prior\+Marginal@{Background\+Label\+Prob\+Prior\+Marginal}}
+\index{Background\+Label\+Prob\+Prior\+Marginal@{Background\+Label\+Prob\+Prior\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Background\+Label\+Prob\+Prior\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Point\+Mass$<$Dirichlet$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Background\+Label\+Prob\+Prior\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a217cb08f450040b58535d623bd7fa6b0}
+
+
+Returns the marginal distribution for \textquotesingle{}Background\+Label\+Prob\+Prior\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad8f6e5dd24857fe3d8874e77702f49ae}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Confusion\+Matrix\+Marginal@{Confusion\+Matrix\+Marginal}}
+\index{Confusion\+Matrix\+Marginal@{Confusion\+Matrix\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Confusion\+Matrix\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Distribution\+Ref\+Array$<$Distribution\+Ref\+Array$<$Dirichlet,Vector$>$,Vector\mbox{[}$\,$\mbox{]}$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Confusion\+Matrix\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad8f6e5dd24857fe3d8874e77702f49ae}
+
+
+Returns the marginal distribution for \textquotesingle{}Confusion\+Matrix\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a31f2762b98ace26fd1659e251faf6379}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Confusion\+Matrix\+Prior\+Marginal@{Confusion\+Matrix\+Prior\+Marginal}}
+\index{Confusion\+Matrix\+Prior\+Marginal@{Confusion\+Matrix\+Prior\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Confusion\+Matrix\+Prior\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Point\+Mass$<$Dirichlet\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Confusion\+Matrix\+Prior\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a31f2762b98ace26fd1659e251faf6379}
+
+
+Returns the marginal distribution for \textquotesingle{}Confusion\+Matrix\+Prior\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a0555bf326d664050cd8706fe1ad718c9}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Execute@{Execute}}
+\index{Execute@{Execute}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Execute(int number\+Of\+Iterations)}]{\setlength{\rightskip}{0pt plus 5cm}void Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Execute (
+\begin{DoxyParamCaption}
+\item[{int}]{number\+Of\+Iterations}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a0555bf326d664050cd8706fe1ad718c9}
+
+
+Update all marginals, by iterating message-\/passing the given number of times
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Of\+Iterations} & The total number of iterations that should be executed for the current set of observed values. If this is more than the number already done, only the extra iterations are done. If this is less than the number already done, message-\/passing is restarted from the beginning. Changing the observed values resets the iteration count to 0.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad41ad455ee9c75d9eb227088e3908237}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Get\+Observed\+Value@{Get\+Observed\+Value}}
+\index{Get\+Observed\+Value@{Get\+Observed\+Value}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Get\+Observed\+Value(string variable\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}object Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Get\+Observed\+Value (
+\begin{DoxyParamCaption}
+\item[{string}]{variable\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad41ad455ee9c75d9eb227088e3908237}
+
+
+Get the observed value of the specified variable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Name} & Variable name\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad7fa30acf60524bfba9c5fa41db1dc32}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Marginal@{Marginal}}
+\index{Marginal@{Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Marginal(string variable\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}object Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Marginal (
+\begin{DoxyParamCaption}
+\item[{string}]{variable\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad7fa30acf60524bfba9c5fa41db1dc32}
+
+
+Get the marginal distribution (computed up to this point) of a variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Name} & Name of the variable in the generated code\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The marginal distribution computed up to this point
+\end{DoxyReturn}
+
+
+Execute, Update, or Reset must be called first to set the value of the marginal.\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_aebb71d022bc194202b191a255d3647fd}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Marginal@{Marginal}}
+\index{Marginal@{Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Marginal(string variable\+Name, string query)}]{\setlength{\rightskip}{0pt plus 5cm}object Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Marginal (
+\begin{DoxyParamCaption}
+\item[{string}]{variable\+Name, }
+\item[{string}]{query}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_aebb71d022bc194202b191a255d3647fd}
+
+
+Get the query-\/specific marginal distribution of a variable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Name} & Name of the variable in the generated code\\
+\hline
+{\em query} & Query\+Type name. For example, Gibbs\+Sampling answers \textquotesingle{}Marginal\textquotesingle{}, \textquotesingle{}Samples\textquotesingle{}, and \textquotesingle{}Conditionals\textquotesingle{} queries\\
+\hline
+\end{DoxyParams}
+
+
+Execute, Update, or Reset must be called first to set the value of the marginal.\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a83c754cda6fc44c9d11b4b1f6a67de91}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Marginal$<$ T $>$@{Marginal$<$ T $>$}}
+\index{Marginal$<$ T $>$@{Marginal$<$ T $>$}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Marginal$<$ T $>$(string variable\+Name)}]{\setlength{\rightskip}{0pt plus 5cm}T {\bf Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Marginal}$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{string}]{variable\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a83c754cda6fc44c9d11b4b1f6a67de91}
+
+
+Get the marginal distribution (computed up to this point) of a variable, converted to type T
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The distribution type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Name} & Name of the variable in the generated code\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The marginal distribution computed up to this point
+\end{DoxyReturn}
+
+
+Execute, Update, or Reset must be called first to set the value of the marginal.\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5db0c41c9cd8c0896fea19890bf0184d}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Marginal$<$ T $>$@{Marginal$<$ T $>$}}
+\index{Marginal$<$ T $>$@{Marginal$<$ T $>$}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Marginal$<$ T $>$(string variable\+Name, string query)}]{\setlength{\rightskip}{0pt plus 5cm}T {\bf Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Marginal}$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{string}]{variable\+Name, }
+\item[{string}]{query}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5db0c41c9cd8c0896fea19890bf0184d}
+
+
+Get the query-\/specific marginal distribution of a variable, converted to type T
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The distribution type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Name} & Name of the variable in the generated code\\
+\hline
+{\em query} & Query\+Type name. For example, Gibbs\+Sampling answers \textquotesingle{}Marginal\textquotesingle{}, \textquotesingle{}Samples\textquotesingle{}, and \textquotesingle{}Conditionals\textquotesingle{} queries\\
+\hline
+\end{DoxyParams}
+
+
+Execute, Update, or Reset must be called first to set the value of the marginal.\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a9b5187d265d55326778d4ed5144dafc9}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Reset@{Reset}}
+\index{Reset@{Reset}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Reset()}]{\setlength{\rightskip}{0pt plus 5cm}void Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a9b5187d265d55326778d4ed5144dafc9}
+
+
+Reset all messages to their initial values. Sets Number\+Of\+Iterations\+Done to 0.
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a1784d712f959b19cf9b6dd1fad20aa9e}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Set\+Observed\+Value@{Set\+Observed\+Value}}
+\index{Set\+Observed\+Value@{Set\+Observed\+Value}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Set\+Observed\+Value(string variable\+Name, object value)}]{\setlength{\rightskip}{0pt plus 5cm}void Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Set\+Observed\+Value (
+\begin{DoxyParamCaption}
+\item[{string}]{variable\+Name, }
+\item[{object}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a1784d712f959b19cf9b6dd1fad20aa9e}
+
+
+Set the observed value of the specified variable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+Name} & Variable name\\
+\hline
+{\em value} & Observed value\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a388fd0698994fcdf0afde5e07338fd6c}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Truth\+Constraint\+Marginal@{Truth\+Constraint\+Marginal}}
+\index{Truth\+Constraint\+Marginal@{Truth\+Constraint\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Truth\+Constraint\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Point\+Mass$<$Discrete\mbox{[}$\,$\mbox{]}$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Truth\+Constraint\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a388fd0698994fcdf0afde5e07338fd6c}
+
+
+Returns the marginal distribution for \textquotesingle{}Truth\+Constraint\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a9f3842349f089d86043d607a831d4307}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Truth\+Marginal@{Truth\+Marginal}}
+\index{Truth\+Marginal@{Truth\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Truth\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Distribution\+Ref\+Array$<$Discrete,int$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Truth\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a9f3842349f089d86043d607a831d4307}
+
+
+Returns the marginal distribution for \textquotesingle{}Truth\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a100991a01a0141905e4cf5bbab98108e}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Truth\+Marginal\+Divided\+By\+Prior@{Truth\+Marginal\+Divided\+By\+Prior}}
+\index{Truth\+Marginal\+Divided\+By\+Prior@{Truth\+Marginal\+Divided\+By\+Prior}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Truth\+Marginal\+Divided\+By\+Prior()}]{\setlength{\rightskip}{0pt plus 5cm}Distribution\+Ref\+Array$<$Discrete,int$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Truth\+Marginal\+Divided\+By\+Prior (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a100991a01a0141905e4cf5bbab98108e}
+
+
+Returns the output message (the posterior divided by the prior) for \textquotesingle{}Truth\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The output message (the posterior divided by the prior)
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a666059fedd70c6ebafb77b7ba98adc35}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Update@{Update}}
+\index{Update@{Update}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Update(int additional\+Iterations)}]{\setlength{\rightskip}{0pt plus 5cm}void Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Update (
+\begin{DoxyParamCaption}
+\item[{int}]{additional\+Iterations}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a666059fedd70c6ebafb77b7ba98adc35}
+
+
+Update all marginals, by iterating message-\/passing an additional number of times
+
+
+\begin{DoxyParams}{Parameters}
+{\em additional\+Iterations} & The number of iterations that should be executed, starting from the current message state. Messages are not reset, even if observed values have changed.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a4ec19be7ea41aaa244b21163ede5ef74}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Vbool0\+Marginal@{Vbool0\+Marginal}}
+\index{Vbool0\+Marginal@{Vbool0\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Vbool0\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Bernoulli Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Vbool0\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a4ec19be7ea41aaa244b21163ede5ef74}
+
+
+Returns the marginal distribution for \textquotesingle{}vbool0\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a03a6388334755ebd2aa0ff8c5ed1f4e2}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Worker\+Count\+Marginal@{Worker\+Count\+Marginal}}
+\index{Worker\+Count\+Marginal@{Worker\+Count\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Worker\+Count\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Point\+Mass$<$int$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Worker\+Count\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a03a6388334755ebd2aa0ff8c5ed1f4e2}
+
+
+Returns the marginal distribution for \textquotesingle{}Worker\+Count\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a8c09b2fe4a6625f7afd6b860187268af}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Worker\+Label\+Marginal@{Worker\+Label\+Marginal}}
+\index{Worker\+Label\+Marginal@{Worker\+Label\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Worker\+Label\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Distribution\+Ref\+Array$<$Distribution\+Ref\+Array$<$Discrete,int$>$,int\mbox{[}$\,$\mbox{]}$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Worker\+Label\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a8c09b2fe4a6625f7afd6b860187268af}
+
+
+Returns the marginal distribution for \textquotesingle{}Worker\+Label\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a94c95fb366462f663dc702374f1bea44}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Worker\+Task\+Count\+Marginal@{Worker\+Task\+Count\+Marginal}}
+\index{Worker\+Task\+Count\+Marginal@{Worker\+Task\+Count\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Worker\+Task\+Count\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Point\+Mass$<$int\mbox{[}$\,$\mbox{]}$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Worker\+Task\+Count\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a94c95fb366462f663dc702374f1bea44}
+
+
+Returns the marginal distribution for \textquotesingle{}Worker\+Task\+Count\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a4010e430a8925a46d7a7098952773582}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Worker\+Task\+Index\+Marginal@{Worker\+Task\+Index\+Marginal}}
+\index{Worker\+Task\+Index\+Marginal@{Worker\+Task\+Index\+Marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Worker\+Task\+Index\+Marginal()}]{\setlength{\rightskip}{0pt plus 5cm}Point\+Mass$<$int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Worker\+Task\+Index\+Marginal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a4010e430a8925a46d7a7098952773582}
+
+
+Returns the marginal distribution for \textquotesingle{}Worker\+Task\+Index\textquotesingle{} given by the current state of the message passing algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The marginal distribution
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad123c1c17c747bf809749496b903795e}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Background\+Label\+Prob\+\_\+marginal\+\_\+\+F@{Background\+Label\+Prob\+\_\+marginal\+\_\+\+F}}
+\index{Background\+Label\+Prob\+\_\+marginal\+\_\+\+F@{Background\+Label\+Prob\+\_\+marginal\+\_\+\+F}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Background\+Label\+Prob\+\_\+marginal\+\_\+\+F}]{\setlength{\rightskip}{0pt plus 5cm}Dirichlet Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Background\+Label\+Prob\+\_\+marginal\+\_\+\+F}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ad123c1c17c747bf809749496b903795e}
+
+
+Message to marginal of \textquotesingle{}Background\+Label\+Prob\textquotesingle{}
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ada4c5df5755a4a5d434327e99fc0e52e}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Background\+Label\+Prob\+\_\+rep\+\_\+\+F\+\_\+marginal@{Background\+Label\+Prob\+\_\+rep\+\_\+\+F\+\_\+marginal}}
+\index{Background\+Label\+Prob\+\_\+rep\+\_\+\+F\+\_\+marginal@{Background\+Label\+Prob\+\_\+rep\+\_\+\+F\+\_\+marginal}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Background\+Label\+Prob\+\_\+rep\+\_\+\+F\+\_\+marginal}]{\setlength{\rightskip}{0pt plus 5cm}Dirichlet Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Background\+Label\+Prob\+\_\+rep\+\_\+\+F\+\_\+marginal}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ada4c5df5755a4a5d434327e99fc0e52e}
+
+
+Buffer for Replicate\+Op\+\_\+\+Divide.\+Uses\+Average\+Conditional$<$\+Dirichlet$>$
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a2e04d5d41ac542942b2b715e26bd4038}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+is\+Initialised@{Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+is\+Initialised}}
+\index{Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+is\+Initialised@{Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+is\+Initialised}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+is\+Initialised}]{\setlength{\rightskip}{0pt plus 5cm}bool Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+is\+Initialised}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a2e04d5d41ac542942b2b715e26bd4038}
+
+
+True if Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7 has performed initialisation. Set this to false to force re-\/execution of Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ae58eb5265f8700b885d370e8fe410802}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+iterations\+Done@{Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+iterations\+Done}}
+\index{Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+iterations\+Done@{Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+iterations\+Done}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+iterations\+Done}]{\setlength{\rightskip}{0pt plus 5cm}int Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7\+\_\+iterations\+Done}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ae58eb5265f8700b885d370e8fe410802}
+
+
+The number of iterations last computed by Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7. Set this to zero to force re-\/execution of Changed\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+W7
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a6ba5341acb834c6b1b7afc6f339bc210}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1\+\_\+iterations\+Done@{Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1\+\_\+iterations\+Done}}
+\index{Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1\+\_\+iterations\+Done@{Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1\+\_\+iterations\+Done}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1\+\_\+iterations\+Done}]{\setlength{\rightskip}{0pt plus 5cm}int Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1\+\_\+iterations\+Done}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a6ba5341acb834c6b1b7afc6f339bc210}
+
+
+The number of iterations last computed by Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1. Set this to zero to force re-\/execution of Changed\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Label\+\_\+\+Wor1
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_abad013c605a772f90c9b7c700fcfe077}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+is\+Initialised@{Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+is\+Initialised}}
+\index{Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+is\+Initialised@{Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+is\+Initialised}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+is\+Initialised}]{\setlength{\rightskip}{0pt plus 5cm}bool Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+is\+Initialised}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_abad013c605a772f90c9b7c700fcfe077}
+
+
+True if Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5 has performed initialisation. Set this to false to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a90f97411af644a567896bd38068a3681}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+iterations\+Done@{Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+iterations\+Done}}
+\index{Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+iterations\+Done@{Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+iterations\+Done}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+iterations\+Done}]{\setlength{\rightskip}{0pt plus 5cm}int Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5\+\_\+iterations\+Done}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a90f97411af644a567896bd38068a3681}
+
+
+The number of iterations last computed by Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5. Set this to zero to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Labe5
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a6dba112878fc8583d1a25218cb7da60d}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Changed\+\_\+\+Worker\+Count\+\_\+iterations\+Done@{Changed\+\_\+\+Worker\+Count\+\_\+iterations\+Done}}
+\index{Changed\+\_\+\+Worker\+Count\+\_\+iterations\+Done@{Changed\+\_\+\+Worker\+Count\+\_\+iterations\+Done}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Changed\+\_\+\+Worker\+Count\+\_\+iterations\+Done}]{\setlength{\rightskip}{0pt plus 5cm}int Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Changed\+\_\+\+Worker\+Count\+\_\+iterations\+Done}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a6dba112878fc8583d1a25218cb7da60d}
+
+
+The number of iterations last computed by Changed\+\_\+\+Worker\+Count. Set this to zero to force re-\/execution of Changed\+\_\+\+Worker\+Count
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ae305ba92155c72ca215b3948d87dd321}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+is\+Initialised@{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+is\+Initialised}}
+\index{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+is\+Initialised@{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+is\+Initialised}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+is\+Initialised}]{\setlength{\rightskip}{0pt plus 5cm}bool Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+is\+Initialised}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ae305ba92155c72ca215b3948d87dd321}
+
+
+True if Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4 has performed initialisation. Set this to false to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5bf8aef1624310fee144a221a1108716}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+iterations\+Done@{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+iterations\+Done}}
+\index{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+iterations\+Done@{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+iterations\+Done}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+iterations\+Done}]{\setlength{\rightskip}{0pt plus 5cm}int Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4\+\_\+iterations\+Done}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5bf8aef1624310fee144a221a1108716}
+
+
+The number of iterations last computed by Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4. Set this to zero to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Init\+\_\+number\+Of\+Iterations\+Decreased\+\_\+\+Worker\+Labe4
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_aa1a7d6b28fd11a566a03df6b6c06ddcb}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+iterations\+Done@{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+iterations\+Done}}
+\index{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+iterations\+Done@{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+iterations\+Done}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+iterations\+Done}]{\setlength{\rightskip}{0pt plus 5cm}int Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+iterations\+Done}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_aa1a7d6b28fd11a566a03df6b6c06ddcb}
+
+
+The number of iterations last computed by Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count. Set this to zero to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a68cc9b27a065511a79d56f87983fc56d}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0\+\_\+iterations\+Done@{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0\+\_\+iterations\+Done}}
+\index{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0\+\_\+iterations\+Done@{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0\+\_\+iterations\+Done}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0\+\_\+iterations\+Done}]{\setlength{\rightskip}{0pt plus 5cm}int Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0\+\_\+iterations\+Done}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a68cc9b27a065511a79d56f87983fc56d}
+
+
+The number of iterations last computed by Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0. Set this to zero to force re-\/execution of Changed\+\_\+\+Worker\+Count\+\_\+\+Worker\+Task\+Count\+\_\+\+Worker\+Task\+Index\+\_\+\+Background\+Label\+Prob\+Prior\+\_\+\+Confusion\+Matrix\+Prior\+\_\+\+Tr0
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a826248ad56421c86f0f047e958f5fbce}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Confusion\+Matrix\+\_\+marginal\+\_\+\+F@{Confusion\+Matrix\+\_\+marginal\+\_\+\+F}}
+\index{Confusion\+Matrix\+\_\+marginal\+\_\+\+F@{Confusion\+Matrix\+\_\+marginal\+\_\+\+F}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Confusion\+Matrix\+\_\+marginal\+\_\+\+F}]{\setlength{\rightskip}{0pt plus 5cm}Distribution\+Ref\+Array$<$Distribution\+Ref\+Array$<$Dirichlet,Vector$>$,Vector\mbox{[}$\,$\mbox{]}$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Confusion\+Matrix\+\_\+marginal\+\_\+\+F}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a826248ad56421c86f0f047e958f5fbce}
+
+
+Message to marginal of \textquotesingle{}Confusion\+Matrix\textquotesingle{}
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a3590fbf0f60f036123242d4f0baa5c4f}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Confusion\+Matrix\+\_\+rep\+\_\+\+B\+\_\+to\+Def@{Confusion\+Matrix\+\_\+rep\+\_\+\+B\+\_\+to\+Def}}
+\index{Confusion\+Matrix\+\_\+rep\+\_\+\+B\+\_\+to\+Def@{Confusion\+Matrix\+\_\+rep\+\_\+\+B\+\_\+to\+Def}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Confusion\+Matrix\+\_\+rep\+\_\+\+B\+\_\+to\+Def}]{\setlength{\rightskip}{0pt plus 5cm}Distribution\+Ref\+Array$<$Distribution\+Ref\+Array$<$Dirichlet,Vector$>$,Vector\mbox{[}$\,$\mbox{]}$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Confusion\+Matrix\+\_\+rep\+\_\+\+B\+\_\+to\+Def}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a3590fbf0f60f036123242d4f0baa5c4f}
+
+
+Buffer for Replicate\+Op\+\_\+\+Divide.\+Marginal$<$\+Dirichlet$>$
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a96cd83a67ce48692b2dd5f13b31f06b9}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Constant\+\_\+iterations\+Done@{Constant\+\_\+iterations\+Done}}
+\index{Constant\+\_\+iterations\+Done@{Constant\+\_\+iterations\+Done}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Constant\+\_\+iterations\+Done}]{\setlength{\rightskip}{0pt plus 5cm}int Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Constant\+\_\+iterations\+Done}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a96cd83a67ce48692b2dd5f13b31f06b9}
+
+
+The number of iterations last computed by Constant. Set this to zero to force re-\/execution of Constant
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac0f71b3998592b33f9b4025f39d97a40}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Truth\+\_\+marginal\+\_\+\+F@{Truth\+\_\+marginal\+\_\+\+F}}
+\index{Truth\+\_\+marginal\+\_\+\+F@{Truth\+\_\+marginal\+\_\+\+F}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Truth\+\_\+marginal\+\_\+\+F}]{\setlength{\rightskip}{0pt plus 5cm}Distribution\+Ref\+Array$<$Discrete,int$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Truth\+\_\+marginal\+\_\+\+F}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac0f71b3998592b33f9b4025f39d97a40}
+
+
+Message to marginal of \textquotesingle{}Truth\textquotesingle{}
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac3fc54a4524ee40acdab6aad09631bc7}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Truth\+\_\+uses\+\_\+\+B\+\_\+n\+\_\+\+\_\+to\+Def@{Truth\+\_\+uses\+\_\+\+B\+\_\+n\+\_\+\+\_\+to\+Def}}
+\index{Truth\+\_\+uses\+\_\+\+B\+\_\+n\+\_\+\+\_\+to\+Def@{Truth\+\_\+uses\+\_\+\+B\+\_\+n\+\_\+\+\_\+to\+Def}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Truth\+\_\+uses\+\_\+\+B\+\_\+n\+\_\+\+\_\+to\+Def}]{\setlength{\rightskip}{0pt plus 5cm}Distribution\+Ref\+Array$<$Discrete,int$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Truth\+\_\+uses\+\_\+\+B\+\_\+n\+\_\+\+\_\+to\+Def}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac3fc54a4524ee40acdab6aad09631bc7}
+
+
+Buffer for Replicate\+Op\+\_\+\+Divide.\+Marginal$<$\+Discrete$>$
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac90e3796c29c3bbcb0ad85d8e8ac90c2}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!vbool0\+\_\+marginal\+\_\+\+F@{vbool0\+\_\+marginal\+\_\+\+F}}
+\index{vbool0\+\_\+marginal\+\_\+\+F@{vbool0\+\_\+marginal\+\_\+\+F}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{vbool0\+\_\+marginal\+\_\+\+F}]{\setlength{\rightskip}{0pt plus 5cm}Bernoulli Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+vbool0\+\_\+marginal\+\_\+\+F}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ac90e3796c29c3bbcb0ad85d8e8ac90c2}
+
+
+Message to marginal of \textquotesingle{}vbool0\textquotesingle{}
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5e94a159f468e8d365321779a4ac8ea1}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Background\+Label\+Prob\+Prior@{Background\+Label\+Prob\+Prior}}
+\index{Background\+Label\+Prob\+Prior@{Background\+Label\+Prob\+Prior}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Background\+Label\+Prob\+Prior}]{\setlength{\rightskip}{0pt plus 5cm}Dirichlet Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Background\+Label\+Prob\+Prior\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5e94a159f468e8d365321779a4ac8ea1}
+
+
+The externally-\/specified value of \textquotesingle{}Background\+Label\+Prob\+Prior\textquotesingle{}
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5d2f1483d0debe876c9c9504738761e7}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Confusion\+Matrix\+Prior@{Confusion\+Matrix\+Prior}}
+\index{Confusion\+Matrix\+Prior@{Confusion\+Matrix\+Prior}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Confusion\+Matrix\+Prior}]{\setlength{\rightskip}{0pt plus 5cm}Dirichlet \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Confusion\+Matrix\+Prior\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a5d2f1483d0debe876c9c9504738761e7}
+
+
+The externally-\/specified value of \textquotesingle{}Confusion\+Matrix\+Prior\textquotesingle{}
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a0a9e34e70ccab7709f1134b9b5889a47}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Number\+Of\+Iterations\+Done@{Number\+Of\+Iterations\+Done}}
+\index{Number\+Of\+Iterations\+Done@{Number\+Of\+Iterations\+Done}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Number\+Of\+Iterations\+Done}]{\setlength{\rightskip}{0pt plus 5cm}int Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Number\+Of\+Iterations\+Done\hspace{0.3cm}{\ttfamily [get]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a0a9e34e70ccab7709f1134b9b5889a47}
+
+
+The number of iterations done from the initial state
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_acffd4167727f940a144a3efadfc2d805}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Truth\+Constraint@{Truth\+Constraint}}
+\index{Truth\+Constraint@{Truth\+Constraint}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Truth\+Constraint}]{\setlength{\rightskip}{0pt plus 5cm}Discrete \mbox{[}$\,$\mbox{]} Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Truth\+Constraint\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_acffd4167727f940a144a3efadfc2d805}
+
+
+The externally-\/specified value of \textquotesingle{}Truth\+Constraint\textquotesingle{}
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a918e710a2e7b4a123da74eced7421ece}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Worker\+Count@{Worker\+Count}}
+\index{Worker\+Count@{Worker\+Count}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Worker\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Worker\+Count\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a918e710a2e7b4a123da74eced7421ece}
+
+
+The externally-\/specified value of \textquotesingle{}Worker\+Count\textquotesingle{}
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a719f0824f1c1f497c4c4e29e61125b67}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Worker\+Label@{Worker\+Label}}
+\index{Worker\+Label@{Worker\+Label}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Worker\+Label}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Worker\+Label\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_a719f0824f1c1f497c4c4e29e61125b67}
+
+
+The externally-\/specified value of \textquotesingle{}Worker\+Label\textquotesingle{}
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_adba9d5853dd6a6ab74401c6c4316d348}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Worker\+Task\+Count@{Worker\+Task\+Count}}
+\index{Worker\+Task\+Count@{Worker\+Task\+Count}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Worker\+Task\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Worker\+Task\+Count\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_adba9d5853dd6a6ab74401c6c4316d348}
+
+
+The externally-\/specified value of \textquotesingle{}Worker\+Task\+Count\textquotesingle{}
+
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_acabd7291b2d88f17a2df55a702f71e29}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Worker\+Task\+Index@{Worker\+Task\+Index}}
+\index{Worker\+Task\+Index@{Worker\+Task\+Index}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Worker\+Task\+Index}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Worker\+Task\+Index\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_acabd7291b2d88f17a2df55a702f71e29}
+
+
+The externally-\/specified value of \textquotesingle{}Worker\+Task\+Index\textquotesingle{}
+
+
+
+\subsection{Event Documentation}
+\hypertarget{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ae3a4699a135334bb8924925ab33a1999}{}\index{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}!Progress\+Changed@{Progress\+Changed}}
+\index{Progress\+Changed@{Progress\+Changed}!Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P@{Microsoft\+Research\+::\+Infer\+::\+Models\+::\+User\+::\+Model\+\_\+\+E\+P}}
+\subsubsection[{Progress\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}Event\+Handler$<$Progress\+Changed\+Event\+Args$>$ Microsoft\+Research.\+Infer.\+Models.\+User.\+Model\+\_\+\+E\+P.\+Progress\+Changed}\label{class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p_ae3a4699a135334bb8924925ab33a1999}
+
+
+Event that is fired when the progress of inference changes, typically at the end of one iteration of the inference algorithm.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/bin/\+Debug/\+Generated\+Source/Model\+\_\+\+E\+P.\+cs\end{DoxyCompactItemize}

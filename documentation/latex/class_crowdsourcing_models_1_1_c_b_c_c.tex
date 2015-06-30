@@ -1,0 +1,375 @@
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c}{}\section{Crowdsourcing\+Models.\+C\+B\+C\+C Class Reference}
+\label{class_crowdsourcing_models_1_1_c_b_c_c}\index{Crowdsourcing\+Models.\+C\+B\+C\+C@{Crowdsourcing\+Models.\+C\+B\+C\+C}}
+
+
+The \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} model class.  
+
+
+Inheritance diagram for Crowdsourcing\+Models.\+C\+B\+C\+C\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_crowdsourcing_models_1_1_c_b_c_c}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a05bfcace3952fc2c97faad29b01cc5c2}{}void {\bfseries Set\+Community\+Count} (int \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_ab5f136f59f47bf4c8b35c36b227ab88c}{Community\+Count})\label{class_crowdsourcing_models_1_1_c_b_c_c_a05bfcace3952fc2c97faad29b01cc5c2}
+
+\item 
+\hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_af72e2fcbacf20df12023895de3639301}{C\+B\+C\+C} ()
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} model instance. \end{DoxyCompactList}\item 
+override void \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a9dc55362a1a756ced24bb3736075a180}{Create\+Model} (int task\+Count, int label\+Count)
+\begin{DoxyCompactList}\small\item\em Initializes the \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} model. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_aeea050e9262f77d369278506586ef862}{Create\+Model} (int task\+Count, int label\+Count, int community\+Count)
+\begin{DoxyCompactList}\small\item\em Initializes the \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} model with a number of communities. \end{DoxyCompactList}\item 
+override \hyperlink{class_crowdsourcing_models_1_1_b_c_c_posteriors}{B\+C\+C\+Posteriors} \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a538743585401f436f10bfc46c26c767a}{Infer} (int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} task\+Indices, int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} worker\+Labels, \hyperlink{class_crowdsourcing_models_1_1_b_c_c_posteriors}{B\+C\+C\+Posteriors} priors)
+\begin{DoxyCompactList}\small\item\em Infers the posteriors of \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} using the attached data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a33085b5a8b123a62a890eca1367a40ba}{Define\+Variables\+And\+Ranges} (int task\+Count, int label\+Count)
+\begin{DoxyCompactList}\small\item\em Defines the variables and the ranges of \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}. \end{DoxyCompactList}\item 
+override void \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a11449d19d584834a5de6c877763d829e}{Define\+Generative\+Process} ()
+\begin{DoxyCompactList}\small\item\em Defines the generative process of \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}. \end{DoxyCompactList}\item 
+override void \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a48270c4aca4a4d42f0a914772950ac9d}{Define\+Inference\+Engine} ()
+\begin{DoxyCompactList}\small\item\em Initializes the \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} inference engine. \end{DoxyCompactList}\item 
+override void \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a768dbc90e6215dafc03e3bab5df4eb5c}{Attach\+Data} (int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} task\+Indices, int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} worker\+Labels)
+\begin{DoxyCompactList}\small\item\em Attachs the data to the workers labels. \end{DoxyCompactList}\item 
+void \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a466df8df2843675faf22a20531a8e54d}{Attach\+Data} (int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} task\+Indices, int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} worker\+Labels, Vector\+Gaussian\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} score\+Constraint, Discrete\mbox{[}$\,$\mbox{]} community\+Constraint)
+\begin{DoxyCompactList}\small\item\em Attachs the data to the workers labels and sets the constraints on the community score matrices and the community memberships (used for online training). \end{DoxyCompactList}\item 
+override void \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_ab662d32f67474b73ad0ca6915d59901d}{Set\+Priors} (int worker\+Count, \hyperlink{class_crowdsourcing_models_1_1_b_c_c_posteriors}{B\+C\+C\+Posteriors} priors)
+\begin{DoxyCompactList}\small\item\em Sets the priors of \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a61ea38a925f1f5c35045d8e913efa2b9}{}Range {\bfseries m}\label{class_crowdsourcing_models_1_1_c_b_c_c_a61ea38a925f1f5c35045d8e913efa2b9}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a3ce3100c9cfe1ab1973ca319226436c8}{}Variable\+Array$<$ int $>$ {\bfseries Community}\label{class_crowdsourcing_models_1_1_c_b_c_c_a3ce3100c9cfe1ab1973ca319226436c8}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_abb87ff094d5d2b6943533aa687be229c}{}Variable\+Array$<$ Discrete $>$ {\bfseries Community\+Init}\label{class_crowdsourcing_models_1_1_c_b_c_c_abb87ff094d5d2b6943533aa687be229c}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_aaa901257a56dc7c9f8093edab759bce2}{}Variable$<$ Vector $>$ {\bfseries Community\+Prob}\label{class_crowdsourcing_models_1_1_c_b_c_c_aaa901257a56dc7c9f8093edab759bce2}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a2cf7340333c4216ecaa0fbcc85d24ab7}{}Variable\+Array$<$ Variable\+Array$<$ Vector $>$, Vector\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Score\+Matrix}\label{class_crowdsourcing_models_1_1_c_b_c_c_a2cf7340333c4216ecaa0fbcc85d24ab7}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_ac844f93790d57aabf155407f93e425d7}{}Variable\+Array$<$ Variable\+Array$<$ Vector $>$, Vector\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Community\+Score\+Matrix}\label{class_crowdsourcing_models_1_1_c_b_c_c_ac844f93790d57aabf155407f93e425d7}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_aa92337a4041cf062fb346a5321c7fa45}{}Variable\+Array$<$ Variable\+Array$<$ Vector $>$, Vector\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Community\+Confusion\+Matrix}\label{class_crowdsourcing_models_1_1_c_b_c_c_aa92337a4041cf062fb346a5321c7fa45}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a4976a87b7cdd818f300d77d465372238}{}Variable$<$ Positive\+Definite\+Matrix $>$ {\bfseries Noise\+Matrix} = Variable.\+New$<$Positive\+Definite\+Matrix$>$().Named(\char`\"{}Noise\+Matrix\char`\"{})\label{class_crowdsourcing_models_1_1_c_b_c_c_a4976a87b7cdd818f300d77d465372238}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a89a575fcd699ce633ed4db7a76f3a076}{}Variable\+Array$<$ Discrete $>$ {\bfseries Community\+Constraint}\label{class_crowdsourcing_models_1_1_c_b_c_c_a89a575fcd699ce633ed4db7a76f3a076}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a412e6c94754375c29c6bcee068a9adde}{}Variable\+Array$<$ Variable\+Array$<$ Vector\+Gaussian $>$, Vector\+Gaussian\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Score\+Matrix\+Constraint}\label{class_crowdsourcing_models_1_1_c_b_c_c_a412e6c94754375c29c6bcee068a9adde}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a87f32bd50b18072b9e8243501b44dd3b}{}Variable\+Array$<$ Variable\+Array$<$ Vector\+Gaussian $>$, Vector\+Gaussian\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Community\+Score\+Matrix\+Prior}\label{class_crowdsourcing_models_1_1_c_b_c_c_a87f32bd50b18072b9e8243501b44dd3b}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a22ad4228c44dc68dadc00d7fd3428631}{}Variable$<$ Dirichlet $>$ {\bfseries Community\+Prob\+Prior}\label{class_crowdsourcing_models_1_1_c_b_c_c_a22ad4228c44dc68dadc00d7fd3428631}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_acb50efae296073d8f9a3cd67c59a76cb}{Noise\+Precision}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The noise precision that generates the workers score matrix from the communities score matrix. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_ab5f136f59f47bf4c8b35c36b227ab88c}{Community\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The number of communities. \end{DoxyCompactList}\item 
+Tuple$<$ double, double $>$\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a8ef0b4450b90f90056b63b9e91d0e019}{Score\+Mean\+Parameters}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The mean vector of the Gaussian distribution generating the community score matrices. \end{DoxyCompactList}\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_ac7e4f6e87b9a0da08b4ef2c5c55887ed}{Score\+Precision\+Parameters}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The precision matrix of the Gaussian distribution generating the community score matrices. \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a2f2892733a8d5e66d64a5795f70c11f5}{Community\+Pseudo\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The hyperparameter governing community membership. \end{DoxyCompactList}\item 
+Vector\+Gaussian\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a1ddbd4dcb9e3f9ddba4f8c34ff544aaa}{Community\+Score\+Matrix\+Prior\+Observed}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The prior for the score matrices. \end{DoxyCompactList}\item 
+Dirichlet \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_aa07529c8b419539d9e3b0017dd295f4a}{Community\+Prob\+Prior\+Observed}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The prior for community membership. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} model class. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_af72e2fcbacf20df12023895de3639301}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!C\+B\+C\+C@{C\+B\+C\+C}}
+\index{C\+B\+C\+C@{C\+B\+C\+C}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{C\+B\+C\+C()}]{\setlength{\rightskip}{0pt plus 5cm}Crowdsourcing\+Models.\+C\+B\+C\+C.\+C\+B\+C\+C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_af72e2fcbacf20df12023895de3639301}
+
+
+Creates a \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} model instance. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a768dbc90e6215dafc03e3bab5df4eb5c}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Attach\+Data@{Attach\+Data}}
+\index{Attach\+Data@{Attach\+Data}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Attach\+Data(int[][] task\+Indices, int[][] worker\+Labels)}]{\setlength{\rightskip}{0pt plus 5cm}override void Crowdsourcing\+Models.\+C\+B\+C\+C.\+Attach\+Data (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Indices\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{worker\+Labels\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_a768dbc90e6215dafc03e3bab5df4eb5c}
+
+
+Attachs the data to the workers labels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Indices} & The matrix of the task indices (columns) of each worker (rows).\\
+\hline
+{\em worker\+Labels} & The matrix of the labels (columns) of each worker (rows).\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_crowdsourcing_models_1_1_b_c_c_af3806b7091a6bcc0116e3c8619d42daf}{Crowdsourcing\+Models.\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a466df8df2843675faf22a20531a8e54d}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Attach\+Data@{Attach\+Data}}
+\index{Attach\+Data@{Attach\+Data}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Attach\+Data(int[][] task\+Indices, int[][] worker\+Labels, Vector\+Gaussian[][] score\+Constraint, Discrete[] community\+Constraint)}]{\setlength{\rightskip}{0pt plus 5cm}void Crowdsourcing\+Models.\+C\+B\+C\+C.\+Attach\+Data (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Indices\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{worker\+Labels\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{Vector\+Gaussian}]{score\+Constraint\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{Discrete\mbox{[}$\,$\mbox{]}}]{community\+Constraint}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_a466df8df2843675faf22a20531a8e54d}
+
+
+Attachs the data to the workers labels and sets the constraints on the community score matrices and the community memberships (used for online training). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Indices} & The matrix of the task indices (columns) of each worker (rows).\\
+\hline
+{\em worker\+Labels} & The matrix of the labels (columns) of each worker (rows).\\
+\hline
+{\em score\+Constraint} & The constraint of the community score matrices.\\
+\hline
+{\em community\+Constraint} & The constraint of the workers community membership.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a9dc55362a1a756ced24bb3736075a180}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Create\+Model@{Create\+Model}}
+\index{Create\+Model@{Create\+Model}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Create\+Model(int task\+Count, int label\+Count)}]{\setlength{\rightskip}{0pt plus 5cm}override void Crowdsourcing\+Models.\+C\+B\+C\+C.\+Create\+Model (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Count, }
+\item[{int}]{label\+Count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_a9dc55362a1a756ced24bb3736075a180}
+
+
+Initializes the \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Count} & The number of tasks.\\
+\hline
+{\em label\+Count} & The number of labels.\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_crowdsourcing_models_1_1_b_c_c_a7940c454f99a2b108723e8fcc49e035f}{Crowdsourcing\+Models.\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_aeea050e9262f77d369278506586ef862}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Create\+Model@{Create\+Model}}
+\index{Create\+Model@{Create\+Model}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Create\+Model(int task\+Count, int label\+Count, int community\+Count)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crowdsourcing\+Models.\+C\+B\+C\+C.\+Create\+Model (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Count, }
+\item[{int}]{label\+Count, }
+\item[{int}]{community\+Count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_aeea050e9262f77d369278506586ef862}
+
+
+Initializes the \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} model with a number of communities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Count} & The number of tasks.\\
+\hline
+{\em label\+Count} & The number of labels.\\
+\hline
+{\em community\+Count} & The number of communities.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a11449d19d584834a5de6c877763d829e}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Define\+Generative\+Process@{Define\+Generative\+Process}}
+\index{Define\+Generative\+Process@{Define\+Generative\+Process}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Define\+Generative\+Process()}]{\setlength{\rightskip}{0pt plus 5cm}override void Crowdsourcing\+Models.\+C\+B\+C\+C.\+Define\+Generative\+Process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_a11449d19d584834a5de6c877763d829e}
+
+
+Defines the generative process of \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}. 
+
+
+
+Reimplemented from \hyperlink{class_crowdsourcing_models_1_1_b_c_c_a0a4a80dc6093a006c87e43dcbf29c463}{Crowdsourcing\+Models.\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a48270c4aca4a4d42f0a914772950ac9d}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Define\+Inference\+Engine@{Define\+Inference\+Engine}}
+\index{Define\+Inference\+Engine@{Define\+Inference\+Engine}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Define\+Inference\+Engine()}]{\setlength{\rightskip}{0pt plus 5cm}override void Crowdsourcing\+Models.\+C\+B\+C\+C.\+Define\+Inference\+Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_a48270c4aca4a4d42f0a914772950ac9d}
+
+
+Initializes the \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} inference engine. 
+
+
+
+Reimplemented from \hyperlink{class_crowdsourcing_models_1_1_b_c_c_ab167badeccdb1951f97b6ed5b3b4dcd6}{Crowdsourcing\+Models.\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a33085b5a8b123a62a890eca1367a40ba}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Define\+Variables\+And\+Ranges@{Define\+Variables\+And\+Ranges}}
+\index{Define\+Variables\+And\+Ranges@{Define\+Variables\+And\+Ranges}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Define\+Variables\+And\+Ranges(int task\+Count, int label\+Count)}]{\setlength{\rightskip}{0pt plus 5cm}override void Crowdsourcing\+Models.\+C\+B\+C\+C.\+Define\+Variables\+And\+Ranges (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Count, }
+\item[{int}]{label\+Count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_a33085b5a8b123a62a890eca1367a40ba}
+
+
+Defines the variables and the ranges of \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Count} & The number of tasks.\\
+\hline
+{\em label\+Count} & The number of labels.\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_crowdsourcing_models_1_1_b_c_c_a3b4e301c3101dc790850548006d3aac8}{Crowdsourcing\+Models.\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a538743585401f436f10bfc46c26c767a}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Infer@{Infer}}
+\index{Infer@{Infer}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Infer(int[][] task\+Indices, int[][] worker\+Labels, B\+C\+C\+Posteriors priors)}]{\setlength{\rightskip}{0pt plus 5cm}override {\bf B\+C\+C\+Posteriors} Crowdsourcing\+Models.\+C\+B\+C\+C.\+Infer (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Indices\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{worker\+Labels\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf B\+C\+C\+Posteriors}}]{priors}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_a538743585401f436f10bfc46c26c767a}
+
+
+Infers the posteriors of \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} using the attached data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Indices} & The matrix of the task indices (columns) of each worker (rows).\\
+\hline
+{\em worker\+Labels} & The matrix of the labels (columns) of each worker (rows).\\
+\hline
+{\em priors} & The priors.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_crowdsourcing_models_1_1_b_c_c_afa59a76d3c6fe11db2c3c037f8cf3efc}{Crowdsourcing\+Models.\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_ab662d32f67474b73ad0ca6915d59901d}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Set\+Priors@{Set\+Priors}}
+\index{Set\+Priors@{Set\+Priors}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Set\+Priors(int worker\+Count, B\+C\+C\+Posteriors priors)}]{\setlength{\rightskip}{0pt plus 5cm}override void Crowdsourcing\+Models.\+C\+B\+C\+C.\+Set\+Priors (
+\begin{DoxyParamCaption}
+\item[{int}]{worker\+Count, }
+\item[{{\bf B\+C\+C\+Posteriors}}]{priors}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_ab662d32f67474b73ad0ca6915d59901d}
+
+
+Sets the priors of \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker\+Count} & The number of workers.\\
+\hline
+{\em priors} & The priors.\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_crowdsourcing_models_1_1_b_c_c_ad08c9c0b6592cf6559118a68b56cfd07}{Crowdsourcing\+Models.\+B\+C\+C}.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_ab5f136f59f47bf4c8b35c36b227ab88c}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Community\+Count@{Community\+Count}}
+\index{Community\+Count@{Community\+Count}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Community\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+C\+B\+C\+C.\+Community\+Count\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_ab5f136f59f47bf4c8b35c36b227ab88c}
+
+
+The number of communities. 
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_aa07529c8b419539d9e3b0017dd295f4a}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Community\+Prob\+Prior\+Observed@{Community\+Prob\+Prior\+Observed}}
+\index{Community\+Prob\+Prior\+Observed@{Community\+Prob\+Prior\+Observed}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Community\+Prob\+Prior\+Observed}]{\setlength{\rightskip}{0pt plus 5cm}Dirichlet Crowdsourcing\+Models.\+C\+B\+C\+C.\+Community\+Prob\+Prior\+Observed\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_aa07529c8b419539d9e3b0017dd295f4a}
+
+
+The prior for community membership. 
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a2f2892733a8d5e66d64a5795f70c11f5}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Community\+Pseudo\+Count@{Community\+Pseudo\+Count}}
+\index{Community\+Pseudo\+Count@{Community\+Pseudo\+Count}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Community\+Pseudo\+Count}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Models.\+C\+B\+C\+C.\+Community\+Pseudo\+Count\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_a2f2892733a8d5e66d64a5795f70c11f5}
+
+
+The hyperparameter governing community membership. 
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a1ddbd4dcb9e3f9ddba4f8c34ff544aaa}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Community\+Score\+Matrix\+Prior\+Observed@{Community\+Score\+Matrix\+Prior\+Observed}}
+\index{Community\+Score\+Matrix\+Prior\+Observed@{Community\+Score\+Matrix\+Prior\+Observed}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Community\+Score\+Matrix\+Prior\+Observed}]{\setlength{\rightskip}{0pt plus 5cm}Vector\+Gaussian \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+C\+B\+C\+C.\+Community\+Score\+Matrix\+Prior\+Observed\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_a1ddbd4dcb9e3f9ddba4f8c34ff544aaa}
+
+
+The prior for the score matrices. 
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_acb50efae296073d8f9a3cd67c59a76cb}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Noise\+Precision@{Noise\+Precision}}
+\index{Noise\+Precision@{Noise\+Precision}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Noise\+Precision}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Models.\+C\+B\+C\+C.\+Noise\+Precision\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_acb50efae296073d8f9a3cd67c59a76cb}
+
+
+The noise precision that generates the workers score matrix from the communities score matrix. 
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_a8ef0b4450b90f90056b63b9e91d0e019}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Score\+Mean\+Parameters@{Score\+Mean\+Parameters}}
+\index{Score\+Mean\+Parameters@{Score\+Mean\+Parameters}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Score\+Mean\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}Tuple$<$double, double$>$ \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+C\+B\+C\+C.\+Score\+Mean\+Parameters\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_a8ef0b4450b90f90056b63b9e91d0e019}
+
+
+The mean vector of the Gaussian distribution generating the community score matrices. 
+
+\hypertarget{class_crowdsourcing_models_1_1_c_b_c_c_ac7e4f6e87b9a0da08b4ef2c5c55887ed}{}\index{Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}!Score\+Precision\+Parameters@{Score\+Precision\+Parameters}}
+\index{Score\+Precision\+Parameters@{Score\+Precision\+Parameters}!Crowdsourcing\+Models\+::\+C\+B\+C\+C@{Crowdsourcing\+Models\+::\+C\+B\+C\+C}}
+\subsubsection[{Score\+Precision\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+C\+B\+C\+C.\+Score\+Precision\+Parameters\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_crowdsourcing_models_1_1_c_b_c_c_ac7e4f6e87b9a0da08b4ef2c5c55887ed}
+
+
+The precision matrix of the Gaussian distribution generating the community score matrices. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/C\+B\+C\+C.\+cs\end{DoxyCompactItemize}

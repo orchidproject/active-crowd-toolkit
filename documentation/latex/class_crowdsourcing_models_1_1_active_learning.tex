@@ -1,0 +1,322 @@
+\hypertarget{class_crowdsourcing_models_1_1_active_learning}{}\section{Crowdsourcing\+Models.\+Active\+Learning Class Reference}
+\label{class_crowdsourcing_models_1_1_active_learning}\index{Crowdsourcing\+Models.\+Active\+Learning@{Crowdsourcing\+Models.\+Active\+Learning}}
+
+
+Class of active learning functions  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crowdsourcing_models_1_1_active_learning_aef1d1c747eea4e3171b37781023e3ec4}{Active\+Learning} (I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data, \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model, \hyperlink{class_crowdsourcing_models_1_1_results}{Results} \hyperlink{class_crowdsourcing_models_1_1_active_learning_a4f3abbe012947f48a2476130e2dd9d1e}{results}, int num\+Communities)
+\begin{DoxyCompactList}\small\item\em Constructs an active learning instance with a specified data set and model instance. \end{DoxyCompactList}\item 
+void \hyperlink{class_crowdsourcing_models_1_1_active_learning_ad7b1f2430964dab42489d47ffc4cb4cc}{Update\+Active\+Learning\+Results} (\hyperlink{class_crowdsourcing_models_1_1_results}{Results} \hyperlink{class_crowdsourcing_models_1_1_active_learning_a4f3abbe012947f48a2476130e2dd9d1e}{results})
+\begin{DoxyCompactList}\small\item\em Updates the active learning results object. \end{DoxyCompactList}\item 
+Dictionary$<$ string, \hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result} $>$ \hyperlink{class_crowdsourcing_models_1_1_active_learning_aca2a388ec0e95835d2d89270c4f171e5}{Entropy\+True\+Label} ()
+\begin{DoxyCompactList}\small\item\em Computes the entropy on the true label posterior distribution of the active learning results. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_crowdsourcing_models_1_1_active_learning_a8df4de56ff6f544dc7f8f86c2ad826f2}{Run\+Active\+Learning} (I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data, string model\+Name, \hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} run\+Type, \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model, \hyperlink{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{Task\+Selection\+Method} task\+Selection\+Method, \hyperlink{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{Worker\+Selection\+Method} worker\+Selection\+Method, string results\+Dir, int community\+Count=-\/1, int initial\+Num\+Labels\+Per\+Task=1, int num\+Increm\+Data=1)
+\begin{DoxyCompactList}\small\item\em Runs the standard active learning procedure on a model instance and an input data set. \end{DoxyCompactList}\item 
+static void \hyperlink{class_crowdsourcing_models_1_1_active_learning_a5235db06f954b42ed1caca2e2efebe7b}{Run\+Parallel\+Active\+Learning} (I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data, string\mbox{[}$\,$\mbox{]} model\+Name, \hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type}\mbox{[}$\,$\mbox{]} run\+Type, \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C}\mbox{[}$\,$\mbox{]} model, \hyperlink{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{Task\+Selection\+Method}\mbox{[}$\,$\mbox{]} task\+Selection\+Method, \hyperlink{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{Worker\+Selection\+Method}\mbox{[}$\,$\mbox{]} worker\+Selection\+Method, int community\+Count=-\/1, int initial\+Num\+Labels\+Per\+Task=1, int num\+Increm\+Data=1)
+\begin{DoxyCompactList}\small\item\em Runs the standard active learning procedure in parallel on an array of model instances and an input data set. \end{DoxyCompactList}\item 
+static void \hyperlink{class_crowdsourcing_models_1_1_active_learning_aab85c3baf7e24604c852674e2c1c51e4}{Do\+Snapshot} (List$<$ double $>$ \hyperlink{class_crowdsourcing_models_1_1_active_learning_a1ccb8af29304a1b08074ff2bb44b9af6}{accuracy}, List$<$ double $>$ avg\+Recall, List$<$ \hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result} $>$ task\+Value, \hyperlink{class_crowdsourcing_models_1_1_results}{Results} \hyperlink{class_crowdsourcing_models_1_1_active_learning_a4f3abbe012947f48a2476130e2dd9d1e}{results}, string model\+Name, string suffix, string results\+Dir, int project\+Initial\+Num\+Labels\+Per\+Task, double lipschitz\+Constant=-\/1)
+\begin{DoxyCompactList}\small\item\em Saves the results of the inference and the model\textquotesingle{}s parameters on csv files. \end{DoxyCompactList}\item 
+static List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ \hyperlink{class_crowdsourcing_models_1_1_active_learning_a0991980eba65da91a31e7273e9fba0a1}{Get\+Subdata} (Dictionary$<$ string, \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum}\mbox{[}$\,$\mbox{]}$>$ grouped\+Randomised\+Data, Dictionary$<$ string, int $>$ current\+Counts, Dictionary$<$ string, Hash\+Set$<$ string $>$$>$ workers\+Per\+Task)
+\begin{DoxyCompactList}\small\item\em Returns a list of sub-\/data selected sequentially from the input data list. \end{DoxyCompactList}\item 
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_a9681d34ab9a980bd286fb76521c5157c}{}static List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ {\bfseries Get\+Next\+Data} (Dictionary$<$ string, \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum}\mbox{[}$\,$\mbox{]}$>$ grouped\+Randomised\+Data, List$<$ Tuple$<$ string, string, \hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result} $>$$>$ label\+Value, Dictionary$<$ string, int $>$ current\+Counts, Dictionary$<$ string, int $>$ total\+Counts, Dictionary$<$ string, Hash\+Set$<$ string $>$$>$ workers\+Per\+Task, int num\+Increm\+Data)\label{class_crowdsourcing_models_1_1_active_learning_a9681d34ab9a980bd286fb76521c5157c}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_aa8339fabc81f41dbd42dc8301640278f}{}static \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} {\bfseries Get\+Random\+Datum} (Dictionary$<$ string, \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum}\mbox{[}$\,$\mbox{]}$>$ grouped\+Randomised\+Data, Dictionary$<$ string, int $>$ current\+Counts, Dictionary$<$ string, Hash\+Set$<$ string $>$$>$ workers\+Per\+Task)\label{class_crowdsourcing_models_1_1_active_learning_aa8339fabc81f41dbd42dc8301640278f}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_a29d268c3a9bb0896845fedfc82862e08}{}static void {\bfseries Reset\+Accuracy\+List} ()\label{class_crowdsourcing_models_1_1_active_learning_a29d268c3a9bb0896845fedfc82862e08}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_a20de0eb74a6b5867b1ae98b3a03488e5}{}static void {\bfseries Reset\+Parallel\+Accuracy\+List} (int num\+Models)\label{class_crowdsourcing_models_1_1_active_learning_a20de0eb74a6b5867b1ae98b3a03488e5}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Boolean \hyperlink{class_crowdsourcing_models_1_1_active_learning_ac658e48a670fa0f0b7896cf8e2648556}{is\+Experiment\+Completed} = false
+\begin{DoxyCompactList}\small\item\em Indicate whether the experiment is completed or not, used for the G\+U\+I \end{DoxyCompactList}\item 
+static List$<$ double $>$ \hyperlink{class_crowdsourcing_models_1_1_active_learning_a1ccb8af29304a1b08074ff2bb44b9af6}{accuracy}
+\begin{DoxyCompactList}\small\item\em Static accuracy list used for the gui \end{DoxyCompactList}\item 
+static List$<$ double $>$\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_active_learning_ac95df8d52222fa09da460a1013d303b9}{accuracy\+Array}
+\begin{DoxyCompactList}\small\item\em Static array of accuracy lists used for the gui \end{DoxyCompactList}\item 
+static List$<$ \hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result} $>$ \hyperlink{class_crowdsourcing_models_1_1_active_learning_a83a41d494f96fc2fc9d040ebc6587fcc}{task\+Value\+List}
+\begin{DoxyCompactList}\small\item\em List of utility values for the tasks selected at each round \end{DoxyCompactList}\item 
+static List$<$ \hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result} $>$\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_active_learning_a739a1b965a4539eedba478ae2bf0182b}{task\+Value\+List\+Array}
+\begin{DoxyCompactList}\small\item\em Array of lists of utility values for the tasks selected at each round in parallel mode \end{DoxyCompactList}\item 
+static \hyperlink{class_crowdsourcing_models_1_1_results}{Results}\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_active_learning_a4f3abbe012947f48a2476130e2dd9d1e}{results}
+\begin{DoxyCompactList}\small\item\em List of \hyperlink{class_crowdsourcing_models_1_1_results}{Results} for showing the confusion matrices of specific worker, made global variable for G\+U\+I \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class of active learning functions 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_aef1d1c747eea4e3171b37781023e3ec4}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!Active\+Learning@{Active\+Learning}}
+\index{Active\+Learning@{Active\+Learning}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{Active\+Learning(\+I\+List$<$ Datum $>$ data, B\+C\+C model, Results results, int num\+Communities)}]{\setlength{\rightskip}{0pt plus 5cm}Crowdsourcing\+Models.\+Active\+Learning.\+Active\+Learning (
+\begin{DoxyParamCaption}
+\item[{I\+List$<$ {\bf Datum} $>$}]{data, }
+\item[{{\bf B\+C\+C}}]{model, }
+\item[{{\bf Results}}]{results, }
+\item[{int}]{num\+Communities}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_active_learning_aef1d1c747eea4e3171b37781023e3ec4}
+
+
+Constructs an active learning instance with a specified data set and model instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data.\\
+\hline
+{\em model} & The model instance.\\
+\hline
+{\em results} & The results instance.\\
+\hline
+{\em num\+Communities} & The number of communities (only for \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}).\\
+\hline
+\end{DoxyParams}
+Builds the full matrix of data from every task and worker 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_aab85c3baf7e24604c852674e2c1c51e4}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!Do\+Snapshot@{Do\+Snapshot}}
+\index{Do\+Snapshot@{Do\+Snapshot}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{Do\+Snapshot(\+List$<$ double $>$ accuracy, List$<$ double $>$ avg\+Recall, List$<$ Active\+Learning\+Result $>$ task\+Value, Results results, string model\+Name, string suffix, string results\+Dir, int project\+Initial\+Num\+Labels\+Per\+Task, double lipschitz\+Constant=-\/1)}]{\setlength{\rightskip}{0pt plus 5cm}static void Crowdsourcing\+Models.\+Active\+Learning.\+Do\+Snapshot (
+\begin{DoxyParamCaption}
+\item[{List$<$ double $>$}]{accuracy, }
+\item[{List$<$ double $>$}]{avg\+Recall, }
+\item[{List$<$ {\bf Active\+Learning\+Result} $>$}]{task\+Value, }
+\item[{{\bf Results}}]{results, }
+\item[{string}]{model\+Name, }
+\item[{string}]{suffix, }
+\item[{string}]{results\+Dir, }
+\item[{int}]{project\+Initial\+Num\+Labels\+Per\+Task, }
+\item[{double}]{lipschitz\+Constant = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_learning_aab85c3baf7e24604c852674e2c1c51e4}
+
+
+Saves the results of the inference and the model\textquotesingle{}s parameters on csv files. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em accuracy} & The list of accuracies evaluated on the gold labels at each active learning round.\\
+\hline
+{\em avg\+Recall} & The list of average recalls evaluated on the gold labels at each active learning round.\\
+\hline
+{\em task\+Value} & The list of utilities of the task selected at each active learning round.\\
+\hline
+{\em results} & The result instance.\\
+\hline
+{\em model\+Name} & The model name.\\
+\hline
+{\em suffix} & The suffix of the csv files.\\
+\hline
+{\em results\+Dir} & The directory to store the csv files.\\
+\hline
+\end{DoxyParams}
+Edit this print line to get the accuracy printed if the format that you want. \hypertarget{class_crowdsourcing_models_1_1_active_learning_aca2a388ec0e95835d2d89270c4f171e5}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!Entropy\+True\+Label@{Entropy\+True\+Label}}
+\index{Entropy\+True\+Label@{Entropy\+True\+Label}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{Entropy\+True\+Label()}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, {\bf Active\+Learning\+Result}$>$ Crowdsourcing\+Models.\+Active\+Learning.\+Entropy\+True\+Label (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_active_learning_aca2a388ec0e95835d2d89270c4f171e5}
+
+
+Computes the entropy on the true label posterior distribution of the active learning results. 
+
+\begin{DoxyReturn}{Returns}
+A dictionary keyed by the Task\+Id and the value is the true label entropy.
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_a0991980eba65da91a31e7273e9fba0a1}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!Get\+Subdata@{Get\+Subdata}}
+\index{Get\+Subdata@{Get\+Subdata}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{Get\+Subdata(\+Dictionary$<$ string, Datum[]$>$ grouped\+Randomised\+Data, Dictionary$<$ string, int $>$ current\+Counts, Dictionary$<$ string, Hash\+Set$<$ string $>$$>$ workers\+Per\+Task)}]{\setlength{\rightskip}{0pt plus 5cm}static List$<${\bf Datum}$>$ Crowdsourcing\+Models.\+Active\+Learning.\+Get\+Subdata (
+\begin{DoxyParamCaption}
+\item[{Dictionary$<$ string, {\bf Datum}\mbox{[}$\,$\mbox{]}$>$}]{grouped\+Randomised\+Data, }
+\item[{Dictionary$<$ string, int $>$}]{current\+Counts, }
+\item[{Dictionary$<$ string, Hash\+Set$<$ string $>$$>$}]{workers\+Per\+Task}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_learning_a0991980eba65da91a31e7273e9fba0a1}
+
+
+Returns a list of sub-\/data selected sequentially from the input data list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grouped\+Randomised\+Data} & The randomised data.\\
+\hline
+{\em current\+Counts} & The current data count per task.\\
+\hline
+{\em workers\+Per\+Task} & The dictionary keyed by task\+Id and the value is an hashset of worker\+Id who have remaining labels for the tasks.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The list of sub-\/data.
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_a8df4de56ff6f544dc7f8f86c2ad826f2}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!Run\+Active\+Learning@{Run\+Active\+Learning}}
+\index{Run\+Active\+Learning@{Run\+Active\+Learning}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{Run\+Active\+Learning(\+I\+List$<$ Datum $>$ data, string model\+Name, Run\+Type run\+Type, B\+C\+C model, Task\+Selection\+Method task\+Selection\+Method, Worker\+Selection\+Method worker\+Selection\+Method, string results\+Dir, int community\+Count=-\/1, int initial\+Num\+Labels\+Per\+Task=1, int num\+Increm\+Data=1)}]{\setlength{\rightskip}{0pt plus 5cm}static void Crowdsourcing\+Models.\+Active\+Learning.\+Run\+Active\+Learning (
+\begin{DoxyParamCaption}
+\item[{I\+List$<$ {\bf Datum} $>$}]{data, }
+\item[{string}]{model\+Name, }
+\item[{{\bf Run\+Type}}]{run\+Type, }
+\item[{{\bf B\+C\+C}}]{model, }
+\item[{{\bf Task\+Selection\+Method}}]{task\+Selection\+Method, }
+\item[{{\bf Worker\+Selection\+Method}}]{worker\+Selection\+Method, }
+\item[{string}]{results\+Dir, }
+\item[{int}]{community\+Count = {\ttfamily -\/1}, }
+\item[{int}]{initial\+Num\+Labels\+Per\+Task = {\ttfamily 1}, }
+\item[{int}]{num\+Increm\+Data = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_learning_a8df4de56ff6f544dc7f8f86c2ad826f2}
+
+
+Runs the standard active learning procedure on a model instance and an input data set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data.\\
+\hline
+{\em model\+Name} & The model name.\\
+\hline
+{\em run\+Type} & The model run type.\\
+\hline
+{\em model} & The model instance.\\
+\hline
+{\em task\+Selection\+Method} & The method for selecting tasks (Random / Entropy).\\
+\hline
+{\em worker\+Selection\+Method} & The method for selecting workers (only Random is implemented).\\
+\hline
+{\em results\+Dir} & The directory to save the log files.\\
+\hline
+{\em community\+Count} & The number of communities (only for \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}).\\
+\hline
+{\em initial\+Num\+Labels\+Per\+Task} & The initial number of exploratory labels that are randomly selected for each task.\\
+\hline
+\end{DoxyParams}
+We create a list of task utilities
+
+We create a list of worker utilities
+
+Create a list of tuples $<$Task\+Id, Worker\+Id, \hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result}$>$\hypertarget{class_crowdsourcing_models_1_1_active_learning_a5235db06f954b42ed1caca2e2efebe7b}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!Run\+Parallel\+Active\+Learning@{Run\+Parallel\+Active\+Learning}}
+\index{Run\+Parallel\+Active\+Learning@{Run\+Parallel\+Active\+Learning}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{Run\+Parallel\+Active\+Learning(\+I\+List$<$ Datum $>$ data, string[] model\+Name, Run\+Type[] run\+Type, B\+C\+C[] model, Task\+Selection\+Method[] task\+Selection\+Method, Worker\+Selection\+Method[] worker\+Selection\+Method, int community\+Count=-\/1, int initial\+Num\+Labels\+Per\+Task=1, int num\+Increm\+Data=1)}]{\setlength{\rightskip}{0pt plus 5cm}static void Crowdsourcing\+Models.\+Active\+Learning.\+Run\+Parallel\+Active\+Learning (
+\begin{DoxyParamCaption}
+\item[{I\+List$<$ {\bf Datum} $>$}]{data, }
+\item[{string\mbox{[}$\,$\mbox{]}}]{model\+Name, }
+\item[{{\bf Run\+Type}\mbox{[}$\,$\mbox{]}}]{run\+Type, }
+\item[{{\bf B\+C\+C}\mbox{[}$\,$\mbox{]}}]{model, }
+\item[{{\bf Task\+Selection\+Method}\mbox{[}$\,$\mbox{]}}]{task\+Selection\+Method, }
+\item[{{\bf Worker\+Selection\+Method}\mbox{[}$\,$\mbox{]}}]{worker\+Selection\+Method, }
+\item[{int}]{community\+Count = {\ttfamily -\/1}, }
+\item[{int}]{initial\+Num\+Labels\+Per\+Task = {\ttfamily 1}, }
+\item[{int}]{num\+Increm\+Data = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_learning_a5235db06f954b42ed1caca2e2efebe7b}
+
+
+Runs the standard active learning procedure in parallel on an array of model instances and an input data set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data.\\
+\hline
+{\em model\+Name} & The model name.\\
+\hline
+{\em run\+Type} & The model run type.\\
+\hline
+{\em model} & The model instance.\\
+\hline
+{\em task\+Selection\+Method} & The method for selecting tasks (Random / Entropy).\\
+\hline
+{\em worker\+Selection\+Method} & The method for selecting workers (only Random is implemented).\\
+\hline
+{\em results\+Dir} & The directory to save the log files.\\
+\hline
+{\em community\+Count} & The number of communities (only for \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}).\\
+\hline
+{\em initial\+Num\+Labels\+Per\+Task} & The initial number of exploratory labels that are randomly selected for each task.\\
+\hline
+\end{DoxyParams}
+Main loop
+
+Run through all the models
+
+We create a list of worker utilities
+
+Create a list of tuples $<$Task\+Id, Worker\+Id, \hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result}$>$\hypertarget{class_crowdsourcing_models_1_1_active_learning_ad7b1f2430964dab42489d47ffc4cb4cc}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!Update\+Active\+Learning\+Results@{Update\+Active\+Learning\+Results}}
+\index{Update\+Active\+Learning\+Results@{Update\+Active\+Learning\+Results}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{Update\+Active\+Learning\+Results(\+Results results)}]{\setlength{\rightskip}{0pt plus 5cm}void Crowdsourcing\+Models.\+Active\+Learning.\+Update\+Active\+Learning\+Results (
+\begin{DoxyParamCaption}
+\item[{{\bf Results}}]{results}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_active_learning_ad7b1f2430964dab42489d47ffc4cb4cc}
+
+
+Updates the active learning results object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em results} & The new results\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_a1ccb8af29304a1b08074ff2bb44b9af6}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!accuracy@{accuracy}}
+\index{accuracy@{accuracy}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{accuracy}]{\setlength{\rightskip}{0pt plus 5cm}List$<$double$>$ Crowdsourcing\+Models.\+Active\+Learning.\+accuracy\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_learning_a1ccb8af29304a1b08074ff2bb44b9af6}
+
+
+Static accuracy list used for the gui 
+
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_ac95df8d52222fa09da460a1013d303b9}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!accuracy\+Array@{accuracy\+Array}}
+\index{accuracy\+Array@{accuracy\+Array}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{accuracy\+Array}]{\setlength{\rightskip}{0pt plus 5cm}List$<$double$>$ \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Active\+Learning.\+accuracy\+Array\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_learning_ac95df8d52222fa09da460a1013d303b9}
+
+
+Static array of accuracy lists used for the gui 
+
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_ac658e48a670fa0f0b7896cf8e2648556}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!is\+Experiment\+Completed@{is\+Experiment\+Completed}}
+\index{is\+Experiment\+Completed@{is\+Experiment\+Completed}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{is\+Experiment\+Completed}]{\setlength{\rightskip}{0pt plus 5cm}Boolean Crowdsourcing\+Models.\+Active\+Learning.\+is\+Experiment\+Completed = false\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_learning_ac658e48a670fa0f0b7896cf8e2648556}
+
+
+Indicate whether the experiment is completed or not, used for the G\+U\+I 
+
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_a4f3abbe012947f48a2476130e2dd9d1e}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!results@{results}}
+\index{results@{results}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{results}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Results} \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Active\+Learning.\+results\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_learning_a4f3abbe012947f48a2476130e2dd9d1e}
+
+
+List of \hyperlink{class_crowdsourcing_models_1_1_results}{Results} for showing the confusion matrices of specific worker, made global variable for G\+U\+I 
+
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_a83a41d494f96fc2fc9d040ebc6587fcc}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!task\+Value\+List@{task\+Value\+List}}
+\index{task\+Value\+List@{task\+Value\+List}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{task\+Value\+List}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Active\+Learning\+Result}$>$ Crowdsourcing\+Models.\+Active\+Learning.\+task\+Value\+List\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_learning_a83a41d494f96fc2fc9d040ebc6587fcc}
+
+
+List of utility values for the tasks selected at each round 
+
+\hypertarget{class_crowdsourcing_models_1_1_active_learning_a739a1b965a4539eedba478ae2bf0182b}{}\index{Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}!task\+Value\+List\+Array@{task\+Value\+List\+Array}}
+\index{task\+Value\+List\+Array@{task\+Value\+List\+Array}!Crowdsourcing\+Models\+::\+Active\+Learning@{Crowdsourcing\+Models\+::\+Active\+Learning}}
+\subsubsection[{task\+Value\+List\+Array}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Active\+Learning\+Result}$>$ \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Active\+Learning.\+task\+Value\+List\+Array\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_learning_a739a1b965a4539eedba478ae2bf0182b}
+
+
+Array of lists of utility values for the tasks selected at each round in parallel mode 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/Active\+Learning.\+cs\end{DoxyCompactItemize}

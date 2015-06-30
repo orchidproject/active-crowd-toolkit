@@ -1,0 +1,164 @@
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model}{}\section{Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model Class Reference}
+\label{class_acrive_crowd_g_u_i_1_1_experiment_model}\index{Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model}}
+
+
+The class for the selected model in the experiment.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_aa5107aea3fafae11afc7fbc755bb5e0d}{}{\bfseries Experiment\+Model} (\hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_a1f9de8a43c8836d01bb6a0d643677627}{run\+Type}, int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_ad35017c811ab03b6a31d7cd467badcef}{number\+Of\+Labelling\+Round}, int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_a3aa0a6773b8ecfb0aca8bb08e57b02ed}{label\+Starting\+Point})\label{class_acrive_crowd_g_u_i_1_1_experiment_model_aa5107aea3fafae11afc7fbc755bb5e0d}
+
+\item 
+\hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_a6a123911e50acef2040b3769458e8e9c}{Experiment\+Model} (\hyperlink{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{Task\+Selection\+Method} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_adc798915e34d2b0cf58e527db9372300}{task\+Selection\+Method}, \hyperlink{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{Worker\+Selection\+Method} worker\+Selection\+Method, \hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_a1f9de8a43c8836d01bb6a0d643677627}{run\+Type}, int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_ad35017c811ab03b6a31d7cd467badcef}{number\+Of\+Labelling\+Round}, int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_a3aa0a6773b8ecfb0aca8bb08e57b02ed}{label\+Starting\+Point})
+\begin{DoxyCompactList}\small\item\em Constructor for non-\/\+Entropy\+M\+A\+B\+Task Selection Method \end{DoxyCompactList}\item 
+override string \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_a60ce0ab356fa86d66e7d38ad56fe65ab}{To\+String} ()
+\begin{DoxyCompactList}\small\item\em Return the Name of this experiment item, used for labelling and indexing for items \end{DoxyCompactList}\item 
+string \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_aca475fb9c01b05c0428a63b2df7e4101}{Get\+Run\+Type\+String} ()
+\begin{DoxyCompactList}\small\item\em Return the run\+Type of this experiment\+Model in string format \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_abef764896523cc0138b576bc7170aaae}{}Binding\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result} $>$ {\bfseries results\+Binding\+List}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_abef764896523cc0138b576bc7170aaae}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{Task\+Selection\+Method} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_adc798915e34d2b0cf58e527db9372300}{task\+Selection\+Method}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Selected task\+Selection\+Method \end{DoxyCompactList}\item 
+\hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_a1f9de8a43c8836d01bb6a0d643677627}{run\+Type}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Selected Run\+Type \end{DoxyCompactList}\item 
+int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_a3aa0a6773b8ecfb0aca8bb08e57b02ed}{label\+Starting\+Point}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The labelling starting point of the model after exploration \end{DoxyCompactList}\item 
+int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_ad35017c811ab03b6a31d7cd467badcef}{number\+Of\+Labelling\+Round}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Number of Labelling\+Round \end{DoxyCompactList}\item 
+Boolean \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_a9ccc83d4f9434cb406a144214821cf2c}{is\+Simulation\+Complete}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em boolean indicates if this \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} is completed, as to switch to the next \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} \end{DoxyCompactList}\item 
+List$<$ double $>$ \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_ada76d7308ef6cea72a9e330dbb8609d7}{accuracy\+Of\+The\+Experiment\+Model}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The list of accuracies of the model \end{DoxyCompactList}\item 
+\hyperlink{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{Worker\+Selection\+Method} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model_ac16067088de0e358eca610efad0fba17}{Worker\+Selection\+Method}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The worker selection method used in the \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The class for the selected model in the experiment. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_a6a123911e50acef2040b3769458e8e9c}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}!Experiment\+Model@{Experiment\+Model}}
+\index{Experiment\+Model@{Experiment\+Model}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}}
+\subsubsection[{Experiment\+Model(\+Task\+Selection\+Method task\+Selection\+Method, Worker\+Selection\+Method worker\+Selection\+Method, Run\+Type run\+Type, int number\+Of\+Labelling\+Round, int label\+Starting\+Point)}]{\setlength{\rightskip}{0pt plus 5cm}Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model.\+Experiment\+Model (
+\begin{DoxyParamCaption}
+\item[{{\bf Task\+Selection\+Method}}]{task\+Selection\+Method, }
+\item[{{\bf Worker\+Selection\+Method}}]{worker\+Selection\+Method, }
+\item[{{\bf Run\+Type}}]{run\+Type, }
+\item[{int}]{number\+Of\+Labelling\+Round, }
+\item[{int}]{label\+Starting\+Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_a6a123911e50acef2040b3769458e8e9c}
+
+
+Constructor for non-\/\+Entropy\+M\+A\+B\+Task Selection Method 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Selection\+Method} & \\
+\hline
+{\em run\+Type} & \\
+\hline
+{\em number\+Of\+Labelling\+Round} & \\
+\hline
+{\em label\+Starting\+Point} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_aca475fb9c01b05c0428a63b2df7e4101}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}!Get\+Run\+Type\+String@{Get\+Run\+Type\+String}}
+\index{Get\+Run\+Type\+String@{Get\+Run\+Type\+String}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}}
+\subsubsection[{Get\+Run\+Type\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model.\+Get\+Run\+Type\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_aca475fb9c01b05c0428a63b2df7e4101}
+
+
+Return the run\+Type of this experiment\+Model in string format 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_a60ce0ab356fa86d66e7d38ad56fe65ab}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}!To\+String@{To\+String}}
+\index{To\+String@{To\+String}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}}
+\subsubsection[{To\+String()}]{\setlength{\rightskip}{0pt plus 5cm}override string Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model.\+To\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_a60ce0ab356fa86d66e7d38ad56fe65ab}
+
+
+Return the Name of this experiment item, used for labelling and indexing for items 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_ada76d7308ef6cea72a9e330dbb8609d7}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}!accuracy\+Of\+The\+Experiment\+Model@{accuracy\+Of\+The\+Experiment\+Model}}
+\index{accuracy\+Of\+The\+Experiment\+Model@{accuracy\+Of\+The\+Experiment\+Model}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}}
+\subsubsection[{accuracy\+Of\+The\+Experiment\+Model}]{\setlength{\rightskip}{0pt plus 5cm}List$<$double$>$ Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model.\+accuracy\+Of\+The\+Experiment\+Model\hspace{0.3cm}{\ttfamily [get]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_ada76d7308ef6cea72a9e330dbb8609d7}
+
+
+The list of accuracies of the model 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_a9ccc83d4f9434cb406a144214821cf2c}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}!is\+Simulation\+Complete@{is\+Simulation\+Complete}}
+\index{is\+Simulation\+Complete@{is\+Simulation\+Complete}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}}
+\subsubsection[{is\+Simulation\+Complete}]{\setlength{\rightskip}{0pt plus 5cm}Boolean Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model.\+is\+Simulation\+Complete\hspace{0.3cm}{\ttfamily [get]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_a9ccc83d4f9434cb406a144214821cf2c}
+
+
+boolean indicates if this \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} is completed, as to switch to the next \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_a3aa0a6773b8ecfb0aca8bb08e57b02ed}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}!label\+Starting\+Point@{label\+Starting\+Point}}
+\index{label\+Starting\+Point@{label\+Starting\+Point}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}}
+\subsubsection[{label\+Starting\+Point}]{\setlength{\rightskip}{0pt plus 5cm}int Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model.\+label\+Starting\+Point\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_a3aa0a6773b8ecfb0aca8bb08e57b02ed}
+
+
+The labelling starting point of the model after exploration 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_ad35017c811ab03b6a31d7cd467badcef}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}!number\+Of\+Labelling\+Round@{number\+Of\+Labelling\+Round}}
+\index{number\+Of\+Labelling\+Round@{number\+Of\+Labelling\+Round}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}}
+\subsubsection[{number\+Of\+Labelling\+Round}]{\setlength{\rightskip}{0pt plus 5cm}int Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model.\+number\+Of\+Labelling\+Round\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_ad35017c811ab03b6a31d7cd467badcef}
+
+
+Number of Labelling\+Round 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_a1f9de8a43c8836d01bb6a0d643677627}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}!run\+Type@{run\+Type}}
+\index{run\+Type@{run\+Type}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}}
+\subsubsection[{run\+Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Run\+Type} Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model.\+run\+Type\hspace{0.3cm}{\ttfamily [get]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_a1f9de8a43c8836d01bb6a0d643677627}
+
+
+Selected Run\+Type 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_adc798915e34d2b0cf58e527db9372300}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}!task\+Selection\+Method@{task\+Selection\+Method}}
+\index{task\+Selection\+Method@{task\+Selection\+Method}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}}
+\subsubsection[{task\+Selection\+Method}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task\+Selection\+Method} Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model.\+task\+Selection\+Method\hspace{0.3cm}{\ttfamily [get]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_adc798915e34d2b0cf58e527db9372300}
+
+
+Selected task\+Selection\+Method 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_model_ac16067088de0e358eca610efad0fba17}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}!Worker\+Selection\+Method@{Worker\+Selection\+Method}}
+\index{Worker\+Selection\+Method@{Worker\+Selection\+Method}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Model}}
+\subsubsection[{Worker\+Selection\+Method}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Worker\+Selection\+Method} Acrive\+Crowd\+G\+U\+I.\+Experiment\+Model.\+Worker\+Selection\+Method\hspace{0.3cm}{\ttfamily [get]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_model_ac16067088de0e358eca610efad0fba17}
+
+
+The worker selection method used in the \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Active\+Crowd\+G\+U\+I/Experiment\+Model.\+cs\end{DoxyCompactItemize}

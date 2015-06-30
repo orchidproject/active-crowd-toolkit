@@ -1,0 +1,125 @@
+\hypertarget{class_crowdsourcing_models_1_1_datum}{}\section{Crowdsourcing\+Models.\+Datum Class Reference}
+\label{class_crowdsourcing_models_1_1_datum}\index{Crowdsourcing\+Models.\+Datum@{Crowdsourcing\+Models.\+Datum}}
+
+
+This class represents a single datum, and has methods to read in data.  
+
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ \hyperlink{class_crowdsourcing_models_1_1_datum_a3ae3b8439f5b675ff7970cb18f216138}{Load\+Data} (string filename)
+\begin{DoxyCompactList}\small\item\em Loads the data file in the format (worker id, task id, worker label, ?gold label). \end{DoxyCompactList}\item 
+static I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ \hyperlink{class_crowdsourcing_models_1_1_datum_a3dcd604b51bd0ed8165e83d23cb752a6}{Shuffle} (I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data)
+\begin{DoxyCompactList}\small\item\em Shuffle a data list \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_crowdsourcing_models_1_1_datum_a0cd6c2a571200b43b79db48f2bcdb0f4}{Worker\+Id}
+\begin{DoxyCompactList}\small\item\em The worker id. \end{DoxyCompactList}\item 
+string \hyperlink{class_crowdsourcing_models_1_1_datum_a7368e7071cd2d6ff2458763e913cb53e}{Task\+Id}
+\begin{DoxyCompactList}\small\item\em The task id. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_models_1_1_datum_a12f58ddc5efdea89aa99d2fbe944744f}{Worker\+Label}
+\begin{DoxyCompactList}\small\item\em The worker\textquotesingle{}s label. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_models_1_1_datum_a236dd06bbd0ef1a2333b5524e0e22db4}{Gold\+Label}
+\begin{DoxyCompactList}\small\item\em The task\textquotesingle{}s gold label (optional). \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_models_1_1_datum_a86eda72a08cbb7ac25a4898cefc91161}{Time\+Spent}
+\begin{DoxyCompactList}\small\item\em The time spent by the worker to produce the label (optional) \end{DoxyCompactList}\item 
+string \hyperlink{class_crowdsourcing_models_1_1_datum_a38025a1cc896d8e6b9add41381e59db7}{Body\+Text}
+\begin{DoxyCompactList}\small\item\em The body text of the document (optional -\/ only for text sentiment labelling tasks). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represents a single datum, and has methods to read in data. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_datum_a3ae3b8439f5b675ff7970cb18f216138}{}\index{Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}!Load\+Data@{Load\+Data}}
+\index{Load\+Data@{Load\+Data}!Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}}
+\subsubsection[{Load\+Data(string filename)}]{\setlength{\rightskip}{0pt plus 5cm}static I\+List$<${\bf Datum}$>$ Crowdsourcing\+Models.\+Datum.\+Load\+Data (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_datum_a3ae3b8439f5b675ff7970cb18f216138}
+
+
+Loads the data file in the format (worker id, task id, worker label, ?gold label). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The data file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The list of parsed data.
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_datum_a3dcd604b51bd0ed8165e83d23cb752a6}{}\index{Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}!Shuffle@{Shuffle}}
+\index{Shuffle@{Shuffle}!Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}}
+\subsubsection[{Shuffle(\+I\+List$<$ Datum $>$ data)}]{\setlength{\rightskip}{0pt plus 5cm}static I\+List$<${\bf Datum}$>$ Crowdsourcing\+Models.\+Datum.\+Shuffle (
+\begin{DoxyParamCaption}
+\item[{I\+List$<$ {\bf Datum} $>$}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_datum_a3dcd604b51bd0ed8165e83d23cb752a6}
+
+
+Shuffle a data list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data list\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shuffled data list
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_datum_a38025a1cc896d8e6b9add41381e59db7}{}\index{Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}!Body\+Text@{Body\+Text}}
+\index{Body\+Text@{Body\+Text}!Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}}
+\subsubsection[{Body\+Text}]{\setlength{\rightskip}{0pt plus 5cm}string Crowdsourcing\+Models.\+Datum.\+Body\+Text}\label{class_crowdsourcing_models_1_1_datum_a38025a1cc896d8e6b9add41381e59db7}
+
+
+The body text of the document (optional -\/ only for text sentiment labelling tasks). 
+
+\hypertarget{class_crowdsourcing_models_1_1_datum_a236dd06bbd0ef1a2333b5524e0e22db4}{}\index{Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}!Gold\+Label@{Gold\+Label}}
+\index{Gold\+Label@{Gold\+Label}!Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}}
+\subsubsection[{Gold\+Label}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+Datum.\+Gold\+Label}\label{class_crowdsourcing_models_1_1_datum_a236dd06bbd0ef1a2333b5524e0e22db4}
+
+
+The task\textquotesingle{}s gold label (optional). 
+
+\hypertarget{class_crowdsourcing_models_1_1_datum_a7368e7071cd2d6ff2458763e913cb53e}{}\index{Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}!Task\+Id@{Task\+Id}}
+\index{Task\+Id@{Task\+Id}!Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}}
+\subsubsection[{Task\+Id}]{\setlength{\rightskip}{0pt plus 5cm}string Crowdsourcing\+Models.\+Datum.\+Task\+Id}\label{class_crowdsourcing_models_1_1_datum_a7368e7071cd2d6ff2458763e913cb53e}
+
+
+The task id. 
+
+\hypertarget{class_crowdsourcing_models_1_1_datum_a86eda72a08cbb7ac25a4898cefc91161}{}\index{Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}!Time\+Spent@{Time\+Spent}}
+\index{Time\+Spent@{Time\+Spent}!Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}}
+\subsubsection[{Time\+Spent}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Models.\+Datum.\+Time\+Spent}\label{class_crowdsourcing_models_1_1_datum_a86eda72a08cbb7ac25a4898cefc91161}
+
+
+The time spent by the worker to produce the label (optional) 
+
+\hypertarget{class_crowdsourcing_models_1_1_datum_a0cd6c2a571200b43b79db48f2bcdb0f4}{}\index{Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}!Worker\+Id@{Worker\+Id}}
+\index{Worker\+Id@{Worker\+Id}!Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}}
+\subsubsection[{Worker\+Id}]{\setlength{\rightskip}{0pt plus 5cm}string Crowdsourcing\+Models.\+Datum.\+Worker\+Id}\label{class_crowdsourcing_models_1_1_datum_a0cd6c2a571200b43b79db48f2bcdb0f4}
+
+
+The worker id. 
+
+\hypertarget{class_crowdsourcing_models_1_1_datum_a12f58ddc5efdea89aa99d2fbe944744f}{}\index{Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}!Worker\+Label@{Worker\+Label}}
+\index{Worker\+Label@{Worker\+Label}!Crowdsourcing\+Models\+::\+Datum@{Crowdsourcing\+Models\+::\+Datum}}
+\subsubsection[{Worker\+Label}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+Datum.\+Worker\+Label}\label{class_crowdsourcing_models_1_1_datum_a12f58ddc5efdea89aa99d2fbe944744f}
+
+
+The worker\textquotesingle{}s label. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/Datum.\+cs\end{DoxyCompactItemize}

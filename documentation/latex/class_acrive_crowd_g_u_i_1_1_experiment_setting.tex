@@ -1,0 +1,514 @@
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting}{}\section{Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting Class Reference}
+\label{class_acrive_crowd_g_u_i_1_1_experiment_setting}\index{Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting}}
+
+
+The \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting}{Experiment\+Setting} Class for setting of a specific dataset, running with different experiment\+Models  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_1_1_current_parallel_state}{Current\+Parallel\+State}
+\begin{DoxyCompactList}\small\item\em Object to store the current state, for passing to the caller \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a81eb83f4f013fa648a85f1d4679f4e2b}{Experiment\+Setting} (int initial\+Number\+Of\+Labels\+Per\+Task, \hyperlink{class_acrive_crowd_g_u_i_1_1_dataset}{Dataset} current\+Dataset, Experiment\+Type current\+Experiment\+Type, int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a21043775ebb676571dd367a3d2afabf0}{number\+Of\+Iterations}=1)
+\begin{DoxyCompactList}\small\item\em Constructors \end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_accac06f5f7865951d5cb4ec1dda3967f}{Add\+Experiment\+Model} (\hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} exp\+Model)
+\begin{DoxyCompactList}\small\item\em Add \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} into the Experiment \end{DoxyCompactList}\item 
+int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a9aeeebea3838b28f3cc11e3d5a2e34da}{Get\+Number\+Of\+Experiemnt\+Models} ()
+\begin{DoxyCompactList}\small\item\em Get the total number of Experiment\+Models in this \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting}{Experiment\+Setting} \end{DoxyCompactList}\item 
+\hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a6c7c73315c38f2438b72a5c3b8775cc1}{Get\+Experiment\+Model} (int item\+Index)
+\begin{DoxyCompactList}\small\item\em Get the \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} \end{DoxyCompactList}\item 
+int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_af746ceed9324c22c7797a8767997dffe}{Get\+Experimen\+Model\+Index} (\hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} exper\+Item)
+\begin{DoxyCompactList}\small\item\em Get the index of the experiment\+Model \end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a71aef9095b75b5f23a47321515a7dd20}{Set\+Initial\+Starting\+Label} ()
+\begin{DoxyCompactList}\small\item\em Get initial starting label for plotting graphs and the progress pane \end{DoxyCompactList}\item 
+int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a8e9f8cefeabc1a187bff38699083c854}{Get\+Total\+Number\+Of\+Labelling\+Rows} ()
+\begin{DoxyCompactList}\small\item\em Get Total Number Of Labelling Rows \end{DoxyCompactList}\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a0c91411666fa2968bbcdcdbe655d1c51}{}void \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a0c91411666fa2968bbcdcdbe655d1c51}{Run\+Parallel\+Active\+Learning} (System.\+Component\+Model.\+Background\+Worker worker, System.\+Component\+Model.\+Do\+Work\+Event\+Args e)\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a0c91411666fa2968bbcdcdbe655d1c51}
+
+\begin{DoxyCompactList}\small\item\em Background Thread for running the active learning experiment 
+\begin{DoxyParams}{Parameters}
+{\em worker} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_abc8c2a3b0951e9cf7f28d46b07f2a422}{Run\+Batch\+Running\+Experiment} (System.\+Component\+Model.\+Background\+Worker worker, System.\+Component\+Model.\+Do\+Work\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Run\+Batch\+Running experiment in background thread \end{DoxyCompactList}\item 
+double \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_ab3ddb0f84b138a56652ab9f231628a78}{get\+Accuracy} (int index\+Of\+Experiment\+Model, int current\+Label)
+\begin{DoxyCompactList}\small\item\em Get the accuracy of a labelling point \end{DoxyCompactList}\item 
+Boolean \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_aba216fa7ab6f83f783f51ae1ba93e80f}{is\+Experiment\+Item\+Started} (int index\+Of\+Experiment\+Item, int current\+Labelling\+Round)
+\begin{DoxyCompactList}\small\item\em Check if the experiment\+Item should start at this labelling point \end{DoxyCompactList}\item 
+\hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_ad78cdd780a21131e6f3ba3bba6402243}{Get\+Active\+Learning\+Result} (int index\+Of\+Experiment\+Item, int current\+Labelling\+Round)
+\begin{DoxyCompactList}\small\item\em Get the Active\+Learning\+Result of the required labelling round \end{DoxyCompactList}\item 
+List$<$ \hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result} $>$ \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a7cfb79f62cecb995582932ff1d33e094}{Get\+Active\+Learning\+Result} (int index\+Of\+Experiment\+Model)
+\begin{DoxyCompactList}\small\item\em Get the List of Active\+Learning\+Result of the given index of \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} \end{DoxyCompactList}\item 
+Boolean \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a4fcbe7fe5a3205826f93c35a4e1f9d82}{Contain\+Worker\+Id} (int index\+Of\+Experiment\+Model, String worker\+Id)
+\begin{DoxyCompactList}\small\item\em Check if the worker exists in the \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} \end{DoxyCompactList}\item 
+Boolean \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a7a9a2811c0b346a520a87cc8c6a2938b}{Contain\+Task\+Id} (int index\+Of\+Experiment\+Model, String current\+Task\+Id)
+\begin{DoxyCompactList}\small\item\em Check if the task Id is valid in the experiment\+Model \end{DoxyCompactList}\item 
+int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a78c8c525d992fa01d50dc04653ac0358}{Get\+Community\+Count} (int index\+Of\+Experiment\+Model)
+\begin{DoxyCompactList}\small\item\em Get the number of community in the experiment \end{DoxyCompactList}\item 
+double\mbox{[},\mbox{]} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_ac5e8b7b04857e820714dd8c8fa6b41c6}{get\+Worker\+Results} (int index\+Of\+Experiment\+Model, String worker\+Id)
+\begin{DoxyCompactList}\small\item\em Get the worker results of the experiment model \end{DoxyCompactList}\item 
+String \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_ac811eb0367b4edd141ac18b58b7b9310}{get\+Confusion\+Matrix\+String} (double\mbox{[},\mbox{]} printable\+Confusion\+Matrix)
+\begin{DoxyCompactList}\small\item\em Get the string of the confusion matrix \end{DoxyCompactList}\item 
+double\mbox{[},\mbox{]} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_ae7a4dc5056b55a7ec74e10aac997e51d}{get\+Community\+Results} (int index\+Of\+Experiment\+Item, int community\+Index)
+\begin{DoxyCompactList}\small\item\em Get the double array of the community results \end{DoxyCompactList}\item 
+Discrete \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_ad08ec4edd36b91cf4b26837837d17c5e}{Get\+Task\+True\+Label} (int index\+Of\+Experiment\+Item, string task\+Id)
+\begin{DoxyCompactList}\small\item\em Return the task true label \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a743640b8fb44164d04834f6210fe7b9f}{}int {\bfseries number\+Of\+Labelling\+Round}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a743640b8fb44164d04834f6210fe7b9f}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_ac953dec97e304b79d6ec605dba07ff73}{}int {\bfseries community\+Count} = 3\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_ac953dec97e304b79d6ec605dba07ff73}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a5120328c9db97b30317f5fc7b88b1112}{}List$<$ \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} $>$ {\bfseries experiment\+Models}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a5120328c9db97b30317f5fc7b88b1112}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_aa0cbb4d68dc746ab5fcdb69e4655215d}{}List$<$ \hyperlink{class_crowdsourcing_models_1_1_results}{Results} $>$ {\bfseries results}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_aa0cbb4d68dc746ab5fcdb69e4655215d}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_aceffb9b1794008e2a256bfbfa85fd619}{}\hyperlink{class_acrive_crowd_g_u_i_1_1_dataset}{Dataset} {\bfseries current\+Dataset}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_aceffb9b1794008e2a256bfbfa85fd619}
+
+\item 
+List$<$ double $>$\mbox{[}$\,$\mbox{]} \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a4cfce5c599a60eb6816feb41a48bc253}{accuracy\+Array\+Of\+All\+Experiment\+Models}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Accuracy array for all Experiment\+Models from the experiment \end{DoxyCompactList}\item 
+int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a85910797cd67b7f06b34ddef708daf8b}{initial\+Starting\+Label}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Initial starting label point after exploration phase \end{DoxyCompactList}\item 
+int \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a21043775ebb676571dd367a3d2afabf0}{number\+Of\+Iterations}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The number of Iteration of the experiment (ie. For Active\+Learning would be 1) \end{DoxyCompactList}\item 
+Experiment\+Type \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting_a4063f11ac4e345ecbee8a5e291a397e7}{experiment\+Type}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The experiment type of current experiment, ie Active\+Learning, Batch\+Running \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting}{Experiment\+Setting} Class for setting of a specific dataset, running with different experiment\+Models 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a81eb83f4f013fa648a85f1d4679f4e2b}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Experiment\+Setting@{Experiment\+Setting}}
+\index{Experiment\+Setting@{Experiment\+Setting}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Experiment\+Setting(int initial\+Number\+Of\+Labels\+Per\+Task, Dataset current\+Dataset, Experiment\+Type current\+Experiment\+Type, int number\+Of\+Iterations=1)}]{\setlength{\rightskip}{0pt plus 5cm}Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Experiment\+Setting (
+\begin{DoxyParamCaption}
+\item[{int}]{initial\+Number\+Of\+Labels\+Per\+Task, }
+\item[{{\bf Dataset}}]{current\+Dataset, }
+\item[{Experiment\+Type}]{current\+Experiment\+Type, }
+\item[{int}]{number\+Of\+Iterations = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a81eb83f4f013fa648a85f1d4679f4e2b}
+
+
+Constructors 
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+Number\+Of\+Labels\+Per\+Task} & \\
+\hline
+{\em current\+Dataset} & \\
+\hline
+{\em current\+Experiment\+Type} & \\
+\hline
+{\em number\+Of\+Iterations} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_accac06f5f7865951d5cb4ec1dda3967f}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Add\+Experiment\+Model@{Add\+Experiment\+Model}}
+\index{Add\+Experiment\+Model@{Add\+Experiment\+Model}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Add\+Experiment\+Model(\+Experiment\+Model exp\+Model)}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Add\+Experiment\+Model (
+\begin{DoxyParamCaption}
+\item[{{\bf Experiment\+Model}}]{exp\+Model}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_accac06f5f7865951d5cb4ec1dda3967f}
+
+
+Add \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} into the Experiment 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exp\+Model} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a7a9a2811c0b346a520a87cc8c6a2938b}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Contain\+Task\+Id@{Contain\+Task\+Id}}
+\index{Contain\+Task\+Id@{Contain\+Task\+Id}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Contain\+Task\+Id(int index\+Of\+Experiment\+Model, String current\+Task\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}Boolean Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Contain\+Task\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{index\+Of\+Experiment\+Model, }
+\item[{String}]{current\+Task\+Id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a7a9a2811c0b346a520a87cc8c6a2938b}
+
+
+Check if the task Id is valid in the experiment\+Model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Of\+Experiment\+Model} & \\
+\hline
+{\em current\+Task\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a4fcbe7fe5a3205826f93c35a4e1f9d82}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Contain\+Worker\+Id@{Contain\+Worker\+Id}}
+\index{Contain\+Worker\+Id@{Contain\+Worker\+Id}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Contain\+Worker\+Id(int index\+Of\+Experiment\+Model, String worker\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}Boolean Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Contain\+Worker\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{index\+Of\+Experiment\+Model, }
+\item[{String}]{worker\+Id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a4fcbe7fe5a3205826f93c35a4e1f9d82}
+
+
+Check if the worker exists in the \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Of\+Experiment\+Model} & \\
+\hline
+{\em worker\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_ab3ddb0f84b138a56652ab9f231628a78}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!get\+Accuracy@{get\+Accuracy}}
+\index{get\+Accuracy@{get\+Accuracy}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{get\+Accuracy(int index\+Of\+Experiment\+Model, int current\+Label)}]{\setlength{\rightskip}{0pt plus 5cm}double Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+get\+Accuracy (
+\begin{DoxyParamCaption}
+\item[{int}]{index\+Of\+Experiment\+Model, }
+\item[{int}]{current\+Label}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_ab3ddb0f84b138a56652ab9f231628a78}
+
+
+Get the accuracy of a labelling point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Of\+Experiment\+Model} & \\
+\hline
+{\em current\+Label} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_ad78cdd780a21131e6f3ba3bba6402243}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Get\+Active\+Learning\+Result@{Get\+Active\+Learning\+Result}}
+\index{Get\+Active\+Learning\+Result@{Get\+Active\+Learning\+Result}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Get\+Active\+Learning\+Result(int index\+Of\+Experiment\+Item, int current\+Labelling\+Round)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Active\+Learning\+Result} Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Get\+Active\+Learning\+Result (
+\begin{DoxyParamCaption}
+\item[{int}]{index\+Of\+Experiment\+Item, }
+\item[{int}]{current\+Labelling\+Round}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_ad78cdd780a21131e6f3ba3bba6402243}
+
+
+Get the Active\+Learning\+Result of the required labelling round 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Of\+Experiment\+Model} & \\
+\hline
+{\em current\+Labelling\+Round} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a7cfb79f62cecb995582932ff1d33e094}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Get\+Active\+Learning\+Result@{Get\+Active\+Learning\+Result}}
+\index{Get\+Active\+Learning\+Result@{Get\+Active\+Learning\+Result}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Get\+Active\+Learning\+Result(int index\+Of\+Experiment\+Model)}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Active\+Learning\+Result}$>$ Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Get\+Active\+Learning\+Result (
+\begin{DoxyParamCaption}
+\item[{int}]{index\+Of\+Experiment\+Model}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a7cfb79f62cecb995582932ff1d33e094}
+
+
+Get the List of Active\+Learning\+Result of the given index of \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Of\+Experiment\+Model} & \\
+\hline
+{\em current\+Labelling\+Round} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a78c8c525d992fa01d50dc04653ac0358}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Get\+Community\+Count@{Get\+Community\+Count}}
+\index{Get\+Community\+Count@{Get\+Community\+Count}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Get\+Community\+Count(int index\+Of\+Experiment\+Model)}]{\setlength{\rightskip}{0pt plus 5cm}int Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Get\+Community\+Count (
+\begin{DoxyParamCaption}
+\item[{int}]{index\+Of\+Experiment\+Model}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a78c8c525d992fa01d50dc04653ac0358}
+
+
+Get the number of community in the experiment 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Of\+Experiment\+Model} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_ae7a4dc5056b55a7ec74e10aac997e51d}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!get\+Community\+Results@{get\+Community\+Results}}
+\index{get\+Community\+Results@{get\+Community\+Results}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{get\+Community\+Results(int index\+Of\+Experiment\+Item, int community\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[},\mbox{]} Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+get\+Community\+Results (
+\begin{DoxyParamCaption}
+\item[{int}]{index\+Of\+Experiment\+Item, }
+\item[{int}]{community\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_ae7a4dc5056b55a7ec74e10aac997e51d}
+
+
+Get the double array of the community results 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Of\+Experiment\+Model} & \\
+\hline
+{\em community\+Index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_ac811eb0367b4edd141ac18b58b7b9310}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!get\+Confusion\+Matrix\+String@{get\+Confusion\+Matrix\+String}}
+\index{get\+Confusion\+Matrix\+String@{get\+Confusion\+Matrix\+String}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{get\+Confusion\+Matrix\+String(double[,] printable\+Confusion\+Matrix)}]{\setlength{\rightskip}{0pt plus 5cm}String Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+get\+Confusion\+Matrix\+String (
+\begin{DoxyParamCaption}
+\item[{double}]{printable\+Confusion\+Matrix\mbox{[},\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_ac811eb0367b4edd141ac18b58b7b9310}
+
+
+Get the string of the confusion matrix 
+
+
+\begin{DoxyParams}{Parameters}
+{\em printable\+Confusion\+Matrix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_af746ceed9324c22c7797a8767997dffe}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Get\+Experimen\+Model\+Index@{Get\+Experimen\+Model\+Index}}
+\index{Get\+Experimen\+Model\+Index@{Get\+Experimen\+Model\+Index}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Get\+Experimen\+Model\+Index(\+Experiment\+Model exper\+Item)}]{\setlength{\rightskip}{0pt plus 5cm}int Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Get\+Experimen\+Model\+Index (
+\begin{DoxyParamCaption}
+\item[{{\bf Experiment\+Model}}]{exper\+Item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_af746ceed9324c22c7797a8767997dffe}
+
+
+Get the index of the experiment\+Model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exper\+Item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the experiment\+Model in current \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting}{Experiment\+Setting}
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a6c7c73315c38f2438b72a5c3b8775cc1}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Get\+Experiment\+Model@{Get\+Experiment\+Model}}
+\index{Get\+Experiment\+Model@{Get\+Experiment\+Model}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Get\+Experiment\+Model(int item\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Experiment\+Model} Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Get\+Experiment\+Model (
+\begin{DoxyParamCaption}
+\item[{int}]{item\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a6c7c73315c38f2438b72a5c3b8775cc1}
+
+
+Get the \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item\+Index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a9aeeebea3838b28f3cc11e3d5a2e34da}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Get\+Number\+Of\+Experiemnt\+Models@{Get\+Number\+Of\+Experiemnt\+Models}}
+\index{Get\+Number\+Of\+Experiemnt\+Models@{Get\+Number\+Of\+Experiemnt\+Models}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Get\+Number\+Of\+Experiemnt\+Models()}]{\setlength{\rightskip}{0pt plus 5cm}int Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Get\+Number\+Of\+Experiemnt\+Models (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a9aeeebea3838b28f3cc11e3d5a2e34da}
+
+
+Get the total number of Experiment\+Models in this \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting}{Experiment\+Setting} 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_ad08ec4edd36b91cf4b26837837d17c5e}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Get\+Task\+True\+Label@{Get\+Task\+True\+Label}}
+\index{Get\+Task\+True\+Label@{Get\+Task\+True\+Label}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Get\+Task\+True\+Label(int index\+Of\+Experiment\+Item, string task\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}Discrete Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Get\+Task\+True\+Label (
+\begin{DoxyParamCaption}
+\item[{int}]{index\+Of\+Experiment\+Item, }
+\item[{string}]{task\+Id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_ad08ec4edd36b91cf4b26837837d17c5e}
+
+
+Return the task true label 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Of\+Experiment\+Model} & \\
+\hline
+{\em task\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a8e9f8cefeabc1a187bff38699083c854}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Get\+Total\+Number\+Of\+Labelling\+Rows@{Get\+Total\+Number\+Of\+Labelling\+Rows}}
+\index{Get\+Total\+Number\+Of\+Labelling\+Rows@{Get\+Total\+Number\+Of\+Labelling\+Rows}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Get\+Total\+Number\+Of\+Labelling\+Rows()}]{\setlength{\rightskip}{0pt plus 5cm}int Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Get\+Total\+Number\+Of\+Labelling\+Rows (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a8e9f8cefeabc1a187bff38699083c854}
+
+
+Get Total Number Of Labelling Rows 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_ac5e8b7b04857e820714dd8c8fa6b41c6}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!get\+Worker\+Results@{get\+Worker\+Results}}
+\index{get\+Worker\+Results@{get\+Worker\+Results}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{get\+Worker\+Results(int index\+Of\+Experiment\+Model, String worker\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[},\mbox{]} Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+get\+Worker\+Results (
+\begin{DoxyParamCaption}
+\item[{int}]{index\+Of\+Experiment\+Model, }
+\item[{String}]{worker\+Id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_ac5e8b7b04857e820714dd8c8fa6b41c6}
+
+
+Get the worker results of the experiment model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Of\+Experiment\+Model} & \\
+\hline
+{\em worker\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_aba216fa7ab6f83f783f51ae1ba93e80f}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!is\+Experiment\+Item\+Started@{is\+Experiment\+Item\+Started}}
+\index{is\+Experiment\+Item\+Started@{is\+Experiment\+Item\+Started}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{is\+Experiment\+Item\+Started(int index\+Of\+Experiment\+Item, int current\+Labelling\+Round)}]{\setlength{\rightskip}{0pt plus 5cm}Boolean Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+is\+Experiment\+Item\+Started (
+\begin{DoxyParamCaption}
+\item[{int}]{index\+Of\+Experiment\+Item, }
+\item[{int}]{current\+Labelling\+Round}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_aba216fa7ab6f83f783f51ae1ba93e80f}
+
+
+Check if the experiment\+Item should start at this labelling point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Of\+Experiment\+Model} & \\
+\hline
+{\em current\+Labelling\+Round} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_abc8c2a3b0951e9cf7f28d46b07f2a422}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Run\+Batch\+Running\+Experiment@{Run\+Batch\+Running\+Experiment}}
+\index{Run\+Batch\+Running\+Experiment@{Run\+Batch\+Running\+Experiment}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Run\+Batch\+Running\+Experiment(\+System.\+Component\+Model.\+Background\+Worker worker, System.\+Component\+Model.\+Do\+Work\+Event\+Args e)}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Run\+Batch\+Running\+Experiment (
+\begin{DoxyParamCaption}
+\item[{System.\+Component\+Model.\+Background\+Worker}]{worker, }
+\item[{System.\+Component\+Model.\+Do\+Work\+Event\+Args}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_abc8c2a3b0951e9cf7f28d46b07f2a422}
+
+
+Run\+Batch\+Running experiment in background thread 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a71aef9095b75b5f23a47321515a7dd20}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!Set\+Initial\+Starting\+Label@{Set\+Initial\+Starting\+Label}}
+\index{Set\+Initial\+Starting\+Label@{Set\+Initial\+Starting\+Label}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{Set\+Initial\+Starting\+Label()}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+Set\+Initial\+Starting\+Label (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a71aef9095b75b5f23a47321515a7dd20}
+
+
+Get initial starting label for plotting graphs and the progress pane 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a4cfce5c599a60eb6816feb41a48bc253}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!accuracy\+Array\+Of\+All\+Experiment\+Models@{accuracy\+Array\+Of\+All\+Experiment\+Models}}
+\index{accuracy\+Array\+Of\+All\+Experiment\+Models@{accuracy\+Array\+Of\+All\+Experiment\+Models}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{accuracy\+Array\+Of\+All\+Experiment\+Models}]{\setlength{\rightskip}{0pt plus 5cm}List$<$double$>$ \mbox{[}$\,$\mbox{]} Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+accuracy\+Array\+Of\+All\+Experiment\+Models\hspace{0.3cm}{\ttfamily [get]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a4cfce5c599a60eb6816feb41a48bc253}
+
+
+Accuracy array for all Experiment\+Models from the experiment 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a4063f11ac4e345ecbee8a5e291a397e7}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!experiment\+Type@{experiment\+Type}}
+\index{experiment\+Type@{experiment\+Type}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{experiment\+Type}]{\setlength{\rightskip}{0pt plus 5cm}Experiment\+Type Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+experiment\+Type\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a4063f11ac4e345ecbee8a5e291a397e7}
+
+
+The experiment type of current experiment, ie Active\+Learning, Batch\+Running 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a85910797cd67b7f06b34ddef708daf8b}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!initial\+Starting\+Label@{initial\+Starting\+Label}}
+\index{initial\+Starting\+Label@{initial\+Starting\+Label}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{initial\+Starting\+Label}]{\setlength{\rightskip}{0pt plus 5cm}int Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+initial\+Starting\+Label\hspace{0.3cm}{\ttfamily [get]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a85910797cd67b7f06b34ddef708daf8b}
+
+
+Initial starting label point after exploration phase 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_experiment_setting_a21043775ebb676571dd367a3d2afabf0}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}!number\+Of\+Iterations@{number\+Of\+Iterations}}
+\index{number\+Of\+Iterations@{number\+Of\+Iterations}!Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting@{Acrive\+Crowd\+G\+U\+I\+::\+Experiment\+Setting}}
+\subsubsection[{number\+Of\+Iterations}]{\setlength{\rightskip}{0pt plus 5cm}int Acrive\+Crowd\+G\+U\+I.\+Experiment\+Setting.\+number\+Of\+Iterations\hspace{0.3cm}{\ttfamily [get]}}\label{class_acrive_crowd_g_u_i_1_1_experiment_setting_a21043775ebb676571dd367a3d2afabf0}
+
+
+The number of Iteration of the experiment (ie. For Active\+Learning would be 1) 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Active\+Crowd\+G\+U\+I/Experiment\+Setting.\+cs\end{DoxyCompactItemize}

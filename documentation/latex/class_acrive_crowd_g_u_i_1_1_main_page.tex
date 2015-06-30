@@ -1,0 +1,243 @@
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page}{}\section{Acrive\+Crowd\+G\+U\+I.\+Main\+Page Class Reference}
+\label{class_acrive_crowd_g_u_i_1_1_main_page}\index{Acrive\+Crowd\+G\+U\+I.\+Main\+Page@{Acrive\+Crowd\+G\+U\+I.\+Main\+Page}}
+
+
+The Main Page of the G\+U\+I  
+
+
+Inheritance diagram for Acrive\+Crowd\+G\+U\+I.\+Main\+Page\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_acrive_crowd_g_u_i_1_1_main_page}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_a3f378984fd0ad436a017dbf83c825caa}{Set\+New\+Experiment\+Settings} (\hyperlink{class_acrive_crowd_g_u_i_1_1_dataset}{Dataset} current\+Dataset, int total\+Labelling\+Round, List$<$ \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} $>$ experiment\+Item\+List, Experiment\+Type experiment\+Type, int number\+Of\+Iterations=1)
+\begin{DoxyCompactList}\small\item\em Create an \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting}{Experiment\+Setting} instance for the selected dataset \end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_aee868a0bb7d6d3cca0b4c95d18808f6d}{Start\+Active\+Learning} ()
+\begin{DoxyCompactList}\small\item\em Thread\+: Start running Active Learning Experiment \end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_acdc6fce960c26ddbb3e91ebb200cd8fe}{Load\+Dataset} ()
+\begin{DoxyCompactList}\small\item\em Allow Users to load datasets by showing an open\+File\+Dialog \end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_a889698b28686f0c5e3ee36ba14c54313}{Initialise\+Active\+Learning\+Experiment} ()
+\begin{DoxyCompactList}\small\item\em Initialise the experiment \end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_aae0912d35902e7dbe2a42146cadefd8f}{Initialise\+Batch\+Running\+Experiment} ()
+\begin{DoxyCompactList}\small\item\em Initialise the Batch Running experiment \end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_af55cc0961293ddc033b6b171b4d7f311}{Start\+Batch\+Running} ()
+\begin{DoxyCompactList}\small\item\em Start Batch\+Running Experiment \end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_ae2b44d06d706e9d4d538be1a53d24fcd}{load\+Dataset\+To\+Data\+Grid\+View} (string file\+Path\+String)
+\begin{DoxyCompactList}\small\item\em Load the file\+Path\+String into the Data\+Grid\+View (View \hyperlink{class_acrive_crowd_g_u_i_1_1_dataset}{Dataset} Tab) \end{DoxyCompactList}\item 
+string \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_af810e5e46d9b6739fbecf9b3235b1499}{Get\+Current\+Progress\+Text} ()
+\begin{DoxyCompactList}\small\item\em Get current progress text of the Progress\+Bar \end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_acb2644029e8d2b5f7ae870aaad0b9488}{View\+Dataset} (int selected\+Dataset\+Index)
+\begin{DoxyCompactList}\small\item\em View the selected \hyperlink{class_acrive_crowd_g_u_i_1_1_dataset}{Dataset} \end{DoxyCompactList}\item 
+void \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_af7ce4b6c985fb66ca068699f6f5b5ed3}{Remove\+Closed\+Pop\+Up} (Krypton\+Form closed\+Form)
+\begin{DoxyCompactList}\small\item\em Remove the closed popup from the opend\+Forms list \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_a530697499f4461d556acd087cbb48ae3}{}Boolean {\bfseries is\+Experiment\+Running} = false\label{class_acrive_crowd_g_u_i_1_1_main_page_a530697499f4461d556acd087cbb48ae3}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_adfae2405ffdf8ad13a4c0a5575d15582}{}Boolean {\bfseries is\+Experiment\+Complete} = true\label{class_acrive_crowd_g_u_i_1_1_main_page_adfae2405ffdf8ad13a4c0a5575d15582}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_ab4920c84bf5c6056a7aa144c2ad74f25}{}Boolean {\bfseries is\+Graph\+Loaded} = false\label{class_acrive_crowd_g_u_i_1_1_main_page_ab4920c84bf5c6056a7aa144c2ad74f25}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_a67b45fc1b4677cd59863ff54252036b9}{}Curve\+List {\bfseries accuracy\+Graph\+Curve\+List}\label{class_acrive_crowd_g_u_i_1_1_main_page_a67b45fc1b4677cd59863ff54252036b9}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_a3eae4f60cc47349006d8488092387964}{}\hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting}{Experiment\+Setting} {\bfseries current\+Experiment\+Setting} = null\label{class_acrive_crowd_g_u_i_1_1_main_page_a3eae4f60cc47349006d8488092387964}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_acb85d8a768a11206f1af2f546704b2e2}{}static \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page}{Main\+Page} {\bfseries main\+Page\+Form} = null\label{class_acrive_crowd_g_u_i_1_1_main_page_acb85d8a768a11206f1af2f546704b2e2}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \hyperlink{class_acrive_crowd_g_u_i_1_1_main_page_a8639529687bf0f50a136b995975fcb9b}{Dispose} (bool disposing)
+\begin{DoxyCompactList}\small\item\em Clean up any resources being used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Main Page of the G\+U\+I 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_a8639529687bf0f50a136b995975fcb9b}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{Dispose(bool disposing)}]{\setlength{\rightskip}{0pt plus 5cm}override void Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+Dispose (
+\begin{DoxyParamCaption}
+\item[{bool}]{disposing}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_a8639529687bf0f50a136b995975fcb9b}
+
+
+Clean up any resources being used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em disposing} & true if managed resources should be disposed; otherwise, false.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_af810e5e46d9b6739fbecf9b3235b1499}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!Get\+Current\+Progress\+Text@{Get\+Current\+Progress\+Text}}
+\index{Get\+Current\+Progress\+Text@{Get\+Current\+Progress\+Text}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{Get\+Current\+Progress\+Text()}]{\setlength{\rightskip}{0pt plus 5cm}string Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+Get\+Current\+Progress\+Text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_af810e5e46d9b6739fbecf9b3235b1499}
+
+
+Get current progress text of the Progress\+Bar 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_a889698b28686f0c5e3ee36ba14c54313}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!Initialise\+Active\+Learning\+Experiment@{Initialise\+Active\+Learning\+Experiment}}
+\index{Initialise\+Active\+Learning\+Experiment@{Initialise\+Active\+Learning\+Experiment}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{Initialise\+Active\+Learning\+Experiment()}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+Initialise\+Active\+Learning\+Experiment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_a889698b28686f0c5e3ee36ba14c54313}
+
+
+Initialise the experiment 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_aae0912d35902e7dbe2a42146cadefd8f}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!Initialise\+Batch\+Running\+Experiment@{Initialise\+Batch\+Running\+Experiment}}
+\index{Initialise\+Batch\+Running\+Experiment@{Initialise\+Batch\+Running\+Experiment}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{Initialise\+Batch\+Running\+Experiment()}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+Initialise\+Batch\+Running\+Experiment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_aae0912d35902e7dbe2a42146cadefd8f}
+
+
+Initialise the Batch Running experiment 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_acdc6fce960c26ddbb3e91ebb200cd8fe}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!Load\+Dataset@{Load\+Dataset}}
+\index{Load\+Dataset@{Load\+Dataset}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{Load\+Dataset()}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+Load\+Dataset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_acdc6fce960c26ddbb3e91ebb200cd8fe}
+
+
+Allow Users to load datasets by showing an open\+File\+Dialog 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_ae2b44d06d706e9d4d538be1a53d24fcd}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!load\+Dataset\+To\+Data\+Grid\+View@{load\+Dataset\+To\+Data\+Grid\+View}}
+\index{load\+Dataset\+To\+Data\+Grid\+View@{load\+Dataset\+To\+Data\+Grid\+View}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{load\+Dataset\+To\+Data\+Grid\+View(string file\+Path\+String)}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+load\+Dataset\+To\+Data\+Grid\+View (
+\begin{DoxyParamCaption}
+\item[{string}]{file\+Path\+String}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_ae2b44d06d706e9d4d538be1a53d24fcd}
+
+
+Load the file\+Path\+String into the Data\+Grid\+View (View \hyperlink{class_acrive_crowd_g_u_i_1_1_dataset}{Dataset} Tab) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path\+String} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_af7ce4b6c985fb66ca068699f6f5b5ed3}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!Remove\+Closed\+Pop\+Up@{Remove\+Closed\+Pop\+Up}}
+\index{Remove\+Closed\+Pop\+Up@{Remove\+Closed\+Pop\+Up}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{Remove\+Closed\+Pop\+Up(\+Krypton\+Form closed\+Form)}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+Remove\+Closed\+Pop\+Up (
+\begin{DoxyParamCaption}
+\item[{Krypton\+Form}]{closed\+Form}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_af7ce4b6c985fb66ca068699f6f5b5ed3}
+
+
+Remove the closed popup from the opend\+Forms list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em closed\+Form} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_a3f378984fd0ad436a017dbf83c825caa}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!Set\+New\+Experiment\+Settings@{Set\+New\+Experiment\+Settings}}
+\index{Set\+New\+Experiment\+Settings@{Set\+New\+Experiment\+Settings}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{Set\+New\+Experiment\+Settings(\+Dataset current\+Dataset, int total\+Labelling\+Round, List$<$ Experiment\+Model $>$ experiment\+Item\+List, Experiment\+Type experiment\+Type, int number\+Of\+Iterations=1)}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+Set\+New\+Experiment\+Settings (
+\begin{DoxyParamCaption}
+\item[{{\bf Dataset}}]{current\+Dataset, }
+\item[{int}]{total\+Labelling\+Round, }
+\item[{List$<$ {\bf Experiment\+Model} $>$}]{experiment\+Item\+List, }
+\item[{Experiment\+Type}]{experiment\+Type, }
+\item[{int}]{number\+Of\+Iterations = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_a3f378984fd0ad436a017dbf83c825caa}
+
+
+Create an \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_setting}{Experiment\+Setting} instance for the selected dataset 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset\+Path} & the dataset path going to examine\\
+\hline
+{\em total\+Labelling\+Round} & the total number of labelling round\\
+\hline
+\end{DoxyParams}
+$<$pa ram=\char`\"{}\char`\"{} name=\char`\"{}current\+Task\+Selection\+Methods\char`\"{}$>$An array containing the selected task selection methods from user
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Run\+Types} & An array containing the selected run types from user\\
+\hline
+{\em mab\+Constant} & The mab constant value for the Entropy\+M\+A\+B\+Task\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_aee868a0bb7d6d3cca0b4c95d18808f6d}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!Start\+Active\+Learning@{Start\+Active\+Learning}}
+\index{Start\+Active\+Learning@{Start\+Active\+Learning}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{Start\+Active\+Learning()}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+Start\+Active\+Learning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_aee868a0bb7d6d3cca0b4c95d18808f6d}
+
+
+Thread\+: Start running Active Learning Experiment 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_af55cc0961293ddc033b6b171b4d7f311}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!Start\+Batch\+Running@{Start\+Batch\+Running}}
+\index{Start\+Batch\+Running@{Start\+Batch\+Running}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{Start\+Batch\+Running()}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+Start\+Batch\+Running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_af55cc0961293ddc033b6b171b4d7f311}
+
+
+Start Batch\+Running Experiment 
+
+\hypertarget{class_acrive_crowd_g_u_i_1_1_main_page_acb2644029e8d2b5f7ae870aaad0b9488}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}!View\+Dataset@{View\+Dataset}}
+\index{View\+Dataset@{View\+Dataset}!Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page@{Acrive\+Crowd\+G\+U\+I\+::\+Main\+Page}}
+\subsubsection[{View\+Dataset(int selected\+Dataset\+Index)}]{\setlength{\rightskip}{0pt plus 5cm}void Acrive\+Crowd\+G\+U\+I.\+Main\+Page.\+View\+Dataset (
+\begin{DoxyParamCaption}
+\item[{int}]{selected\+Dataset\+Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_main_page_acb2644029e8d2b5f7ae870aaad0b9488}
+
+
+View the selected \hyperlink{class_acrive_crowd_g_u_i_1_1_dataset}{Dataset} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+Dataset\+Index} & Index of the \hyperlink{class_acrive_crowd_g_u_i_1_1_dataset}{Dataset} in the combo box\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Active\+Crowd\+G\+U\+I/Main\+Page.\+cs\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Active\+Crowd\+G\+U\+I/Main\+Page.\+Designer.\+cs\end{DoxyCompactItemize}

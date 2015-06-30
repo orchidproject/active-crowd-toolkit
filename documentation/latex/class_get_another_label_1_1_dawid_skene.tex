@@ -1,0 +1,184 @@
+\hypertarget{class_get_another_label_1_1_dawid_skene}{}\section{Get\+Another\+Label.\+Dawid\+Skene Class Reference}
+\label{class_get_another_label_1_1_dawid_skene}\index{Get\+Another\+Label.\+Dawid\+Skene@{Get\+Another\+Label.\+Dawid\+Skene}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a1003aff4ae2a4e35e159090f34164f58}{}{\bfseries Dawid\+Skene} (List$<$ \hyperlink{class_get_another_label_1_1_labeling}{Labeling} $>$ labels, List$<$ \hyperlink{class_get_another_label_1_1_labeling}{Labeling} $>$ correct\+\_\+labels, List$<$ \hyperlink{class_get_another_label_1_1_labeling}{Labeling} $>$ classification\+\_\+cost)\label{class_get_another_label_1_1_dawid_skene_a1003aff4ae2a4e35e159090f34164f58}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a931feec181cf2c2d3b8de7083215aba7}{}void {\bfseries Update\+Annotator\+Costs} ()\label{class_get_another_label_1_1_dawid_skene_a931feec181cf2c2d3b8de7083215aba7}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a17ece3815853ceed820bef7324c8ef7a}{}void {\bfseries Update\+Annotator\+Error\+Rates} ()\label{class_get_another_label_1_1_dawid_skene_a17ece3815853ceed820bef7324c8ef7a}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a9245a74a0cd4eed27ef61869610fb93b}{}void {\bfseries Update\+Object\+Class\+Probabilities} ()\label{class_get_another_label_1_1_dawid_skene_a9245a74a0cd4eed27ef61869610fb93b}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a3203d2a611322afd6e542eb3dd16ff3c}{}double\mbox{[}$\,$\mbox{]} {\bfseries Get\+Object\+Class\+Probabilities} (int oid, int lid)\label{class_get_another_label_1_1_dawid_skene_a3203d2a611322afd6e542eb3dd16ff3c}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a9d2f83822c4e863e16adcc39bb8b350e}{}void {\bfseries Update\+Priors} ()\label{class_get_another_label_1_1_dawid_skene_a9d2f83822c4e863e16adcc39bb8b350e}
+
+\item 
+double \hyperlink{class_get_another_label_1_1_dawid_skene_a8964fe474a669958bf68d0a8d42c4628}{Get\+Annotator\+Cost\+Naive} (int k)
+\begin{DoxyCompactList}\small\item\em Estimates the cost for annotator k without attempting corrections of labels. \end{DoxyCompactList}\item 
+double \hyperlink{class_get_another_label_1_1_dawid_skene_abd35ab6861753656bb1eb009f2c53b96}{Get\+Annotator\+Cost\+Minimized} (int k)
+\begin{DoxyCompactList}\small\item\em Estimates the cost for annotator k after adjusting class estimates using the error rates of the annotator. \end{DoxyCompactList}\item 
+double \hyperlink{class_get_another_label_1_1_dawid_skene_afda5d90190e29bea2f5f92112d8b712b}{Get\+Annotator\+Cost\+Adjusted} (int k)
+\begin{DoxyCompactList}\small\item\em Estimates the cost for annotator k after adjusting class estimates using the error rates of the annotator \end{DoxyCompactList}\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_ad561faec231559f32ddd2fa4657356e4}{}Dictionary$<$ string, string $>$ {\bfseries Get\+Majority\+Vote} ()\label{class_get_another_label_1_1_dawid_skene_ad561faec231559f32ddd2fa4657356e4}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a6292bfe3348e5eb5262f5082e1514dbe}{}Dictionary$<$ string, double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Get\+Confusion\+Matrix} ()\label{class_get_another_label_1_1_dawid_skene_a6292bfe3348e5eb5262f5082e1514dbe}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a535c7809ddbb6271888a8ef9d320e7b1}{}void {\bfseries Estimate} (int iterations)\label{class_get_another_label_1_1_dawid_skene_a535c7809ddbb6271888a8ef9d320e7b1}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_ab2d113fd5a414d3188dcf63b60d898d9}{}string {\bfseries Print\+Annotator\+Costs\+Summary} ()\label{class_get_another_label_1_1_dawid_skene_ab2d113fd5a414d3188dcf63b60d898d9}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_aa468a9193551e38fd1ec50362eb940b0}{}string {\bfseries Print\+All\+Worker\+Scores} ()\label{class_get_another_label_1_1_dawid_skene_aa468a9193551e38fd1ec50362eb940b0}
+
+\item 
+string \hyperlink{class_get_another_label_1_1_dawid_skene_a24753822a3c4006d3311034936eae3c5}{Print\+Worker\+Score} (int workerid)
+\begin{DoxyCompactList}\small\item\em Like print\+Annotator\+Costs, but doesn\textquotesingle{}t print cost\+\_\+naive and cost\+\_\+adj \end{DoxyCompactList}\item 
+string \hyperlink{class_get_another_label_1_1_dawid_skene_a017f107bf478055a678308c0142bc54c}{Print\+Object\+Class\+Probabilities} (double entropy\+\_\+threshold)
+\begin{DoxyCompactList}\small\item\em Prints the objects that have probability distributions with entropy higher than the given threshold. \end{DoxyCompactList}\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a9ee90b841c0e01dfa1c37e4b707faff2}{}void {\bfseries Print\+Object\+Class\+Probabilities} ()\label{class_get_another_label_1_1_dawid_skene_a9ee90b841c0e01dfa1c37e4b707faff2}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a84af6e79ba113e8e1e5edb05e004372e}{}double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} {\bfseries Get\+Object\+Class\+Probabilities} ()\label{class_get_another_label_1_1_dawid_skene_a84af6e79ba113e8e1e5edb05e004372e}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a49b67c96115292101cfa3a5dbf3827dd}{}string {\bfseries Print\+Priors} ()\label{class_get_another_label_1_1_dawid_skene_a49b67c96115292101cfa3a5dbf3827dd}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a586cba68bdc9752a39e2bfb2bcda6f43}{}string {\bfseries Print\+Diff\+Vote} (Dictionary$<$ string, string $>$ prior\+\_\+voting, Dictionary$<$ string, string $>$ posterior\+\_\+voting)\label{class_get_another_label_1_1_dawid_skene_a586cba68bdc9752a39e2bfb2bcda6f43}
+
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a85c600bc6876021af8f2875dd8502464}{}string {\bfseries Print\+Vote} ()\label{class_get_another_label_1_1_dawid_skene_a85c600bc6876021af8f2875dd8502464}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a8b2ac6d2538cf25caf51aef934af079f}{}static double {\bfseries Entropy} (double\mbox{[},\mbox{]} p, int i)\label{class_get_another_label_1_1_dawid_skene_a8b2ac6d2538cf25caf51aef934af079f}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a01dd556b369f1fa0e41f620c777d0cd8}{}Dictionary$<$ string, int $>$ {\bfseries classes}\label{class_get_another_label_1_1_dawid_skene_a01dd556b369f1fa0e41f620c777d0cd8}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_get_another_label_1_1_dawid_skene_a9ddbc25ef17d0f1c6a719e8e09126d78}{}static char {\bfseries split\+Char} = \textquotesingle{},\textquotesingle{}\label{class_get_another_label_1_1_dawid_skene_a9ddbc25ef17d0f1c6a719e8e09126d78}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_get_another_label_1_1_dawid_skene_afda5d90190e29bea2f5f92112d8b712b}{}\index{Get\+Another\+Label\+::\+Dawid\+Skene@{Get\+Another\+Label\+::\+Dawid\+Skene}!Get\+Annotator\+Cost\+Adjusted@{Get\+Annotator\+Cost\+Adjusted}}
+\index{Get\+Annotator\+Cost\+Adjusted@{Get\+Annotator\+Cost\+Adjusted}!Get\+Another\+Label\+::\+Dawid\+Skene@{Get\+Another\+Label\+::\+Dawid\+Skene}}
+\subsubsection[{Get\+Annotator\+Cost\+Adjusted(int k)}]{\setlength{\rightskip}{0pt plus 5cm}double Get\+Another\+Label.\+Dawid\+Skene.\+Get\+Annotator\+Cost\+Adjusted (
+\begin{DoxyParamCaption}
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_get_another_label_1_1_dawid_skene_afda5d90190e29bea2f5f92112d8b712b}
+
+
+Estimates the cost for annotator k after adjusting class estimates using the error rates of the annotator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & k\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The expected cost of misclassifications of annotator k
+\end{DoxyReturn}
+\hypertarget{class_get_another_label_1_1_dawid_skene_abd35ab6861753656bb1eb009f2c53b96}{}\index{Get\+Another\+Label\+::\+Dawid\+Skene@{Get\+Another\+Label\+::\+Dawid\+Skene}!Get\+Annotator\+Cost\+Minimized@{Get\+Annotator\+Cost\+Minimized}}
+\index{Get\+Annotator\+Cost\+Minimized@{Get\+Annotator\+Cost\+Minimized}!Get\+Another\+Label\+::\+Dawid\+Skene@{Get\+Another\+Label\+::\+Dawid\+Skene}}
+\subsubsection[{Get\+Annotator\+Cost\+Minimized(int k)}]{\setlength{\rightskip}{0pt plus 5cm}double Get\+Another\+Label.\+Dawid\+Skene.\+Get\+Annotator\+Cost\+Minimized (
+\begin{DoxyParamCaption}
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_get_another_label_1_1_dawid_skene_abd35ab6861753656bb1eb009f2c53b96}
+
+
+Estimates the cost for annotator k after adjusting class estimates using the error rates of the annotator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & k\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The expected cost of misclassifications of annotator k.
+\end{DoxyReturn}
+\hypertarget{class_get_another_label_1_1_dawid_skene_a8964fe474a669958bf68d0a8d42c4628}{}\index{Get\+Another\+Label\+::\+Dawid\+Skene@{Get\+Another\+Label\+::\+Dawid\+Skene}!Get\+Annotator\+Cost\+Naive@{Get\+Annotator\+Cost\+Naive}}
+\index{Get\+Annotator\+Cost\+Naive@{Get\+Annotator\+Cost\+Naive}!Get\+Another\+Label\+::\+Dawid\+Skene@{Get\+Another\+Label\+::\+Dawid\+Skene}}
+\subsubsection[{Get\+Annotator\+Cost\+Naive(int k)}]{\setlength{\rightskip}{0pt plus 5cm}double Get\+Another\+Label.\+Dawid\+Skene.\+Get\+Annotator\+Cost\+Naive (
+\begin{DoxyParamCaption}
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_get_another_label_1_1_dawid_skene_a8964fe474a669958bf68d0a8d42c4628}
+
+
+Estimates the cost for annotator k without attempting corrections of labels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & k\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The expected cost of misclassifications of annotator k.
+\end{DoxyReturn}
+\hypertarget{class_get_another_label_1_1_dawid_skene_a017f107bf478055a678308c0142bc54c}{}\index{Get\+Another\+Label\+::\+Dawid\+Skene@{Get\+Another\+Label\+::\+Dawid\+Skene}!Print\+Object\+Class\+Probabilities@{Print\+Object\+Class\+Probabilities}}
+\index{Print\+Object\+Class\+Probabilities@{Print\+Object\+Class\+Probabilities}!Get\+Another\+Label\+::\+Dawid\+Skene@{Get\+Another\+Label\+::\+Dawid\+Skene}}
+\subsubsection[{Print\+Object\+Class\+Probabilities(double entropy\+\_\+threshold)}]{\setlength{\rightskip}{0pt plus 5cm}string Get\+Another\+Label.\+Dawid\+Skene.\+Print\+Object\+Class\+Probabilities (
+\begin{DoxyParamCaption}
+\item[{double}]{entropy\+\_\+threshold}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_get_another_label_1_1_dawid_skene_a017f107bf478055a678308c0142bc54c}
+
+
+Prints the objects that have probability distributions with entropy higher than the given threshold. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entropy\+\_\+threshold} & entropy\+\_\+threshold\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_get_another_label_1_1_dawid_skene_a24753822a3c4006d3311034936eae3c5}{}\index{Get\+Another\+Label\+::\+Dawid\+Skene@{Get\+Another\+Label\+::\+Dawid\+Skene}!Print\+Worker\+Score@{Print\+Worker\+Score}}
+\index{Print\+Worker\+Score@{Print\+Worker\+Score}!Get\+Another\+Label\+::\+Dawid\+Skene@{Get\+Another\+Label\+::\+Dawid\+Skene}}
+\subsubsection[{Print\+Worker\+Score(int workerid)}]{\setlength{\rightskip}{0pt plus 5cm}string Get\+Another\+Label.\+Dawid\+Skene.\+Print\+Worker\+Score (
+\begin{DoxyParamCaption}
+\item[{int}]{workerid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_get_another_label_1_1_dawid_skene_a24753822a3c4006d3311034936eae3c5}
+
+
+Like print\+Annotator\+Costs, but doesn\textquotesingle{}t print cost\+\_\+naive and cost\+\_\+adj 
+
+
+\begin{DoxyParams}{Parameters}
+{\em workerid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/\+Dawid\+Skene/Dawid\+Skene.\+cs\end{DoxyCompactItemize}

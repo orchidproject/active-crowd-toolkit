@@ -1,0 +1,155 @@
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic}{}\section{Crowdsourcing\+Project.\+Statistics.\+Receiver\+Operating\+Characteristic Class Reference}
+\label{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic}\index{Crowdsourcing\+Project.\+Statistics.\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project.\+Statistics.\+Receiver\+Operating\+Characteristic}}
+
+
+Receiver Operating Characteristic (R\+O\+C) Curve  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_1_1_point}{Point}
+\begin{DoxyCompactList}\small\item\em Object to hold information about a Receiver Operating Characteristic Curve \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_1_1_point}{Point} \end{DoxyCompactList}\item 
+class \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_1_1_point_collection}{Point\+Collection}
+\begin{DoxyCompactList}\small\item\em Represents a Collection of Receiver Operating Characteristic (R\+O\+C) Curve points. This class cannot be instantiated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a9a4c7b63ce6eee404b29ed49918f7f15}{Receiver\+Operating\+Characteristic} (double\mbox{[}$\,$\mbox{]} measurement, double\mbox{[}$\,$\mbox{]} prediction)
+\begin{DoxyCompactList}\small\item\em Constructs a new Receiver Operating Characteristic model \end{DoxyCompactList}\item 
+void \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a6f85910fcec4797bcf43ffa280dfd539}{Compute} (int points)
+\begin{DoxyCompactList}\small\item\em Computes a n-\/points R\+O\+C curve. \end{DoxyCompactList}\item 
+void \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a7fcfa4f4ede738aee8496d5b8ea5733f}{Compute} (double increment)
+\begin{DoxyCompactList}\small\item\em Computes a R\+O\+C curve with 1/increment points \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a1f75eac7968344a9459f2903ded545cc}{Compare} (\hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic}{Receiver\+Operating\+Characteristic} curve, double r)
+\begin{DoxyCompactList}\small\item\em Compares two R\+O\+C curves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a991d81f989e5822b615bc768f38143d8}{}\hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_1_1_point_collection}{Point\+Collection} {\bfseries collection}\label{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a991d81f989e5822b615bc768f38143d8}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_1_1_point_collection}{Point\+Collection} \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a0684231949d27fe15a40af511cedfa1e}{Points}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the points of the curve. \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_ac7cd3193e58dddd982b54b39a3284e1f}{Area}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The area under the R\+O\+C curve. Also known as A\+U\+C-\/\+R\+O\+C. \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a122e8eb0e99a3b298f7370736114511a}{Error}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Calculates the Standard Error associated with this R\+O\+C curve. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Receiver Operating Characteristic (R\+O\+C) Curve 
+
+In signal detection theory, a receiver operating characteristic (R\+O\+C), or simply R\+O\+C curve, is a graphical plot of the sensitivity vs. (1 − specificity) for a binary classifier system as its discrimination threshold is varied.
+
+References\+: \href{http://en.wikipedia.org/wiki/Receiver_operating_characteristic}{\tt http\+://en.\+wikipedia.\+org/wiki/\+Receiver\+\_\+operating\+\_\+characteristic} \href{http://www.anaesthetist.com/mnm/stats/roc/Findex.htm}{\tt http\+://www.\+anaesthetist.\+com/mnm/stats/roc/\+Findex.\+htm} \href{http://radiology.rsna.org/content/148/3/839.full.pdf}{\tt http\+://radiology.\+rsna.\+org/content/148/3/839.\+full.\+pdf} 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a9a4c7b63ce6eee404b29ed49918f7f15}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}!Receiver\+Operating\+Characteristic@{Receiver\+Operating\+Characteristic}}
+\index{Receiver\+Operating\+Characteristic@{Receiver\+Operating\+Characteristic}!Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}}
+\subsubsection[{Receiver\+Operating\+Characteristic(double[] measurement, double[] prediction)}]{\setlength{\rightskip}{0pt plus 5cm}Crowdsourcing\+Project.\+Statistics.\+Receiver\+Operating\+Characteristic.\+Receiver\+Operating\+Characteristic (
+\begin{DoxyParamCaption}
+\item[{double\mbox{[}$\,$\mbox{]}}]{measurement, }
+\item[{double\mbox{[}$\,$\mbox{]}}]{prediction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a9a4c7b63ce6eee404b29ed49918f7f15}
+
+
+Constructs a new Receiver Operating Characteristic model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & An array of binary values. Tipically 0 and 1, or -\/1 and 1, indicating negative and positive cases, respectively.\\
+\hline
+{\em predicted\+Output} & An array of continuous values trying to approximate the measurement array.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a1f75eac7968344a9459f2903ded545cc}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}!Compare@{Compare}}
+\index{Compare@{Compare}!Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}}
+\subsubsection[{Compare(\+Receiver\+Operating\+Characteristic curve, double r)}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Receiver\+Operating\+Characteristic.\+Compare (
+\begin{DoxyParamCaption}
+\item[{{\bf Receiver\+Operating\+Characteristic}}]{curve, }
+\item[{double}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a1f75eac7968344a9459f2903ded545cc}
+
+
+Compares two R\+O\+C curves. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The amount of correlation between the two curves\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a6f85910fcec4797bcf43ffa280dfd539}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}!Compute@{Compute}}
+\index{Compute@{Compute}!Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}}
+\subsubsection[{Compute(int points)}]{\setlength{\rightskip}{0pt plus 5cm}void Crowdsourcing\+Project.\+Statistics.\+Receiver\+Operating\+Characteristic.\+Compute (
+\begin{DoxyParamCaption}
+\item[{int}]{points}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a6f85910fcec4797bcf43ffa280dfd539}
+
+
+Computes a n-\/points R\+O\+C curve. 
+
+Each point in the R\+O\+C curve will have a threshold increase of 1/npoints over the previous point, starting at zero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & The number of points for the curve.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a7fcfa4f4ede738aee8496d5b8ea5733f}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}!Compute@{Compute}}
+\index{Compute@{Compute}!Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}}
+\subsubsection[{Compute(double increment)}]{\setlength{\rightskip}{0pt plus 5cm}void Crowdsourcing\+Project.\+Statistics.\+Receiver\+Operating\+Characteristic.\+Compute (
+\begin{DoxyParamCaption}
+\item[{double}]{increment}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a7fcfa4f4ede738aee8496d5b8ea5733f}
+
+
+Computes a R\+O\+C curve with 1/increment points 
+
+
+\begin{DoxyParams}{Parameters}
+{\em increment} & The increment over the previous point for each point in the curve.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_ac7cd3193e58dddd982b54b39a3284e1f}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}!Area@{Area}}
+\index{Area@{Area}!Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}}
+\subsubsection[{Area}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Receiver\+Operating\+Characteristic.\+Area\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_ac7cd3193e58dddd982b54b39a3284e1f}
+
+
+The area under the R\+O\+C curve. Also known as A\+U\+C-\/\+R\+O\+C. 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a122e8eb0e99a3b298f7370736114511a}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}!Error@{Error}}
+\index{Error@{Error}!Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}}
+\subsubsection[{Error}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Receiver\+Operating\+Characteristic.\+Error\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a122e8eb0e99a3b298f7370736114511a}
+
+
+Calculates the Standard Error associated with this R\+O\+C curve. 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a0684231949d27fe15a40af511cedfa1e}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}!Points@{Points}}
+\index{Points@{Points}!Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic@{Crowdsourcing\+Project\+::\+Statistics\+::\+Receiver\+Operating\+Characteristic}}
+\subsubsection[{Points}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point\+Collection} Crowdsourcing\+Project.\+Statistics.\+Receiver\+Operating\+Characteristic.\+Points\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic_a0684231949d27fe15a40af511cedfa1e}
+
+
+Gets the points of the curve. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/\+Statistics/Receiver\+Operating\+Characteristic.\+cs\end{DoxyCompactItemize}

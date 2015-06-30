@@ -1,0 +1,133 @@
+\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment}{}\section{Crowdsourcing\+Models.\+Active\+Crowd\+Toolkit\+Experiment Class Reference}
+\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment}\index{Crowdsourcing\+Models.\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models.\+Active\+Crowd\+Toolkit\+Experiment}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a958016fbde8077ac87a74ba9f7e48458}{Run} (string\mbox{[}$\,$\mbox{]} args)
+\begin{DoxyCompactList}\small\item\em Method for the H\+C\+O\+M\+P15-\/\+Active\+Crowd\+Toolkit experiment \end{DoxyCompactList}\item 
+static void \hyperlink{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_aca28c2bc4fc69f150b9ed428802ff078}{Run\+Active\+Learning} (string data\+Set, \hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} run\+Type, \hyperlink{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{Task\+Selection\+Method} task\+Selection\+Method, \hyperlink{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{Worker\+Selection\+Method} worker\+Selection\+Method, int Initial\+Num\+Labels\+Per\+Task, \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model, int community\+Count=4)
+\begin{DoxyCompactList}\small\item\em Runs the active learning experiment on a single data set. \end{DoxyCompactList}\item 
+static void \hyperlink{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a1c43bb1a03b9362f0111dac170a48cca}{Run\+Active\+Learning\+Experiment} (int start\+Index, int end\+Index, \hyperlink{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{Task\+Selection\+Method} \hyperlink{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{Task\+Selection\+Method}, \hyperlink{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{Worker\+Selection\+Method} \hyperlink{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{Worker\+Selection\+Method}, int Initial\+Num\+Labels\+Per\+Task)
+\begin{DoxyCompactList}\small\item\em Runs the active learning experiment presented in Venanzi et.\+al (W\+W\+W14) \char`\"{}\+Community-\/\+Based Data Aggregation Models for Crowdsourcing\char`\"{} for all the models with an array of data sets. \end{DoxyCompactList}\item 
+\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_ad500aeddfb4cd4509e5575a6e4902779}{}static \hyperlink{class_crowdsourcing_models_1_1_results}{Results} {\bfseries Run\+Batch\+Learning} (string data\+Set\+Path, \hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} run\+Type, \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model=null, int num\+Communities=3)\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_ad500aeddfb4cd4509e5575a6e4902779}
+
+\item 
+static void \hyperlink{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_aed18fc802fcb10cb4e36e1d87aa1f47f}{Aggregate\+Results} (string Load\+Results\+Dir)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_ae5f46a4d791b3033957757238f8b1b68}{}static int {\bfseries End\+Cluster\+Run} = 100\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_ae5f46a4d791b3033957757238f8b1b68}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a25cccc757eff0be550c8295f6b66627c}{}static int {\bfseries Start\+Cluster\+Run} = 1\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a25cccc757eff0be550c8295f6b66627c}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a1558e23c04ed21e11b6375283679a4df}{}static string\mbox{[}$\,$\mbox{]} {\bfseries Datasets\+Path}\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a1558e23c04ed21e11b6375283679a4df}
+
+\item 
+static string \hyperlink{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_ac1654b01a9ba72b7f6b03b72467e628c}{Results\+Path} = @\char`\"{}Results\+Active\+Crowd\+Toolkit/\char`\"{}
+\begin{DoxyCompactList}\small\item\em The path to the results directory. \end{DoxyCompactList}\item 
+static string \hyperlink{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a244274186037359d3d71723cd7c8dd76}{Results\+Dir} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em The path to the results directory including the cluster run (e.\+g., Results/\+Run1). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_aed18fc802fcb10cb4e36e1d87aa1f47f}{}\index{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}!Aggregate\+Results@{Aggregate\+Results}}
+\index{Aggregate\+Results@{Aggregate\+Results}!Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}}
+\subsubsection[{Aggregate\+Results(string Load\+Results\+Dir)}]{\setlength{\rightskip}{0pt plus 5cm}static void Crowdsourcing\+Models.\+Active\+Crowd\+Toolkit\+Experiment.\+Aggregate\+Results (
+\begin{DoxyParamCaption}
+\item[{string}]{Load\+Results\+Dir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_aed18fc802fcb10cb4e36e1d87aa1f47f}
+The results matrix is a dictionary with 1-\/level key = filename, 2-\/level key is the accuracy name, 3-\/level key is the labelling round and the value is the array of accuracies at that round
+
+Compute averages
+
+Print report\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a958016fbde8077ac87a74ba9f7e48458}{}\index{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}!Run@{Run}}
+\index{Run@{Run}!Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}}
+\subsubsection[{Run(string[] args)}]{\setlength{\rightskip}{0pt plus 5cm}static void Crowdsourcing\+Models.\+Active\+Crowd\+Toolkit\+Experiment.\+Run (
+\begin{DoxyParamCaption}
+\item[{string\mbox{[}$\,$\mbox{]}}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a958016fbde8077ac87a74ba9f7e48458}
+
+
+Method for the H\+C\+O\+M\+P15-\/\+Active\+Crowd\+Toolkit experiment 
+
+\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_aca28c2bc4fc69f150b9ed428802ff078}{}\index{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}!Run\+Active\+Learning@{Run\+Active\+Learning}}
+\index{Run\+Active\+Learning@{Run\+Active\+Learning}!Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}}
+\subsubsection[{Run\+Active\+Learning(string data\+Set, Run\+Type run\+Type, Task\+Selection\+Method task\+Selection\+Method, Worker\+Selection\+Method worker\+Selection\+Method, int Initial\+Num\+Labels\+Per\+Task, B\+C\+C model, int community\+Count=4)}]{\setlength{\rightskip}{0pt plus 5cm}static void Crowdsourcing\+Models.\+Active\+Crowd\+Toolkit\+Experiment.\+Run\+Active\+Learning (
+\begin{DoxyParamCaption}
+\item[{string}]{data\+Set, }
+\item[{{\bf Run\+Type}}]{run\+Type, }
+\item[{{\bf Task\+Selection\+Method}}]{task\+Selection\+Method, }
+\item[{{\bf Worker\+Selection\+Method}}]{worker\+Selection\+Method, }
+\item[{int}]{Initial\+Num\+Labels\+Per\+Task, }
+\item[{{\bf B\+C\+C}}]{model, }
+\item[{int}]{community\+Count = {\ttfamily 4}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_aca28c2bc4fc69f150b9ed428802ff078}
+
+
+Runs the active learning experiment on a single data set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Set} & The data.\\
+\hline
+{\em run\+Type} & The model run type.\\
+\hline
+{\em task\+Selection\+Method} & The method for selecting tasks (Random / Entropy).\\
+\hline
+{\em model} & The model instance.\\
+\hline
+{\em community\+Count} & The number of communities (only for \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}).\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a1c43bb1a03b9362f0111dac170a48cca}{}\index{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}!Run\+Active\+Learning\+Experiment@{Run\+Active\+Learning\+Experiment}}
+\index{Run\+Active\+Learning\+Experiment@{Run\+Active\+Learning\+Experiment}!Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}}
+\subsubsection[{Run\+Active\+Learning\+Experiment(int start\+Index, int end\+Index, Task\+Selection\+Method Task\+Selection\+Method, Worker\+Selection\+Method Worker\+Selection\+Method, int Initial\+Num\+Labels\+Per\+Task)}]{\setlength{\rightskip}{0pt plus 5cm}static void Crowdsourcing\+Models.\+Active\+Crowd\+Toolkit\+Experiment.\+Run\+Active\+Learning\+Experiment (
+\begin{DoxyParamCaption}
+\item[{int}]{start\+Index, }
+\item[{int}]{end\+Index, }
+\item[{{\bf Task\+Selection\+Method}}]{Task\+Selection\+Method, }
+\item[{{\bf Worker\+Selection\+Method}}]{Worker\+Selection\+Method, }
+\item[{int}]{Initial\+Num\+Labels\+Per\+Task}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a1c43bb1a03b9362f0111dac170a48cca}
+
+
+Runs the active learning experiment presented in Venanzi et.\+al (W\+W\+W14) \char`\"{}\+Community-\/\+Based Data Aggregation Models for Crowdsourcing\char`\"{} for all the models with an array of data sets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Index} & First instance of the data set array.\\
+\hline
+{\em end\+Index} & Last instance of the data set array.\\
+\hline
+{\em which\+Model} & Model to run.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a244274186037359d3d71723cd7c8dd76}{}\index{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}!Results\+Dir@{Results\+Dir}}
+\index{Results\+Dir@{Results\+Dir}!Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}}
+\subsubsection[{Results\+Dir}]{\setlength{\rightskip}{0pt plus 5cm}string Crowdsourcing\+Models.\+Active\+Crowd\+Toolkit\+Experiment.\+Results\+Dir = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_a244274186037359d3d71723cd7c8dd76}
+
+
+The path to the results directory including the cluster run (e.\+g., Results/\+Run1). 
+
+\hypertarget{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_ac1654b01a9ba72b7f6b03b72467e628c}{}\index{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}!Results\+Path@{Results\+Path}}
+\index{Results\+Path@{Results\+Path}!Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment@{Crowdsourcing\+Models\+::\+Active\+Crowd\+Toolkit\+Experiment}}
+\subsubsection[{Results\+Path}]{\setlength{\rightskip}{0pt plus 5cm}string Crowdsourcing\+Models.\+Active\+Crowd\+Toolkit\+Experiment.\+Results\+Path = @\char`\"{}Results\+Active\+Crowd\+Toolkit/\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment_ac1654b01a9ba72b7f6b03b72467e628c}
+
+
+The path to the results directory. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/\+Tests/Active\+Crowd\+Toolkit\+Experiment.\+cs\end{DoxyCompactItemize}

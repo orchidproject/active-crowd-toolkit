@@ -1,0 +1,27 @@
+var class_crowdsourcing_models_1_1_data_mapping =
+[
+    [ "DataMapping", "class_crowdsourcing_models_1_1_data_mapping.html#aeb425a824cc4074db2857ac8ba6c1a69", null ],
+    [ "BuildDataFromAssignedLabels", "class_crowdsourcing_models_1_1_data_mapping.html#a582a48c6dc7221ec0bdc6c2391fb63bb", null ],
+    [ "GetGoldLabelsPerTaskId", "class_crowdsourcing_models_1_1_data_mapping.html#ad542e9c734bb68b141e7cb24f9236196", null ],
+    [ "GetGoldLabelsPerTaskIndex", "class_crowdsourcing_models_1_1_data_mapping.html#ae52e28d46739ddf659e671b189a9d6a9", null ],
+    [ "GetLabelsPerWorkerIndex", "class_crowdsourcing_models_1_1_data_mapping.html#ad7a6b996ec247265bc7902b9e48d0c3d", null ],
+    [ "GetMajorityVotesPerTaskId", "class_crowdsourcing_models_1_1_data_mapping.html#a1b49a16d4857e3c1903a4848c6b5086c", null ],
+    [ "GetMajorityVotesPerTaskIndex", "class_crowdsourcing_models_1_1_data_mapping.html#ae49f5c10a3ffd67112c3db12a2d55d2b", null ],
+    [ "GetRandomLabelPerTaskId", "class_crowdsourcing_models_1_1_data_mapping.html#af69c3292c1b9522772007cc8433b1330", null ],
+    [ "GetTaskIndicesPerWorkerIndex", "class_crowdsourcing_models_1_1_data_mapping.html#a1d48c08325772a613b78f4a8a52c57e9", null ],
+    [ "GetTimeSpentPerWorkerIndex", "class_crowdsourcing_models_1_1_data_mapping.html#a93a884e4f60d956db1722e80ad3aeda2", null ],
+    [ "GetVoteDistribPerTaskIndex", "class_crowdsourcing_models_1_1_data_mapping.html#a0b92226017087d546271ed10bb017528", null ],
+    [ "CommunityIdToIndex", "class_crowdsourcing_models_1_1_data_mapping.html#a60781898e954ab8137d6ef1e6546419a", null ],
+    [ "CommunityIndexToId", "class_crowdsourcing_models_1_1_data_mapping.html#af1db5e9d061b76544cca10847079b102", null ],
+    [ "LabelMax", "class_crowdsourcing_models_1_1_data_mapping.html#a952ec7abc5b934a2f24ddd333478a4c9", null ],
+    [ "LabelMin", "class_crowdsourcing_models_1_1_data_mapping.html#ae3668cab21dd19e556898ead95378b38", null ],
+    [ "TaskIdToIndex", "class_crowdsourcing_models_1_1_data_mapping.html#a1c4dfca839294c04a199fd9b87c51866", null ],
+    [ "TaskIndexToId", "class_crowdsourcing_models_1_1_data_mapping.html#ae4da6289f06e9d087ce8b3c7458308ba", null ],
+    [ "WorkerIdToIndex", "class_crowdsourcing_models_1_1_data_mapping.html#a6c36a93683e83c27e0885ddd1df0fbc2", null ],
+    [ "WorkerIndexToId", "class_crowdsourcing_models_1_1_data_mapping.html#a37f768a9661a8d4156f10b747cd0dec0", null ],
+    [ "Data", "class_crowdsourcing_models_1_1_data_mapping.html#a94564530928ba781bdcf79c2aa2fa242", null ],
+    [ "DataWithGold", "class_crowdsourcing_models_1_1_data_mapping.html#a4baf480d5c8dcce5ecbf8ebeb9a55901", null ],
+    [ "LabelCount", "class_crowdsourcing_models_1_1_data_mapping.html#aecfecfc671fd79ea8ff2c1b7cb9c9846", null ],
+    [ "TaskCount", "class_crowdsourcing_models_1_1_data_mapping.html#aa548c66dcf33e58829a676081b84c974", null ],
+    [ "WorkerCount", "class_crowdsourcing_models_1_1_data_mapping.html#a9e7c646eda7ddcc56b2c8e9f582299cd", null ]
+];

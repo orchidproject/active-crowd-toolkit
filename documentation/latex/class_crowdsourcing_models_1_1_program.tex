@@ -1,0 +1,161 @@
+\hypertarget{class_crowdsourcing_models_1_1_program}{}\section{Crowdsourcing\+Models.\+Program Class Reference}
+\label{class_crowdsourcing_models_1_1_program}\index{Crowdsourcing\+Models.\+Program@{Crowdsourcing\+Models.\+Program}}
+
+
+The class for the main program.  
+
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_crowdsourcing_models_1_1_results}{Results} \hyperlink{class_crowdsourcing_models_1_1_program_a0c8aba76a474add91e7ae5a31afb3a14}{Run\+Gold} (string data\+Set, I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data, \hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} run\+Type, \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model, int num\+Communities=2)
+\begin{DoxyCompactList}\small\item\em Runs a model with the full gold set. \end{DoxyCompactList}\item 
+static string \hyperlink{class_crowdsourcing_models_1_1_program_a277c2d73fa1de5d400eb0ae1925c014f}{Get\+Model\+Name} (string dataset, \hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} run\+Type, \hyperlink{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{Task\+Selection\+Method} task\+Selection\+Method, \hyperlink{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{Worker\+Selection\+Method} worker\+Selection\+Method, int \hyperlink{class_crowdsourcing_models_1_1_program_aaf063cf9af3dc47e84aaab11562a5b12}{Num\+Communities})
+\begin{DoxyCompactList}\small\item\em Returns the model name as a string. \end{DoxyCompactList}\item 
+static string \hyperlink{class_crowdsourcing_models_1_1_program_a1c0be23ce716b7d30addb497a0185861}{Get\+Model\+Name} (string dataset, \hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} run\+Type)
+\begin{DoxyCompactList}\small\item\em Returns the model name as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static string\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_program_a4055096a1a87c6ef001b0ebe0a1cc467}{Datasets} = new string\mbox{[}$\,$\mbox{]} \{ \char`\"{}C\+F\char`\"{}, \char`\"{}Zen\+Crowd\+\_\+us\char`\"{}, \char`\"{}Zen\+Crowd\+\_\+in\char`\"{} \}
+\begin{DoxyCompactList}\small\item\em The datasets. \end{DoxyCompactList}\item 
+\hypertarget{class_crowdsourcing_models_1_1_program_a47f427b18fe8fe4abf17cb01576b7b14}{}static bool {\bfseries Use\+Real\+Data}\label{class_crowdsourcing_models_1_1_program_a47f427b18fe8fe4abf17cb01576b7b14}
+
+\item 
+static int\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_program_aaf063cf9af3dc47e84aaab11562a5b12}{Num\+Communities} = new int\mbox{[}$\,$\mbox{]} \{ 4 \}
+\begin{DoxyCompactList}\small\item\em The number of communities of \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}. \end{DoxyCompactList}\item 
+static bool \hyperlink{class_crowdsourcing_models_1_1_program_a77ef65213ec54609ff34903232672a3d}{is\+Recorded\+To\+Txt\+File} = false
+\begin{DoxyCompactList}\small\item\em Flag to redirect the console output to txt file \end{DoxyCompactList}\item 
+\hypertarget{class_crowdsourcing_models_1_1_program_a94c9761dbe8926f9f0f7658a16291b6d}{}static int {\bfseries start\+Index} = 0\label{class_crowdsourcing_models_1_1_program_a94c9761dbe8926f9f0f7658a16291b6d}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_program_afd9a093c86071eaa4ba6f342c894a6af}{}static int {\bfseries end\+Index} = 0\label{class_crowdsourcing_models_1_1_program_afd9a093c86071eaa4ba6f342c894a6af}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_program_a07e68b7cfe03887103512b56e795b4da}{}static int {\bfseries which\+Model}\label{class_crowdsourcing_models_1_1_program_a07e68b7cfe03887103512b56e795b4da}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_program_a98ba4d910dfe8dfa76c981f7c0bc26f2}{}static int {\bfseries cluster\+Iter}\label{class_crowdsourcing_models_1_1_program_a98ba4d910dfe8dfa76c981f7c0bc26f2}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The class for the main program. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_program_a277c2d73fa1de5d400eb0ae1925c014f}{}\index{Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}!Get\+Model\+Name@{Get\+Model\+Name}}
+\index{Get\+Model\+Name@{Get\+Model\+Name}!Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}}
+\subsubsection[{Get\+Model\+Name(string dataset, Run\+Type run\+Type, Task\+Selection\+Method task\+Selection\+Method, Worker\+Selection\+Method worker\+Selection\+Method, int Num\+Communities)}]{\setlength{\rightskip}{0pt plus 5cm}static string Crowdsourcing\+Models.\+Program.\+Get\+Model\+Name (
+\begin{DoxyParamCaption}
+\item[{string}]{dataset, }
+\item[{{\bf Run\+Type}}]{run\+Type, }
+\item[{{\bf Task\+Selection\+Method}}]{task\+Selection\+Method, }
+\item[{{\bf Worker\+Selection\+Method}}]{worker\+Selection\+Method, }
+\item[{int}]{Num\+Communities}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_program_a277c2d73fa1de5d400eb0ae1925c014f}
+
+
+Returns the model name as a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & The name of the data set.\\
+\hline
+{\em run\+Type} & The model run type.\\
+\hline
+{\em task\+Selection\+Method} & The method for selecting tasks (Random / Entropy).\\
+\hline
+{\em worker\+Selection\+Method} & The method for selecting workers (only Random is implemented).\\
+\hline
+{\em num\+Communities} & The number of communities (only for \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The model name
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_program_a1c0be23ce716b7d30addb497a0185861}{}\index{Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}!Get\+Model\+Name@{Get\+Model\+Name}}
+\index{Get\+Model\+Name@{Get\+Model\+Name}!Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}}
+\subsubsection[{Get\+Model\+Name(string dataset, Run\+Type run\+Type)}]{\setlength{\rightskip}{0pt plus 5cm}static string Crowdsourcing\+Models.\+Program.\+Get\+Model\+Name (
+\begin{DoxyParamCaption}
+\item[{string}]{dataset, }
+\item[{{\bf Run\+Type}}]{run\+Type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_program_a1c0be23ce716b7d30addb497a0185861}
+
+
+Returns the model name as a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & The name of the data set.\\
+\hline
+{\em run\+Type} & The model run type.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The model name
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_program_a0c8aba76a474add91e7ae5a31afb3a14}{}\index{Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}!Run\+Gold@{Run\+Gold}}
+\index{Run\+Gold@{Run\+Gold}!Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}}
+\subsubsection[{Run\+Gold(string data\+Set, I\+List$<$ Datum $>$ data, Run\+Type run\+Type, B\+C\+C model, int num\+Communities=2)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Results} Crowdsourcing\+Models.\+Program.\+Run\+Gold (
+\begin{DoxyParamCaption}
+\item[{string}]{data\+Set, }
+\item[{I\+List$<$ {\bf Datum} $>$}]{data, }
+\item[{{\bf Run\+Type}}]{run\+Type, }
+\item[{{\bf B\+C\+C}}]{model, }
+\item[{int}]{num\+Communities = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_program_a0c8aba76a474add91e7ae5a31afb3a14}
+
+
+Runs a model with the full gold set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Set} & The data.\\
+\hline
+{\em current\+Task\+Selection\+Method} & Current Task Selection Method\\
+\hline
+{\em run\+Type} & The model run type.\\
+\hline
+{\em model} & The model instance.\\
+\hline
+{\em num\+Communities} & The number of communities (only for \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The inference results
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_program_a4055096a1a87c6ef001b0ebe0a1cc467}{}\index{Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}!Datasets@{Datasets}}
+\index{Datasets@{Datasets}!Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}}
+\subsubsection[{Datasets}]{\setlength{\rightskip}{0pt plus 5cm}string \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Program.\+Datasets = new string\mbox{[}$\,$\mbox{]} \{ \char`\"{}C\+F\char`\"{}, \char`\"{}Zen\+Crowd\+\_\+us\char`\"{}, \char`\"{}Zen\+Crowd\+\_\+in\char`\"{} \}\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_program_a4055096a1a87c6ef001b0ebe0a1cc467}
+
+
+The datasets. 
+
+\hypertarget{class_crowdsourcing_models_1_1_program_a77ef65213ec54609ff34903232672a3d}{}\index{Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}!is\+Recorded\+To\+Txt\+File@{is\+Recorded\+To\+Txt\+File}}
+\index{is\+Recorded\+To\+Txt\+File@{is\+Recorded\+To\+Txt\+File}!Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}}
+\subsubsection[{is\+Recorded\+To\+Txt\+File}]{\setlength{\rightskip}{0pt plus 5cm}bool Crowdsourcing\+Models.\+Program.\+is\+Recorded\+To\+Txt\+File = false\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_program_a77ef65213ec54609ff34903232672a3d}
+
+
+Flag to redirect the console output to txt file 
+
+\hypertarget{class_crowdsourcing_models_1_1_program_aaf063cf9af3dc47e84aaab11562a5b12}{}\index{Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}!Num\+Communities@{Num\+Communities}}
+\index{Num\+Communities@{Num\+Communities}!Crowdsourcing\+Models\+::\+Program@{Crowdsourcing\+Models\+::\+Program}}
+\subsubsection[{Num\+Communities}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Program.\+Num\+Communities = new int\mbox{[}$\,$\mbox{]} \{ 4 \}\hspace{0.3cm}{\ttfamily [static]}}\label{class_crowdsourcing_models_1_1_program_aaf063cf9af3dc47e84aaab11562a5b12}
+
+
+The number of communities of \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/Program.\+cs\end{DoxyCompactItemize}

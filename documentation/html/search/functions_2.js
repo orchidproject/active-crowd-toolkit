@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['cbcc',['CBCC',['../class_crowdsourcing_models_1_1_c_b_c_c.html#af72e2fcbacf20df12023895de3639301',1,'CrowdsourcingModels::CBCC']]],
+  ['compare',['Compare',['../class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic.html#a1f75eac7968344a9459f2903ded545cc',1,'CrowdsourcingProject::Statistics::ReceiverOperatingCharacteristic']]],
+  ['compute',['Compute',['../class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic.html#a6f85910fcec4797bcf43ffa280dfd539',1,'CrowdsourcingProject.Statistics.ReceiverOperatingCharacteristic.Compute(int points)'],['../class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic.html#a7fcfa4f4ede738aee8496d5b8ea5733f',1,'CrowdsourcingProject.Statistics.ReceiverOperatingCharacteristic.Compute(double increment)']]],
+  ['confusionmatrix',['ConfusionMatrix',['../class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix.html#add656d4ea4928b25ef16b0a35cba6f90',1,'CrowdsourcingProject::Statistics::ConfusionMatrix']]],
+  ['confusionmatrixmarginal',['ConfusionMatrixMarginal',['../class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p.html#ad8f6e5dd24857fe3d8874e77702f49ae',1,'MicrosoftResearch::Infer::Models::User::Model_EP']]],
+  ['confusionmatrixpriormarginal',['ConfusionMatrixPriorMarginal',['../class_microsoft_research_1_1_infer_1_1_models_1_1_user_1_1_model___e_p.html#a31f2762b98ace26fd1659e251faf6379',1,'MicrosoftResearch::Infer::Models::User::Model_EP']]],
+  ['createmodel',['CreateModel',['../class_crowdsourcing_models_1_1_b_c_c.html#a7940c454f99a2b108723e8fcc49e035f',1,'CrowdsourcingModels.BCC.CreateModel()'],['../class_crowdsourcing_models_1_1_c_b_c_c.html#a9dc55362a1a756ced24bb3736075a180',1,'CrowdsourcingModels.CBCC.CreateModel(int taskCount, int labelCount)'],['../class_crowdsourcing_models_1_1_c_b_c_c.html#aeea050e9262f77d369278506586ef862',1,'CrowdsourcingModels.CBCC.CreateModel(int taskCount, int labelCount, int communityCount)']]]
+];

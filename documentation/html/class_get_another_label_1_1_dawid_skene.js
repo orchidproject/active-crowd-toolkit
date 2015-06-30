@@ -1,0 +1,25 @@
+var class_get_another_label_1_1_dawid_skene =
+[
+    [ "DawidSkene", "class_get_another_label_1_1_dawid_skene.html#a1003aff4ae2a4e35e159090f34164f58", null ],
+    [ "Estimate", "class_get_another_label_1_1_dawid_skene.html#a535c7809ddbb6271888a8ef9d320e7b1", null ],
+    [ "GetAnnotatorCostAdjusted", "class_get_another_label_1_1_dawid_skene.html#afda5d90190e29bea2f5f92112d8b712b", null ],
+    [ "GetAnnotatorCostMinimized", "class_get_another_label_1_1_dawid_skene.html#abd35ab6861753656bb1eb009f2c53b96", null ],
+    [ "GetAnnotatorCostNaive", "class_get_another_label_1_1_dawid_skene.html#a8964fe474a669958bf68d0a8d42c4628", null ],
+    [ "GetConfusionMatrix", "class_get_another_label_1_1_dawid_skene.html#a6292bfe3348e5eb5262f5082e1514dbe", null ],
+    [ "GetMajorityVote", "class_get_another_label_1_1_dawid_skene.html#ad561faec231559f32ddd2fa4657356e4", null ],
+    [ "GetObjectClassProbabilities", "class_get_another_label_1_1_dawid_skene.html#a3203d2a611322afd6e542eb3dd16ff3c", null ],
+    [ "GetObjectClassProbabilities", "class_get_another_label_1_1_dawid_skene.html#a84af6e79ba113e8e1e5edb05e004372e", null ],
+    [ "PrintAllWorkerScores", "class_get_another_label_1_1_dawid_skene.html#aa468a9193551e38fd1ec50362eb940b0", null ],
+    [ "PrintAnnotatorCostsSummary", "class_get_another_label_1_1_dawid_skene.html#ab2d113fd5a414d3188dcf63b60d898d9", null ],
+    [ "PrintDiffVote", "class_get_another_label_1_1_dawid_skene.html#a586cba68bdc9752a39e2bfb2bcda6f43", null ],
+    [ "PrintObjectClassProbabilities", "class_get_another_label_1_1_dawid_skene.html#a017f107bf478055a678308c0142bc54c", null ],
+    [ "PrintObjectClassProbabilities", "class_get_another_label_1_1_dawid_skene.html#a9ee90b841c0e01dfa1c37e4b707faff2", null ],
+    [ "PrintPriors", "class_get_another_label_1_1_dawid_skene.html#a49b67c96115292101cfa3a5dbf3827dd", null ],
+    [ "PrintVote", "class_get_another_label_1_1_dawid_skene.html#a85c600bc6876021af8f2875dd8502464", null ],
+    [ "PrintWorkerScore", "class_get_another_label_1_1_dawid_skene.html#a24753822a3c4006d3311034936eae3c5", null ],
+    [ "UpdateAnnotatorCosts", "class_get_another_label_1_1_dawid_skene.html#a931feec181cf2c2d3b8de7083215aba7", null ],
+    [ "UpdateAnnotatorErrorRates", "class_get_another_label_1_1_dawid_skene.html#a17ece3815853ceed820bef7324c8ef7a", null ],
+    [ "UpdateObjectClassProbabilities", "class_get_another_label_1_1_dawid_skene.html#a9245a74a0cd4eed27ef61869610fb93b", null ],
+    [ "UpdatePriors", "class_get_another_label_1_1_dawid_skene.html#a9d2f83822c4e863e16adcc39bb8b350e", null ],
+    [ "classes", "class_get_another_label_1_1_dawid_skene.html#a01dd556b369f1fa0e41f620c777d0cd8", null ]
+];

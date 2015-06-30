@@ -1,0 +1,121 @@
+\hypertarget{namespace_crowdsourcing_models}{}\section{Crowdsourcing\+Models Namespace Reference}
+\label{namespace_crowdsourcing_models}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment}{Active\+Crowd\+Toolkit\+Experiment}
+\item 
+class \hyperlink{class_crowdsourcing_models_1_1_active_learning}{Active\+Learning}
+\begin{DoxyCompactList}\small\item\em Class of active learning functions \end{DoxyCompactList}\item 
+class \hyperlink{class_crowdsourcing_models_1_1_active_learning_result}{Active\+Learning\+Result}
+\item 
+class \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model class. \end{DoxyCompactList}\item 
+class \hyperlink{class_crowdsourcing_models_1_1_b_c_c_posteriors}{B\+C\+C\+Posteriors}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} posteriors class. \end{DoxyCompactList}\item 
+class \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} model class. \end{DoxyCompactList}\item 
+class \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_posteriors}{C\+B\+C\+C\+Posteriors}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} posterior object. \end{DoxyCompactList}\item 
+class \hyperlink{class_crowdsourcing_models_1_1_data_mapping}{Data\+Mapping}
+\begin{DoxyCompactList}\small\item\em Data mapping class. This class manages the mapping between the data (which is in the form of task, worker ids, and labels) and the model data (which is in term of indices). \end{DoxyCompactList}\item 
+class \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum}
+\begin{DoxyCompactList}\small\item\em This class represents a single datum, and has methods to read in data. \end{DoxyCompactList}\item 
+class \hyperlink{class_crowdsourcing_models_1_1_program}{Program}
+\begin{DoxyCompactList}\small\item\em The class for the main program. \end{DoxyCompactList}\item 
+class \hyperlink{class_crowdsourcing_models_1_1_results}{Results}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} \{ \\*
+\hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0af6c35bf8a6bbb9f7b7d7e9505b0199a4}{Run\+Type.\+Vote\+Distribution} = 0, 
+\hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0a7aa11c546d2299308f7bbdc7750e20e8}{Run\+Type.\+Majority\+Vote} = 1, 
+\hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0a1a0fe590c885551647c3f78463da3a0b}{Run\+Type.\+Dawid\+Skene} = 2, 
+\hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0a1fc5efe020980df2413a97ce9f2f586f}{Run\+Type.\+B\+C\+C} = 3, 
+\\*
+\hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0ad38f8fcb687a14cf5c9351a299aa8d19}{Run\+Type.\+C\+B\+C\+C} = 4
+ \}\begin{DoxyCompactList}\small\item\em Options for which model to run. \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{Task\+Selection\+Method} \{ {\bfseries Random\+Task}, 
+{\bfseries Entropy\+Task}, 
+{\bfseries Uniform\+Task}
+ \}\begin{DoxyCompactList}\small\item\em Metrics for selecting tasks. \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{Worker\+Selection\+Method} \{ {\bfseries Random\+Worker}, 
+{\bfseries Best\+Worker}
+ \}\begin{DoxyCompactList}\small\item\em Metrics for selecting workers \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063}{Run\+Mode} \{ \\*
+\hyperlink{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a22fb04e637893f1a158838192ae8b5a8}{Run\+Mode.\+Clear\+Results}, 
+\hyperlink{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a7b487b1f767aedc4203de4188aac7d0f}{Run\+Mode.\+Batch\+Training}, 
+\hyperlink{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063ad7be9344e693b609adcee347febe075e}{Run\+Mode.\+Online\+Training}, 
+\hyperlink{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a14bdf8e8251e892826ae8fce56c028df}{Run\+Mode.\+Look\+Ahead\+Experiment}, 
+\\*
+\hyperlink{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063aaf5e8790a70d645b4800b6b901301f56}{Run\+Mode.\+Load\+And\+Use\+Community\+Priors}, 
+\hyperlink{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a3964d4f40b6166aa9d370855bd20f662}{Run\+Mode.\+Prediction}
+ \}\begin{DoxyCompactList}\small\item\em The different modes in which the model can be run. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063}{}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Run\+Mode@{Run\+Mode}}
+\index{Run\+Mode@{Run\+Mode}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}
+\subsubsection[{Run\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Crowdsourcing\+Models.\+Run\+Mode}\hspace{0.3cm}{\ttfamily [strong]}}\label{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063}
+
+
+The different modes in which the model can be run. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Clear\+Results@{Clear\+Results}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Clear\+Results@{Clear\+Results}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a22fb04e637893f1a158838192ae8b5a8}{}Clear\+Results\label{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a22fb04e637893f1a158838192ae8b5a8}
+}]Clears all posteriors \index{Batch\+Training@{Batch\+Training}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Batch\+Training@{Batch\+Training}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a7b487b1f767aedc4203de4188aac7d0f}{}Batch\+Training\label{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a7b487b1f767aedc4203de4188aac7d0f}
+}]Training from a batch of data -\/ uses initial priors. \index{Online\+Training@{Online\+Training}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Online\+Training@{Online\+Training}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063ad7be9344e693b609adcee347febe075e}{}Online\+Training\label{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063ad7be9344e693b609adcee347febe075e}
+}]Online training from a batch of data -\/ uses previous posteriors as priors. \index{Look\+Ahead\+Experiment@{Look\+Ahead\+Experiment}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Look\+Ahead\+Experiment@{Look\+Ahead\+Experiment}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a14bdf8e8251e892826ae8fce56c028df}{}Look\+Ahead\+Experiment\label{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a14bdf8e8251e892826ae8fce56c028df}
+}]Online training where we don\textquotesingle{}t update the posteriors \index{Load\+And\+Use\+Community\+Priors@{Load\+And\+Use\+Community\+Priors}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Load\+And\+Use\+Community\+Priors@{Load\+And\+Use\+Community\+Priors}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063aaf5e8790a70d645b4800b6b901301f56}{}Load\+And\+Use\+Community\+Priors\label{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063aaf5e8790a70d645b4800b6b901301f56}
+}]Use communities as workers in a \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} \index{Prediction@{Prediction}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Prediction@{Prediction}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a3964d4f40b6166aa9d370855bd20f662}{}Prediction\label{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063a3964d4f40b6166aa9d370855bd20f662}
+}]Prediction of worker labels \end{description}
+\end{Desc}
+\hypertarget{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Run\+Type@{Run\+Type}}
+\index{Run\+Type@{Run\+Type}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}
+\subsubsection[{Run\+Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Crowdsourcing\+Models.\+Run\+Type}\hspace{0.3cm}{\ttfamily [strong]}}\label{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}
+
+
+Options for which model to run. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Vote\+Distribution@{Vote\+Distribution}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Vote\+Distribution@{Vote\+Distribution}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0af6c35bf8a6bbb9f7b7d7e9505b0199a4}{}Vote\+Distribution\label{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0af6c35bf8a6bbb9f7b7d7e9505b0199a4}
+}]The true label distribution as given by the normalised workers\textquotesingle{} label counts. \index{Majority\+Vote@{Majority\+Vote}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Majority\+Vote@{Majority\+Vote}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0a7aa11c546d2299308f7bbdc7750e20e8}{}Majority\+Vote\label{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0a7aa11c546d2299308f7bbdc7750e20e8}
+}]The true label is the majority label. \index{Dawid\+Skene@{Dawid\+Skene}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Dawid\+Skene@{Dawid\+Skene}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0a1a0fe590c885551647c3f78463da3a0b}{}Dawid\+Skene\label{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0a1a0fe590c885551647c3f78463da3a0b}
+}]The Dawid-\/\+Skene model. \index{B\+C\+C@{B\+C\+C}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!B\+C\+C@{B\+C\+C}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0a1fc5efe020980df2413a97ce9f2f586f}{}B\+C\+C\label{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0a1fc5efe020980df2413a97ce9f2f586f}
+}]The \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model. \index{C\+B\+C\+C@{C\+B\+C\+C}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!C\+B\+C\+C@{C\+B\+C\+C}}\item[{\em 
+\hypertarget{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0ad38f8fcb687a14cf5c9351a299aa8d19}{}C\+B\+C\+C\label{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0ad38f8fcb687a14cf5c9351a299aa8d19}
+}]The \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} model. \end{description}
+\end{Desc}
+\hypertarget{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Task\+Selection\+Method@{Task\+Selection\+Method}}
+\index{Task\+Selection\+Method@{Task\+Selection\+Method}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}
+\subsubsection[{Task\+Selection\+Method}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Crowdsourcing\+Models.\+Task\+Selection\+Method}\hspace{0.3cm}{\ttfamily [strong]}}\label{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}
+
+
+Metrics for selecting tasks. 
+
+\hypertarget{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{}\index{Crowdsourcing\+Models@{Crowdsourcing\+Models}!Worker\+Selection\+Method@{Worker\+Selection\+Method}}
+\index{Worker\+Selection\+Method@{Worker\+Selection\+Method}!Crowdsourcing\+Models@{Crowdsourcing\+Models}}
+\subsubsection[{Worker\+Selection\+Method}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Crowdsourcing\+Models.\+Worker\+Selection\+Method}\hspace{0.3cm}{\ttfamily [strong]}}\label{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}
+
+
+Metrics for selecting workers 
+

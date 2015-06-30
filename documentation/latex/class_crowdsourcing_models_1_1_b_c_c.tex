@@ -1,0 +1,343 @@
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c}{}\section{Crowdsourcing\+Models.\+B\+C\+C Class Reference}
+\label{class_crowdsourcing_models_1_1_b_c_c}\index{Crowdsourcing\+Models.\+B\+C\+C@{Crowdsourcing\+Models.\+B\+C\+C}}
+
+
+The \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model class.  
+
+
+Inheritance diagram for Crowdsourcing\+Models.\+B\+C\+C\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_crowdsourcing_models_1_1_b_c_c}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crowdsourcing_models_1_1_b_c_c_aa8e876e451624f41cce4af6f38c3baf2}{B\+C\+C} ()
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model instance. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crowdsourcing_models_1_1_b_c_c_a7940c454f99a2b108723e8fcc49e035f}{Create\+Model} (int task\+Count, int label\+Count)
+\begin{DoxyCompactList}\small\item\em Initializes the ranges, the generative process and the inference engine of the \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_crowdsourcing_models_1_1_b_c_c_posteriors}{B\+C\+C\+Posteriors} \hyperlink{class_crowdsourcing_models_1_1_b_c_c_afa59a76d3c6fe11db2c3c037f8cf3efc}{Infer} (int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} task\+Indices, int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} worker\+Labels, \hyperlink{class_crowdsourcing_models_1_1_b_c_c_posteriors}{B\+C\+C\+Posteriors} priors)
+\begin{DoxyCompactList}\small\item\em Infers the posteriors of \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} using the attached data and priors. \end{DoxyCompactList}\item 
+Dirichlet\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_b_c_c_aa31adcf5b6b498dd0bc86baa4f96434d}{Get\+Confusion\+Matrix\+Prior} ()
+\begin{DoxyCompactList}\small\item\em Returns the confusion matrix prior of each worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_crowdsourcing_models_1_1_b_c_c_a3b4e301c3101dc790850548006d3aac8}{Define\+Variables\+And\+Ranges} (int task\+Count, int label\+Count)
+\begin{DoxyCompactList}\small\item\em Initializes the ranges of the variables. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crowdsourcing_models_1_1_b_c_c_a0a4a80dc6093a006c87e43dcbf29c463}{Define\+Generative\+Process} ()
+\begin{DoxyCompactList}\small\item\em Defines the \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} generative process. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crowdsourcing_models_1_1_b_c_c_ab167badeccdb1951f97b6ed5b3b4dcd6}{Define\+Inference\+Engine} ()
+\begin{DoxyCompactList}\small\item\em Initializes the \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} inference engine. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crowdsourcing_models_1_1_b_c_c_ad08c9c0b6592cf6559118a68b56cfd07}{Set\+Priors} (int worker\+Count, \hyperlink{class_crowdsourcing_models_1_1_b_c_c_posteriors}{B\+C\+C\+Posteriors} priors)
+\begin{DoxyCompactList}\small\item\em Sets the priors of \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crowdsourcing_models_1_1_b_c_c_af3806b7091a6bcc0116e3c8619d42daf}{Attach\+Data} (int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} task\+Indices, int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} worker\+Labels)
+\begin{DoxyCompactList}\small\item\em Attachs the data to the workers labels. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crowdsourcing_models_1_1_b_c_c_ab40b3e7f5bd90c85672fb927a16f5fd6}{Attach\+Data} (int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} task\+Indices, int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} worker\+Labels, Dirichlet\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} confusion\+Matrix\+Prior)
+\begin{DoxyCompactList}\small\item\em Attachs the data to the workers labels with and sets the workers\textquotesingle{} confusion matrix priors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_aa58ee434d4e8d8b391040d117054938d}{}Range {\bfseries n}\label{class_crowdsourcing_models_1_1_b_c_c_aa58ee434d4e8d8b391040d117054938d}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_afd5435718898d47b9c3ff5594fa2f283}{}Range {\bfseries k}\label{class_crowdsourcing_models_1_1_b_c_c_afd5435718898d47b9c3ff5594fa2f283}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a97200049317251fa92243337840b2328}{}Range {\bfseries c}\label{class_crowdsourcing_models_1_1_b_c_c_a97200049317251fa92243337840b2328}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a2b3ffffefe49c01347455642fd863ef9}{}Range {\bfseries kn}\label{class_crowdsourcing_models_1_1_b_c_c_a2b3ffffefe49c01347455642fd863ef9}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a685b9761476672147cc8936b1bfcc648}{}Variable$<$ int $>$ {\bfseries Worker\+Count}\label{class_crowdsourcing_models_1_1_b_c_c_a685b9761476672147cc8936b1bfcc648}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a42f64f08ee33de60165c9e636f689434}{}Variable\+Array$<$ int $>$ {\bfseries True\+Label}\label{class_crowdsourcing_models_1_1_b_c_c_a42f64f08ee33de60165c9e636f689434}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a0a39bdc086e5fbb275295379ba4d97a2}{}Variable\+Array$<$ int $>$ {\bfseries Worker\+Task\+Count}\label{class_crowdsourcing_models_1_1_b_c_c_a0a39bdc086e5fbb275295379ba4d97a2}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a937ccca220ce098a54e11e19e57e6a40}{}Variable\+Array$<$ Variable\+Array$<$ int $>$, int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Worker\+Task\+Index}\label{class_crowdsourcing_models_1_1_b_c_c_a937ccca220ce098a54e11e19e57e6a40}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a725288eab6a1d504644e575538b8096f}{}Variable\+Array$<$ Variable\+Array$<$ int $>$, int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Worker\+Label}\label{class_crowdsourcing_models_1_1_b_c_c_a725288eab6a1d504644e575538b8096f}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_aedd35546a335dd210693c23cdf33426b}{}Variable$<$ Vector $>$ {\bfseries Background\+Label\+Prob}\label{class_crowdsourcing_models_1_1_b_c_c_aedd35546a335dd210693c23cdf33426b}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_ac3423e1c181209e137446d9cfbed4a69}{}Variable\+Array$<$ Variable\+Array$<$ Vector $>$, Vector\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Worker\+Confusion\+Matrix}\label{class_crowdsourcing_models_1_1_b_c_c_ac3423e1c181209e137446d9cfbed4a69}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a386f9905a19a7abaa35aec10517ad30f}{}Variable$<$ bool $>$ {\bfseries Evidence}\label{class_crowdsourcing_models_1_1_b_c_c_a386f9905a19a7abaa35aec10517ad30f}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a3ef6845c2072f001f77835c1e891e958}{}Variable$<$ Dirichlet $>$ {\bfseries Background\+Label\+Prob\+Prior}\label{class_crowdsourcing_models_1_1_b_c_c_a3ef6845c2072f001f77835c1e891e958}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a12a1e36fa58b81c5b06260b624dd315b}{}Variable\+Array$<$ Variable\+Array$<$ Dirichlet $>$, Dirichlet\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}$>$ {\bfseries Confusion\+Matrix\+Prior}\label{class_crowdsourcing_models_1_1_b_c_c_a12a1e36fa58b81c5b06260b624dd315b}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a3631ed583e4307a270b7b9b0c4f98d82}{}Variable\+Array$<$ Discrete $>$ {\bfseries True\+Label\+Constraint}\label{class_crowdsourcing_models_1_1_b_c_c_a3631ed583e4307a270b7b9b0c4f98d82}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_afc07115edd21cd40cc322e2bfcb0a5b3}{}Variable$<$ Bernoulli $>$ {\bfseries Evidence\+Prior}\label{class_crowdsourcing_models_1_1_b_c_c_afc07115edd21cd40cc322e2bfcb0a5b3}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_aafa91c4ced5cd1174a37b703cfc8b0b7}{}Inference\+Engine {\bfseries Engine}\label{class_crowdsourcing_models_1_1_b_c_c_aafa91c4ced5cd1174a37b703cfc8b0b7}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_crowdsourcing_models_1_1_b_c_c_a38f7ecffc9acead6a585fab6ceae67a8}{Label\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The number of label values. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_models_1_1_b_c_c_a79d1a31d02990f09b9b88eff57ad1920}{Task\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The number of tasks. \end{DoxyCompactList}\item 
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_abb3255af092632ce5366f536b73f8d7e}{}double {\bfseries Initial\+Worker\+Belief}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}\label{class_crowdsourcing_models_1_1_b_c_c_abb3255af092632ce5366f536b73f8d7e}
+
+\item 
+int \hyperlink{class_crowdsourcing_models_1_1_b_c_c_aa5cce09f39a4144782ac97f490747792}{Number\+Of\+Iterations}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The number of inference iterations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model class. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_aa8e876e451624f41cce4af6f38c3baf2}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!B\+C\+C@{B\+C\+C}}
+\index{B\+C\+C@{B\+C\+C}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{B\+C\+C()}]{\setlength{\rightskip}{0pt plus 5cm}Crowdsourcing\+Models.\+B\+C\+C.\+B\+C\+C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_b_c_c_aa8e876e451624f41cce4af6f38c3baf2}
+
+
+Creates a \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model instance. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_af3806b7091a6bcc0116e3c8619d42daf}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Attach\+Data@{Attach\+Data}}
+\index{Attach\+Data@{Attach\+Data}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Attach\+Data(int[][] task\+Indices, int[][] worker\+Labels)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crowdsourcing\+Models.\+B\+C\+C.\+Attach\+Data (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Indices\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{worker\+Labels\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_b_c_c_af3806b7091a6bcc0116e3c8619d42daf}
+
+
+Attachs the data to the workers labels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Indices} & The matrix of the task indices (columns) of each worker (rows).\\
+\hline
+{\em worker\+Labels} & The matrix of the labels (columns) of each worker (rows).\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a768dbc90e6215dafc03e3bab5df4eb5c}{Crowdsourcing\+Models.\+C\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_ab40b3e7f5bd90c85672fb927a16f5fd6}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Attach\+Data@{Attach\+Data}}
+\index{Attach\+Data@{Attach\+Data}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Attach\+Data(int[][] task\+Indices, int[][] worker\+Labels, Dirichlet[][] confusion\+Matrix\+Prior)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crowdsourcing\+Models.\+B\+C\+C.\+Attach\+Data (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Indices\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{worker\+Labels\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{Dirichlet}]{confusion\+Matrix\+Prior\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_b_c_c_ab40b3e7f5bd90c85672fb927a16f5fd6}
+
+
+Attachs the data to the workers labels with and sets the workers\textquotesingle{} confusion matrix priors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Indices} & The matrix of the task indices (columns) of each worker (rows).\\
+\hline
+{\em worker\+Labels} & The matrix of the labels (columns) of each worker (rows).\\
+\hline
+{\em confusion\+Matrix\+Prior} & The workers\textquotesingle{} confusion matrix priors.\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a7940c454f99a2b108723e8fcc49e035f}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Create\+Model@{Create\+Model}}
+\index{Create\+Model@{Create\+Model}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Create\+Model(int task\+Count, int label\+Count)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crowdsourcing\+Models.\+B\+C\+C.\+Create\+Model (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Count, }
+\item[{int}]{label\+Count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_b_c_c_a7940c454f99a2b108723e8fcc49e035f}
+
+
+Initializes the ranges, the generative process and the inference engine of the \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Count} & The number of tasks.\\
+\hline
+{\em label\+Count} & The number of labels.\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a9dc55362a1a756ced24bb3736075a180}{Crowdsourcing\+Models.\+C\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a0a4a80dc6093a006c87e43dcbf29c463}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Define\+Generative\+Process@{Define\+Generative\+Process}}
+\index{Define\+Generative\+Process@{Define\+Generative\+Process}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Define\+Generative\+Process()}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crowdsourcing\+Models.\+B\+C\+C.\+Define\+Generative\+Process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_b_c_c_a0a4a80dc6093a006c87e43dcbf29c463}
+
+
+Defines the \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} generative process. 
+
+
+
+Reimplemented in \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a11449d19d584834a5de6c877763d829e}{Crowdsourcing\+Models.\+C\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_ab167badeccdb1951f97b6ed5b3b4dcd6}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Define\+Inference\+Engine@{Define\+Inference\+Engine}}
+\index{Define\+Inference\+Engine@{Define\+Inference\+Engine}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Define\+Inference\+Engine()}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crowdsourcing\+Models.\+B\+C\+C.\+Define\+Inference\+Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_b_c_c_ab167badeccdb1951f97b6ed5b3b4dcd6}
+
+
+Initializes the \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} inference engine. 
+
+
+
+Reimplemented in \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a48270c4aca4a4d42f0a914772950ac9d}{Crowdsourcing\+Models.\+C\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a3b4e301c3101dc790850548006d3aac8}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Define\+Variables\+And\+Ranges@{Define\+Variables\+And\+Ranges}}
+\index{Define\+Variables\+And\+Ranges@{Define\+Variables\+And\+Ranges}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Define\+Variables\+And\+Ranges(int task\+Count, int label\+Count)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crowdsourcing\+Models.\+B\+C\+C.\+Define\+Variables\+And\+Ranges (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Count, }
+\item[{int}]{label\+Count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_b_c_c_a3b4e301c3101dc790850548006d3aac8}
+
+
+Initializes the ranges of the variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Count} & The number of tasks.\\
+\hline
+{\em label\+Count} & The number of labels.\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a33085b5a8b123a62a890eca1367a40ba}{Crowdsourcing\+Models.\+C\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_aa31adcf5b6b498dd0bc86baa4f96434d}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Get\+Confusion\+Matrix\+Prior@{Get\+Confusion\+Matrix\+Prior}}
+\index{Get\+Confusion\+Matrix\+Prior@{Get\+Confusion\+Matrix\+Prior}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Get\+Confusion\+Matrix\+Prior()}]{\setlength{\rightskip}{0pt plus 5cm}Dirichlet \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+B\+C\+C.\+Get\+Confusion\+Matrix\+Prior (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_b_c_c_aa31adcf5b6b498dd0bc86baa4f96434d}
+
+
+Returns the confusion matrix prior of each worker. 
+
+\begin{DoxyReturn}{Returns}
+The confusion matrix prior of each worker.
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_afa59a76d3c6fe11db2c3c037f8cf3efc}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Infer@{Infer}}
+\index{Infer@{Infer}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Infer(int[][] task\+Indices, int[][] worker\+Labels, B\+C\+C\+Posteriors priors)}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf B\+C\+C\+Posteriors} Crowdsourcing\+Models.\+B\+C\+C.\+Infer (
+\begin{DoxyParamCaption}
+\item[{int}]{task\+Indices\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{worker\+Labels\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf B\+C\+C\+Posteriors}}]{priors}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_b_c_c_afa59a76d3c6fe11db2c3c037f8cf3efc}
+
+
+Infers the posteriors of \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} using the attached data and priors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Indices} & The matrix of the task indices (columns) of each worker (rows).\\
+\hline
+{\em worker\+Labels} & The matrix of the labels (columns) of each worker (rows).\\
+\hline
+{\em priors} & The priors of the \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} parameters.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_a538743585401f436f10bfc46c26c767a}{Crowdsourcing\+Models.\+C\+B\+C\+C}.
+
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_ad08c9c0b6592cf6559118a68b56cfd07}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Set\+Priors@{Set\+Priors}}
+\index{Set\+Priors@{Set\+Priors}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Set\+Priors(int worker\+Count, B\+C\+C\+Posteriors priors)}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crowdsourcing\+Models.\+B\+C\+C.\+Set\+Priors (
+\begin{DoxyParamCaption}
+\item[{int}]{worker\+Count, }
+\item[{{\bf B\+C\+C\+Posteriors}}]{priors}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_b_c_c_ad08c9c0b6592cf6559118a68b56cfd07}
+
+
+Sets the priors of \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker\+Count} & The number of workers.\\
+\hline
+{\em priors} & The priors.\\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c_ab662d32f67474b73ad0ca6915d59901d}{Crowdsourcing\+Models.\+C\+B\+C\+C}.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a38f7ecffc9acead6a585fab6ceae67a8}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Label\+Count@{Label\+Count}}
+\index{Label\+Count@{Label\+Count}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Label\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+B\+C\+C.\+Label\+Count\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_b_c_c_a38f7ecffc9acead6a585fab6ceae67a8}
+
+
+The number of label values. 
+
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_aa5cce09f39a4144782ac97f490747792}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Number\+Of\+Iterations@{Number\+Of\+Iterations}}
+\index{Number\+Of\+Iterations@{Number\+Of\+Iterations}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Number\+Of\+Iterations}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+B\+C\+C.\+Number\+Of\+Iterations\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_crowdsourcing_models_1_1_b_c_c_aa5cce09f39a4144782ac97f490747792}
+
+
+The number of inference iterations. 
+
+\hypertarget{class_crowdsourcing_models_1_1_b_c_c_a79d1a31d02990f09b9b88eff57ad1920}{}\index{Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}!Task\+Count@{Task\+Count}}
+\index{Task\+Count@{Task\+Count}!Crowdsourcing\+Models\+::\+B\+C\+C@{Crowdsourcing\+Models\+::\+B\+C\+C}}
+\subsubsection[{Task\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+B\+C\+C.\+Task\+Count\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_b_c_c_a79d1a31d02990f09b9b88eff57ad1920}
+
+
+The number of tasks. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/B\+C\+C.\+cs\end{DoxyCompactItemize}

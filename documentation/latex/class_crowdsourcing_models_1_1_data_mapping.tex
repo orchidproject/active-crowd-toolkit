@@ -1,0 +1,300 @@
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping}{}\section{Crowdsourcing\+Models.\+Data\+Mapping Class Reference}
+\label{class_crowdsourcing_models_1_1_data_mapping}\index{Crowdsourcing\+Models.\+Data\+Mapping@{Crowdsourcing\+Models.\+Data\+Mapping}}
+
+
+Data mapping class. This class manages the mapping between the data (which is in the form of task, worker ids, and labels) and the model data (which is in term of indices).  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crowdsourcing_models_1_1_data_mapping_aeb425a824cc4074db2857ac8ba6c1a69}{Data\+Mapping} (I\+Enumerable$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data, int num\+Communities=-\/1, int label\+Min=int.\+Max\+Value, int label\+Max=int.\+Min\+Value)
+\begin{DoxyCompactList}\small\item\em Creates a data mapping. \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a1d48c08325772a613b78f4a8a52c57e9}{Get\+Task\+Indices\+Per\+Worker\+Index} (I\+Enumerable$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data)
+\begin{DoxyCompactList}\small\item\em Returns the matrix of the task indices (columns) of each worker (rows). \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_data_mapping_ad7a6b996ec247265bc7902b9e48d0c3d}{Get\+Labels\+Per\+Worker\+Index} (I\+Enumerable$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data)
+\begin{DoxyCompactList}\small\item\em Returns the matrix of the labels (columns) of each worker (rows). \end{DoxyCompactList}\item 
+Dictionary$<$ string, int?$>$ \hyperlink{class_crowdsourcing_models_1_1_data_mapping_ad542e9c734bb68b141e7cb24f9236196}{Get\+Gold\+Labels\+Per\+Task\+Id} ()
+\begin{DoxyCompactList}\small\item\em Returns the the gold labels of each task. \end{DoxyCompactList}\item 
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_af69c3292c1b9522772007cc8433b1330}{}Dictionary$<$ string, int?$>$ {\bfseries Get\+Random\+Label\+Per\+Task\+Id} (I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data)\label{class_crowdsourcing_models_1_1_data_mapping_af69c3292c1b9522772007cc8433b1330}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_ae52e28d46739ddf659e671b189a9d6a9}{}int\mbox{[}$\,$\mbox{]} {\bfseries Get\+Gold\+Labels\+Per\+Task\+Index} ()\label{class_crowdsourcing_models_1_1_data_mapping_ae52e28d46739ddf659e671b189a9d6a9}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a93a884e4f60d956db1722e80ad3aeda2}{}double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} {\bfseries Get\+Time\+Spent\+Per\+Worker\+Index} (I\+Enumerable$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data)\label{class_crowdsourcing_models_1_1_data_mapping_a93a884e4f60d956db1722e80ad3aeda2}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a582a48c6dc7221ec0bdc6c2391fb63bb}{}List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ {\bfseries Build\+Data\+From\+Assigned\+Labels} (Dictionary$<$ string, int?$>$ Assigned\+Labels, I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ Original\+Data)\label{class_crowdsourcing_models_1_1_data_mapping_a582a48c6dc7221ec0bdc6c2391fb63bb}
+
+\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_data_mapping_ae49f5c10a3ffd67112c3db12a2d55d2b}{Get\+Majority\+Votes\+Per\+Task\+Index} ()
+\begin{DoxyCompactList}\small\item\em For each task, gets the majority vote label if it is unique. \end{DoxyCompactList}\item 
+Dictionary$<$ string, int?$>$ \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a1b49a16d4857e3c1903a4848c6b5086c}{Get\+Majority\+Votes\+Per\+Task\+Id} (I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data)
+\begin{DoxyCompactList}\small\item\em For each task Id, gets the majority vote label if it is unique. \end{DoxyCompactList}\item 
+Discrete\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a0b92226017087d546271ed10bb017528}{Get\+Vote\+Distrib\+Per\+Task\+Index} ()
+\begin{DoxyCompactList}\small\item\em For each task, gets the empirical label distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a37f768a9661a8d4156f10b747cd0dec0}{Worker\+Index\+To\+Id}
+\begin{DoxyCompactList}\small\item\em The mapping from the worker index to the worker id. \end{DoxyCompactList}\item 
+Dictionary$<$ string, int $>$ \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a6c36a93683e83c27e0885ddd1df0fbc2}{Worker\+Id\+To\+Index}
+\begin{DoxyCompactList}\small\item\em The mapping from the worker id to the worker index. \end{DoxyCompactList}\item 
+Dictionary$<$ string, int $>$ \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a60781898e954ab8137d6ef1e6546419a}{Community\+Id\+To\+Index}
+\begin{DoxyCompactList}\small\item\em The mapping from the community id to the community index. \end{DoxyCompactList}\item 
+string\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_data_mapping_af1db5e9d061b76544cca10847079b102}{Community\+Index\+To\+Id}
+\begin{DoxyCompactList}\small\item\em The mapping from the community index to the community id. \end{DoxyCompactList}\item 
+string\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_data_mapping_ae4da6289f06e9d087ce8b3c7458308ba}{Task\+Index\+To\+Id}
+\begin{DoxyCompactList}\small\item\em The mapping from the task index to the task id. \end{DoxyCompactList}\item 
+Dictionary$<$ string, int $>$ \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a1c4dfca839294c04a199fd9b87c51866}{Task\+Id\+To\+Index}
+\begin{DoxyCompactList}\small\item\em The mapping from the task id to the task index. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_models_1_1_data_mapping_ae3668cab21dd19e556898ead95378b38}{Label\+Min}
+\begin{DoxyCompactList}\small\item\em The lower bound of the labels range. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a952ec7abc5b934a2f24ddd333478a4c9}{Label\+Max}
+\begin{DoxyCompactList}\small\item\em The upper bound of the labels range. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+I\+Enumerable$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a94564530928ba781bdcf79c2aa2fa242}{Data}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The enumerable list of data. \end{DoxyCompactList}\item 
+I\+Enumerable$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a4baf480d5c8dcce5ecbf8ebeb9a55901}{Data\+With\+Gold}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The filtered enumerable list of data with gold labels. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_models_1_1_data_mapping_aecfecfc671fd79ea8ff2c1b7cb9c9846}{Label\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The number of label values. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_models_1_1_data_mapping_a9e7c646eda7ddcc56b2c8e9f582299cd}{Worker\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The number of workers. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_models_1_1_data_mapping_aa548c66dcf33e58829a676081b84c974}{Task\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The number of tasks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Data mapping class. This class manages the mapping between the data (which is in the form of task, worker ids, and labels) and the model data (which is in term of indices). 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_aeb425a824cc4074db2857ac8ba6c1a69}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Data\+Mapping@{Data\+Mapping}}
+\index{Data\+Mapping@{Data\+Mapping}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Data\+Mapping(\+I\+Enumerable$<$ Datum $>$ data, int num\+Communities=-\/1, int label\+Min=int.\+Max\+Value, int label\+Max=int.\+Min\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}Crowdsourcing\+Models.\+Data\+Mapping.\+Data\+Mapping (
+\begin{DoxyParamCaption}
+\item[{I\+Enumerable$<$ {\bf Datum} $>$}]{data, }
+\item[{int}]{num\+Communities = {\ttfamily -\/1}, }
+\item[{int}]{label\+Min = {\ttfamily int.MaxValue}, }
+\item[{int}]{label\+Max = {\ttfamily int.MinValue}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_data_mapping_aeb425a824cc4074db2857ac8ba6c1a69}
+
+
+Creates a data mapping. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data.\\
+\hline
+{\em num\+Communities} & The number of communities.\\
+\hline
+{\em label\+Min} & The lower bound of the labels range.\\
+\hline
+{\em label\+Max} & The upper bound of the labels range.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_ad542e9c734bb68b141e7cb24f9236196}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Get\+Gold\+Labels\+Per\+Task\+Id@{Get\+Gold\+Labels\+Per\+Task\+Id}}
+\index{Get\+Gold\+Labels\+Per\+Task\+Id@{Get\+Gold\+Labels\+Per\+Task\+Id}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Get\+Gold\+Labels\+Per\+Task\+Id()}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, int?$>$ Crowdsourcing\+Models.\+Data\+Mapping.\+Get\+Gold\+Labels\+Per\+Task\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_data_mapping_ad542e9c734bb68b141e7cb24f9236196}
+
+
+Returns the the gold labels of each task. 
+
+\begin{DoxyReturn}{Returns}
+The dictionary keyed by task id and the value is the gold label.
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_ad7a6b996ec247265bc7902b9e48d0c3d}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Get\+Labels\+Per\+Worker\+Index@{Get\+Labels\+Per\+Worker\+Index}}
+\index{Get\+Labels\+Per\+Worker\+Index@{Get\+Labels\+Per\+Worker\+Index}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Get\+Labels\+Per\+Worker\+Index(\+I\+Enumerable$<$ Datum $>$ data)}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Data\+Mapping.\+Get\+Labels\+Per\+Worker\+Index (
+\begin{DoxyParamCaption}
+\item[{I\+Enumerable$<$ {\bf Datum} $>$}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_data_mapping_ad7a6b996ec247265bc7902b9e48d0c3d}
+
+
+Returns the matrix of the labels (columns) of each worker (rows). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matrix of the labels (columns) of each worker (rows).
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a1b49a16d4857e3c1903a4848c6b5086c}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Get\+Majority\+Votes\+Per\+Task\+Id@{Get\+Majority\+Votes\+Per\+Task\+Id}}
+\index{Get\+Majority\+Votes\+Per\+Task\+Id@{Get\+Majority\+Votes\+Per\+Task\+Id}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Get\+Majority\+Votes\+Per\+Task\+Id(\+I\+List$<$ Datum $>$ data)}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, int?$>$ Crowdsourcing\+Models.\+Data\+Mapping.\+Get\+Majority\+Votes\+Per\+Task\+Id (
+\begin{DoxyParamCaption}
+\item[{I\+List$<$ {\bf Datum} $>$}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_data_mapping_a1b49a16d4857e3c1903a4848c6b5086c}
+
+
+For each task Id, gets the majority vote label if it is unique. 
+
+\begin{DoxyReturn}{Returns}
+The dictionary of majority vote labels indexed by task id.
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_ae49f5c10a3ffd67112c3db12a2d55d2b}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Get\+Majority\+Votes\+Per\+Task\+Index@{Get\+Majority\+Votes\+Per\+Task\+Index}}
+\index{Get\+Majority\+Votes\+Per\+Task\+Index@{Get\+Majority\+Votes\+Per\+Task\+Index}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Get\+Majority\+Votes\+Per\+Task\+Index()}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Data\+Mapping.\+Get\+Majority\+Votes\+Per\+Task\+Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_data_mapping_ae49f5c10a3ffd67112c3db12a2d55d2b}
+
+
+For each task, gets the majority vote label if it is unique. 
+
+\begin{DoxyReturn}{Returns}
+The list of majority vote labels.
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a1d48c08325772a613b78f4a8a52c57e9}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Get\+Task\+Indices\+Per\+Worker\+Index@{Get\+Task\+Indices\+Per\+Worker\+Index}}
+\index{Get\+Task\+Indices\+Per\+Worker\+Index@{Get\+Task\+Indices\+Per\+Worker\+Index}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Get\+Task\+Indices\+Per\+Worker\+Index(\+I\+Enumerable$<$ Datum $>$ data)}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Data\+Mapping.\+Get\+Task\+Indices\+Per\+Worker\+Index (
+\begin{DoxyParamCaption}
+\item[{I\+Enumerable$<$ {\bf Datum} $>$}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_data_mapping_a1d48c08325772a613b78f4a8a52c57e9}
+
+
+Returns the matrix of the task indices (columns) of each worker (rows). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matrix of the task indices (columns) of each worker (rows).
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a0b92226017087d546271ed10bb017528}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Get\+Vote\+Distrib\+Per\+Task\+Index@{Get\+Vote\+Distrib\+Per\+Task\+Index}}
+\index{Get\+Vote\+Distrib\+Per\+Task\+Index@{Get\+Vote\+Distrib\+Per\+Task\+Index}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Get\+Vote\+Distrib\+Per\+Task\+Index()}]{\setlength{\rightskip}{0pt plus 5cm}Discrete \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Data\+Mapping.\+Get\+Vote\+Distrib\+Per\+Task\+Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_data_mapping_a0b92226017087d546271ed10bb017528}
+
+
+For each task, gets the empirical label distribution. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a60781898e954ab8137d6ef1e6546419a}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Community\+Id\+To\+Index@{Community\+Id\+To\+Index}}
+\index{Community\+Id\+To\+Index@{Community\+Id\+To\+Index}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Community\+Id\+To\+Index}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, int$>$ Crowdsourcing\+Models.\+Data\+Mapping.\+Community\+Id\+To\+Index}\label{class_crowdsourcing_models_1_1_data_mapping_a60781898e954ab8137d6ef1e6546419a}
+
+
+The mapping from the community id to the community index. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_af1db5e9d061b76544cca10847079b102}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Community\+Index\+To\+Id@{Community\+Index\+To\+Id}}
+\index{Community\+Index\+To\+Id@{Community\+Index\+To\+Id}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Community\+Index\+To\+Id}]{\setlength{\rightskip}{0pt plus 5cm}string \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Data\+Mapping.\+Community\+Index\+To\+Id}\label{class_crowdsourcing_models_1_1_data_mapping_af1db5e9d061b76544cca10847079b102}
+
+
+The mapping from the community index to the community id. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a952ec7abc5b934a2f24ddd333478a4c9}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Label\+Max@{Label\+Max}}
+\index{Label\+Max@{Label\+Max}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Label\+Max}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+Data\+Mapping.\+Label\+Max}\label{class_crowdsourcing_models_1_1_data_mapping_a952ec7abc5b934a2f24ddd333478a4c9}
+
+
+The upper bound of the labels range. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_ae3668cab21dd19e556898ead95378b38}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Label\+Min@{Label\+Min}}
+\index{Label\+Min@{Label\+Min}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Label\+Min}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+Data\+Mapping.\+Label\+Min}\label{class_crowdsourcing_models_1_1_data_mapping_ae3668cab21dd19e556898ead95378b38}
+
+
+The lower bound of the labels range. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a1c4dfca839294c04a199fd9b87c51866}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Task\+Id\+To\+Index@{Task\+Id\+To\+Index}}
+\index{Task\+Id\+To\+Index@{Task\+Id\+To\+Index}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Task\+Id\+To\+Index}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, int$>$ Crowdsourcing\+Models.\+Data\+Mapping.\+Task\+Id\+To\+Index}\label{class_crowdsourcing_models_1_1_data_mapping_a1c4dfca839294c04a199fd9b87c51866}
+
+
+The mapping from the task id to the task index. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_ae4da6289f06e9d087ce8b3c7458308ba}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Task\+Index\+To\+Id@{Task\+Index\+To\+Id}}
+\index{Task\+Index\+To\+Id@{Task\+Index\+To\+Id}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Task\+Index\+To\+Id}]{\setlength{\rightskip}{0pt plus 5cm}string \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Data\+Mapping.\+Task\+Index\+To\+Id}\label{class_crowdsourcing_models_1_1_data_mapping_ae4da6289f06e9d087ce8b3c7458308ba}
+
+
+The mapping from the task index to the task id. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a6c36a93683e83c27e0885ddd1df0fbc2}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Worker\+Id\+To\+Index@{Worker\+Id\+To\+Index}}
+\index{Worker\+Id\+To\+Index@{Worker\+Id\+To\+Index}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Worker\+Id\+To\+Index}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, int$>$ Crowdsourcing\+Models.\+Data\+Mapping.\+Worker\+Id\+To\+Index}\label{class_crowdsourcing_models_1_1_data_mapping_a6c36a93683e83c27e0885ddd1df0fbc2}
+
+
+The mapping from the worker id to the worker index. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a37f768a9661a8d4156f10b747cd0dec0}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Worker\+Index\+To\+Id@{Worker\+Index\+To\+Id}}
+\index{Worker\+Index\+To\+Id@{Worker\+Index\+To\+Id}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Worker\+Index\+To\+Id}]{\setlength{\rightskip}{0pt plus 5cm}string \mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Data\+Mapping.\+Worker\+Index\+To\+Id}\label{class_crowdsourcing_models_1_1_data_mapping_a37f768a9661a8d4156f10b747cd0dec0}
+
+
+The mapping from the worker index to the worker id. 
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a94564530928ba781bdcf79c2aa2fa242}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Data@{Data}}
+\index{Data@{Data}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Data}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<${\bf Datum}$>$ Crowdsourcing\+Models.\+Data\+Mapping.\+Data\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_data_mapping_a94564530928ba781bdcf79c2aa2fa242}
+
+
+The enumerable list of data. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a4baf480d5c8dcce5ecbf8ebeb9a55901}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Data\+With\+Gold@{Data\+With\+Gold}}
+\index{Data\+With\+Gold@{Data\+With\+Gold}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Data\+With\+Gold}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<${\bf Datum}$>$ Crowdsourcing\+Models.\+Data\+Mapping.\+Data\+With\+Gold\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_data_mapping_a4baf480d5c8dcce5ecbf8ebeb9a55901}
+
+
+The filtered enumerable list of data with gold labels. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_aecfecfc671fd79ea8ff2c1b7cb9c9846}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Label\+Count@{Label\+Count}}
+\index{Label\+Count@{Label\+Count}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Label\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+Data\+Mapping.\+Label\+Count\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_data_mapping_aecfecfc671fd79ea8ff2c1b7cb9c9846}
+
+
+The number of label values. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_aa548c66dcf33e58829a676081b84c974}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Task\+Count@{Task\+Count}}
+\index{Task\+Count@{Task\+Count}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Task\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+Data\+Mapping.\+Task\+Count\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_data_mapping_aa548c66dcf33e58829a676081b84c974}
+
+
+The number of tasks. 
+
+\hypertarget{class_crowdsourcing_models_1_1_data_mapping_a9e7c646eda7ddcc56b2c8e9f582299cd}{}\index{Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}!Worker\+Count@{Worker\+Count}}
+\index{Worker\+Count@{Worker\+Count}!Crowdsourcing\+Models\+::\+Data\+Mapping@{Crowdsourcing\+Models\+::\+Data\+Mapping}}
+\subsubsection[{Worker\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+Data\+Mapping.\+Worker\+Count\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_data_mapping_a9e7c646eda7ddcc56b2c8e9f582299cd}
+
+
+The number of workers. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/Data\+Mapping.\+cs\end{DoxyCompactItemize}

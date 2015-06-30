@@ -1,0 +1,221 @@
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix}{}\section{Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix Class Reference}
+\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix}\index{Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix@{Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix}}
+
+
+Confusion Matrix class  
+
+
+Inheritance diagram for Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_add656d4ea4928b25ef16b0a35cba6f90}{Confusion\+Matrix} (int true\+Positives, int true\+Negatives, int false\+Positives, int false\+Negatives)
+\begin{DoxyCompactList}\small\item\em Constructs a new Confusion Matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a9f421cb6ea3fab10b50af5c05e663146}{Observations}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the number of observations for this matrix \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a5e9d3164713343c5fb0b2181247c6629}{Actual\+Positives}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the number of actual positives \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_ac0499cbf491c53f963cef98c734e036e}{Actual\+Negatives}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the number of actual negatives \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a4e5867d4530373feab1bc0bedbb116c6}{Predicted\+Positives}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the number of predicted positives \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a3206bbbeb0b665b1b597bd02d21a3b07}{Predicted\+Negatives}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the number of predicted negatives \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_ae1776127573af2d851e6102bb71acc30}{True\+Positives}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Cases correctly identified by the system as positives. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a76af45bf60135f1f3d6cf64392be49c8}{True\+Negatives}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Cases correctly identified by the system as negatives. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_accb022837853f2f22fcd610aa5379c0e}{False\+Positives}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Cases incorrectly identified by the system as positives. \end{DoxyCompactList}\item 
+int \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a6e681408fc24887a2f64f711de077fe6}{False\+Negatives}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Cases incorrectly identified by the system as negatives. \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_ac8c37fcc9f7bc87122cfb030ef4039a1}{Sensitivity}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Sensitivity, also known as True Positive Rate \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a214f269cbfeb96d7e50f013fd8e64c5c}{Specificity}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Specificity, also known as True Negative Rate \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a3450802726f22c62f6fbdf97e42451a8}{Efficiency}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Efficiency, the arithmetic mean of sensitivity and specificity \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a6cc65bbd56a6e577d4bae7650bab3897}{Accuracy}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Accuracy, or raw performance of the system \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_afb699f40850b19bba5c430eab686eff2}{Positive\+Predictive\+Value}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Positive Predictive Value, also known as Positive Precision \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a53e260e21777e62a8880d57ae1a2d6b4}{Negative\+Predictive\+Value}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Negative Predictive Value, also known as Negative Precision \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a883fcaefecb1086c5931cd870c2ef4b1}{False\+Positive\+Rate}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em False Positive Rate, also known as false alarm rate. \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a9cd513ee90fdf9d5746baf59a219725b}{False\+Discovery\+Rate}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em False Discovery Rate, or the expected false positive rate. \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a6f7ebbf52b5ef320df88d4e5eba8ab4a}{Matthews\+Correlation\+Coefficient}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Matthews Correlation Coefficient, also known as Phi coefficient \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Confusion Matrix class 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_add656d4ea4928b25ef16b0a35cba6f90}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Confusion\+Matrix@{Confusion\+Matrix}}
+\index{Confusion\+Matrix@{Confusion\+Matrix}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Confusion\+Matrix(int true\+Positives, int true\+Negatives, int false\+Positives, int false\+Negatives)}]{\setlength{\rightskip}{0pt plus 5cm}Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Confusion\+Matrix (
+\begin{DoxyParamCaption}
+\item[{int}]{true\+Positives, }
+\item[{int}]{true\+Negatives, }
+\item[{int}]{false\+Positives, }
+\item[{int}]{false\+Negatives}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_add656d4ea4928b25ef16b0a35cba6f90}
+
+
+Constructs a new Confusion Matrix. 
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a6cc65bbd56a6e577d4bae7650bab3897}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Accuracy@{Accuracy}}
+\index{Accuracy@{Accuracy}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Accuracy\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a6cc65bbd56a6e577d4bae7650bab3897}
+
+
+Accuracy, or raw performance of the system 
+
+A\+C\+C = (T\+P + T\+N) / (P + N) \hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_ac0499cbf491c53f963cef98c734e036e}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Actual\+Negatives@{Actual\+Negatives}}
+\index{Actual\+Negatives@{Actual\+Negatives}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Actual\+Negatives}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Actual\+Negatives\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_ac0499cbf491c53f963cef98c734e036e}
+
+
+Gets the number of actual negatives 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a5e9d3164713343c5fb0b2181247c6629}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Actual\+Positives@{Actual\+Positives}}
+\index{Actual\+Positives@{Actual\+Positives}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Actual\+Positives}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Actual\+Positives\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a5e9d3164713343c5fb0b2181247c6629}
+
+
+Gets the number of actual positives 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a3450802726f22c62f6fbdf97e42451a8}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Efficiency@{Efficiency}}
+\index{Efficiency@{Efficiency}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Efficiency}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Efficiency\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a3450802726f22c62f6fbdf97e42451a8}
+
+
+Efficiency, the arithmetic mean of sensitivity and specificity 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a9cd513ee90fdf9d5746baf59a219725b}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!False\+Discovery\+Rate@{False\+Discovery\+Rate}}
+\index{False\+Discovery\+Rate@{False\+Discovery\+Rate}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{False\+Discovery\+Rate}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+False\+Discovery\+Rate\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a9cd513ee90fdf9d5746baf59a219725b}
+
+
+False Discovery Rate, or the expected false positive rate. 
+
+The False Discovery Rate is actually the expected false positive rate.
+
+For example, if 1000 observations were experimentally predicted to be different, and a maximum F\+D\+R for these observations was 0.\+10, then 100 of these observations would be expected to be false positives.
+
+It is calculated as\+: F\+D\+R = F\+P / (F\+P + T\+P) \hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a6e681408fc24887a2f64f711de077fe6}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!False\+Negatives@{False\+Negatives}}
+\index{False\+Negatives@{False\+Negatives}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{False\+Negatives}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+False\+Negatives\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a6e681408fc24887a2f64f711de077fe6}
+
+
+Cases incorrectly identified by the system as negatives. 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a883fcaefecb1086c5931cd870c2ef4b1}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!False\+Positive\+Rate@{False\+Positive\+Rate}}
+\index{False\+Positive\+Rate@{False\+Positive\+Rate}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{False\+Positive\+Rate}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+False\+Positive\+Rate\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a883fcaefecb1086c5931cd870c2ef4b1}
+
+
+False Positive Rate, also known as false alarm rate. 
+
+It can be calculated as\+: F\+P\+R = F\+P / (F\+P + T\+N) or also as\+: F\+P\+R = (1-\/specifity) \hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_accb022837853f2f22fcd610aa5379c0e}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!False\+Positives@{False\+Positives}}
+\index{False\+Positives@{False\+Positives}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{False\+Positives}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+False\+Positives\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_accb022837853f2f22fcd610aa5379c0e}
+
+
+Cases incorrectly identified by the system as positives. 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a6f7ebbf52b5ef320df88d4e5eba8ab4a}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Matthews\+Correlation\+Coefficient@{Matthews\+Correlation\+Coefficient}}
+\index{Matthews\+Correlation\+Coefficient@{Matthews\+Correlation\+Coefficient}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Matthews\+Correlation\+Coefficient}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Matthews\+Correlation\+Coefficient\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a6f7ebbf52b5ef320df88d4e5eba8ab4a}
+
+
+Matthews Correlation Coefficient, also known as Phi coefficient 
+
+A coefficient of +1 represents a perfect prediction, 0 an average random prediction and −1 an inverse prediction. \hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a53e260e21777e62a8880d57ae1a2d6b4}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Negative\+Predictive\+Value@{Negative\+Predictive\+Value}}
+\index{Negative\+Predictive\+Value@{Negative\+Predictive\+Value}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Negative\+Predictive\+Value}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Negative\+Predictive\+Value\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a53e260e21777e62a8880d57ae1a2d6b4}
+
+
+Negative Predictive Value, also known as Negative Precision 
+
+The Negative Predictive Value tells us how likely it is that the disease is N\+O\+T present for a patient, given that the patient\textquotesingle{}s test for the disease is negative.
+
+It can be calculated as\+: N\+P\+V = T\+N / (T\+N + F\+N) \hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a9f421cb6ea3fab10b50af5c05e663146}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Observations@{Observations}}
+\index{Observations@{Observations}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Observations}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Observations\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a9f421cb6ea3fab10b50af5c05e663146}
+
+
+Gets the number of observations for this matrix 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_afb699f40850b19bba5c430eab686eff2}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Positive\+Predictive\+Value@{Positive\+Predictive\+Value}}
+\index{Positive\+Predictive\+Value@{Positive\+Predictive\+Value}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Positive\+Predictive\+Value}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Positive\+Predictive\+Value\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_afb699f40850b19bba5c430eab686eff2}
+
+
+Positive Predictive Value, also known as Positive Precision 
+
+The Positive Predictive Value tells us how likely is that a patient has a disease, given that the test for this disease is positive.
+
+It can be calculated as\+: P\+P\+V = T\+P / (T\+P + F\+P) \hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a3206bbbeb0b665b1b597bd02d21a3b07}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Predicted\+Negatives@{Predicted\+Negatives}}
+\index{Predicted\+Negatives@{Predicted\+Negatives}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Predicted\+Negatives}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Predicted\+Negatives\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a3206bbbeb0b665b1b597bd02d21a3b07}
+
+
+Gets the number of predicted negatives 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a4e5867d4530373feab1bc0bedbb116c6}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Predicted\+Positives@{Predicted\+Positives}}
+\index{Predicted\+Positives@{Predicted\+Positives}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Predicted\+Positives}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Predicted\+Positives\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a4e5867d4530373feab1bc0bedbb116c6}
+
+
+Gets the number of predicted positives 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_ac8c37fcc9f7bc87122cfb030ef4039a1}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Sensitivity@{Sensitivity}}
+\index{Sensitivity@{Sensitivity}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Sensitivity}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Sensitivity\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_ac8c37fcc9f7bc87122cfb030ef4039a1}
+
+
+Sensitivity, also known as True Positive Rate 
+
+Sensitivity = T\+P\+R = T\+P / (T\+P + F\+N) \hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a214f269cbfeb96d7e50f013fd8e64c5c}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!Specificity@{Specificity}}
+\index{Specificity@{Specificity}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{Specificity}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+Specificity\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a214f269cbfeb96d7e50f013fd8e64c5c}
+
+
+Specificity, also known as True Negative Rate 
+
+Specificity = T\+N\+R = T\+N / (F\+P + T\+N) or also as\+: T\+N\+R = (1-\/\+False Positive Rate) \hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a76af45bf60135f1f3d6cf64392be49c8}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!True\+Negatives@{True\+Negatives}}
+\index{True\+Negatives@{True\+Negatives}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{True\+Negatives}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+True\+Negatives\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_a76af45bf60135f1f3d6cf64392be49c8}
+
+
+Cases correctly identified by the system as negatives. 
+
+\hypertarget{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_ae1776127573af2d851e6102bb71acc30}{}\index{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}!True\+Positives@{True\+Positives}}
+\index{True\+Positives@{True\+Positives}!Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix@{Crowdsourcing\+Project\+::\+Statistics\+::\+Confusion\+Matrix}}
+\subsubsection[{True\+Positives}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Project.\+Statistics.\+Confusion\+Matrix.\+True\+Positives\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix_ae1776127573af2d851e6102bb71acc30}
+
+
+Cases correctly identified by the system as positives. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/\+Statistics/Confusion\+Matrix.\+cs\end{DoxyCompactItemize}

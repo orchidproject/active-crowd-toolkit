@@ -1,0 +1,438 @@
+\hypertarget{class_crowdsourcing_models_1_1_results}{}\section{Crowdsourcing\+Models.\+Results Class Reference}
+\label{class_crowdsourcing_models_1_1_results}\index{Crowdsourcing\+Models.\+Results@{Crowdsourcing\+Models.\+Results}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_crowdsourcing_models_1_1_results_1_1_non_task_worker_parameters}{Non\+Task\+Worker\+Parameters}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crowdsourcing_models_1_1_results}{Results} \hyperlink{class_crowdsourcing_models_1_1_results_a9675f99c4cd7bfbe2229bc779fd1fab3}{Run\+Majority\+Vote} (I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data, I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ full\+Data, bool calculate\+Accuracy, bool use\+Vote\+Distribution)
+\begin{DoxyCompactList}\small\item\em Runs the majority vote method on the data. \end{DoxyCompactList}\item 
+\hyperlink{class_crowdsourcing_models_1_1_results}{Results} \hyperlink{class_crowdsourcing_models_1_1_results_a1b0640e55fe37434f6afb2baad374519}{Run\+Dawid\+Skene} (I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data, I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ full\+Data, bool calculate\+Accuracy)
+\begin{DoxyCompactList}\small\item\em Run Dawid-\/\+Skene on the data. \end{DoxyCompactList}\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_a9604afa801fe1c5d55429f67043dd135}{}void {\bfseries Run\+B\+C\+C} (string model\+Name, I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ data, I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ full\+Data, \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} model, \hyperlink{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063}{Run\+Mode} mode, bool calculate\+Accuracy, int num\+Communities=-\/1, bool serialize=false, bool serialize\+Community\+Posteriors=false)\label{class_crowdsourcing_models_1_1_results_a9604afa801fe1c5d55429f67043dd135}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_a0741d9be4c6af7f634d7f88df02ac2c0}{}void {\bfseries Write\+Basic\+Statistics} (Stream\+Writer writer)\label{class_crowdsourcing_models_1_1_results_a0741d9be4c6af7f634d7f88df02ac2c0}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_a4aacf633a2db5d0bf1df5d2d5e9b62e2}{}virtual void {\bfseries Write\+Results} (Stream\+Writer writer, bool write\+Community\+Parameters, bool write\+Worker\+Parameters, bool write\+Worker\+Communities)\label{class_crowdsourcing_models_1_1_results_a4aacf633a2db5d0bf1df5d2d5e9b62e2}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_a5671a2613a1ac145ea46714be55fe6f9}{}virtual void {\bfseries Write\+Accuracy} (Stream\+Writer writer)\label{class_crowdsourcing_models_1_1_results_a5671a2613a1ac145ea46714be55fe6f9}
+
+\item 
+double\mbox{[},\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_results_addf80aff1622db41d84d077d9aaddfbb}{Get\+Confusion\+Matrices} (string worker\+Id=\char`\"{}\char`\"{}, int community\+Index=-\/1)
+\item 
+Discrete \hyperlink{class_crowdsourcing_models_1_1_results_aa9600574fa6802c4a2703ecc1e27d73a}{get\+Task\+True\+Label} (string task\+Id)
+\begin{DoxyCompactList}\small\item\em Get True Label values of the given task\+Id \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_ad84f5e51fdbb8934e2028965743f36b8}{}static double\mbox{[}$\,$\mbox{]} {\bfseries Get\+Confusion\+Matrix\+Diagonal} (Vector\mbox{[}$\,$\mbox{]} confusion\+Matrix\+Mean)\label{class_crowdsourcing_models_1_1_results_ad84f5e51fdbb8934e2028965743f36b8}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_ac5ec09f57d9177d414c2ae6e9155f631}{}static void {\bfseries Write\+Confusion\+Matrix} (Stream\+Writer writer, string worker, Dirichlet\mbox{[}$\,$\mbox{]} confusion\+Matrix)\label{class_crowdsourcing_models_1_1_results_ac5ec09f57d9177d414c2ae6e9155f631}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_ae5556eb0e898f4f991c51668350efa08}{}static void {\bfseries Write\+Worker\+Confusion\+Matrix} (Stream\+Writer writer, string worker, double\mbox{[},\mbox{]} confusion\+Matrix)\label{class_crowdsourcing_models_1_1_results_ae5556eb0e898f4f991c51668350efa08}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_ae5f852bf1ad4581c667c7aa5b0235320}{}static void {\bfseries Write\+Worker\+Confusion\+Matrix} (Stream\+Writer writer, string worker, Vector\mbox{[}$\,$\mbox{]} confusion\+Matrix)\label{class_crowdsourcing_models_1_1_results_ae5f852bf1ad4581c667c7aa5b0235320}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_a53a1a91b8f91b8c206acf44b01a29cab}{}static string {\bfseries Get\+Model\+Name} (string dataset, \hyperlink{namespace_crowdsourcing_models_ae187d0e1d9fe64e7ebcb9d948d02d2d0}{Run\+Type} run\+Type, \hyperlink{namespace_crowdsourcing_models_a1bb21d66b6c86daa36af97d919528356}{Task\+Selection\+Method} task\+Selection\+Metric, \hyperlink{namespace_crowdsourcing_models_a1f0e849dc0691caa8fda0ce7778756a6}{Worker\+Selection\+Method} worker\+Selection\+Metric, bool online, int task\+Samples=-\/1, int worker\+Samples=-\/1, int num\+Communities=-\/1)\label{class_crowdsourcing_models_1_1_results_a53a1a91b8f91b8c206acf44b01a29cab}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_a2571bb4f6789430a83286b96e0d8059d}{}virtual void {\bfseries Clear\+Results} ()\label{class_crowdsourcing_models_1_1_results_a2571bb4f6789430a83286b96e0d8059d}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_a34576e53d2a70c54862fa350f0cb87d7}{}virtual void {\bfseries Update\+Results} (\hyperlink{class_crowdsourcing_models_1_1_b_c_c_posteriors}{B\+C\+C\+Posteriors} posteriors, \hyperlink{namespace_crowdsourcing_models_ac2299b85781ea82aa2c8850723c8a063}{Run\+Mode} mode)\label{class_crowdsourcing_models_1_1_results_a34576e53d2a70c54862fa350f0cb87d7}
+
+\item 
+virtual void \hyperlink{class_crowdsourcing_models_1_1_results_aabeef9fdac232ed2f8a904f3c15d2e0e}{Update\+Accuracy} ()
+\begin{DoxyCompactList}\small\item\em Updates the accuracy using the current results. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Dictionary$<$ string, Discrete $>$ \hyperlink{class_crowdsourcing_models_1_1_results_a140d71795dcea434130891de21d6747b}{True\+Label}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The posterior of the true label for each task. \end{DoxyCompactList}\item 
+Dictionary$<$ string, Discrete $>$ \hyperlink{class_crowdsourcing_models_1_1_results_afc8f124040ec1cb49c569bae611aaa93}{Look\+Ahead\+True\+Label}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The predicted label for each task when doing simulations from the current model state. It avoids overwriting the true label posterior. \end{DoxyCompactList}\item 
+Dictionary$<$ string, Discrete $>$ \hyperlink{class_crowdsourcing_models_1_1_results_a63c41834f4a0f9ecf4403594ae2f2cdc}{True\+Label\+Constraint}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The posterior for the constraint that allows online learning for the true label variable. \end{DoxyCompactList}\item 
+Dictionary$<$ string, int?$>$ \hyperlink{class_crowdsourcing_models_1_1_results_ae5a5447d6999e2afe99d68dfa839daa5}{Predicted\+Label}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The predicted label for each task \end{DoxyCompactList}\item 
+Dirichlet \hyperlink{class_crowdsourcing_models_1_1_results_ae14a29a61a13b39d0de986a4c7045df4}{Background\+Label\+Prob}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The probabilities that generate the true label of all the tasks. \end{DoxyCompactList}\item 
+Dictionary$<$ string, Dirichlet\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_crowdsourcing_models_1_1_results_aeacd6050969e57759ccefe7760abfdff}{Worker\+Confusion\+Matrix}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The posterior of the confusion matrix of each worker. \end{DoxyCompactList}\item 
+Dictionary$<$ string, Vector\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_crowdsourcing_models_1_1_results_a3f83c2aa1c8067278b72de879e2683df}{Worker\+Confusion\+Matrix\+Mean}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The mean of the posterior of the confusion matrix of each worker. \end{DoxyCompactList}\item 
+Dictionary$<$ string, Dirichlet\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_crowdsourcing_models_1_1_results_a8c9bb0c3660f32404b453c169bb4e2e3}{Look\+Ahead\+Worker\+Confusion\+Matrix}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The look-\/ahead posterior of the confusion matrix of each worker obtained after simulating a new label in look-\/ahead run mode. \end{DoxyCompactList}\item 
+Dictionary$<$ string, Dictionary$<$ string, Discrete $>$ $>$ \hyperlink{class_crowdsourcing_models_1_1_results_ade5b969fe6b048391a8da32cc1f9a113}{Worker\+Prediction}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The predictive probabilities of the labels produced by each worker. \end{DoxyCompactList}\item 
+Dictionary$<$ string, Discrete $>$ \hyperlink{class_crowdsourcing_models_1_1_results_a898393862d585cafb14aa6a2d617641e}{Worker\+Community}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The community membership probabilities of each worker. \end{DoxyCompactList}\item 
+Dirichlet\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_results_ad0d0152603265575be53ab612f892b6e}{Community\+Confusion\+Matrix}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The confusion matrix of each community. \end{DoxyCompactList}\item 
+Vector\+Gaussian\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_results_ac7537fa71a408a747852b7970805dc91}{Community\+Score\+Matrix}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The score matrix of each community. \end{DoxyCompactList}\item 
+Dictionary$<$ string, Vector\+Gaussian\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_crowdsourcing_models_1_1_results_acf297b7ce2319208a4875c77ca6aa535}{Worker\+Score\+Matrix\+Constraint}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The posterior for the constraint that allows online learning for worker confusion matrices int the community model. \end{DoxyCompactList}\item 
+Dirichlet \hyperlink{class_crowdsourcing_models_1_1_results_af44b21781d8413575f1196752ec04851}{Community\+Prob}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The probabilities that generate the community memberships of all the workers. \end{DoxyCompactList}\item 
+Dictionary$<$ string, Discrete $>$ \hyperlink{class_crowdsourcing_models_1_1_results_a71e11daa6e177bb987bb488c576e5ac5}{Community\+Constraint}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The posterior for the constraint that allows online learning for community membership. int the community model. \end{DoxyCompactList}\item 
+Bernoulli \hyperlink{class_crowdsourcing_models_1_1_results_ad7d3df074d2f06c1d4c979a03b371e98}{Model\+Evidence}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Model evidence. \end{DoxyCompactList}\item 
+\hyperlink{class_crowdsourcing_models_1_1_data_mapping}{Data\+Mapping} \hyperlink{class_crowdsourcing_models_1_1_results_ad5b164d844e8bace19604f8cf056e4fe}{Mapping}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The data mapping. \end{DoxyCompactList}\item 
+\hyperlink{class_crowdsourcing_models_1_1_data_mapping}{Data\+Mapping} \hyperlink{class_crowdsourcing_models_1_1_results_a8ec786eadd78965d983b08cc44a650dc}{Full\+Mapping}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The full data mapping. \end{DoxyCompactList}\item 
+Dictionary$<$ string, int?$>$ \hyperlink{class_crowdsourcing_models_1_1_results_a25fe8942765452821d24ed2b7fe9a472}{Gold\+Labels}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The gold labels of each task. The gold label type is nullable to support the (usual) situation where the is no labels. \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_models_1_1_results_a0ae7118c643ec96ed7cf4f05db48c562}{Accuracy}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The accuracy of the current true label predictions. \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_models_1_1_results_aab75338f84a6d1110365817b68691d4f}{Worker\+Label\+Accuracy}\hspace{0.3cm}{\ttfamily  \mbox{[}get, protected set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The accuracy of the worker labels. \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_models_1_1_results_a61808b2f35c5c4f739ed37eef609bfef}{Negative\+Log\+Prob}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The negative log probability density (N\+L\+P\+D) scores of the current true label predictions. \end{DoxyCompactList}\item 
+double \hyperlink{class_crowdsourcing_models_1_1_results_a578be0205d443ac94124b8f7b89caa74}{Avg\+Recall}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The average recall of the current true label predictions. \end{DoxyCompactList}\item 
+double\mbox{[},\mbox{]} \hyperlink{class_crowdsourcing_models_1_1_results_a3743219650ac6c051e146aa6c628da13}{Model\+Confusion\+Matrix}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The confusion matrix of the predicted true labels against the gold labels The rows are the gold labels and the columns are the predicted labels. \end{DoxyCompactList}\item 
+bool \hyperlink{class_crowdsourcing_models_1_1_results_a87952670327f4e18a4183dab7238c3d4}{Is\+Community\+Model}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Flags whether the model instance is \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} (true) or \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} (false). \end{DoxyCompactList}\item 
+bool \hyperlink{class_crowdsourcing_models_1_1_results_a9b530081d9a4d406f071c7a3e8e3fb71}{Is\+Time\+Model}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Flags whether the model instance is a \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} time model (true) or not (false). \end{DoxyCompactList}\item 
+bool \hyperlink{class_crowdsourcing_models_1_1_results_a0ddff489da9fc4daab54d8fcc7163acb}{Is\+Time\+Multimode\+Model}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Flags whether the model instance is a \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} time model (true) or not (false). \end{DoxyCompactList}\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_a73c4db10877ad67456a71f60dc687188}{}bool {\bfseries Is\+Time\+Task\+Propensity\+Model}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_crowdsourcing_models_1_1_results_a73c4db10877ad67456a71f60dc687188}
+
+\item 
+int \hyperlink{class_crowdsourcing_models_1_1_results_a90fd0653bd49b69cc9f12ad7cfb3fa9c}{Community\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The number of communities. \end{DoxyCompactList}\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_ab48ec731c1dcda12ec18ee13e17ac818}{}\hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_confusion_matrix}{Confusion\+Matrix} {\bfseries Results\+Confusion\+Matrix\+For\+Binary\+Labels}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_crowdsourcing_models_1_1_results_ab48ec731c1dcda12ec18ee13e17ac818}
+
+\item 
+\hypertarget{class_crowdsourcing_models_1_1_results_a03c2364d9fbe636cc9d3889ff32dc60d}{}\hyperlink{class_crowdsourcing_project_1_1_statistics_1_1_receiver_operating_characteristic}{Receiver\+Operating\+Characteristic} {\bfseries Roc\+Curve}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_crowdsourcing_models_1_1_results_a03c2364d9fbe636cc9d3889ff32dc60d}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_crowdsourcing_models_1_1_results}{Results} class containing posteriors and predictions. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_results_addf80aff1622db41d84d077d9aaddfbb}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Get\+Confusion\+Matrices@{Get\+Confusion\+Matrices}}
+\index{Get\+Confusion\+Matrices@{Get\+Confusion\+Matrices}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Get\+Confusion\+Matrices(string worker\+Id="""", int community\+Index=-\/1)}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[},\mbox{]} Crowdsourcing\+Models.\+Results.\+Get\+Confusion\+Matrices (
+\begin{DoxyParamCaption}
+\item[{string}]{worker\+Id = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{int}]{community\+Index = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_results_addf80aff1622db41d84d077d9aaddfbb}
+
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker\+Id} & if the worker\+Id is null and community\+Index $>$ -\/1, return the community confusion matrix; otherwise return the worker confusion matrix\\
+\hline
+{\em community\+Index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_results_aa9600574fa6802c4a2703ecc1e27d73a}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!get\+Task\+True\+Label@{get\+Task\+True\+Label}}
+\index{get\+Task\+True\+Label@{get\+Task\+True\+Label}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{get\+Task\+True\+Label(string task\+Id)}]{\setlength{\rightskip}{0pt plus 5cm}Discrete Crowdsourcing\+Models.\+Results.\+get\+Task\+True\+Label (
+\begin{DoxyParamCaption}
+\item[{string}]{task\+Id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_results_aa9600574fa6802c4a2703ecc1e27d73a}
+
+
+Get True Label values of the given task\+Id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_results_a1b0640e55fe37434f6afb2baad374519}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Run\+Dawid\+Skene@{Run\+Dawid\+Skene}}
+\index{Run\+Dawid\+Skene@{Run\+Dawid\+Skene}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Run\+Dawid\+Skene(\+I\+List$<$ Datum $>$ data, I\+List$<$ Datum $>$ full\+Data, bool calculate\+Accuracy)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Results} Crowdsourcing\+Models.\+Results.\+Run\+Dawid\+Skene (
+\begin{DoxyParamCaption}
+\item[{I\+List$<$ {\bf Datum} $>$}]{data, }
+\item[{I\+List$<$ {\bf Datum} $>$}]{full\+Data, }
+\item[{bool}]{calculate\+Accuracy}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_results_a1b0640e55fe37434f6afb2baad374519}
+
+
+Run Dawid-\/\+Skene on the data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data.\\
+\hline
+{\em calculate\+Accuracy} & Whether to calculate accuracy\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A results instance
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_results_a9675f99c4cd7bfbe2229bc779fd1fab3}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Run\+Majority\+Vote@{Run\+Majority\+Vote}}
+\index{Run\+Majority\+Vote@{Run\+Majority\+Vote}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Run\+Majority\+Vote(\+I\+List$<$ Datum $>$ data, I\+List$<$ Datum $>$ full\+Data, bool calculate\+Accuracy, bool use\+Vote\+Distribution)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Results} Crowdsourcing\+Models.\+Results.\+Run\+Majority\+Vote (
+\begin{DoxyParamCaption}
+\item[{I\+List$<$ {\bf Datum} $>$}]{data, }
+\item[{I\+List$<$ {\bf Datum} $>$}]{full\+Data, }
+\item[{bool}]{calculate\+Accuracy, }
+\item[{bool}]{use\+Vote\+Distribution}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_crowdsourcing_models_1_1_results_a9675f99c4cd7bfbe2229bc779fd1fab3}
+
+
+Runs the majority vote method on the data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data\\
+\hline
+{\em calculate\+Accuracy} & Compute the accuracy (true).\\
+\hline
+{\em use\+Vote\+Distribution} & The true label is sampled from the vote distribution (true) or it is taken as the mode of the vote counts (false). In the latter case, ties are broken by sampling from the most voted classes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated results
+\end{DoxyReturn}
+\hypertarget{class_crowdsourcing_models_1_1_results_aabeef9fdac232ed2f8a904f3c15d2e0e}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Update\+Accuracy@{Update\+Accuracy}}
+\index{Update\+Accuracy@{Update\+Accuracy}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Update\+Accuracy()}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crowdsourcing\+Models.\+Results.\+Update\+Accuracy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\label{class_crowdsourcing_models_1_1_results_aabeef9fdac232ed2f8a904f3c15d2e0e}
+
+
+Updates the accuracy using the current results. 
+
+
+
+\subsection{Property Documentation}
+\hypertarget{class_crowdsourcing_models_1_1_results_a0ae7118c643ec96ed7cf4f05db48c562}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Accuracy@{Accuracy}}
+\index{Accuracy@{Accuracy}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Models.\+Results.\+Accuracy\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_results_a0ae7118c643ec96ed7cf4f05db48c562}
+
+
+The accuracy of the current true label predictions. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a578be0205d443ac94124b8f7b89caa74}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Avg\+Recall@{Avg\+Recall}}
+\index{Avg\+Recall@{Avg\+Recall}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Avg\+Recall}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Models.\+Results.\+Avg\+Recall\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_results_a578be0205d443ac94124b8f7b89caa74}
+
+
+The average recall of the current true label predictions. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_ae14a29a61a13b39d0de986a4c7045df4}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Background\+Label\+Prob@{Background\+Label\+Prob}}
+\index{Background\+Label\+Prob@{Background\+Label\+Prob}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Background\+Label\+Prob}]{\setlength{\rightskip}{0pt plus 5cm}Dirichlet Crowdsourcing\+Models.\+Results.\+Background\+Label\+Prob\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_ae14a29a61a13b39d0de986a4c7045df4}
+
+
+The probabilities that generate the true label of all the tasks. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_ad0d0152603265575be53ab612f892b6e}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Community\+Confusion\+Matrix@{Community\+Confusion\+Matrix}}
+\index{Community\+Confusion\+Matrix@{Community\+Confusion\+Matrix}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Community\+Confusion\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Dirichlet \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Results.\+Community\+Confusion\+Matrix\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_ad0d0152603265575be53ab612f892b6e}
+
+
+The confusion matrix of each community. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a71e11daa6e177bb987bb488c576e5ac5}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Community\+Constraint@{Community\+Constraint}}
+\index{Community\+Constraint@{Community\+Constraint}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Community\+Constraint}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, Discrete$>$ Crowdsourcing\+Models.\+Results.\+Community\+Constraint\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_a71e11daa6e177bb987bb488c576e5ac5}
+
+
+The posterior for the constraint that allows online learning for community membership. int the community model. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a90fd0653bd49b69cc9f12ad7cfb3fa9c}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Community\+Count@{Community\+Count}}
+\index{Community\+Count@{Community\+Count}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Community\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int Crowdsourcing\+Models.\+Results.\+Community\+Count\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_results_a90fd0653bd49b69cc9f12ad7cfb3fa9c}
+
+
+The number of communities. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_af44b21781d8413575f1196752ec04851}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Community\+Prob@{Community\+Prob}}
+\index{Community\+Prob@{Community\+Prob}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Community\+Prob}]{\setlength{\rightskip}{0pt plus 5cm}Dirichlet Crowdsourcing\+Models.\+Results.\+Community\+Prob\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_af44b21781d8413575f1196752ec04851}
+
+
+The probabilities that generate the community memberships of all the workers. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_ac7537fa71a408a747852b7970805dc91}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Community\+Score\+Matrix@{Community\+Score\+Matrix}}
+\index{Community\+Score\+Matrix@{Community\+Score\+Matrix}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Community\+Score\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Vector\+Gaussian \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Crowdsourcing\+Models.\+Results.\+Community\+Score\+Matrix\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_ac7537fa71a408a747852b7970805dc91}
+
+
+The score matrix of each community. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a8ec786eadd78965d983b08cc44a650dc}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Full\+Mapping@{Full\+Mapping}}
+\index{Full\+Mapping@{Full\+Mapping}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Full\+Mapping}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data\+Mapping} Crowdsourcing\+Models.\+Results.\+Full\+Mapping\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_crowdsourcing_models_1_1_results_a8ec786eadd78965d983b08cc44a650dc}
+
+
+The full data mapping. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a25fe8942765452821d24ed2b7fe9a472}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Gold\+Labels@{Gold\+Labels}}
+\index{Gold\+Labels@{Gold\+Labels}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Gold\+Labels}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, int?$>$ Crowdsourcing\+Models.\+Results.\+Gold\+Labels\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_a25fe8942765452821d24ed2b7fe9a472}
+
+
+The gold labels of each task. The gold label type is nullable to support the (usual) situation where the is no labels. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a87952670327f4e18a4183dab7238c3d4}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Is\+Community\+Model@{Is\+Community\+Model}}
+\index{Is\+Community\+Model@{Is\+Community\+Model}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Is\+Community\+Model}]{\setlength{\rightskip}{0pt plus 5cm}bool Crowdsourcing\+Models.\+Results.\+Is\+Community\+Model\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_results_a87952670327f4e18a4183dab7238c3d4}
+
+
+Flags whether the model instance is \hyperlink{class_crowdsourcing_models_1_1_c_b_c_c}{C\+B\+C\+C} (true) or \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} (false). 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a9b530081d9a4d406f071c7a3e8e3fb71}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Is\+Time\+Model@{Is\+Time\+Model}}
+\index{Is\+Time\+Model@{Is\+Time\+Model}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Is\+Time\+Model}]{\setlength{\rightskip}{0pt plus 5cm}bool Crowdsourcing\+Models.\+Results.\+Is\+Time\+Model\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_results_a9b530081d9a4d406f071c7a3e8e3fb71}
+
+
+Flags whether the model instance is a \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} time model (true) or not (false). 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a0ddff489da9fc4daab54d8fcc7163acb}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Is\+Time\+Multimode\+Model@{Is\+Time\+Multimode\+Model}}
+\index{Is\+Time\+Multimode\+Model@{Is\+Time\+Multimode\+Model}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Is\+Time\+Multimode\+Model}]{\setlength{\rightskip}{0pt plus 5cm}bool Crowdsourcing\+Models.\+Results.\+Is\+Time\+Multimode\+Model\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_results_a0ddff489da9fc4daab54d8fcc7163acb}
+
+
+Flags whether the model instance is a \hyperlink{class_crowdsourcing_models_1_1_b_c_c}{B\+C\+C} time model (true) or not (false). 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_afc8f124040ec1cb49c569bae611aaa93}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Look\+Ahead\+True\+Label@{Look\+Ahead\+True\+Label}}
+\index{Look\+Ahead\+True\+Label@{Look\+Ahead\+True\+Label}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Look\+Ahead\+True\+Label}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, Discrete$>$ Crowdsourcing\+Models.\+Results.\+Look\+Ahead\+True\+Label\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_afc8f124040ec1cb49c569bae611aaa93}
+
+
+The predicted label for each task when doing simulations from the current model state. It avoids overwriting the true label posterior. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a8c9bb0c3660f32404b453c169bb4e2e3}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Look\+Ahead\+Worker\+Confusion\+Matrix@{Look\+Ahead\+Worker\+Confusion\+Matrix}}
+\index{Look\+Ahead\+Worker\+Confusion\+Matrix@{Look\+Ahead\+Worker\+Confusion\+Matrix}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Look\+Ahead\+Worker\+Confusion\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, Dirichlet\mbox{[}$\,$\mbox{]}$>$ Crowdsourcing\+Models.\+Results.\+Look\+Ahead\+Worker\+Confusion\+Matrix\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_a8c9bb0c3660f32404b453c169bb4e2e3}
+
+
+The look-\/ahead posterior of the confusion matrix of each worker obtained after simulating a new label in look-\/ahead run mode. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_ad5b164d844e8bace19604f8cf056e4fe}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Mapping@{Mapping}}
+\index{Mapping@{Mapping}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Mapping}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data\+Mapping} Crowdsourcing\+Models.\+Results.\+Mapping\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{class_crowdsourcing_models_1_1_results_ad5b164d844e8bace19604f8cf056e4fe}
+
+
+The data mapping. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a3743219650ac6c051e146aa6c628da13}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Model\+Confusion\+Matrix@{Model\+Confusion\+Matrix}}
+\index{Model\+Confusion\+Matrix@{Model\+Confusion\+Matrix}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Model\+Confusion\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[},\mbox{]} Crowdsourcing\+Models.\+Results.\+Model\+Confusion\+Matrix\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_results_a3743219650ac6c051e146aa6c628da13}
+
+
+The confusion matrix of the predicted true labels against the gold labels The rows are the gold labels and the columns are the predicted labels. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_ad7d3df074d2f06c1d4c979a03b371e98}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Model\+Evidence@{Model\+Evidence}}
+\index{Model\+Evidence@{Model\+Evidence}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Model\+Evidence}]{\setlength{\rightskip}{0pt plus 5cm}Bernoulli Crowdsourcing\+Models.\+Results.\+Model\+Evidence\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_ad7d3df074d2f06c1d4c979a03b371e98}
+
+
+Model evidence. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a61808b2f35c5c4f739ed37eef609bfef}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Negative\+Log\+Prob@{Negative\+Log\+Prob}}
+\index{Negative\+Log\+Prob@{Negative\+Log\+Prob}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Negative\+Log\+Prob}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Models.\+Results.\+Negative\+Log\+Prob\hspace{0.3cm}{\ttfamily [get]}}\label{class_crowdsourcing_models_1_1_results_a61808b2f35c5c4f739ed37eef609bfef}
+
+
+The negative log probability density (N\+L\+P\+D) scores of the current true label predictions. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_ae5a5447d6999e2afe99d68dfa839daa5}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Predicted\+Label@{Predicted\+Label}}
+\index{Predicted\+Label@{Predicted\+Label}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Predicted\+Label}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, int?$>$ Crowdsourcing\+Models.\+Results.\+Predicted\+Label\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_ae5a5447d6999e2afe99d68dfa839daa5}
+
+
+The predicted label for each task 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a140d71795dcea434130891de21d6747b}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!True\+Label@{True\+Label}}
+\index{True\+Label@{True\+Label}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{True\+Label}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, Discrete$>$ Crowdsourcing\+Models.\+Results.\+True\+Label\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_a140d71795dcea434130891de21d6747b}
+
+
+The posterior of the true label for each task. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a63c41834f4a0f9ecf4403594ae2f2cdc}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!True\+Label\+Constraint@{True\+Label\+Constraint}}
+\index{True\+Label\+Constraint@{True\+Label\+Constraint}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{True\+Label\+Constraint}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, Discrete$>$ Crowdsourcing\+Models.\+Results.\+True\+Label\+Constraint\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_a63c41834f4a0f9ecf4403594ae2f2cdc}
+
+
+The posterior for the constraint that allows online learning for the true label variable. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a898393862d585cafb14aa6a2d617641e}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Worker\+Community@{Worker\+Community}}
+\index{Worker\+Community@{Worker\+Community}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Worker\+Community}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, Discrete$>$ Crowdsourcing\+Models.\+Results.\+Worker\+Community\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_a898393862d585cafb14aa6a2d617641e}
+
+
+The community membership probabilities of each worker. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_aeacd6050969e57759ccefe7760abfdff}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Worker\+Confusion\+Matrix@{Worker\+Confusion\+Matrix}}
+\index{Worker\+Confusion\+Matrix@{Worker\+Confusion\+Matrix}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Worker\+Confusion\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, Dirichlet\mbox{[}$\,$\mbox{]}$>$ Crowdsourcing\+Models.\+Results.\+Worker\+Confusion\+Matrix\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_aeacd6050969e57759ccefe7760abfdff}
+
+
+The posterior of the confusion matrix of each worker. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_a3f83c2aa1c8067278b72de879e2683df}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Worker\+Confusion\+Matrix\+Mean@{Worker\+Confusion\+Matrix\+Mean}}
+\index{Worker\+Confusion\+Matrix\+Mean@{Worker\+Confusion\+Matrix\+Mean}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Worker\+Confusion\+Matrix\+Mean}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, Vector\mbox{[}$\,$\mbox{]}$>$ Crowdsourcing\+Models.\+Results.\+Worker\+Confusion\+Matrix\+Mean\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_a3f83c2aa1c8067278b72de879e2683df}
+
+
+The mean of the posterior of the confusion matrix of each worker. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_aab75338f84a6d1110365817b68691d4f}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Worker\+Label\+Accuracy@{Worker\+Label\+Accuracy}}
+\index{Worker\+Label\+Accuracy@{Worker\+Label\+Accuracy}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Worker\+Label\+Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double Crowdsourcing\+Models.\+Results.\+Worker\+Label\+Accuracy\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_aab75338f84a6d1110365817b68691d4f}
+
+
+The accuracy of the worker labels. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_ade5b969fe6b048391a8da32cc1f9a113}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Worker\+Prediction@{Worker\+Prediction}}
+\index{Worker\+Prediction@{Worker\+Prediction}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Worker\+Prediction}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, Dictionary$<$string, Discrete$>$ $>$ Crowdsourcing\+Models.\+Results.\+Worker\+Prediction\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_ade5b969fe6b048391a8da32cc1f9a113}
+
+
+The predictive probabilities of the labels produced by each worker. 
+
+\hypertarget{class_crowdsourcing_models_1_1_results_acf297b7ce2319208a4875c77ca6aa535}{}\index{Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}!Worker\+Score\+Matrix\+Constraint@{Worker\+Score\+Matrix\+Constraint}}
+\index{Worker\+Score\+Matrix\+Constraint@{Worker\+Score\+Matrix\+Constraint}!Crowdsourcing\+Models\+::\+Results@{Crowdsourcing\+Models\+::\+Results}}
+\subsubsection[{Worker\+Score\+Matrix\+Constraint}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<$string, Vector\+Gaussian\mbox{[}$\,$\mbox{]}$>$ Crowdsourcing\+Models.\+Results.\+Worker\+Score\+Matrix\+Constraint\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [protected set]}}\label{class_crowdsourcing_models_1_1_results_acf297b7ce2319208a4875c77ca6aa535}
+
+
+The posterior for the constraint that allows online learning for worker confusion matrices int the community model. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Crowdsourcing\+Models/Results.\+cs\end{DoxyCompactItemize}

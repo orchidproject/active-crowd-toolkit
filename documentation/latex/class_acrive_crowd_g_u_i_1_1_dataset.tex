@@ -1,0 +1,113 @@
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset}{}\section{Acrive\+Crowd\+G\+U\+I.\+Dataset Class Reference}
+\label{class_acrive_crowd_g_u_i_1_1_dataset}\index{Acrive\+Crowd\+G\+U\+I.\+Dataset@{Acrive\+Crowd\+G\+U\+I.\+Dataset}}
+
+
+The dataset object  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_aa844383c84c7234b6ccb92c2e7b47855}{}{\bfseries Dataset} (string dataset\+Path, string dataset\+Name)\label{class_acrive_crowd_g_u_i_1_1_dataset_aa844383c84c7234b6ccb92c2e7b47855}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_a7684107c56a87696f52bff99481b7224}{}void {\bfseries Set\+Dataset\+Values} ()\label{class_acrive_crowd_g_u_i_1_1_dataset_a7684107c56a87696f52bff99481b7224}
+
+\item 
+I\+List$<$ \hyperlink{class_crowdsourcing_models_1_1_datum}{Datum} $>$ \hyperlink{class_acrive_crowd_g_u_i_1_1_dataset_ad7e9131a8ec937930d0bdd38789e116a}{Load\+Data} ()
+\begin{DoxyCompactList}\small\item\em Load Data from Active\+Learning \end{DoxyCompactList}\item 
+string \hyperlink{class_acrive_crowd_g_u_i_1_1_dataset_a562236dd794b35311b60cc873db244b3}{Get\+Data\+Set\+Name\+Without\+Extension} ()
+\begin{DoxyCompactList}\small\item\em Get the dataset name without extension, used for running Run\+Parallel\+Active\+Learning in the Active\+Learning Class \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{class_acrive_crowd_g_u_i_1_1_dataset_a40450b38294ea53158ed5b0ab78005b0}{Get\+Label\+Starting\+Points} ()
+\begin{DoxyCompactList}\small\item\em Get a label\+Starting\+Points for initialing the starting point of the \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} \end{DoxyCompactList}\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_adfb9d461e0f2f483aee74fe4ff6b112e}{}override string {\bfseries To\+String} ()\label{class_acrive_crowd_g_u_i_1_1_dataset_adfb9d461e0f2f483aee74fe4ff6b112e}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_a88eac9f9843ece221b66d6b15f459bb4}{}string {\bfseries Dataset\+Path}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_acrive_crowd_g_u_i_1_1_dataset_a88eac9f9843ece221b66d6b15f459bb4}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_a3cfd275d7a006364c300bdcf633cd9c0}{}string {\bfseries Dataset\+Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_acrive_crowd_g_u_i_1_1_dataset_a3cfd275d7a006364c300bdcf633cd9c0}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_ad63e089b80a39fa11aba48c19f430c5e}{}int {\bfseries Dataset\+Index}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_acrive_crowd_g_u_i_1_1_dataset_ad63e089b80a39fa11aba48c19f430c5e}
+
+\item 
+int \hyperlink{class_acrive_crowd_g_u_i_1_1_dataset_a1ccbc40382a7908c5e7e97761895b321}{Maximum\+Of\+Labelling\+Round}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The maximum number of labelling rounds of the dataset \end{DoxyCompactList}\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_ab9c7103513705f2cab4d0943742137fb}{}int {\bfseries total\+Number\+Of\+Labelling\+Rows}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_acrive_crowd_g_u_i_1_1_dataset_ab9c7103513705f2cab4d0943742137fb}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_a02b6a052c41e1d6a483d84094be3ab08}{}int {\bfseries total\+Number\+Of\+Tasks}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_acrive_crowd_g_u_i_1_1_dataset_a02b6a052c41e1d6a483d84094be3ab08}
+
+\item 
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_a66883a4494d6c978003ca2abfe0ad91a}{}int {\bfseries number\+Of\+Worker\+Labels}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_acrive_crowd_g_u_i_1_1_dataset_a66883a4494d6c978003ca2abfe0ad91a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The dataset object 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_a562236dd794b35311b60cc873db244b3}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Dataset@{Acrive\+Crowd\+G\+U\+I\+::\+Dataset}!Get\+Data\+Set\+Name\+Without\+Extension@{Get\+Data\+Set\+Name\+Without\+Extension}}
+\index{Get\+Data\+Set\+Name\+Without\+Extension@{Get\+Data\+Set\+Name\+Without\+Extension}!Acrive\+Crowd\+G\+U\+I\+::\+Dataset@{Acrive\+Crowd\+G\+U\+I\+::\+Dataset}}
+\subsubsection[{Get\+Data\+Set\+Name\+Without\+Extension()}]{\setlength{\rightskip}{0pt plus 5cm}string Acrive\+Crowd\+G\+U\+I.\+Dataset.\+Get\+Data\+Set\+Name\+Without\+Extension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_dataset_a562236dd794b35311b60cc873db244b3}
+
+
+Get the dataset name without extension, used for running Run\+Parallel\+Active\+Learning in the Active\+Learning Class 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_a40450b38294ea53158ed5b0ab78005b0}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Dataset@{Acrive\+Crowd\+G\+U\+I\+::\+Dataset}!Get\+Label\+Starting\+Points@{Get\+Label\+Starting\+Points}}
+\index{Get\+Label\+Starting\+Points@{Get\+Label\+Starting\+Points}!Acrive\+Crowd\+G\+U\+I\+::\+Dataset@{Acrive\+Crowd\+G\+U\+I\+::\+Dataset}}
+\subsubsection[{Get\+Label\+Starting\+Points()}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} Acrive\+Crowd\+G\+U\+I.\+Dataset.\+Get\+Label\+Starting\+Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_dataset_a40450b38294ea53158ed5b0ab78005b0}
+
+
+Get a label\+Starting\+Points for initialing the starting point of the \hyperlink{class_acrive_crowd_g_u_i_1_1_experiment_model}{Experiment\+Model} 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_ad7e9131a8ec937930d0bdd38789e116a}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Dataset@{Acrive\+Crowd\+G\+U\+I\+::\+Dataset}!Load\+Data@{Load\+Data}}
+\index{Load\+Data@{Load\+Data}!Acrive\+Crowd\+G\+U\+I\+::\+Dataset@{Acrive\+Crowd\+G\+U\+I\+::\+Dataset}}
+\subsubsection[{Load\+Data()}]{\setlength{\rightskip}{0pt plus 5cm}I\+List$<${\bf Datum}$>$ Acrive\+Crowd\+G\+U\+I.\+Dataset.\+Load\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_acrive_crowd_g_u_i_1_1_dataset_ad7e9131a8ec937930d0bdd38789e116a}
+
+
+Load Data from Active\+Learning 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_acrive_crowd_g_u_i_1_1_dataset_a1ccbc40382a7908c5e7e97761895b321}{}\index{Acrive\+Crowd\+G\+U\+I\+::\+Dataset@{Acrive\+Crowd\+G\+U\+I\+::\+Dataset}!Maximum\+Of\+Labelling\+Round@{Maximum\+Of\+Labelling\+Round}}
+\index{Maximum\+Of\+Labelling\+Round@{Maximum\+Of\+Labelling\+Round}!Acrive\+Crowd\+G\+U\+I\+::\+Dataset@{Acrive\+Crowd\+G\+U\+I\+::\+Dataset}}
+\subsubsection[{Maximum\+Of\+Labelling\+Round}]{\setlength{\rightskip}{0pt plus 5cm}int Acrive\+Crowd\+G\+U\+I.\+Dataset.\+Maximum\+Of\+Labelling\+Round\hspace{0.3cm}{\ttfamily [get]}}\label{class_acrive_crowd_g_u_i_1_1_dataset_a1ccbc40382a7908c5e7e97761895b321}
+
+
+The maximum number of labelling rounds of the dataset 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Matteo/\+Source/\+Repos/active-\/crowd/\+Active\+Crowd\+G\+U\+I/Dataset.\+cs\end{DoxyCompactItemize}

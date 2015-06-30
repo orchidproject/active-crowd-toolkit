@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['activelearning',['ActiveLearning',['../class_crowdsourcing_models_1_1_active_learning.html#aef1d1c747eea4e3171b37781023e3ec4',1,'CrowdsourcingModels::ActiveLearning']]],
+  ['aggregateresults',['AggregateResults',['../class_crowdsourcing_models_1_1_active_crowd_toolkit_experiment.html#aed18fc802fcb10cb4e36e1d87aa1f47f',1,'CrowdsourcingModels::ActiveCrowdToolkitExperiment']]],
+  ['attachdata',['AttachData',['../class_crowdsourcing_models_1_1_b_c_c.html#af3806b7091a6bcc0116e3c8619d42daf',1,'CrowdsourcingModels.BCC.AttachData(int[][] taskIndices, int[][] workerLabels)'],['../class_crowdsourcing_models_1_1_b_c_c.html#ab40b3e7f5bd90c85672fb927a16f5fd6',1,'CrowdsourcingModels.BCC.AttachData(int[][] taskIndices, int[][] workerLabels, Dirichlet[][] confusionMatrixPrior)'],['../class_crowdsourcing_models_1_1_c_b_c_c.html#a768dbc90e6215dafc03e3bab5df4eb5c',1,'CrowdsourcingModels.CBCC.AttachData(int[][] taskIndices, int[][] workerLabels)'],['../class_crowdsourcing_models_1_1_c_b_c_c.html#a466df8df2843675faf22a20531a8e54d',1,'CrowdsourcingModels.CBCC.AttachData(int[][] taskIndices, int[][] workerLabels, VectorGaussian[][] scoreConstraint, Discrete[] communityConstraint)']]]
+];
