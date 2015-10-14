@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Authors: Julian Urbano and Panos Ipeirotis
+//
+// The original version of this code is available at: https://code.google.com/p/get-another-label-dotnet/
+
+using System;
 
 namespace GetAnotherLabel
 {
