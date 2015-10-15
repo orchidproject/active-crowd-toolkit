@@ -212,6 +212,11 @@ namespace CrowdsourcingModels
               }).ToDictionary(tup => tup.Item1, tup => tup.Item2);
         }
 
+        /// <summary>
+        /// Return the labels in a random order.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <returns></returns>
         public Dictionary<string, int?> GetRandomLabelPerTaskId(IList<Datum> data)
         {
             // Labels are returned as indexed by task index
@@ -225,6 +230,10 @@ namespace CrowdsourcingModels
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public int?[] GetGoldLabelsPerTaskIndex()
         {
             // Gold labels that are not consistent are returned as null
@@ -247,6 +256,11 @@ namespace CrowdsourcingModels
               }).ToArray();
         }
 
+        /// <summary>
+        /// Return the time spent on the tasks (in seconds) for each worker.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <returns></returns>
         public double[][] GetTimeSpentPerWorkerIndex(IEnumerable<Datum> data)
         {
             //return data.GroupBy(d => WorkerIdToIndex[d.WorkerId]).OrderBy(g => g.Key).Select(g1 => g1.Select(d => d.WorkerLabel - LabelMin).ToArray()).ToArray();
@@ -260,8 +274,7 @@ namespace CrowdsourcingModels
             return result;
         }
         
-
-        public List<Datum> BuildDataFromAssignedLabels(Dictionary<string, int?> AssignedLabels, IList<Datum> OriginalData)
+        private List<Datum> BuildDataFromAssignedLabels(Dictionary<string, int?> AssignedLabels, IList<Datum> OriginalData)
         {
             List<Datum> data = new List<Datum>();
             string firstWorkerId =WorkerIndexToId[0];

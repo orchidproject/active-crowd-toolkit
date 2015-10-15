@@ -88,7 +88,7 @@ namespace CrowdsourcingModels
             isExperimentCompleted = false;
 
 
-            /// Builds the full matrix of data from every task and worker
+            // Builds the full matrix of data from every task and worker
             PredictionData = new List<Datum>();
 
         }
@@ -127,6 +127,7 @@ namespace CrowdsourcingModels
         /// <param name="resultsDir">The directory to save the log files.</param>
         /// <param name="communityCount">The number of communities (only for CBCC).</param>
         /// <param name="initialNumLabelsPerTask">The initial number of exploratory labels that are randomly selected for each task.</param>
+        /// <param name="numIncremData">The number of data points to add at each round.</param>
         public static void RunActiveLearning(
             IList<Datum> data,
             string modelName,
@@ -231,10 +232,7 @@ namespace CrowdsourcingModels
                     activeLearning.UpdateActiveLearningResults(results);
                 }
 
-                ///
-                /// We create a list of task utilities
-                /// 
-
+                // We create a list of task utilities
                 // TaskValue: Dictionary keyed by task, the value is an active learning result.
                 Dictionary<string, ActiveLearningResult> TaskUtility = null;
                 switch (taskSelectionMethod)
@@ -265,9 +263,8 @@ namespace CrowdsourcingModels
                         break;
                 }
 
-                ///
-                /// We create a list of worker utilities
-                ///
+                
+                // We create a list of worker utilities.
                 Dictionary<string, double> WorkerAccuracy = null;
 
                 // Best worker selection is only allowed for methods that infer worker confusion matrices.
@@ -291,9 +288,7 @@ namespace CrowdsourcingModels
                         throw new ApplicationException("No worker selection method selected");
                 }
 
-                ///
-                /// Create a list of tuples <TaskId, WorkerId, ActiveLearningResult>
-                ///
+                // Create a list of tuples (TaskIds, WorkerId, ActiveLearningResult).
                 List<Tuple<string, string, ActiveLearningResult>> LabelValue = new List<Tuple<string,string,ActiveLearningResult>>();
                 foreach (var kvp in TaskUtility)
                 {
@@ -368,7 +363,7 @@ namespace CrowdsourcingModels
         /// <param name="model">The model instance.</param>
         /// <param name="taskSelectionMethod">The method for selecting tasks (Random / Entropy).</param>
         /// <param name="workerSelectionMethod">The method for selecting workers (only Random is implemented).</param>
-        /// <param name="resultsDir">The directory to save the log files.</param>
+        /// <param name="numIncremData">The number of data points to add at each iteration.</param>
         /// <param name="communityCount">The number of communities (only for CBCC).</param>
         /// <param name="initialNumLabelsPerTask">The initial number of exploratory labels that are randomly selected for each task.</param>
         public static void RunParallelActiveLearning(IList<Datum> data,
@@ -441,8 +436,7 @@ namespace CrowdsourcingModels
             ActiveLearning[] activeLearning = new ActiveLearning[numModels];
             isExperimentCompleted = false;
         
-            /// Main loop
-            /// 
+            // Main loop
             for (int iter = 0; ; iter++)
             {
                 bool calculateAccuracy = true;
@@ -453,9 +447,8 @@ namespace CrowdsourcingModels
                     return;
                 
                 }
-                ///
-                /// Run through all the models
-                ///
+
+                // Run all the models
                 for (int indexModel = 0; indexModel < numModels; indexModel++ )
                 {
                     if (subDataArray[indexModel] != null || nextData[indexModel] != null)
@@ -515,9 +508,7 @@ namespace CrowdsourcingModels
                             break;
                     }
 
-                    ///
-                    /// We create a list of worker utilities
-                    ///
+                    // We create a list of worker utilities
                     Dictionary<string, double> WorkerAccuracy = null;
 
                     // Best worker selection is only allowed for methods that infer worker confusion matrices.
@@ -541,9 +532,7 @@ namespace CrowdsourcingModels
                             throw new ApplicationException("No worker selection method selected");
                     }
 
-                    ///
-                    /// Create a list of tuples <TaskId, WorkerId, ActiveLearningResult>
-                    ///
+                    // Create a list of tuples (TaskId, WorkerId, ActiveLearningResult)
                     List<Tuple<string, string, ActiveLearningResult>> LabelValue = new List<Tuple<string, string, ActiveLearningResult>>();
                     foreach (var kvp in TaskUtility)
                     {
@@ -610,7 +599,8 @@ namespace CrowdsourcingModels
         /// <param name="modelName">The model name.</param>
         /// <param name="suffix">The suffix of the csv files.</param>
         /// <param name="resultsDir">The directory to store the csv files.</param>
-        public static void DoSnapshot(List<double> accuracy, List<double> avgRecall, List<ActiveLearningResult> taskValue, Results results, string modelName, string suffix, string resultsDir, int projectInitialNumLabelsPerTask, double lipschitzConstant = -1)
+        /// <param name="projectInitialNumLabelsPerTask">The initial number of exploratory labels for each task.</param>
+        public static void DoSnapshot(List<double> accuracy, List<double> avgRecall, List<ActiveLearningResult> taskValue, Results results, string modelName, string suffix, string resultsDir, int projectInitialNumLabelsPerTask)
         {
             suffix = suffix == "final" ? "" : suffix;
             String new_graph_csv_file_name = String.Format("{2}{0}__graph_{1}_InitialLabels_{3}.csv", modelName, suffix, resultsDir, projectInitialNumLabelsPerTask);
@@ -622,9 +612,8 @@ namespace CrowdsourcingModels
                 writer.WriteLine("Accuracy,AvgRecall");
                 for (int i = 0; i < accArr.Length; i++)
                 {
-                    /// <summary>
-                    /// Edit this print line to get the accuracy printed if the format that you want.
-                    /// </summary>
+
+                    // Edit this print line to get the accuracy printed if the format that you want.
                     writer.WriteLine("{0:0.0000},{1:0.0000}", accArr[i], avgRec[i]); // Accuracy and average recall
                 }
             }
@@ -649,7 +638,8 @@ namespace CrowdsourcingModels
             return data;
         }
 
-        public static List<Datum> GetNextData(
+
+        private static List<Datum> GetNextData(
             Dictionary<string, Datum[]> groupedRandomisedData,
             List<Tuple<string, string, ActiveLearningResult>> labelValue,
             Dictionary<string, int> currentCounts,
@@ -702,8 +692,7 @@ namespace CrowdsourcingModels
                     }
                 }
                 Console.WriteLine("Warning: No labels were found, return a random one");
-                break;
-                //data.Add(GetRandomDatum(groupedRandomisedData, currentCounts, workersPerTask));
+                data.Add(GetRandomDatum(groupedRandomisedData, currentCounts, workersPerTask));
 
                 if (++numAdded >= numIncremData)
                     return data;
@@ -712,7 +701,7 @@ namespace CrowdsourcingModels
         }
 
 
-        public static Datum GetRandomDatum(
+        private static Datum GetRandomDatum(
                 Dictionary<string, Datum[]> groupedRandomisedData,
                 Dictionary<string, int> currentCounts,
                 Dictionary<string, HashSet<string>> workersPerTask)
@@ -732,11 +721,15 @@ namespace CrowdsourcingModels
             return null;
         }
 
-        public static void ResetAccuracyList()
+        private static void ResetAccuracyList()
         {
             accuracy = new List<double>();
         }
 
+        /// <summary>
+        /// Reset the results of all the models running in parallel in active learning mode.
+        /// </summary>
+        /// <param name="numModels"></param>
         public static void ResetParallelAccuracyList(int numModels)
         {
             accuracyArray = Util.ArrayInit<List<double>>(numModels, i => new List<double>());

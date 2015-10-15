@@ -11,6 +11,7 @@ using System.Linq;
 namespace CrowdsourcingModels
 {
 
+    /// <summary>
     /// Results class containing posteriors and predictions.
     /// </summary>
     public class Results
@@ -248,30 +249,6 @@ namespace CrowdsourcingModels
         }
 
         /// <summary>
-        /// Flags whether the model instance is a BCC time model (true) or not (false).
-        /// </summary>
-        public bool IsTimeModel
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Flags whether the model instance is a BCC time model (true) or not (false).
-        /// </summary>
-        public bool IsTimeMultimodeModel
-        {
-            get;
-            private set;
-        }
-
-        public bool IsTimeTaskPropensityModel
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
         /// The number of communities.
         /// </summary>
         public int CommunityCount
@@ -280,12 +257,18 @@ namespace CrowdsourcingModels
             private set;
         }
 
+        /// <summary>
+        /// The confusion matrix of the classification results for binary labels (used for the ROC curve).
+        /// </summary>
         public ConfusionMatrix ResultsConfusionMatrixForBinaryLabels
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// The ROC curve.
+        /// </summary>
         public ReceiverOperatingCharacteristic RocCurve
         {
             get;
@@ -296,6 +279,7 @@ namespace CrowdsourcingModels
         /// Runs the majority vote method on the data.
         /// </summary>
         /// <param name="data">The data</param>
+        /// <param name="fullData">The full data</param>
         /// <param name="calculateAccuracy">Compute the accuracy (true).</param>
         /// <param name="useVoteDistribution">The true label is sampled from the vote distribution (true) or it is
         /// taken as the mode of the vote counts (false).
@@ -327,18 +311,19 @@ namespace CrowdsourcingModels
         /// Run Dawid-Skene on the data.
         /// </summary>
         /// <param name="data">The data.</param>
+        /// <param name="fullData">The full data.</param>
         /// <param name="calculateAccuracy">Whether to calculate accuracy</param>
         /// <returns>A results instance</returns>
         public Results RunDawidSkene(IList<Datum> data, IList<Datum> fullData, bool calculateAccuracy)
         {
+            // If you want to run Dawid-Skene code, download his code, integrate it into
+            // the project, and change false to true below.
+            Console.WriteLine("--- Dawid Skene ---");
             PredictedLabel = new Dictionary<string, int?>();
             Mapping = new DataMapping(data);
-            FullMapping = new DataMapping(fullData);
-            var dataMapping = new DataMapping(data);
-            Mapping = dataMapping;
+            var fullDataMapping = new DataMapping(fullData);
             var labelings = data.Select(d => new Labeling(d.WorkerId, d.TaskId, d.WorkerLabel.ToString(), d.GoldLabel.ToString())).ToList();
             DawidSkene ds = new DawidSkene(labelings, null, null);
-
             // The labels may be in a different order from our data labeling - we need to create a map.
             int[] labelIndexMap = new int[Mapping.LabelCount];
             var dwLabels = ds.classes.Keys.ToArray();
@@ -347,12 +332,11 @@ namespace CrowdsourcingModels
                 labelIndexMap[i] = Array.IndexOf(dwLabels, (i + Mapping.LabelMin).ToString());
             }
 
-            GoldLabels = FullMapping.GetGoldLabelsPerTaskId().
+            GoldLabels = fullDataMapping.GetGoldLabelsPerTaskId().
                 ToDictionary(kvp => kvp.Key, kvp => kvp.Value == null ? (int?)null : (int?)labelIndexMap[kvp.Value.Value]);
 
             ds.Estimate(10);
 
-            // Update results
             var inferredLabels = ds.GetObjectClassProbabilities().Select(r => new Discrete(r)).ToArray();
             TrueLabel = inferredLabels.Select((lab, i) => new
             {
@@ -360,9 +344,6 @@ namespace CrowdsourcingModels
                 val = lab
             }).ToDictionary(a => a.key, a => a.val);
 
-            WorkerConfusionMatrixMean = ds.GetConfusionMatrix().ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Select(t => Vector.FromArray(t)).ToArray());
-
-            // Update accuracy
             if (calculateAccuracy)
             {
                 UpdateAccuracy();
@@ -371,15 +352,40 @@ namespace CrowdsourcingModels
             return this;
         }
 
+        /// <summary>
+        /// The rest of the parameters for BCC and CBCC.
+        /// </summary>
         [Serializable]
         public struct NonTaskWorkerParameters
         {
+            /// <summary>
+            /// The proportions for the labels.
+            /// </summary>
             public Dirichlet BackgroundLabelProb;
+
+            /// <summary>
+            /// The proportions for the communities.
+            /// </summary>
             public Dirichlet CommunityProb;
+
+            /// <summary>
+            /// The score matrix for the communities.
+            /// </summary>
             public VectorGaussian[][] CommunityScoreMatrix;
         }
         
-
+        /// <summary>
+        /// Run the BCC models
+        /// </summary>
+        /// <param name="modelName"></param>
+        /// <param name="data"></param>
+        /// <param name="fullData"></param>
+        /// <param name="model"></param>
+        /// <param name="mode"></param>
+        /// <param name="calculateAccuracy"></param>
+        /// <param name="numCommunities"></param>
+        /// <param name="serialize"></param>
+        /// <param name="serializeCommunityPosteriors"></param>
         public void RunBCC(string modelName,
             IList<Datum> data,
             IList<Datum> fullData,
@@ -394,7 +400,7 @@ namespace CrowdsourcingModels
             IsCommunityModel = communityModel != null;
 
 
-            bool IsBCC = !(IsCommunityModel || IsTimeModel || IsTimeMultimodeModel || IsTimeTaskPropensityModel);
+            bool IsBCC = !(IsCommunityModel);
 
             if (this.Mapping == null)
             {
@@ -441,7 +447,6 @@ namespace CrowdsourcingModels
             // Get data structures
             int[][] taskIndices = Mapping.GetTaskIndicesPerWorkerIndex(data);
             int[][] workerLabels = Mapping.GetLabelsPerWorkerIndex(data);
-            double[][] workerTimeSpent = (IsTimeModel || IsTimeMultimodeModel || IsTimeTaskPropensityModel) ? Mapping.GetTimeSpentPerWorkerIndex(data) : null;
 
             if (mode == RunMode.Prediction)
             {
@@ -532,6 +537,9 @@ namespace CrowdsourcingModels
             return cbccPriors;
         }
 
+        /// <summary>
+        /// Reset all the results.
+        /// </summary>
         protected virtual void ClearResults()
         {
             BackgroundLabelProb = Dirichlet.Uniform(Mapping.LabelCount);
@@ -552,6 +560,11 @@ namespace CrowdsourcingModels
             PredictedLabel = new Dictionary<string, int?>();
         }
 
+        /// <summary>
+        /// Updates the inference results
+        /// </summary>
+        /// <param name="posteriors">The inferred posteriors.</param>
+        /// <param name="mode">The run mode.</param>
         protected virtual void UpdateResults(BCCPosteriors posteriors, RunMode mode)
         {
             if (mode == RunMode.LookAheadExperiment)
@@ -780,6 +793,11 @@ namespace CrowdsourcingModels
             }
         }
 
+        /// <summary>
+        /// Get the diagonal values of the confusion matrix.
+        /// </summary>
+        /// <param name="confusionMatrixMean">The confusion matrix.</param>
+        /// <returns></returns>
         public static double[] GetConfusionMatrixDiagonal(Vector[] confusionMatrixMean)
         {
             int labelCount = confusionMatrixMean.Length;
@@ -787,6 +805,10 @@ namespace CrowdsourcingModels
             return diagonalValues;
         }
 
+        /// <summary>
+        /// Write the statistics of the dataset.
+        /// </summary>
+        /// <param name="writer">The stream writer.</param>
         public void WriteBasicStatistics(StreamWriter writer)
         {
             int numHITs = Mapping.TaskCount;
@@ -805,7 +827,12 @@ namespace CrowdsourcingModels
             writer.WriteLine("Gold HITs\t{0}", numGoldHITs);
         }
 
-
+        /// <summary>
+        /// Write the confusion matrix of the worker
+        /// </summary>
+        /// <param name="writer">The stream writer.</param>
+        /// <param name="worker">The worker id.</param>
+        /// <param name="confusionMatrix">The confusion matrix.</param>
         public static void WriteConfusionMatrix(StreamWriter writer, string worker, Dirichlet[] confusionMatrix)
         {
             int labelCount = confusionMatrix.Length;
@@ -814,7 +841,7 @@ namespace CrowdsourcingModels
             WriteWorkerConfusionMatrix(writer, worker, printableConfusionMatrix);
         }
         
-        public static void WriteWorkerConfusionMatrix(StreamWriter writer, string worker, double[,] confusionMatrix)
+        private static void WriteWorkerConfusionMatrix(StreamWriter writer, string worker, double[,] confusionMatrix)
         {
             int labelCount = confusionMatrix.GetLength(0);
             writer.WriteLine(worker);
@@ -832,7 +859,7 @@ namespace CrowdsourcingModels
             }
         }
 
-        public static void WriteWorkerConfusionMatrix(StreamWriter writer, string worker, Vector[] confusionMatrix)
+        private static void WriteWorkerConfusionMatrix(StreamWriter writer, string worker, Vector[] confusionMatrix)
         {
             int labelCount = confusionMatrix.Length;
             writer.WriteLine(worker);
@@ -850,6 +877,13 @@ namespace CrowdsourcingModels
             }
         }
 
+        /// <summary>
+        /// Write the inference results.
+        /// </summary>
+        /// <param name="writer">The stream writer.</param>
+        /// <param name="writeCommunityParameters">If true, write the community parameters (only for CBCC)</param>
+        /// <param name="writeWorkerParameters">If true, write the worker parameters.</param>
+        /// <param name="writeWorkerCommunities">If true, write the worker communities (only for CBCC)</param>
         public virtual void WriteResults(StreamWriter writer, bool writeCommunityParameters, bool writeWorkerParameters, bool writeWorkerCommunities)
         {
             if (writeCommunityParameters && this.CommunityConfusionMatrix != null)
@@ -878,6 +912,10 @@ namespace CrowdsourcingModels
 
         }
  
+        /// <summary>
+        /// Write the classification accuracy.
+        /// </summary>
+        /// <param name="writer">The stream writer.</param>
         public virtual void WriteAccuracy(StreamWriter writer)
         {
             WriteBasicStatistics(writer);
@@ -907,7 +945,7 @@ namespace CrowdsourcingModels
 
         }
 
-        public static string GetModelName(string dataset, RunType runType, TaskSelectionMethod taskSelectionMetric, WorkerSelectionMethod workerSelectionMetric, bool online, int taskSamples = -1, int workerSamples = -1, int numCommunities = -1)
+        private static string GetModelName(string dataset, RunType runType, TaskSelectionMethod taskSelectionMetric, WorkerSelectionMethod workerSelectionMetric, bool online, int taskSamples = -1, int workerSamples = -1, int numCommunities = -1)
         {
             return dataset + "_" + Enum.GetName(typeof(RunType), runType)
                 + "_" + Enum.GetName(typeof(TaskSelectionMethod), taskSelectionMetric)

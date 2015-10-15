@@ -34,6 +34,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\CrowdsourcingModels.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Infer.Compiler, Version=2.5.30419.0, Culture=neutral, PublicKeyToken=e4813102a62778da, processorArchitecture=MSIL">
@@ -73,7 +74,7 @@
     <Compile Include="Statistics\ConfusionMatrix.cs" />
     <Compile Include="Statistics\ReceiverOperatingCharacteristic.cs" />
     <Compile Include="Statistics\Statistics_test.cs" />
-    <Compile Include="Tests\HCOMP15_ActiveCrowdExperiment.cs" />
+    <Compile Include="Tests\ActiveCrowdToolkitExperiment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

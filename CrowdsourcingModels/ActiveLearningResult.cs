@@ -15,6 +15,9 @@ using GetAnotherLabel;
 
 namespace CrowdsourcingModels
 {
+    /// <summary>
+    /// The class storing the results for active learning experiments.
+    /// </summary>
     public class ActiveLearningResult
     {
         /// <summary>
@@ -36,9 +39,13 @@ namespace CrowdsourcingModels
         }
 
         /// <summary>
-        /// The utility of the task
+        /// The utility of the task.
         /// </summary>
         double _TaskValue = 0;
+
+        /// <summary>
+        /// The task value.
+        /// </summary>
         public double TaskValue
         {
             set { _TaskValue = value; }
@@ -53,6 +60,10 @@ namespace CrowdsourcingModels
         /// The utility of the worker
         /// </summary>
         double _WorkerValue = 0;
+
+        /// <summary>
+        /// The worker value.
+        /// </summary>
         public double WorkerValue
         {
             set { _WorkerValue = value; }

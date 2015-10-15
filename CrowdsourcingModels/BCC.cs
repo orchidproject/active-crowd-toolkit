@@ -36,31 +36,101 @@ namespace CrowdsourcingModels
         }
 
         // Ranges
+
+        /// <summary>
+        /// The task range.
+        /// </summary>
         protected Range n;
+
+        /// <summary>
+        /// The worker range. 
+        /// </summary>
         protected Range k;
+
+        /// <summary>
+        /// The label range.
+        /// </summary>
         protected Range c;
+
+        /// <summary>
+        /// The range of tasks labeled by each worker.
+        /// </summary>
         protected Range kn; 
 
         // Variables in the model
+
+        /// <summary>
+        /// The number of workers.
+        /// </summary>
         protected Variable<int> WorkerCount;
+
+        /// <summary>
+        /// The true label for each task.
+        /// </summary>
         protected VariableArray<int> TrueLabel;
+
+        /// <summary>
+        /// The number of tasks labeled by each worker.
+        /// </summary>
         protected VariableArray<int> WorkerTaskCount;
+
+        /// <summary>
+        /// The tasks labeled by each worker.
+        /// </summary>
         protected VariableArray<VariableArray<int>, int[][]> WorkerTaskIndex;
+
+        /// <summary>
+        /// The worker labels.
+        /// </summary>
         protected VariableArray<VariableArray<int>, int[][]> WorkerLabel;
+
+        /// <summary>
+        /// The label proportions.
+        /// </summary>
         protected Variable<Vector> BackgroundLabelProb;
+
+        /// <summary>
+        /// The confusion matrix for the workers.
+        /// </summary>
         protected VariableArray<VariableArray<Vector>, Vector[][]> WorkerConfusionMatrix;
+
+        /// <summary>
+        /// The model evidence variable.
+        /// </summary>
         protected Variable<bool> Evidence;
 
         // Prior distributions
+
+        /// <summary>
+        /// the prior over the background label.
+        /// </summary>
         protected Variable<Dirichlet> BackgroundLabelProbPrior;
+
+        /// <summary>
+        /// The prior over the confusion matrix.
+        /// </summary>
         protected VariableArray<VariableArray<Dirichlet>, Dirichlet[][]> ConfusionMatrixPrior;
+
+        /// <summary>
+        /// The constraint over the true label (for online learning).
+        /// </summary>
         protected VariableArray<Discrete> TrueLabelConstraint;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected Variable<Bernoulli> EvidencePrior;
 
-        // Inference engine
+        /// <summary>
+        /// The inference engine.
+        /// </summary>
         protected InferenceEngine Engine;
 
         // Hyperparameters and inference settings
+
+        /// <summary>
+        /// The diagonal value of the prior over the confusion matrix.
+        /// </summary>
         public double InitialWorkerBelief
         {
             get;

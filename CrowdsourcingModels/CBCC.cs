@@ -15,21 +15,67 @@ namespace CrowdsourcingModels
     public class CBCC : BCC
     {
         // Additional ranges
+        /// <summary>
+        /// The community range.
+        /// </summary>
         protected Range m;
 
         // Additional variables
+        /// <summary>
+        /// 
+        /// </summary>
         protected VariableArray<int> Community;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected VariableArray<Discrete> CommunityInit;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected Variable<Vector> CommunityProb;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected VariableArray<VariableArray<Vector>, Vector[][]> ScoreMatrix;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected VariableArray<VariableArray<Vector>, Vector[][]> CommunityScoreMatrix;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected VariableArray<VariableArray<Vector>, Vector[][]> CommunityConfusionMatrix;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected Variable<PositiveDefiniteMatrix> NoiseMatrix = Variable.New<PositiveDefiniteMatrix>().Named("NoiseMatrix");
 
         // Additional priors
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected VariableArray<Discrete> CommunityConstraint;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected VariableArray<VariableArray<VectorGaussian>, VectorGaussian[][]> ScoreMatrixConstraint;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected VariableArray<VariableArray<VectorGaussian>, VectorGaussian[][]> CommunityScoreMatrixPrior;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected Variable<Dirichlet> CommunityProbPrior;
 
         /// <summary>
@@ -50,6 +96,10 @@ namespace CrowdsourcingModels
             protected set;
         }
 
+        /// <summary>
+        /// Set the number of communities.
+        /// </summary>
+        /// <param name="CommunityCount"></param>
         public void SetCommunityCount(int CommunityCount)
         {
             this.CommunityCount = CommunityCount;

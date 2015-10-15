@@ -37,19 +37,28 @@ namespace CrowdsourcingProject.Statistics
         private int positiveCount;
         private int negativeCount;
 
-        // The values which represent positive and negative values in our
-        //  measurement data (such as presence or absence of some disease)
+        /// <summary>
+        /// The values which represent positive values in our
+        /// measurement data (such as presence or absence of some disease)
+        /// </summary>
         double dtrue;
+
+        /// <summary>
+        /// The values which represent positive and negative values in our
+        /// measurement data (such as presence or absence of some disease)
+        /// </summary>
         double dfalse;
 
-        // The collection to hold our curve point information
+        /// <summary>
+        /// The collection to hold our curve point information.
+        /// </summary>
         public PointCollection collection;
 
         /// <summary>
         ///   Constructs a new Receiver Operating Characteristic model
         /// </summary>
-        /// <param name="output">An array of binary values. Tipically 0 and 1, or -1 and 1, indicating negative and positive cases, respectively.</param>
-        /// <param name="predictedOutput">An array of continuous values trying to approximate the measurement array.</param>
+        /// <param name="measurement">An array of binary values. Tipically 0 and 1, or -1 and 1, indicating negative and positive cases, respectively.</param>
+        /// <param name="prediction">An array of continuous values trying to approximate the measurement array.</param>
         public ReceiverOperatingCharacteristic(double[] measurement, double[] prediction)
         {
             this.measurement = measurement;
@@ -212,7 +221,8 @@ namespace CrowdsourcingProject.Statistics
         /// <summary>
         ///   Compares two ROC curves.
         /// </summary>
-        /// <param name="r">The amount of correlation between the two curves</param>
+        /// <param name="curve">The ROC curve to compare this to.</param>
+        /// <param name="r">The amount of correlation between the two curves.</param>
         /// <returns></returns>
         public double Compare(ReceiverOperatingCharacteristic curve, double r)
         {

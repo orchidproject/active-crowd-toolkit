@@ -43,8 +43,19 @@ namespace CrowdsourcingModels
     /// </summary>
     public enum TaskSelectionMethod
     {
+        /// <summary>
+        /// Select random tasks.
+        /// </summary>
         RandomTask,
+
+        /// <summary>
+        /// Select tasks with the highest entropy.
+        /// </summary>
         EntropyTask,
+
+        /// <summary>
+        /// Select tasks uniformly.
+        /// </summary>
         UniformTask,
     }
 
@@ -53,7 +64,14 @@ namespace CrowdsourcingModels
     /// </summary>
     public enum WorkerSelectionMethod
     {
+        /// <summary>
+        /// Select random workers.
+        /// </summary>
         RandomWorker,
+
+        /// <summary>
+        /// Select the worker with the highest accuracy.
+        /// </summary>
         BestWorker,
     }
 

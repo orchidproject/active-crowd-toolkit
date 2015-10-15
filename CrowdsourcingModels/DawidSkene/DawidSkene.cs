@@ -9,9 +9,13 @@ using System.Text;
 
 namespace GetAnotherLabel
 {
+
+    /// <summary>
+    /// The DawidSkene model
+    /// </summary>
     public class DawidSkene
     {
-        public static char splitChar = ',';
+        private static char splitChar = ',';
 
         private List<Labeling> labels;
 
@@ -20,6 +24,10 @@ namespace GetAnotherLabel
 
         private Dictionary<string, int> contributions;
         private Dictionary<string, int> objects;
+
+        /// <summary>
+        /// The inferred class probabilities for the tasks.
+        /// </summary>
         public Dictionary<string, int> classes;
 
         // Given the ID's retrieve the names
@@ -86,6 +94,12 @@ namespace GetAnotherLabel
         /// </summary>
         private double[,] T;
 
+        /// <summary>
+        /// It constructs a DawidSkene model
+        /// </summary>
+        /// <param name="labels">The labels for the workers.</param>
+        /// <param name="correct_labels">The ground truth labels (if available).</param>
+        /// <param name="classification_cost">The cost of wrong classifications.</param>
         public DawidSkene(List<Labeling> labels, List<Labeling> correct_labels, List<Labeling> classification_cost)
         {
             this.labels = labels;
@@ -334,7 +348,7 @@ namespace GetAnotherLabel
             }
         }
 
-        public void UpdateAnnotatorCosts()
+        private void UpdateAnnotatorCosts()
         {
             annotators_cost_naive = new Dictionary<int, double>();
             annotators_cost_adjusted = new Dictionary<int, double>();
@@ -348,7 +362,7 @@ namespace GetAnotherLabel
             }
         }
 
-        public void UpdateAnnotatorErrorRates()
+        private void UpdateAnnotatorErrorRates()
         {
             for (int lid = 0; lid < K; lid++)
             {
@@ -415,7 +429,7 @@ namespace GetAnotherLabel
             //System.out.print(printAnnotatorCosts2(true));
         }
 
-        public void UpdateObjectClassProbabilities()
+        private void UpdateObjectClassProbabilities()
         {
             for (int oid = 0; oid < I; oid++)
             {
@@ -494,7 +508,7 @@ namespace GetAnotherLabel
             }
         }
 
-        public double[] GetObjectClassProbabilities(int oid, int lid)
+        private double[] GetObjectClassProbabilities(int oid, int lid)
         {
             // First check if we already have the correct label
             // for this object. If yes, then give the appropriate
@@ -584,7 +598,7 @@ namespace GetAnotherLabel
             return Tnew;
         }
 
-        public void UpdatePriors()
+        private void UpdatePriors()
         {
             for (int j = 0; j < J; j++)
             {
@@ -815,7 +829,7 @@ namespace GetAnotherLabel
             return majorityclass;
         }
 
-        public Dictionary<string, string> GetMajorityVote()
+        private Dictionary<string, string> GetMajorityVote()
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
 
@@ -830,6 +844,10 @@ namespace GetAnotherLabel
             return result;
         }
 
+        /// <summary>
+        /// It runs the inference over the data.
+        /// </summary>
+        /// <param name="iterations">The number of inference iterations.</param>
         public void Estimate(int iterations)
         {
             for (int i = 0; i < iterations; i++)
@@ -841,6 +859,10 @@ namespace GetAnotherLabel
             }
         }
 
+        /// <summary>
+        /// Prints the worker costs summary.
+        /// </summary>
+        /// <returns></returns>
         public string PrintAnnotatorCostsSummary()
         {
             StringBuilder sb = new StringBuilder();
@@ -859,6 +881,10 @@ namespace GetAnotherLabel
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Prints all the worker scores.
+        /// </summary>
+        /// <returns></returns>
         public string PrintAllWorkerScores()
         {
             StringBuilder sb = new StringBuilder();
@@ -934,6 +960,9 @@ namespace GetAnotherLabel
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Prints the object class probabilities
+        /// </summary>
         public void PrintObjectClassProbabilities()
         {
             for (int i = 0; i < I; i++)
@@ -949,6 +978,10 @@ namespace GetAnotherLabel
             }
         }
 
+        /// <summary>
+        /// Return the inferred class propabilities for the tasks.
+        /// </summary>
+        /// <returns></returns>
         public double[][] GetObjectClassProbabilities()
         {
             double[][] predVector = new double[I][];
@@ -964,6 +997,10 @@ namespace GetAnotherLabel
             return predVector;
         }
 
+        /// <summary>
+        /// Prints the priors.
+        /// </summary>
+        /// <returns></returns>
         public string PrintPriors()
         {
             StringBuilder sb = new StringBuilder();
@@ -975,7 +1012,7 @@ namespace GetAnotherLabel
             return sb.ToString();
         }
 
-        public string PrintDiffVote(Dictionary<string, string> prior_voting, Dictionary<string, string> posterior_voting)
+        private string PrintDiffVote(Dictionary<string, string> prior_voting, Dictionary<string, string> posterior_voting)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -996,7 +1033,7 @@ namespace GetAnotherLabel
             return sb.ToString();
         }
 
-        public string PrintVote()
+        private string PrintVote()
         {
             StringBuilder sb = new StringBuilder();
             Dictionary<string, string> vote = GetMajorityVote();
@@ -1069,6 +1106,12 @@ namespace GetAnotherLabel
         //    return indexHit;
         //}
 
+        /// <summary>
+        /// Compute entropy of the distribution at a given index.
+        /// </summary>
+        /// <param name="p">The vector of probability distributions.</param>
+        /// <param name="i">The index of the distribution.</param>
+        /// <returns></returns>
         public static double Entropy(double[,] p, int i)
         {
             double h = 0;
