@@ -74,13 +74,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="Infer.Compiler, Version=2.5.30419.0, Culture=neutral, PublicKeyToken=e4813102a62778da, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\crowd-bcc\VisualStudioProject\CrowdsourcingProject\Libs\Infer.Compiler.dll</HintPath>
+    <Reference Include="Infer.Compiler, Version=2.6.41114.1, Culture=neutral, PublicKeyToken=e4813102a62778da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Research.InferNET.2.6.41114.1\lib\net45\Infer.Compiler.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Infer.Runtime, Version=2.5.30419.0, Culture=neutral, PublicKeyToken=e4813102a62778da, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\crowd-bcc\VisualStudioProject\CrowdsourcingProject\Libs\Infer.Runtime.dll</HintPath>
+    <Reference Include="Infer.Runtime, Version=2.6.41114.1, Culture=neutral, PublicKeyToken=e4813102a62778da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Research.InferNET.2.6.41114.1\lib\net45\Infer.Runtime.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="LINQtoCSV, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

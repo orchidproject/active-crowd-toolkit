@@ -9,8 +9,8 @@ namespace AcriveCrowdGUI
 {
     public class GlobalVariables
     {
-        public const string dataDirectory = @"Datasets\";
-        public static string[] preLoadedDatasetsFileNames = {"WS-AMT.csv", "SP-2015.csv" };
+        public const string dataDirectory = @"..\..\..\Data\";
+        public static string[] preLoadedDatasetsFileNames = {"CF_amt.csv", "SP_amt.csv" };
         public static int[] communityCounts = { 2, 2 };
         public static TaskSelectionMethod mvDefaultTaskSelectionMethod = TaskSelectionMethod.EntropyTask;
         public static List<Dataset> loadedDatasets = null;

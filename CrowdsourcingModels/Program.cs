@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrowdsourcingModels.Tests;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -25,12 +26,11 @@ namespace CrowdsourcingModels
         public static bool isRecordedToTxtFile = false;
 
         /// <summary>
-        /// Main method to run the crowdsourcing experiments presented in Venanzi et.al (WWW14).
+        /// Main method to run the crowdsourcing experiments for the active crowd toolkit.
         /// </summary>
-        /// <param name="args">agrs for cluster development (args[0] = dataset] selected, args[1] = dataset] selected, args[2] = model selected)</param>
         static void Main(string[] args)
         {
-            ActiveCrowdToolkitExperiment.Run(args);
+            ActiveCrowdToolkitExperiment.Run();
         }
 
         /// <summary>
